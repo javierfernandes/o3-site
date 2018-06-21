@@ -1,0 +1,1 @@
+* Una de las herramientas locas del Lisp: [La macro LOOP](http://www.ai.sri.com/pkarp/loop.html).
