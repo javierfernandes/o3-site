@@ -1,1 +1,0 @@
-Página del curso de Programación con Herramientas Modernas de la Universidad Nacional de General San Martín. Acá se va a publicar la información correspondiente a este curso, planificación, tps, el clase a clase y otras cositas de interes.
