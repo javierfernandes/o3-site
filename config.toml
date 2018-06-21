@@ -1,0 +1,11 @@
+baseURL = "http://example.org/"
+languageCode = "es-AR"
+title = "Programación Avanzada con Objetos"
+
+theme = "minimo"
+
+[params.sidebar]
+enable = true
+
+[sidebar_menu]
+title = 'Side bar'
