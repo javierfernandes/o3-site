@@ -4,12 +4,12 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Plugin de eclipse
+## Plugin de eclipse
 
-### []()Instalación
+### Instalación
 // TODO
 
-### []()Uso
+### Uso
 Para crear un nuevo proyecto y trabajar con el tenemos que seguir los siguientes pasos:
 
 * File->New... (o CTRL+N), "Nice Project"
@@ -37,7 +37,7 @@ Ejemplo:
         }
 
         **void** main(String[] args) {
-            Paloma p = **new** Paloma()
+            Paloma p = new Paloma()
             p.piar();
         }
 
@@ -61,7 +61,7 @@ Ahora para ver si tomó los cambios vamos a hacer una tareas medio defensivas:
 Deberían ver que ahora aparecen más archivos en su proyecto.
 
 
-**`nice-ejemplo`**
+nice-ejemplo`**
 
         |-- nice
         |   -- lang`
@@ -77,11 +77,11 @@ Deberían ver que ahora aparecen más archivos en su proyecto.
         |       |-- StringBufferForIterator.class
         |       -- StringForIterator.class`
         |-- *nice-ejemplo.jar*
-**``-- objetos3`**
+`-- objetos3`**
 
             |-- dispatch.class
             |-- fun.class
-**`    |-- objetos3.nice`**
+    |-- objetos3.nice`**
 
             |-- package.nicei
             -- Paloma.class`
@@ -110,7 +110,7 @@ Para hacerlo desde el eclipse
 
         <natures>
                 <nature>net.sf.nice.nice_nature</nature>
-**`        <nature>org.eclipse.jdt.core.javanature</nature>`**
+        <nature>org.eclipse.jdt.core.javanature</nature>`**
 
             </natures>
 Acá la linea en negrita.

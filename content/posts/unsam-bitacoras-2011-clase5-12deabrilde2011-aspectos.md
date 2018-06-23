@@ -94,9 +94,9 @@ Es importante ver que es declarativo, es decir target y newValue no son parámet
 * Luego queremos definir un advice, que se parece a un método con una cabecera especial:
 
 
-        void around(Object target, Object newValue`) : fieldWrite(target, newValue) {`
+        void around(Object target, Object newValue`) : fieldWrite(target, newValue) 
             ...                 `         // código que quiera agregar
-    proceed(target, newValue     ``// se ejecuta el código original (*)
+    proceed(target, newValue    // se ejecuta el código original (*)
 ``    ...``                          // más código que se ejecuta después del field set.
  `
         }
@@ -192,7 +192,7 @@ En el uso desde AspectJ, podemos utilizar la clase y mandarle también los mensa
                 
                 // Agrego un listener...
         //Este mensaje fue agregado por el aspecto!
-        object.**addPropertyChangeListener**("name", new PropertyChangeListener(){`
+        object.**addPropertyChangeListener**("name", new PropertyChangeListener()
             ...`
                 });
                 

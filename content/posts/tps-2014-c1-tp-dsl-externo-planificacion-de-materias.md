@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Introducción
+## Introducción
 
 Queremos hacer un DSL que permita planificar un cuatrimestre de una carrera universitaria, ingresando:
 
@@ -24,7 +24,7 @@ El programa tiene tres objetivos:
 * Validar que la planificación cumple con todas las restricciones (se detallan más abajo).
 * Obtener algunas estadísticas sobre asignación de aulas, etc (las estadísticas se las informaremos más adelante).
 
-## []()Aclaraciones
+## Aclaraciones
 
 
 1. A lo largo del enunciado van a encontrar ejemplos de cómo podría ser el DSL. Están sólo a modo de ejemplo, el DSL que ustedes definan no tiene por qué ser así, pueden definirle la sintaxis que ustedes quieran.
@@ -33,10 +33,10 @@ El programa tiene tres objetivos:
  * Lo obligatorio es que al menos una de las validaciones se haga en el editor, las demás quedan a su criterio.
  * Lo ideal sería que el propio editor tenga la mayor cantidad de validaciones posibles, así a medida que uno escribe le va informando de los problemas. 
 
-## []()Descripción del dominio
+## Descripción del dominio
 
 Existen materias, profesores, y aulas. Cada una de estas entidades tiene características que influyen en la planificación.
-### []()Profesor
+### Profesor
 
 Tiene un nombre, claro, pero además tiene una **dedicación**.
 Los tipos de dedicaciones son:
@@ -45,7 +45,7 @@ Los tipos de dedicaciones son:
 * **SEMI**: debe dar 2 materias
 * **EXCLUSIVA**: puede de 2 hasta 5 materias.
 
-### []()Materia
+### Materia
 
 Una materia tiene un nombre y una **carga horaria.**
 
@@ -56,7 +56,7 @@ Ejemplo:
 
 
 Además, las materias tiene restricciones o **requisitos** de recursos. Es decir que para poder dictarse necesitan ciertos recursos, que condicionan el aula en la que se puede dictar.
-### []()Recursos y Requisitos
+### Recursos y Requisitos
 
 Un recurso define una característica del aula.
 Ejemplos de recursos (el usuario podría definir sus propios)
@@ -69,12 +69,12 @@ Ejemplos de recursos (el usuario podría definir sus propios)
 * **internet**
 
 
-### []()Aulas
+### Aulas
 
 Las aulas tienen un nombre, y pueden tener recursos.
 No hace falta saber la "cantidad". Simplemente declaran que tiene.
 Ej:  "Laboratorio de Electrónica 3, tiene: proyector, máquina para el docente, máquina para alumnos"  (internet a veces no funciona, pero bueno, no vamos a complicar el TP con esas cosas :P).
-### []()Planificación
+### Planificación
 
 Entonces ahora sí, uno define una **planificación**, **para un año** y **un semestre específico**.
 Ej: "Planificación 2014 semestre 1"
@@ -86,7 +86,7 @@ Dentro de ella se definen:
 * qué profesores se asignan a cada materia.
 * los horarios semanales, por día.
 
-### []()Asignación de horarios
+### Asignación de horarios
 
 Para cada día de la semana se asigna el horario de cada materia. Y además, en qué aula se dictará.
 Ejemplo:
@@ -99,7 +99,7 @@ Ejemplo:
             .... etc
 
 
-### []()Reglas y checkeos
+### Reglas y checkeos
 
 Ya definimos a grandes rasgos todas las entidades y sus relaciones. Ya se pueden armar planificaciones. Sin embargo nos falta lo más importantes, la reglas de negocio, que restringirán todo esto. 
 Es decir los checkeos que deberá hacer el lenguaje para ayudarnos a encontrar los problemas.
@@ -180,7 +180,7 @@ No puedo asignar dos materias en horarios que se superpongan el mismo día, a la
         }
         
 
-## []()Bonus 1 - Capacidad de Aulas e Inscriptos
+## Bonus 1 - Capacidad de Aulas e Inscriptos
 Agregar la posibilidad de definirle capacidad máxima de alumnos a las aulas.
 
 
@@ -208,7 +208,7 @@ Además, dada la planificación de un cuatrimestre se debe poder indicar cuánto
 
 
 Es decir que el lenguaje debe checkear que la capacidad del aula supere la cantidad de inscriptos.
-## []()Bonus 2 - Restricciones Horarias de Profesores
+## Bonus 2 - Restricciones Horarias de Profesores
 
 Agregar la posibilidad de que los profesores definan restricciones horarias.
 
@@ -248,7 +248,7 @@ Dos variantes:
 
 
 
-## []()Intérprete (backend / runtime)
+## Intérprete (backend / runtime)
 
 La ejecución de estos archivos de DSL la vamos a hacer a través de un intérprete.
 Para más información sobre cómo hacer uno, ver [ésta página](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interprete-standalone).

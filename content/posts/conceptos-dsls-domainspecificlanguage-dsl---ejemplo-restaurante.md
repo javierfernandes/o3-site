@@ -7,10 +7,10 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Ejemplo de DSL para Orden de Restaurant
+## Ejemplo de DSL para Orden de Restaurant
 
 Veamos un ejemplo, arrancando por un problema de dominio. Luego modelamos un programa en objetos que lo resuelve. Finalmente vemos cómo hacerle un DSL para generalizar la solución y poder utilizarla para varios escenarios distintos del dominio.
-## []()Dominio
+## Dominio
 Para eso vamos a usar un dominio simple, un restaurant. Donde el sistema deberá poder tomar la orden de un cliente.
 Por ahora la **orden** se refiere a la selección de los siguientes elementos:
 
@@ -74,7 +74,7 @@ Acá un ejemplo de cómo debería ser la interacción con el usuario por consola
         41.50
 
 
-## []()Primer Solución Imperativa
+## Primer Solución Imperativa
 
 Como primer solución podemos pensar en un programa imperativo en Java, que va presentando la información por consola específica a cada paso y tomando las entradas del usuario.
 Acá apenas una parte del programa:
@@ -85,7 +85,7 @@ Ver **uqbar.dsl.restaurant.basicoapi.RestaurantBasicoApi**
 
  
         **public void** run() {
-             reader = **new** BufferedReader(**new** InputStreamReader(System.in));
+             reader = new BufferedReader(new InputStreamReader(System.in));
 
 
              // bienvenida
@@ -148,7 +148,7 @@ Como se ve acá. El dominio queda entremezclado con la lógica imperativa.
 Además, si cambia el menu, o la interacción de la aplicación tenemos que reescribir bastante código.
 Lo mismo sucede si queremos hacer un programa similar pero con pasos distintos.
 Entonces veamos una solución mejor.
-## []()Implementación Objetosa en Java (Motor)
+## Implementación Objetosa en Java (Motor)
 
 Entonces empezamos a generalizar y a modelar con objetos más pequeños las interacciones de la aplicación.
 Y así obtenemos un diseño de un "miniframework" o motor.
@@ -176,27 +176,27 @@ Ahora nuestro programa está separado en varias partes:
 
 
             **public static void** main(String[] args) {
-                ListStep<OrdenDeRestaurant> steps = **new** ListStep<OrdenDeRestaurant>();
-                steps.addStep(**new** ShowMessageStep<OrdenDeRestaurant>("Bienvenido!"));
+                ListStep<OrdenDeRestaurant> steps = new ListStep<OrdenDeRestaurant>();
+                steps.addStep(new ShowMessageStep<OrdenDeRestaurant>("Bienvenido!"));
 
 
                 DecisionStep<OrdenDeRestaurant> puedoTomarSuOrdenStep = **new **DecisionStep<OrdenDeRestaurant>("Puedo tomar su orden");
 
 
-                ListStep<OrdenDeRestaurant> tomarOrdenSteps = **new** ListStep<OrdenDeRestaurant>();
-                tomarOrdenSteps.addStep(**new** SelectStep<OrdenDeRestaurant>("entrada", "Entrada", Restaurant.getInstance().getEntradas()));
-                tomarOrdenSteps.addStep(**new** SelectStep<OrdenDeRestaurant>("plato", "Plato", Restaurant.getInstance().getPlatos()));
-                tomarOrdenSteps.addStep(**new** SelectStep<OrdenDeRestaurant>("bebida", "Bebidas", Restaurant.getInstance().getBebidas()));
-                tomarOrdenSteps.addStep(**new** InvokeMethodStep("ordenar", "Calculando cuenta..."));
-                tomarOrdenSteps.addStep(**new** ShowPropertyStep("cuenta"));
+                ListStep<OrdenDeRestaurant> tomarOrdenSteps = new ListStep<OrdenDeRestaurant>();
+                tomarOrdenSteps.addStep(new SelectStep<OrdenDeRestaurant>("entrada", "Entrada", Restaurant.getInstance().getEntradas()));
+                tomarOrdenSteps.addStep(new SelectStep<OrdenDeRestaurant>("plato", "Plato", Restaurant.getInstance().getPlatos()));
+                tomarOrdenSteps.addStep(new SelectStep<OrdenDeRestaurant>("bebida", "Bebidas", Restaurant.getInstance().getBebidas()));
+                tomarOrdenSteps.addStep(new InvokeMethodStep("ordenar", "Calculando cuenta..."));
+                tomarOrdenSteps.addStep(new ShowPropertyStep("cuenta"));
 
 
                 puedoTomarSuOrdenStep.addOption("s", tomarOrdenSteps);
-                puedoTomarSuOrdenStep.addOption("n", **new** ExitStep("Chau!"));
+                puedoTomarSuOrdenStep.addOption("n", new ExitStep("Chau!"));
                 steps.addStep(puedoTomarSuOrdenStep);
 
 
-                steps.execute(**new** OrdenDeRestaurant());
+                steps.execute(new OrdenDeRestaurant());
             }
 
 
@@ -228,7 +228,7 @@ Sin embargo usarlo es dificil, porque necesito:
 * Crear muchos objetos, configuralos y relacionarlos: la creación se hizo dificil ahora.
 
 Entonces estaría bueno tener, por encima del frameworkcito, un lenguaje que me permita usarlo en forma más **declarativa** y abstrayéndome un poco de la implementación o detalles internos del framework. Es más, del lenguaje Java en sí. Acercarme más a la descripción del dominio inicial.
-## []()Internal DSL en Java
+## Internal DSL en Java
 Primero vamos a hacer un bosquejo de cómo nos gustaría que se exprese el dominio en un lenguaje **imaginario
 
 **
@@ -276,7 +276,7 @@ Por esto es que se llama **interno**.
 En nuestro caso es un DSL donde el "dominio" es "hacer interfaces por consola". Ojo porque no es un dsl para el negocio particular del restaurant.
 
 
-## []()DSL en XTend
+## DSL en XTend
 
 A diferencia de Java, XTend es un lenguaje mucho más amigable para hacer DSL's internos. Por varios motivos:
 
@@ -293,7 +293,7 @@ Un ejemplo (que por ahora considero sirve, pero no es el ideal) es:
 
 
 
-        **val** p = OrdenDeRestaurant.cli(
+        val p = OrdenDeRestaurant.cli(
  `"Bienvenido".message,`
  
  `"Puedo tomar su orden" ?: #[`
@@ -307,8 +307,8 @@ Un ejemplo (que por ahora considero sirve, pero no es el ideal) es:
  `]`
         )
  
-        p.execute(**new** OrdenDeRestaurant)
-## []()DSL en XML
+        p.execute(new OrdenDeRestaurant)
+## DSL en XML
 El XML (Structured Markup Language) es en realidad un "metalenguaje", ya que solo define parte de la sintáxis de un lenguaje, por ejemplo:
 
 * las unidades composicionales son los tags o etiquetas.
@@ -335,14 +335,14 @@ Acá vemos un supuesto DSL para nuestro ejemplo del restaurant, utilizando XML
             <show message=**"Bienvenido!"**/>
             <decision **"Puedo tomar su orden?"**>
                 <on option=**"s"**>
-            `    ``    ``    ``<select property=**"entrada"** label=**"Entrada"** options=**"beanshell:Restaurant.getInstance().getEntradas()"** />`
-            `    ``    ``    ``<select property=**"plato"** label=**"Plato"** options=**"beanshell:Restaurant.getInstance().getPlatos()"** />`
-            `    ``    ``    ``<select property=**"bebida"** label=**"Bebida"** options=**"beanshell:Restaurant.getInstance().getBebidas()"** />`
+            `         <select property=**"entrada"** label=**"Entrada"** options=**"beanshell:Restaurant.getInstance().getEntradas()"** />`
+            `         <select property=**"plato"** label=**"Plato"** options=**"beanshell:Restaurant.getInstance().getPlatos()"** />`
+            `         <select property=**"bebida"** label=**"Bebida"** options=**"beanshell:Restaurant.getInstance().getBebidas()"** />`
                         <invoke method=**"ordenar"** text=**"Calculando cuenta..."** />
                         <show property=**"cuenta"** />
                 </on>
-            `    ``<on option=**"n"**>`
-                    <exit message=**"Adios!"**` />`
+            `   <on option=**"n"**>`
+                    <exit message=**"Adios!" />`
                 </on>
             </decision>
         </flow>

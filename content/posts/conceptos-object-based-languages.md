@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción
+## Introducción
 
 Vamos a ver una nueva forma de modelado con objetos, que también nos va a mostrar una alternativa a la programación tradicional orientada a objetos (asociando código a las clases). Como ya vimos existen múltiples problemas que no pueden ser atacados elegantemente mediante la clasificación y la herencia (ver [Mixins](conceptos-mixins), [Traits](conceptos-traits) y [Aspectos](conceptos-aop)), al hacerlo nos vemos obligados a repetir código. Hay porciones de código que no podemos reutilizar.
 
@@ -12,7 +12,7 @@ Vamos a ver una nueva forma de modelado con objetos, que también nos va a mostr
 Las clases no son la única forma de pensar la programación orientada a objetos. **Una desventaja de las clases es que muchas veces nos llevan a pensar en la estructura y no en el comportamiento**. Modelos como el UML colaboran para que nos focalicemos en los diagramas de clases (vista estática del sistema) y en la estructura.
 
 
-## []()Ambientes sin Clases
+## Ambientes sin Clases
 
 Se denomina un ambiente object-based aquel en el que no hay clases y por lo tanto **todo el comportamiento de los objetos está definido en base a los propios objetos**. Lo único que existe en el sistema son objetos. 
 
@@ -76,7 +76,7 @@ Al enviarle el mensaje "caminarHacia(lugar)" a Arturo, si el mismo objeto Arturo
 Porque el mensaje se va a ejecutar teniendo al objeto concreto como **contexto**.
 
 A este mecanismo se lo conoce como **delegación automática.** Es lo que en lenguajes con clases hacemos al trabajar con composición y delegación en lugar de herencia. Con la diferencia de que en esos casos tenemos que codificar la delegación nosotros mismos. Y por otro lado no es tan poderosa, porque se "pierde" el contexto del objeto original que recibió el mensaje inicialmente.
-## []()Ejemplos con lenguajes 
+## Ejemplos con lenguajes 
 
 
 En un principio en la materia utilizábamos Self como lenguaje para explicar y mostrar estas ideas de objetos sin clases. Luego pasamos a Ioke que evita algunas complejidades de la interfaz gráfica de Self, y por otro lado tiene algunas ideas más modernas.
@@ -85,7 +85,7 @@ Así que en estas páginas de cada lenguaje se pueden ver estas ideas aplicadas:
 * [Self](conceptos-object-based-languages-self)
 * [Prototipos en JavaScript](conceptos-object-based-languages-prototipos-en-javascript)
 
-## []()Otros lenguajes con prototipos
+## Otros lenguajes con prototipos
 
 
 

@@ -45,7 +45,7 @@ bunzip2 slate.little.32.2010-11-15.image.bz2
 ./slate -i slate.little.32.2010-11-15.image
 ```
 
- 1. ```
+ 1.`
 Listo, deberían ver un prompt como:
 Old Memory size: 419430400 bytes
 New Memory size: 5242880 bytes

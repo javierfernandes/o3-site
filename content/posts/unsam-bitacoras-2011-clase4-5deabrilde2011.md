@@ -64,7 +64,7 @@ Desde esta visión, una clase consiste de:
 
 La versión más radical dice "glue methods", es decir, únicamente métodos que juntan todo lo demás, el comportamiento no está en los métodos sino en los mixins y los métodos simplemente coordinan los diferentes traits.
 
-### []()Ejemplos
+### Ejemplos
 Finalizada la parte teórica pasamos a ver algunos ejemplos en Pharo y Scala. 
 
 #### **[]()Animales

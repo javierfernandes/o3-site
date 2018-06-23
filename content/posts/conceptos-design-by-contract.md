@@ -4,9 +4,9 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción
+## Introducción
 
-### []()Qué es un contrato ?
+### Qué es un contrato ?
 
 Cuando diseñamos aplicaciones en el paradigma de objetos solemos utilizar un conjunto de herramientas conceptuales y lineamientos generales que son lo que denominamos luego "modelar o diseñar en objetos". Entre ellas, nombramos algunas aquí:
 
@@ -28,7 +28,7 @@ En el contexto del polimorfismo, cumplíamos el contrato al entender el mismo me
 
 En general, **un contrato establece un acuerdo entre dos (o más) partes**. Si lo cumplimos el sistema va a tener una funcionalidad dada, o un comportamiento. De alguna forma **regula la interacción entre dos módulos de nuestra aplicación. **Entonces intercambiando un módulo por otro que cumple el mismo contrato debería ser transparente para el otro módulo. O al menos compatible.
 
-### []()Contrato & Checkeos
+### Contrato & Checkeos
 
 La idea de contrato muchas veces va de la mano de los lenguajes fuertemente tipados y con checkeos estáticos.
 Donde, a través de la declaración de tipos, el compilador checkea estos contratos que ya no son algo difuso o abstracto (como puede puede ser una convención de nombres) sino que están explícitamente modelados en el lenguaje. 
@@ -37,7 +37,7 @@ Entonces, en un lenguaje como java, para poder enviar un objeto a un mensaje no 
 
 
 
-## []()Contratos en Design By Contracts
+## Contratos en Design By Contracts
 Design By Contracts es una idea de Bertrand Meyer, creador del lenguaje de programación Eiffel, en la cual intenta aplicar la idea de contratos como un concepto **core** o principal de un lenguaje orientado a objetos.
 
 Entonces si un objeto 
@@ -54,7 +54,7 @@ Obviamente siempre que no acople al cliente de detalles de implementación. No e
 
 Ahora se va a entender en la siguiente sección con un ejemplo.
 
-### []()Precondiciones
+### Precondiciones
  
 #### **[]()Ejemplo
 
@@ -74,7 +74,7 @@ No tiene sentido hacer un pop() de una pila vacía, verdad ?
 Cómo solucionamos esto normalmente ?
 Así...
 
-**`class`**` Stack`
+class Stack`
 
             `objeto pop() :**    if** **this** isEmpty **throw new** Exception *"Cannot pop on an empty stack!" 
                     *  **else **//... implementacion`
@@ -106,7 +106,7 @@ Por ejemplo en Nice, un lenguaje que también implementa esta idea mediante asse
                  !isFull(**this**) : *"Cannot push on a full Stack!"*
 
         **  void** pop() 
-**`      requires`**
+      requires`**
 
                   !**this**.isEmpty() : *"Cannot pop on an empty Stack!"*
 
@@ -140,7 +140,7 @@ En este caso estamos definiendo una clase abstracta (podría ser una interface).
             }
         }
 
-### []()Postcondiciones
+### Postcondiciones
 De la misma forma en que un método puede tener pre-condiciones que indican cuándo podrá ser invocado, también existen **post-condiciones** que indican las condiciones, que asegura el método, que se cumplirán, luego de la ejecución.
 
 En el ejemplo anterior podríamos establecer el contrato de que luego del push() la pila no estará vacía.
@@ -157,15 +157,15 @@ Completamos entonces la definción de Stack con esto en nice
             **requires**
 
                  !isFull(**this**) : *"Cannot push on a full Stack!"*
-**`    ensures`**
+    ensures`**
 
                  !**this**.isEmpty() : *"buffer must not be empty"*;
 
         **  void** pop() 
-**`      requires`**
+      requires`**
 
                   !**this**.isEmpty() : *"Cannot pop on an empty Stack!"*
-**`      ensures`**
+      ensures`**
 
                   !**this**.isFull();
         }
@@ -176,7 +176,7 @@ Fíjense que ahora el método además de precondiciones con **requires** declara
 Además agregamos un contrato que vinculo los métodos **size() **con **isEmpty() !
 **Y el pop() asegurará que la pila no estará llena.
 
-### []()Invariantes
+### Invariantes
 Otro tipo de contrato que podría interesar al cliente de un objeto son las **invariantes.**
 
 Como dijimos antes un objeto puede tener estado, y ese estado puede cambiar a lo largo de su ciclo de vida.
@@ -190,14 +190,14 @@ Ejemplo:
 
 El tamaño de una pila **size()** siempre será >= 0
 
-**`
-class`**` Stack `**` create`[]()** 
- []()`    **make **`**`    invariant`** 
+
+class Stack  create`[]()** 
+ []()`    **make **    invariant`** 
  []()`        size >= 0`
- **[]()` end`**` -- class ACCOUNT `
+ **[]()` end -- class ACCOUNT `
 
 
-### []()Contratos & Herencia
+### Contratos & Herencia
 Y cómo se lleva la idea de contratos ante el mecanismo de herencia ?
 Bien, gracias!
 
@@ -213,10 +213,10 @@ Es decir que la subclase no puede agregar nuevos requerimientos o precondiciones
 Y lo mismo aplica para las post codiciones. Una subclase no puede asegurar menos cosas que lo establecido en el contrato de la superclase.
 Podemos compararlo con los contratos legales !
 
-### []()
+### 
 
 
-### []()Qué gano con esto ?
+### Qué gano con esto ?
 
 Estos contratos se ejecutan en tiempo de ejecución, y no en tiempo de compilación. Es decir que, tranquilamente, como vimos más arriba, podríamos no necesitar de soporte del lenguaje para implementarlos. Podríamos nosotros mismos implementar los checkeos en el cuerpo mismo del método.
 
@@ -258,7 +258,7 @@ El código ahora expresa más rápidamente la intención (Principio de "*Intenti
 
 // TODO: revisar esto
 
-### []()Implementaciones
+### Implementaciones
 Java con OVal Framework: http://oval.sourceforge.net/userguide.html#d4e237
 
 

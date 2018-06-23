@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Contenidos Teóricos
+### Contenidos Teóricos
 
 * [Mixins](conceptos-mixins) & [Traits](conceptos-traits)
 * [Aspect-Oriented Programming](conceptos-aop)
@@ -19,7 +19,7 @@ date:  2018-06-20T19:27:10-03:00
  * Subject Oriented Programming
  * Behavioural completeness
 
-### []()Tecnologías
+### Tecnologías
 
 * Mixins: [Scala](te-scala)
 * Traits: [Pharo](te-smalltalk)
@@ -33,14 +33,14 @@ date:  2018-06-20T19:27:10-03:00
  * [Prototipos en JavaScript](conceptos-object-based-languages-prototipos-en-javascript)
 
 
-### []()Bibliografía
+### Bibliografía
 
 * [Antero Taivalsaari. *The notion of Inheritance*](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.72.6812&rep=rep1&type=pdf)
 * [Gilad Bracha. ](temario-goog_810575391)*[Mixin-based Inheritance](http://stephane.ducasse.free.fr/Teaching/CoursAnnecy/0506-Master/ForPresentations/p303-bracha.pdf)*
 * [Stéphane Ducasse. ](http://scg.unibe.ch/archive/papers/Scha02bTraits.pdf)*[Traits: Composable Units of Behavior](http://scg.unibe.ch/archive/papers/Scha02bTraits.pdf)
 *
 
-### []()Ejemplos
+### Ejemplos
 
 //TODO Esta sección la podemos volar? (javi)
 * Traits 

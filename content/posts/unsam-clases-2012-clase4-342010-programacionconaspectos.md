@@ -4,14 +4,14 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()AOP
+### AOP
 
 Contamos que el concepto de aspectos es de modelar una lógica que atraviesa varias clases, métodos y/o jerarquías, llamada "cross-cutting concerns".
 Implementar esta lógica "a mano" involucraría modificar y repetir código en cada uno de esos lugares.
 
 
 Entonces un aspecto nos permite resolver problemas como: quiero que todos mis objetos sean observables; dado mis test-cases quiero poder analizar qué partes de mi código está siendo testeado (ejecutado) y qué partes no. (Esto último existe de hecho en varios lenguajes de programación y se llama **Code Coverage**, por ejemplo [http://cobertura.sourceforge.net/](http://cobertura.sourceforge.net/))
-### []()Conceptos de AOP: Join-Point, Point-cut y Advice
+### Conceptos de AOP: Join-Point, Point-cut y Advice
 
 Vimos luego los conceptos **core **del dominio de la **programación orientada a aspectos.**
 
@@ -23,7 +23,7 @@ Si bien vamos a ver aspectos con una implementación para java llamada **AspectJ
 
 Luego vimos un ejemplo de la syntaxis de AspectJ para definir un aspecto para loggear llamadas a métodos.
 Ese ejemplo está en la [página del site](conceptos-aop)
-### []()Weaving
+### Weaving
 
 Luego surgió la pregunta natural de "cómo hace la magia ?" (de interceptar el código y manipularlo).
 Acá surge otro concepto de la programación de aspectos, que es el **weaving**.
@@ -44,7 +44,7 @@ Enumeramos un par de estratégias de weaving:
 * **Debugging Hooks**
 
 
-### []()Ejemplos en AspectJ
+### Ejemplos en AspectJ
 
 Luego nos metimos en directo a ver ejemplos en código de aspectj.
 Vemos el primer ejemplo **simple **de objetos observables.

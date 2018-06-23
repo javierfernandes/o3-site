@@ -4,19 +4,19 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()
+## 
 Definición
 **Metaprogramación: **es el proceso o la práctica por la cual *escribimos **programas** que **generan, ******manipulan o utilizan** otros programas*.**
 
 
 
-### []()Ejemplos
+### Ejemplos
 
 * Un **compilador** se puede pensar como un programa que **genera otro programa**.
 * Un **formateador de código** es un programa que **manipula otro programa**.
 * Una **herramienta **como **javadoc** **utiliza nuestro programa** para generar su documentación.
 
-### []()Para qué se usa la metaprogramación ?
+### Para qué se usa la metaprogramación ?
 En general la metaprogramación se utiliza más fuertemente en el desarrollo de frameworks.
 Simplemente porque un framework va a resolver cierta problemática de una aplicación, pero no va a estar diseñador para ninguna en particular. Es decir, la idea de **framework** es que se va a poder aplicar y utilizar en diferentes dominios desconocidos para el creador del framework.
 Entonces estos frameworks van a manipular objetos, sin conocerlos de antemano. 
@@ -35,7 +35,7 @@ Ejemplos:
  * **analizadores de código:** que evalúan nuestro código y genera métrics o miden violaciones a reglas definidas. Como el estilo de código, complejidad ciclomática, etc. Por ejemplo para java existe [sonar](http://www.sonarsource.org/) que junto a maven automatizan y concrentran varias otras herramientas.
 
 
-### []()Modelos y metamodelos
+### Modelos y metamodelos
 
 Así como todo programa construye un modelo para describir su dominio. El domino de un metaprograma es otro programa denominado programa objeto o base y tendrá un modelo que describe a ese programa, al que llamamos **metamodelo**.
 
@@ -57,18 +57,18 @@ Así como el programa manipula las instancias de las clases Perro o Animal, el m
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1368570507605/conceptos/metaprogramacion/metaprogramacion.png)
 ](conceptos-metaprogramacion-metaprogramacion-png?attredirects=0)
 
-## []()Reflection
+## Reflection
 
 **Reflection: **es un caso particular de metaprogramación, donde "metaprogra**mamos**" en el mismo lenguaje en que están escritos (o vamos a escribir) los programas. Es decir, todo desde el mismo lenguaje. 
 
 *Nota de color:* Inicialmente el lenguaje "pionero" en cuanto a reflection fue LISP.
 
-### []()Ejemplos
+### Ejemplos
 El ejemplo más visible de esto es el caso de smalltalk, donde no existe una diferenciación entre IDE y nuestro programa. Ambos estan hechos en smalltalk, y de hecho viven en un mismo ambiente. Ambos estan construidos con objetos y pueden interactuar entre sí.
 
 De hecho muchos componentes del "IDE" Pharo son elementos de metaprogramación, y utilizan reflection para **inspeccionar** nuestras clases y objetos.
 
-### []()Tipos de reflection
+### Tipos de reflection
 Para esto, generalmente, es necesario contar con facilidades o herramientas específicas, digamos "soporte" del lenguaje.  Entonces reflection, además,  abarca los siguientes items que vamos a mencionar en esta lista:
 
 * **[Introspection](introspection): **se refiere a la capacidad de un sistema, de analizarse a sí mismo. Algo así como la introspección humana, pero en términos de programa. Para eso, el lenguaje debe proveer ciertas herramientas, que le permitan al mismo programa, "ver" o "reflejar" cada uno de sus componentes.
@@ -79,7 +79,7 @@ Para esto, generalmente, es necesario contar con facilidades o herramientas espe
 
 
 
-### []()MOP: MetaObject Protocol
+### MOP: MetaObject Protocol
 
 Un MOP es un framework de objetos que describe o modela un sistema de objetos. MOP sería el término correcto para lo que en java llamamos API de reflection.
 En realidad el API de reflection de java es un caso de MOP.

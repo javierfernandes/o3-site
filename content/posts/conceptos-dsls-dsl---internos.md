@@ -4,11 +4,11 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Descripción
+## Descripción
 
 Un DSL interno es un lenguaje que depende de otro lenguaje GPL. Es decir que si bien "parece" un lenguaje propio, realmente es código GPL.
 Mediante diferentes técnicas y herramientas se ocultan detalles y complejidades propias del DSL, y se reifican conceptos propios del DSL.
-## []()Ejemplos preliminares
+## Ejemplos preliminares
 
 Para hacerse una idea de cómo es un DSL interno desde el punto de vista de quien lo usa.
 
@@ -17,7 +17,7 @@ Para hacerse una idea de cómo es un DSL interno desde el punto de vista de quie
 * ...
 
 Luego veremos desde el punto de vista de quien lo construye.
-## []()Herramientas o features del lenguaje anfitrión
+## Herramientas o features del lenguaje anfitrión
 
 La capacidad que vamos a tener para poder implementar la sintaxis de nuestro DSL interno va a depender muchísimo, obviamente de la flexibilidad que nos provea el lenguaje GPL anfitrión.
 Un lenguaje como java, por ejemplo, no resulta muy flexible ya que no tiene inferencia de tipos por ejemplo, con lo cual no puedo evitar la parte de declarar tipos en muchos lugares.
@@ -55,7 +55,7 @@ Acá vemos una lista de elementos de lenguajes que se pueden utilizar como técn
 
 
 
-## []()Técnicas específicas según GPL
+## Técnicas específicas según GPL
 
 
 * [DSL's en XTend](conceptos-dsls-dsl---internos-dsls-internos-en-xtend)

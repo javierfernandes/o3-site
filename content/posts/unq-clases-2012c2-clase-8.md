@@ -4,17 +4,17 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Material teórico
+### Material teórico
 
 El material teórico de esta clase es continuación de la clase anterior: [https://sites.google.com/site/programacionhm/conceptos/metaprogramacion](conceptos-metaprogramacion). En esta clase nos concentramos en la parte de **self-modification**.
-### []()Ejemplos de self-modification en Pharo
+### Ejemplos de self-modification en Pharo
 Los ejemplos vistos en clase se pueden bajar de [http://ss3.gemstone.com/ss/uqbar](http://ss3.gemstone.com/ss/uqbar):
 
 * En el package **Uqbar-MetaProgramming** van a encontrar la clase **SimpleExtractTraitRefactoring** y **SimpleExtractSuperclassRefactoring**, que ejemplifican la utilización de metaprogramación como una forma de automatizar refactors.
 * En el package **Uqbar-Tools** encontrarán el **ScriptBuilder**, que permite a partir de un package generar un metaprograma que reconstruye este package. Esta utilidad es cómoda para probar otros metaprogramas y a su vez es un ejemplo interesante de metaprogramación.
 * En el package **PACO-Prototyping** pueden encontrar el trait **TMetaProto**, que al agregarlo a una clase permite que esa clase pueda componerse con traits en el momento de la instanciación (como se hace por ejemplo en Scala). En la categoría **PACO-Prototyping-Metaprogramming-Test** hay ejemplos de uso de esta idea.
 
-### []()Trabajo Práctico
+### Trabajo Práctico
 
 
 El objetivo del trabajo práctico es hacer un refactoring en Pharo, que a partir de dos clases extraiga los componentes en común en una superclase. 

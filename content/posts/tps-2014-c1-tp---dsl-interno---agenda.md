@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Descripción del dominio
+## Descripción del dominio
 
 Queremos una herramienta que nos permita escribir nuestra **agenda de eventos**.
 Para acotar, vamos a hacer que escribimos un solo día. Dentro de este, podemos definir **eventos** o items de la agenda.
@@ -19,7 +19,7 @@ Un recordatorio es una notificación al usuario. Y puede ser mediante uno de los
 * sms
 * llamada telefónica
 
-## []()Ejecución y prueba
+## Ejecución y prueba
 
 Para acotar el alcance del TP vamos a definir que:
 
@@ -28,7 +28,7 @@ Para acotar el alcance del TP vamos a definir que:
 * En cambio debe permitirme ejecutarle un método
 
 
-        **def** tick(horaActual, AgendaListener listener)
+         def tick(horaActual, AgendaListener listener)
 
 
 La semántica de este método es: desde afuera, le estoy diciendo a la agenda que son las "horaActual".
@@ -49,7 +49,7 @@ La interfaz **AgendaListener** podría ser:
         }
 
 
-## []()DSL
+## DSL
 
 Una vez codificado y testeado el "motor" realizarle un DSL interno en Xtext, utilizando las herramientas vistas en clase: 
 
@@ -65,7 +65,7 @@ Acá va un ejemplo de DSL. No quiere decir que deban hacerlo exáctamente igual.
 
 
 
- `**val** agenda = agenda(`
+ `val agenda = agenda(`
 
 
  `14.h - "Inicia Objetos 3",`
@@ -99,7 +99,7 @@ Luego debería poder hacer asserts. Por ejemplo:
 * 2 reminders: 1 por email y otro por sms
 * etc.
 
-## []()Alternativas de DSL
+## Alternativas de DSL
 
 El ejemplo anterior hacía bastante uso de símbolos operadores. Eso quizás no les agrade mucho o les complique un poco. Entonces, no es necesario usar operadores por todos lados, podrían si quieren usar métodos con nombres. Lo importante es terminar con un DSL que sea expresivo
 
@@ -109,7 +109,7 @@ El ejemplo anterior hacía bastante uso de símbolos operadores. Eso quizás no 
 
         agenda => [
  `at (15.hs).I.should("Have dinner") => [`
-            `    ``    ``    remindMe("Wash your hands").via(SMS)`
+            `          remindMe("Wash your hands").via(SMS)`
 
                 ]
 
@@ -120,7 +120,7 @@ El ejemplo anterior hacía bastante uso de símbolos operadores. Eso quizás no 
         ]
 U otras variantes. 
 Lo importante es que experimenten, y sea una tarea creativa, el diseñar el lenguaje cómo más les guste. Probando como "torcer" XTend.
-## []()Nota sobre la forma de trabajo
+## Nota sobre la forma de trabajo
 
 Atenti, porque si bien estamos haciendo un DSL, nuestro motor es el que realmente tiene el comportamiento.
 Entonces, hay que ver al DSL como una mera "capa" encima del motor, para poder construir y conectar los objetos de forma más simple, o más linda "sintácticamente".
@@ -136,9 +136,9 @@ Así, cuando luego le hagamos el DSL y se produzca un error nos va a resultar m�
 
 Esto es complétamente necesario si quieren encarar el bonus 3) que agregar minutos.
 Porque el manejo de minutos y horas, en formato decimal (ya sea double o BigDecimal), tiene infinitos trucos que nos conviene probar independientemente del DSL.
-## []()Bonus
+## Bonus
 
-### []()1) Bloques reminders
+### 1) Bloques reminders
 
 
 Agregar un tipo de reminder nuevo que me permite escribir un pedazo de código que quiero que se ejecute
@@ -152,7 +152,7 @@ Ej:
  `remindMe > [ println("Cerrar con llave") ]`
  `]`
 
-### []()2) Reminders Configurables
+### 2) Reminders Configurables
 
 
 Agregar la posibilidad de configurarle parámetros específicos a cada reminder. Por ejemplo
@@ -195,7 +195,7 @@ O bien:
 
 
 
-### []()3) Soporte para Minutos (SUPER POWER!)
+### 3) Soporte para Minutos (SUPER POWER!)
 
 Modificar motor y DSL para que soporte manejar horas con minutos.
 Para simplificar vamos a asumir que la mayor precisión de trabajo serán 5 minutos.
@@ -223,10 +223,10 @@ Ejemplo de sintaxis:
 
 
             `14.h - "Inicia Objetos 3",`
- **`18/25.h`**` ``- "Fin objetos3" => [`
+ 18/25.h- "Fin objetos3" => [`
  `remindMe > "Escribir Bitacora".via.email`
  `]``,`
- **`19/30.h`**` ``- "Llegada a casa" => [`
+ 19/30.h- "Llegada a casa" => [`
  `remindMe > "Enviar enunciado de TP" . via . sms`
  `]`
 
@@ -246,12 +246,12 @@ Ej:
 
 Debería imprimir la parte decimal del número, o sea "0.4", 
 En cambio imprime:
- `0.400000000000000**36**`
+ `0.400000000000000**36
 Entonces, opciones:
 1. Modelar con sus propias clases la idea de Hora y Minuto, y PuntoEnTiempo. Y agregar responsabilidades para que se sepan comparar, y agregar 5 minutos por ejemplo, Y que maneje el hecho de que 55 minutos + 5 dan 1hora. Una forma sería trabajar internamente todo con Int's ahí dentro.
 1. La otra opción es trabajar con BigDecimal, que permite especificar una "precision".
          Ej:
-         `    ``    ``**new** BigDecimal(23, **new** MathContext(2)).`
+         `      new BigDecimal(23, new MathContext(2)).`
         El segundo parámetro es la precisión. Es decir la cantidad de lugares a la derecha de la coma.
         En xtend se puede crear con un literal así:
                      `23.0bd`
@@ -262,10 +262,10 @@ Entonces, opciones:
                      => false !! Atenti al cero que falta en el de la izquierda !
         
 
-          `    ``    ``println(19.30bd == 19.30bd)`
+          `      println(19.30bd == 19.30bd)`
                     => true !
 
 
           Entonces, si quiero asegurarme de compararlos pero que no tome en cuenta los ceros de la derecha
 
-             `19.3bd**.stripTrailingZeros()** == 19.30bd.currentTime**.stripTrailingZeros()**`
+             `19.3bd**.stripTrailingZeros()** == 19.30bd.currentTime**.stripTrailingZeros()

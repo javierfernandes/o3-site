@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción
+## Introducción
 
 Arrancamos contando que Self es un lenguaje de los '90 con ideas muy interesantes, que si bien no es directamente conocido, tiene detrás muchas ideas interesantes que la industria fue incorporando, como la idea de VM [HotSpot](http://en.wikipedia.org/wiki/HotSpot).
 
@@ -12,7 +12,7 @@ Arrancamos contando que Self es un lenguaje de los '90 con ideas muy interesante
 Contamos que Self era algo complicado de mostrar, no por el lenguaje en sí, ya que es muy poderoso, y tiene ideas muy interesantes, sino más bien por su entorno de desarrollo, que ha quedado obsoleto y es bastante complejo de utilizar. Esto es el **morphic**. 
 
 
-## []()Self entonces
+## Self entonces
 
 Basta de historia y manos a la obra !
 
@@ -39,7 +39,7 @@ Qué rol cumplen las clases en un lenguaje basado en clases ?
  * **entre conjuntos similares de objetos**: es el tipo de reutilización que nos da la herencia, traits, mixins.
 * tipado (en self no nos molesta porque no tiene checkeo de tipos).
 
-### []()Instanciación
+### Instanciación
 
 La forma de resolver la instanciación sin clases es a través de dos mecanismos:
 
@@ -108,7 +108,7 @@ Y le agregamos un slot
         superficie = (base * altura)
 
 
-### []()Como reutilizamos ?
+### Como reutilizamos ?
 
 Los objetos pueden tener un tipo especial de slot de delegación (**parent**).
 Cualquier mensaje que el objeto no entienda lo va a delegar automáticamente.
@@ -142,7 +142,7 @@ Por qué tenemos dos objetos y no tenemos la base y la altura ? porque la base s
 Nuestro trait sería la clase, y nuestra instancia sería el objeto concreto.
 
 
-### []()Comparación con Herencia
+### Comparación con Herencia
 
 Al tener slots **parent** aparece la idea de que sería parecido a la herencia. Y de hecho, recién mencionamos que la forma de reutilizar comportamiento *emulaba** **las clases.*
 *En realidad contamos esto, para introducir el lenguaje, comparándolo con lo que ya conocemos (Clases). Pero realmente no tiene sentido trabajar en un lenguaje prototipado, para pensar en imitar la forma de trabajar con clases.*
@@ -154,12 +154,12 @@ Estaríamos perdiendo el poder agregado que nos dá un lenguaje puro de objetos.
 *No hay nada especial en la forma de compartir código en Self, más que relaciones entre objetos y la delegación automática. *
 *
 *
-### []()Más con traits
+### Más con traits
 
 Luego le agregamos un factory method a nuestro trait. nuevoConBaseAltura
 
 
-### []()Make Creator
+### Make Creator
 
 Creamos un nuevo slot en el lobby llamado **figuras** y lo marcamos (botón derecho) como creator (Make creator). Ahora el título de la ventan de nuestro objeto pasa a llamarse "figuras".
 
@@ -167,11 +167,11 @@ Creamos un nuevo slot en el lobby llamado **figuras** y lo marcamos (botón dere
 Esto marca algo importante de paradigma de objetos puro, que es que nuestros objetos no tienen nombre per se. En un esquema de clases las clases tienen nombre, en objetos puro no hay clases, ergo, no hay nombres.
 
 
-### []()Modificando Parent slots
+### Modificando Parent slots
 
 Por último vimos que modificando el parent de un objeto estaríamos cambiándole su comportamiento completamente. Sería lo análogo a cambiarle la clase a un objeto (o superclase) en tiempo de ejecución.
 
 
-## []()Prototipos con Javascript
+## Prototipos con Javascript
 
 Luego jugamos un poco en javascript con objetos, prototipos y funciones.

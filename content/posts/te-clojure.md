@@ -4,12 +4,12 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Descripción
+## Descripción
 Clojure es un dialecto de LISP. Con la particularidad de que está construido sobre la virtual machine de java JVM. Es decir que el código se compila a java bytecode que es ejecutado por la VM.
 Esto entre otras cosas permite embeber código clojure dentro de una aplicación java, y vice-versa. Es decir que permite acceder a clases java desde closure.
 
 
-## []()Átomos Y Listas
+## Átomos Y Listas
 
 Como LISP es un lenguaje de proposito general y se base en conceptos muy muy simples que permiten construir sobre este lenguaje aplicaciones en diversos paradigmas. 
 Si bien naturalmente se utiliza para trabajar con el **paradigma funcional**, en principio, por sus capacidades de metaprogramación permitiría implementar cualquier paradigma.
@@ -23,7 +23,7 @@ Los dos conceptos básicos o tipos de expresiones en clojure son:
 Y eso es todo (casi).
 
 
-### []()Ejemplos:
+### Ejemplos:
 Un número:
 ```
         user=> 42 **42**
@@ -31,7 +31,7 @@ Un número:
 ```
 String:
 ```
-        user=> "Hola Clojure!" **`"Hola Clojure!"` **
+        user=> "Hola Clojure!" "Hola Clojure!"` **
 
 ```
  
@@ -40,7 +40,7 @@ La expresión de tipo lista se escribe de esta forma:
         (1 2 3 4)
 ```
  
-## []()Y el Código ?
+## Y el Código ?
 Pero entonces donde está el comportamiento ?
 
 Ahí está lo interesante!
@@ -82,17 +82,17 @@ Claro que acá el lenguaje al evaluar la lista, trata de forma especial el prime
 Una especie de **dispatching**.
 
 
-## []()Manipulando Código
+## Manipulando Código
 Juguemos un poco con manipular el código ya que se puede tratar como datos:
 
         user=> (rest [1 2 3])
-**`(2 3)`**
+(2 3)`**
 
         user=> '(rest [1 2 3])
-**`(rest [1 2 3])`**
+(rest [1 2 3])`**
 
         user=> (first '(rest [1 2 3]))
-**`rest`**
+rest`**
 
 
 **rest** es una función que dada una lista retorna todos los elementos excepto el primero.
@@ -102,7 +102,7 @@ En esto caso, dado una invocación a rest con una lista, estamos obteniendo el n
 
 
 
-## []()Definiendo Funciones
+## Definiendo Funciones
 Cómo definimos entonces nuestras propias funciones ?
 Adivinen con qué ?? ... átomos y listas!! 
 De nuevo.. es lo único que hay en la sintaxis de Clojure.
@@ -122,10 +122,10 @@ En clojure existe una función especial llamada **defn** que permite definir nue
 Entonces la forma de declarar una nueva función es:
 
         user=> (defn sumar [numero otro] (+ numero otro))
-**`#'user/sumar`**
+#'user/sumar`**
 
         user=> (sumar 2 5)
-**`7`**
+7`**
 
 
 Noten la sintaxis de defn es:

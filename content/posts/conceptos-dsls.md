@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Contenido
+### Contenido
 
 * DSLs
 
@@ -15,7 +15,7 @@ date:  2018-06-20T19:27:10-03:00
  * [DSL's Internos](conceptos-dsls-dsl---internos)
  * [DSL's Externos](conceptos-dsls-dsls---externos)
 
-## []()Herramientas
+## Herramientas
 
 * DSL externos
 
@@ -25,7 +25,7 @@ date:  2018-06-20T19:27:10-03:00
  * Xtend
  * [Scala](te-scala)
 
-## []()Ejemplos
+## Ejemplos
 
 Los ejemplos de la cátedra están bajo la siguiente carpeta de nuestro repositorio:
 
@@ -33,7 +33,7 @@ Los ejemplos de la cátedra están bajo la siguiente carpeta de nuestro reposito
 ** 
 https://xp-dev.com/svn/uqbar/examples/paco/trunk/dsl**
 
-## []()**Referencias & Links:**
+## **Referencias & Links:**
 
 
 

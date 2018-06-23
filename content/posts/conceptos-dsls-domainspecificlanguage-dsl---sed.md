@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Sed (linux command)
+### Sed (linux command)
 De Stream Editor, es un comando de linux se utiliza para procesar texto de entrada (stream) generando una salida. Utiliza su propio lenguaje similar a regexp para definir las transformaciones a realizar en forma declarativa.
 
 ```

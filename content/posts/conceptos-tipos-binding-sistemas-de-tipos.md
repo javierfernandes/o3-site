@@ -9,7 +9,7 @@ date:  2018-06-20T19:27:10-03:00
 Seguimos la presentación de Kim B. Bruce. *Foundations of Object-Oriented Languages: Types and Semantics*.
 Otra fuente interesante: Martín Abadi and Luca Cardelli. *A theory of objects*.
 
-### []()¿Qué es un tipo?
+### ¿Qué es un tipo?
 
 * Conjunto de valores o "elementos de un conjunto", más...
 
@@ -34,7 +34,7 @@ La primer idea es matchear un tipo con una clase.Pero no es la única idea de ti
 Sirve comparar tipo y clase en Smalltalk y en Java que son los dos lenguajes que conocemos, y también pensar en la defnición de polimorfismo ¿se está hablando de tipos o de clases ahí?.
 [Este](ClasesEjemplo-png?attredirects=0) es el ejemplo que usamos para explicar esto.
 
-### []()¿Para qué sirven los tipos?
+### ¿Para qué sirven los tipos?
 
 
 Para muchas cosas.
@@ -47,11 +47,11 @@ Si tengo este código Scala
 
 
         #Familia
-        **var** elPerro: Perro
+        var elPerro: Perro
         
 
         #Cuidador
-        **def** administrar(p: Perro) = {
+         def administrar(p: Perro) = {
             ...
         }
         
@@ -73,7 +73,7 @@ Un ejemplo que ya sabemos: en Scala, el método
 
 
         #Cuidador
-        **def** administrar(p: Perro) = {
+         def administrar(p: Perro) = {
             p.nadar
         }
 
@@ -91,7 +91,7 @@ Este es el **error de tipos** típico en objetos: le envío un mensaje a un obje
 
 
         #Cuidador
-        **def** administrar(p: Perro) = {`    p.``}`
+         def administrar(p: Perro) =     p.``}`
 
 
 
@@ -147,7 +147,7 @@ Y para colmo la herencia está restringida a "herencia simple", es decir, cada c
 En algunos lenguajes como Java, la presencia de interfaces relaja un poco las ideas 3 y 5; sin embargo las clases y la herencia aún tienen una importancia grande. Sin duda es una mejora, pero todavía es una mejora pequeña. En esta materia vamos a ver más lenguajes que proponen más herramientas para solucionar estos problemas.
 
 
-## []()Características de un Sistema de Tipos
+## Características de un Sistema de Tipos
 
 Generalmente escuchamos (y NOS escuchamos) hablar de que tal o cual lenguaje es "tipado" y tal otro no. O que es "débilmente tipado", en contraposición a "fuertemente" tipado.También hablamos de lenguajes "**estáticos**", lenguajes "**dinámicos**". Y hasta de lenguajes **con o sin checkeos** (de tipos).
 
@@ -156,7 +156,7 @@ Si pensamos que un lenguaje se puede definir en base a una única de estas categ
 Por lo tanto, a veces incluso confundimos las categorías y decimos que un lenguaje es dinámico, cuando en realidad queremos expresar la idea de que el los checkeos se hacen en runtime.
 
 La idea de esta sección es plantear a modo de sugerencia, una categorización de los lenguajes en términos un poco más precisos. Describimos entonces los siguientes aspectos o características de un lenguaje:
-### []()**Momento del checkeo**
+### **Momento del checkeo**
 
 
 Se refiere a la capacidad del lenguaje de verificar que una operación es válida para un objeto dado.
@@ -312,7 +312,7 @@ OJO que según qué literatura se lea, esto que contamos recién no se considera
 
 En el otro extremo, no conocemos ningún lenguaje basado en clases en el que, para crear un objeto, no sea necesario decir de qué clase tiene que ser. Eso no se puede inferir.
 
-### []()Identificación de un tipo
+### Identificación de un tipo
 Se refiere a la manera en la que se define qué tipo se espera del objeto que se espera, como parámetro de un método, o para ser asignado a una variable. Mencionamos estas dos formas.
 
 1. **Nominal**
@@ -370,10 +370,10 @@ En lenguajes con tipado dinámico e implícito, como Smalltalk o Ruby, el tipado
 
 
         darFuncion: titere
-            titere` `**`decir:`**` 'Hola!'`
-            titere` `**`levantarBrazo`**
+            titere` decir: 'Hola!'`
+            titere` levantarBrazo`**
 
-            titere` `**`decir:`**` 'Adios!'`
+            titere` decir: 'Adios!'`
 Nótese que no especifica de qué tipo es "titere", ya que no se declaran los tipos de las variables. Sin embargo, dentro del cuerpo del método le envía dos mensajes: decir y levantarBrazo. Estas son las características que se espera del títere en este método. 
 **Implícitamente** se está definiendo que el objeto títere tiene que cumplir con el tipo que define estos dos mensajes. Este tipo  **no tiene nombre**, la especificación del tipo requerido no es nominal.
 
@@ -389,7 +389,7 @@ En lenguajes con tipado estático parece bastante más complicado, sin embargo e
 **
 
 
-**`def`**` enElBosque( pato : { `**`def`**` cuack : `**`def`**` plumas }) = `
+def enElBosque( pato : { def cuack : def plumas }) = `
             print *`'Tengo un pato y pienso usarlo!!'`*
             pato.cuack()
             pato.plumas()
@@ -401,7 +401,7 @@ Pero más interesante aún, que también checke cuando invocamos el mensaje "enE
 
 Lo interesante de **la intersección de estos dos features** (checkeos + ducktyping), es que nos** provee** el nivel de abstracción y **desacoplamiento de las clases** (de sus nombres), y por lo tanto la **flexibilidad**, pero **al mismo tiempo**, seguir teniendo los **checkeos** y la validación del programa en tiempo de compilación.
 
-### []()Estudio de algunos lenguajes
+### Estudio de algunos lenguajes
 Ahora usemos los criterios que definimos para estudiar algunos lenguajes de programación juntando varios elementos que aparecieron.
 #### **[]()Java
 
@@ -423,7 +423,7 @@ Momento del chequeo*Estático*. La idea es brindar muchas herramientas desde el 
 Momento del chequeo*Estático*. Muy preocupado desde la concepción por evitar errores de tipos. Da herramientas para permitir polimorfismo.Información de tipos que  hay que escribirMuy poca, está muy del lado *implícito*. Entre sus objetivos está aprovechar la inferencia de tipos todo lo que se pueda. En algunos (pocos) casos a la inferencia no le da la nafta, y el programador debe ayudarla poniendo algo de información de tipos.Identificación de tiposEn general *nominal*, hay *mecanismos de tipado estructural provistos* por el lenguaje (polimorfismo paramétrico).Lenguajes similaresno conocemos
 
 
-## []()Buscando el lenguaje perfecto
+## Buscando el lenguaje perfecto
 
 Ahora que podemos estudiar el tratamiento que hace un lenguaje de los tipos, pensemos cómo nos gustaría que fuera, en este aspecto, un lenguaje de programación ideal.
 
@@ -453,9 +453,9 @@ Para reducir el uso de casteos, se incorporaron los generics. Esto no fue gratis
 
 
 
-## []()Extras / Referencias
+## Extras / Referencias
 
-### []()Sistemas de Tipos Híbridos
+### Sistemas de Tipos Híbridos
 Algunos lenguajes tiene caracteristicas de más de una categoria, de modo de poder aprovechar las ventajas de ambas.
 Por ejemplo el lenguaje **Pike** tiene checkeos tanto estáticos como dinámicos, sin embargo es fuertemente tipado (explícito).
 
@@ -472,7 +472,7 @@ Podemos declarar una variable con opciones de tipos
 
 acá decimos que la variable w puede ser de tipo int ó de tipo string.
 Y de la misma forma podemos aplicar esto a métodos:```
-            array**(int**|**string|float****)** make_array**(int**|**string**|**float** x**)** `{`
+            array**(int**|**string|float****)** make_array**(int**|**string**|**float** x**)** `
              **return** ({ x });
             }
 ```
@@ -534,9 +534,9 @@ En cambio el método **imprimirNombre** recibe un String, que **no puede ser nul
 Qué pasa al querer utilizarlo ?
 
 
-**`void`**` main(String[] args) {`
-            Person p = **`new`**` Person(name: "blah");`
-            **`let`**` name = p.name;`
+void main(String[] args) 
+            Person p = new Person(name: "blah");`
+            let name = p.name;`
             printName(name);
         }
 Mmm... no compila !
@@ -550,8 +550,8 @@ Pero, hará solo un checkeo de tipos, considerando que por ser "?" es distinto y
 Qué pasa si agregamos un **if** por **null** ??`
         
 
-**void** main(String[] args) {`
-            Person p = **new** Person(name: "blah");
+**void** main(String[] args) 
+            Person p = new Person(name: "blah");
             **let** name = p.name;
             **if** (name != null) {                       
                 printName(name);                  
@@ -562,7 +562,7 @@ Ahora compila !!!
 Es decir que el compilador es un poco más inteligente de lo que creíamos. Utilizar inferencia, para darse cuenta que en este caso la variable **name** no es nula (por el if), entonces por más que sea de tipo ?String, y sabe que referencia a un String, por lo cual la invocación al método es válida.
 
 
-### []()**Checkeos estáticos Opcionales de tipos en Cecil. Signatures & Methods**
+### **Checkeos estáticos Opcionales de tipos en Cecil. Signatures & Methods**
 
 
 

@@ -71,7 +71,7 @@ El compilador se quejará nuevamente:
 
 
 error: overriding method m in trait A of type => java.lang.String;
-method m in trait B of type => java.lang.String cannot override a concrete member without a third member that's overridden by both (this rule is designed to prevent ``accidental overrides'')
+method m in trait B of type => java.lang.String cannot override a concrete member without a third member that's overridden by both (this rule is designed to preventaccidental overrides'')
 Entonces podemos definir en nuestra clase C el método m:
 
 
@@ -120,8 +120,8 @@ Y también puede aplicarse al caso inicial:
 
 
         new C().m
-        res0: ``java.lang.String = B``
-## []()Combinando múltiples Mixins
+        res0:java.lang.String = B``
+## Combinando múltiples Mixins
 
 Hay casos en los que quiero poder utilizar el comportamiento definido en varios mixins a la vez (alguien dijo traits?), pero cuando ellos definen el comportamiento en métodos con la misma firma se pisarán entre ellos por la linearización y no podré usarlos.
 En otros lenguajes tenemos herramientas para definir alias a los métodos de los mixins y de esa forma evitar que la linearización me esconda las implementaciones.
@@ -186,7 +186,7 @@ Ahora, si usamos super en A2 y B2:
 
         new C().mix
 ``res0: java.lang.String = AB``
-## []()Escapando de la linearización
+## Escapando de la linearización
 
 Como vimos antes, cuando defino el orden en el que aplico mixins a mis construcciones tengo que tener mucho cuidado con el orden en función de cual de ellos me interesa más porque si hay métodos con la misma firma definidos en varios de ellos, el último mixin ganará y no voy a poder accederlos... o tal vez si.
 En Scala vimos que podemos definir nuestro método "m" y llamar a super para que el mixin más proximo lo resuelva, pero lo que no vimos que es además podemos elegir específicamente cual de mis "supers" quiero que se ejecute:
@@ -207,7 +207,7 @@ En Scala vimos que podemos definir nuestro método "m" y llamar a super para que
 
 
         new C().m
-        res0: ``java.lang.String = A``
+        res0:java.lang.String = A``
 Entonces, retomando el problema anterior, si queremos ejecutar m de A y B podemos hacer:
 
         trait A {
@@ -226,5 +226,5 @@ Entonces, retomando el problema anterior, si queremos ejecutar m de A y B podemo
 
 
         new C().m
-        res0: ``java.lang.String = AB``
+        res0:java.lang.String = AB``
 Ahora tenemos una herramienta poderosa que nos permite definir cual de mis mixins ejecutar, evitando (en parte) lo que la linearización defina.

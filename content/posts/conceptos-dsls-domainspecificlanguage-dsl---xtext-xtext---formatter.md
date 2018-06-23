@@ -4,10 +4,10 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Intro
+## Intro
 
 Este es otro punto de extension para nuestro lenguaje. La idea es customizar la forma en la que se formatea el codigo, es decir, dónde forzar quiebres de línea, donde forzar espacios, etc.
-## []()*DSLFormatter
+## *DSLFormatter
 
 Para eso, nuevamente existe una clase, tipo Strategy, que ya viene generado como un template vacío en nuestro lenguaje:
 
@@ -62,7 +62,7 @@ Nos gustaría decir que:
 Necesitamos desde el Formatter entonces hacer referencia a la gramática, a Model, y a la idea de que dentro declara Saludo's.
 
 
-### []()*GrammarAccess
+### *GrammarAccess
 
 Para esto último, xtext, además de generar las clases de nuestro modelo semántico, el editor de texto, etc, genera un conjunto de classes que representan a la gramática, y que sirve para luego hacer referencia desde el formatter.
 
@@ -78,7 +78,7 @@ Acá se ve para el ejemplo de saludos:
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402665332898/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext---formatter/formatter-grammar.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---formatter-formatter-grammar-png?attredirects=0)
 
-## []()Definiendo reglas en el Formatter usando el GrammarAccess
+## Definiendo reglas en el Formatter usando el GrammarAccess
 
 Entonces ahora sí podemos definir reglas, declarando que necesitamos el GrammarAccess como una extension:
 
@@ -91,7 +91,7 @@ Entonces ahora sí podemos definir reglas, declarando que necesitamos el Grammar
 
  `@Inject **extension **SaludosDSLGrammarAccess`
  
- `**override protected void** configureFormatting(FormattingConfig c) {`
+ `**override protected void** configureFormatting(FormattingConfig c) 
  `c.setLinewrap().after(getAlguienRule())`
  `c.setLinewrap().after(getSaludoRule())`
  `}`
@@ -147,7 +147,7 @@ Marcamos en negrita los comentarios.
 También en parte hay que ir jugando un poco con prueba y error hasta encontrar la mejor forma de definir lo que queremos hacer con el formatter.
 
 
-### []()Agregando espacio entre dos "secciones"
+### Agregando espacio entre dos "secciones"
 
 Queremos agregar un doble espacio entre el conjunto de definiciones de "quienes" y de "saludos".
 
@@ -155,7 +155,7 @@ Queremos agregar un doble espacio entre el conjunto de definiciones de "quienes"
 
 
 
- `override protected void configureFormatting(FormattingConfig c) {`
+ `override protected void configureFormatting(FormattingConfig c) 
  `c.setLinewrap().after(getAlguienRule())`
  `c.setLinewrap().after(getSaludoRule())`
  
@@ -163,7 +163,7 @@ Queremos agregar un doble espacio entre el conjunto de definiciones de "quienes"
 
  `}`
 Para eso usamos el "between" y las dos reglas, de Alguien y Saludo. between(Alguien, Saludo) 2 linewraps.
-## []()Ejemplos
+## Ejemplos
 
 
 * Ver clase **MappingDslFormatter **del ejemplo de los [Mappings](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings) para un formatter un poco más complejo.

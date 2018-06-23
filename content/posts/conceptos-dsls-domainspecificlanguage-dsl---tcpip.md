@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()TCP / IP
+### TCP / IP
 Alan Kay (y su equipo probablemente) implementaron el stack TCP / IP, a través de definir el protocolo con un DSL.
 La particularidad es que el DSL es básicamente el mismo "diagrama" ASCII del RFC original.
 

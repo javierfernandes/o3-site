@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Links
+## Links
 
 * Download: [http://www.eclipse.org/Xtext/download.html](http://www.eclipse.org/Xtext/download.html)
 * Antlr eclipse plugin http://download.itemis.com/updates/releases/1.0.0/

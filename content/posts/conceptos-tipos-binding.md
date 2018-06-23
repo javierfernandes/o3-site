@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Contenidos teóricos
+### Contenidos teóricos
 
 * [Binding, polimorfismo y sobrecarga](http://uqbar-wiki.org/index.php?title=Binding%2C_polimorfismo_y_sobrecarga). 
 * [Multiple dispatch](conceptos-multiple-dispatch)
@@ -22,14 +22,14 @@ date:  2018-06-20T19:27:10-03:00
  * Pluggable Type Systems ([paper](http://bracha.org/pluggableTypesPosition.pdf))
  * [Constraint-Bounded Polymorphism (paper)](ftp:-128-95-1-178-pub-chambers-vass-thesis-pdf)
 
-### []()Ejemplos
+### Ejemplos
 
 
 * Ejemplos de [simple dispatch (Java) y múltiple dispatch (XTend)](http://svn2.xp-dev.com/svn/utn-tadp-projects/phm/trunk/dispatch)
 * Ejemplo práctico: Type-safe duck typing en [Scala](te-scala) con tipos estructurales
 
 
-### []()Ejercicios
+### Ejercicios
 
 
 * [Impacto del dispatch al diseñar con Objetos](conceptos-tipos-binding-impacto-del-dispatch-al-disear-con-objetos)
@@ -37,13 +37,13 @@ date:  2018-06-20T19:27:10-03:00
 
 
 
-### []()Herramientas
+### Herramientas
 
 
 
 * [Repaso de Objetos & Smalltalk](conceptos-tipos-binding-repaso-objetos--smalltalk)
 
-### []()Bibliografía
+### Bibliografía
 
 
 * [Pharo By Example](http://pharobyexample.org/)

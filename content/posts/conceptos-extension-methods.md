@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Introducción
+## Introducción
 
 "Extension methods" se refiere a la capacidad de agregar nuevos métodos, por ende comportamiento, a clases ya existentes, sin necesidad de modificar las clases originales o bien generar nuevas subclases de ellas.
 Sin embargo, sí permitir usar estos nuevos métodos, como si fueran parte de la clase. Es decir poder mandarle un mensaje definido "en otro lado" a objetos de cierta clase.
@@ -20,13 +20,13 @@ A esta idea se la conoce por varios nombres:
 * OpenClass
 * Monkey Patching (algo más genérico)
 
-## []()Extension Methods en XTend
+## Extension Methods en XTend
 
 Vamos a ver acá ejemplos concretos utilizando la implementación de extension methods de xtend, que permite variantes interesantes de diseño.
 
 
 Existen varias formas de definir extension methods en xtend. Vamos desde lo más básico hasta los ejemplos más complejos pero poderosos.
-### []()Static Extension Methods
+### Static Extension Methods
 
 A veces nos enojamos porque tal o cual clase que viene con el lenguaje, no tiene un método que necesitamos.
 Por ejemplo, nos gustaría, dado un String que tiene varias "oraciones", obtener otra versión del String que convierta cada punto en "punto y aparte". Es decir que pase cada oración a una linea nueva.
@@ -87,7 +87,7 @@ Más interesante es tenerlo en una clase aparte que reuna todas las extensiones 
 
         **class** StringExtensions {
  
- `**def static** String splitIntoLines(String s) {`
+ `**def static** String splitIntoLines(String s) 
  `s.replaceAll("\\.", ".\n")`
  `.replaceAll("\n ", "\n")` 
  `}`
@@ -109,7 +109,7 @@ Luego para usarlos:
         class Main {
  
  `// el main` 
- `def static void main(String[] args) {`
+ `def static void main(String[] args) 
  `println("Hola.Como va ?. Todo bien?".splitIntoLines())`
  `}`
  
@@ -122,7 +122,7 @@ Tenemos que importar esos métodos como extensiones mediante el ***import static
 
 ***
 
-### []()Extension Providers: extensiones como objetos
+### Extension Providers: extensiones como objetos
 
 Muy lindo lo anterior, pero todos sabemos que los métodos statics son cosas bastante limitantes. Principalmente porque no pertenecen a ningún objeto, son como funciones. Con lo cual no podemos tener polimorfismo, por ejemplo.
 Entonces sería interesante definir usar a las extensiones como objetos !
@@ -137,15 +137,15 @@ Agregamos otro, de paso..
 
         **class** StringExtensionProvider {
  
- `**def** String splitIntoLines(String s) {`
+ ` def String splitIntoLines(String s) 
  `s.replaceAll("\\.", ".\n")`
  `.replaceAll("\n ", "\n")` 
  `}`
  
- `**def** String firstCharUpperOnAllWords(String s) {`
- `**val** stringbf = **new** StringBuffer();`
-               `**val** m = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(s);`
-               `**while** (m.find) {`
+ ` def String firstCharUpperOnAllWords(String s) 
+ `val stringbf = new StringBuffer();`
+               `val m = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(s);`
+               `**while** (m.find) 
                `val rep = m.group(1).toUpperCase + m.group(2).toLowerCase`
                   `m.appendReplacement(stringbf, rep);`
                `}`
@@ -168,13 +168,13 @@ Para usar estas extensiones, **necesitamos declarar una instancia como extension
  
  `**extension** StringExtensionProvider = **new **StringExtensionProvider()`
  
-** **`**def static void** main(String[] args) {`
- `**new** Main().run`
+** **def static void** main(String[] args) 
+ `new Main().run`
  `}`
  
- `**def** run() {`
- `**val** s = "Hola mundo. Clase Nueva. De extension Methods"`
- `**var** r = s.splitIntoLines()`
+ ` def run() 
+ `val s = "Hola mundo. Clase Nueva. De extension Methods"`
+ `var r = s.splitIntoLines()`
  `println(r)`
  `}`
  
@@ -214,7 +214,7 @@ Por ejemplo en XText se usa mucho la **inyección de dependencias** sobre extens
 
 
             @Inject
- **`extension`**` ``StringExtensionProvider`
+ extensionStringExtensionProvider`
 
 
 Y luego solito el frameworks se encarga de setearnos una instancia.
@@ -232,17 +232,17 @@ Si la extensión tuviera un nombre como si fuera un atributo podriamos cambiarla
         **class** Main {
  `**extension** StringExtensionProvider provider`
  
- `**def static void** main(String[] args) {`
- `**val** main = **new** Main()`
- `main.provider = **new** StringExtensionProvider()`
+ `**def static void** main(String[] args) 
+ `val main = new Main()`
+ `main.provider = new StringExtensionProvider()`
  `main.run()`
  `}`
  
- `**def **run() {`
+ `**def **run() 
  `println("Hola mundo. Clase Nueva. De extension Methods".splitIntoLines())`
  `}`
  
- `**def** setProvider(StringExtensionProvider provider) {`
+ ` def setProvider(StringExtensionProvider provider) 
  `**this**.provider = provider`
  `}`
         }
@@ -258,12 +258,12 @@ Nuestro ejemplo:
 
         **class** Main {
  
- `**def static void** main(String[] args) {`
- `**val** main = **new** Main()`
- `main.run(**new** StringExtensionProvider())`
+ `**def static void** main(String[] args) 
+ `val main = new Main()`
+ `main.run(new StringExtensionProvider())`
  `}`
  
- `**def** run(**extension** StringExtensionProvider provider) {`
+ ` def run(**extension** StringExtensionProvider provider) 
  `println("Hola mundo. Clase Nueva. De extension Methods".splitIntoLines())`
  `}`
 
@@ -273,14 +273,14 @@ Nuestro ejemplo:
 
 Acá vemos que el método run() recibe un parámetro **y lo quiere usar como un proveedor de extensiones.**.
 Así solo podemos llamar a "splitIntoLines()" sobre String's dentro de este método.
-## []()Patrones y diseño con Extension Methods
+## Patrones y diseño con Extension Methods
 
 Ya vimos que cualquier método static o no, puede ser una extensión.
 La mecánica es simplemente esa. Declaro las extensiones que quiero usar, y luego usos sus mensajes sobre las clases del primer parámetro de los métodos.
 
 
 Ahora vamos a ver que con estos elementos podemos empezar a hacer diseños más interesantes.
-### []()Diferentes Implementaciones de Providers (polimorfismo)
+### Diferentes Implementaciones de Providers (polimorfismo)
 
 Si dijimos que los providers son en realidad clases normales, y métodos normales, entonces, uno se vería tentado a aplicar las mismas ideas de diseño. Por ejemplo la idea de tener una interfaz, y luego diferentes implementaciones de estos objetos.
 
@@ -316,18 +316,18 @@ Luego podemos tener dos implementaciones distintas:
 
 
         **class** MedioObjetivo **implements **Medio {
- `**override** publicar(Evento e) {`
+ `**override** publicar(Evento e) 
  `println("Informamos que sucedio' " + e)`
  `}`
         }
 
         **class** MedioSubjetivo **implements **Medio {
  
- `**override **publicar(Evento e) {`
+ `**override **publicar(Evento e) 
  `println(gustaONoGusta() + " que haya sucedido: " + e)`
  `}`
- `**def** gustaONoGusta() {`
- `**if** (**new** Random().nextBoolean) "Me gusta" **else** "No me gusta"`
+ ` def gustaONoGusta() 
+ `**if** (new Random().nextBoolean) "Me gusta" **else** "No me gusta"`
  `}`
  
         }
@@ -340,14 +340,14 @@ Y podemos usar la extensión como antes:
 
 
         **class** Main {
- `**extension** Medio = ***new** MedioObjetivo*`
+ `**extension** Medio = *new MedioObjetivo*`
  
- `**def static void** main(String[] args) {`
+ `**def static void** main(String[] args) 
  `new Main().run`
  `}`
  
- `**def** run() {`
- `**val** eventos = #[ new EstrenoCine("El Hobbit"), new NotaDeportes("River Campeon") ]`
+ ` def run() 
+ `val eventos = #[ new EstrenoCine("El Hobbit"), new NotaDeportes("River Campeon") ]`
  
  `eventos.forEach[e | e**.publicar()** ]`
  `}`
@@ -367,7 +367,7 @@ En realidad, si entendemos las extensiones, no tiene nada de loco, porque en rea
 Ergo, es polimorfismo normal !
 
 
-### []()Extensiones polimórficas
+### Extensiones polimórficas
 
 Retrocedamos un poco, para ver otro camino.
 Entonces con extension methods yo puedo agregar nuevos métodos a clases ya existentes sin tocarlas.
@@ -409,14 +409,14 @@ Y lo usamos así en un main()
 
 
         **class** Main {
- `**extension** AtencionAlClienteExtension = **new** AtencionAlClienteExtension`
+ `**extension** AtencionAlClienteExtension = new AtencionAlClienteExtension`
  
- `**def static void** main(String[] args) {`
- `**new** Main().run()`
+ `**def static void** main(String[] args) 
+ `new Main().run()`
  `}`
  
- `**def **run() {`
- `**val** clientes = #[ **new** ClienteRaso, **new** ClienteVIP ]`
+ `**def **run() 
+ `val clientes = #[ new ClienteRaso, new ClienteVIP ]`
  `clientes.forEach[c| c.atender()]`
  `}`
  
@@ -434,11 +434,11 @@ Entonces nuestra extension puede usar multimethods, uno para cada tipo del pará
 
         **class** AtencionAlClienteExtension {
  
- `**def dispatch** atender(ClienteRaso raso) {`
+ `**def dispatch** atender(ClienteRaso raso) 
  `println("ClienteRaso: Lo hacemos hacer la cosa y esperar")`
  `}`
  
- `**def dispatch** atender(ClienteVIP vip) {`
+ `**def dispatch** atender(ClienteVIP vip) 
  `println("ClienteVIP: Lo atendemos inmediatamente y le damos un Martini y un habano")`
  `}`
  
@@ -448,7 +448,7 @@ Si bien escribimos dos métodos, en realidad xtend genera uno solo, infiriendo l
 Luego solo hace el dispatch en base al tipo de c.
 Listo, **combinando extension methods con multiple dispatch conseguimos agregar métodos polimórficos a clases ya existentes sin tocarlas !**
 
-### []()Extensiones doblemente polimórficas
+### Extensiones doblemente polimórficas
 
 Por último, cómo podríamos resolver el caso en que:
 
@@ -470,11 +470,11 @@ Esto se puede hacer, agregando multiple dispatch a nuestros providers que ya vim
 
         **class** MedioObjetivo **implements** Medio {
  
- `**def dispatch **publicar(EstrenoCine e) {`
+ `**def dispatch **publicar(EstrenoCine e) 
  `println("Se estrenó: " + e)` 
  `}`
  
- `**def dispatch** publicar(NotaDeportes e) {`
+ `**def dispatch** publicar(NotaDeportes e) 
  `println("En el orden de los deportes: " + e)`
  `}`
  
@@ -483,11 +483,11 @@ Esto se puede hacer, agregando multiple dispatch a nuestros providers que ya vim
 
 
         **class** MedioSubjetivo **implements** Medio {
- `**def dispatch **publicar(EstrenoCine e) {`
+ `**def dispatch **publicar(EstrenoCine e) 
  `println("Excelente el estreno de: " + e)` 
  `}`
  
- `**def dispatch** publicar(NotaDeportes e) {`
+ `**def dispatch** publicar(NotaDeportes e) 
  `println("Aburridisimo el partide de: " + e)`
  `}` 
         }
@@ -500,15 +500,15 @@ Luego:
 
 
         **class** Main {
- `**extension** Medio = **new** MedioObjetivo`
+ `**extension** Medio = new MedioObjetivo`
         // `extension Medio = new MedioSubjetivo`
  
- `**def static void **main(String[] args) {`
- `**new** Main().run`
+ `**def static void **main(String[] args) 
+ `new Main().run`
  `}`
  
- `**def **run() {`
- `**val** eventos = #[ **new** EstrenoCine("El Hobbit"), **new** NotaDeportes("River Campeon") ]`
+ `**def **run() 
+ `val eventos = #[ new EstrenoCine("El Hobbit"), new NotaDeportes("River Campeon") ]`
  
  `eventos.forEach[e | e.publicar() ]`
  `}`
@@ -516,17 +516,17 @@ Luego:
 
 
 Cambiando la instanciación del provider cambiamos las implementaciones.
-## []()Código Fuente de Ejemplos
+## Código Fuente de Ejemplos
 
 Están en el SVN de la materia:
 [https://xp-dev.com/svn/uqbar/examples/paco/trunk/languages/xtend/xtend-examples](https://xp-dev.com/svn/uqbar/examples/paco/trunk/languages/xtend/xtend-examples)
 
-## []()Extension Methods en Scala
+## Extension Methods en Scala
 
 Scala merece una página propia para explicar sus mecanismos para extender clases.
 Así que pasen por acá y vean:
 [Extensiones a clases con Scala Implicits](conceptos-extension-methods-extensiones-a-clases-con-scala-implicits)
-## []()Extension Methods en otras tecnologías
+## Extension Methods en otras tecnologías
 
 
 * [Kotlin](https://gist.github.com/exallium/181c6561014e1daaef4a#file-ext-kt)

@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Descripción del dominio
+### Descripción del dominio
 
 El objetivo de este TP es controlar la reserva de canchas de un complejo deportivo.
 
@@ -32,7 +32,7 @@ Como se dijo, además de los precios básicos, hay algunos adicionales que puede
 * Algunas canchas tienen techo. El dueño es muy malo y los días de lluvia sube el precio un 10% de las canchas que tienen techo. Para saber qué días va a llover obviamente se fija en el pronóstico del tiempo, ustedes definan un objeto ServicioMeteorológico al cual poder preguntarle si un día va a llover o no.
 * FInalmente, hay alguna canchas que tienen una pequeña tribuna. Esas canchas los fines de semana se usan para torneos y por eso se cobran el doble.
 
-### []()Requerimientos
+### Requerimientos
 
 Sobre ese dominio debe ser posible:
 1) Reservar una cancha para un día y horario específico. Antes se deberá validar si la reserva es posible (no se superpone con otra reserva, no es horario nocturno si la cancha no tiene techo). Si la reserva es posible se debe registrar en el sistema, si no es posible terminar con excepción. 
@@ -47,7 +47,7 @@ b) Obtener todas reservas para un día determinado.
 c) Dado un día y horario, encontrar alguna cancha libre (una cancha cualquiera, no importa el deporte).
 d) La cancha con más reservas.
 e) La totalidad de la facturación del complejo (sumar los precios de todas las reservas para todas las canchas).
-### []()Aclaraciones
+### Aclaraciones
 
 
 * El objetivo de esta materia es programar con objetos, no utilicen las canchas y/o reservas como estructuras de datos. En cambio, traten de **delegar comportamiento** en esos objetos. 

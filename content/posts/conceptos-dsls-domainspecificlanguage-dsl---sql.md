@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()SQL
+### SQL
 Structured-Query Language, conocido por todos, es un lenguaje sumamente poderoso para **consultas sobre base de datos relacionales**.
 Es un lenguaje **"declarativo"**, en el sentido de que no le indicamos el **como** hacer la consulta, **sino el qué** queremos.
 
@@ -28,17 +28,17 @@ Algunas cosas para notar:
 * Y la **sintaxis** fue pensada **específicamente** **para** expresar **consultas**.
 
 
-## []()Implementación en GPL's
+## Implementación en GPL's
 
 Cómo implementaríamos esto en en un lenguaje imperativo ?
-### []()En Java:
+### En Java:
 
 
 
 
 
 
-           Select<Estacion> select = **`new`**` Select<Estacion>();`
+           Select<Estacion> select = new Select<Estacion>();`
 
 
            List<String> projection = new ArrayList<String>();
@@ -53,12 +53,12 @@ Cómo implementaríamos esto en en un lenguaje imperativo ?
            select.setFrom("estacion");
 
 
-           Predicate<Estacion> condicion = **`new`**` Predicate<Estacion>() {`
+           Predicate<Estacion> condicion = new Predicate<Estacion>() 
 
 
                 @Override
-                **`public`** **`boolean`**` applies(Estacion e) {`
-                    **`return`**` e.getLatitud() > 39.7;`
+                public`** boolean applies(Estacion e) 
+                    return e.getLatitud() > 39.7;`
                 }
 
 
@@ -78,7 +78,7 @@ Como se ve necesitamos mucho código, pero ademas aparecen clases específicas:
 * Predice
 
 Se hace dificil (más dificil que en la solución expresada en SQL) leerlo rápidamente y entender qué proyecta (select) y bajo qué condicion (where)
-### []()DSL en Xtend (lenguaje sintácticamente más rico)
+### DSL en Xtend (lenguaje sintácticamente más rico)
 
 En un lenguaje más piola como XTend, usando:
 
@@ -91,7 +91,7 @@ En un lenguaje más piola como XTend, usando:
 
 
 
-           **val** select = **new** Select<Estacion>()
+           val select = new Select<Estacion>()
            select.project = #[ "id", "ciudad", "provincia" ]
            select.from = "estacion"
            select.where [ latitud > 39.7]
@@ -106,7 +106,7 @@ Podría hacerse más conciso con:
 
 
         
-  (**new** Select => [
+  (new Select => [
                project = #[ "id", "ciudad", "provincia" ]
                from = "estacion"
                where [ latitud > 39.7 ]
@@ -147,7 +147,7 @@ Por último, podríamos utilizar la capacidad de XTend de redefinir operadores, 
         (Estacion >>> [id] > [ciudad] > [provincia]) 
  `?: [ latitud > 39.7]`
 Se lee como "De Estacion me quedo con las propiedades: id, ciudad y provincias, de los que cumplan que latitud > 39.7"
-### []()DSL en Scala usando tipos estructurales
+### DSL en Scala usando tipos estructurales
 
 Muy bueno el DSL en xtend, pero carece de información de tipos sobre la respuesta de una proyección.
 Por ejemplo en el caso en que hacemos select, no para traernos todo un objeto completo (instancia de una clase) sino sólo ciertos datos, no tengo forma de hacer eso en xtend más que caer en que el método me retorne una List<Collection<?>>.
@@ -182,10 +182,10 @@ En Scala en cambio, podemos usar los tipos estructurales (no nominales o "duck t
 
 
 
-        **var** resultados = project[{
-                    **def** id: Int
-                    **def** ciudad: String
-                    **def** provincia : String
+        var resultados = project[{
+                     def id: Int
+                     def ciudad: String
+                     def provincia : String
 
                }] {
             estaciones select { e =>
@@ -203,7 +203,7 @@ Nótese que el método project recibe un tipo paramétrico entre corchetes, y lu
 
 
         **class** Relation[+T] {
-            **def** project[U >: T]): Relation[U]
+             def project[U >: T]): Relation[U]
             ...
         }
 
@@ -225,13 +225,13 @@ Así luego podemos iterar y tener checkeos
 
 
 Ejemplo basado en [éste paper](http://gilles.dubochet.ch/publications/2011_dubochet_phd.pdf)
-### []()DSL Interno
+### DSL Interno
 
 Comparemos la cantidad de líneas de código y elementos "Extra" en la primer solución en java, respecto de estas últimas en XTend !
 Todas estas variantes que vimos en XTend, son lo que se llaman "DSL's internos". Éste es un lenguaje especiamente diseñado para un dominio en particular (consultas en nuestro caso), pero utilizando un lenguaje GPL ya existente. De alguna forma "tuneamos" o forzamos un poquito el lenguaje "anfitrion", en este case XTend para llevarlo a que se parezca a un lenguaje "humano", más cercano al del dominio.
 Obviamente, dependiendo de la potencia del lenguaje anfitrion vamos a poder implementar un mejor DSL.
 En Java por ejemplo, es bastante limitado lo que podemos hacer.
-### []()Comparaciones
+### Comparaciones
 
 Comparamos:
 

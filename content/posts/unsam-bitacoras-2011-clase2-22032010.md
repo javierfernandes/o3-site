@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Sistemas de Tipos
+### Sistemas de Tipos
 
 
 #### **[]()¿Qué es un tipo?
@@ -34,7 +34,7 @@ Establece un contrato entre
 1. En función del tipo, en algunos casos, puede cambiar el comportamiento (polimorfismo).
 
 
-### []()Tipado-No Tipado, Débilmente/Fuertemente Tipado, Estático/Dinámico
+### Tipado-No Tipado, Débilmente/Fuertemente Tipado, Estático/Dinámico
 Categorizaciones de lenguajes, ambiguas, o parciales.
 
 Cuál es son las categorizaciones más precisas entonces ??
@@ -73,7 +73,7 @@ Ahora definimos los lenguajes según estos criterios:
 * Haskell: Estático, Implícito (inferencia de tipos)
 
 
-### []()Binding/Dispatch
+### Binding/Dispatch
 Es la relación que se establece entre el envío de un mensaje y el momento en que se ejecuta. Nos interesa diferenciar en qué momento se produce, si se produce en tiempo de compilación lo llamamos *early binding*, si se produce en tiempo de ejecución lo llamamos *late binding*.
 
 * Mismo mensaje a diferentes objetos
@@ -96,7 +96,7 @@ Es la relación que se establece entre el envío de un mensaje y el momento en q
  * En smalltalk las clases son objetos y sus métodos son polimórficos.
 
 
-### []()Tareas:
+### Tareas:
 
 * Pharo by example
 * Comparar collection utils de java con smalltalk

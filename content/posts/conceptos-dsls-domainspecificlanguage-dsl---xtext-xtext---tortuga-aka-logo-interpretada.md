@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Info del proyecto
+## Info del proyecto
 
 * **XText version** 2.6
 * SVN: [https://xp-dev.com/svn/uqbar/examples/paco/trunk/dsl/externos/xtext-2.6/tortuga/org.uqbar.paco.dsl.tortuga](https://xp-dev.com/svn/uqbar/examples/paco/trunk/dsl/externos/xtext-2.6/tortuga/org.uqbar.paco.dsl.tortuga)
@@ -21,7 +21,7 @@ date:  2018-06-20T19:27:10-03:00
   * Boton ejecutar
   * íconos
 
-## []()Descripción
+## Descripción
 
 Este DSL modela un lenguaje similar al LOGO (google "logo" :)), que era un lenguaje que se utilizaba para enseñar programación en las escuelas. El lenguaje sirve para darle instrucciones a una "tortuguita" que sería como "el cabezal" del gobstones. Esta tortuga dibuja. Entonces los comandos que tenemos son cosas como moverse adelante/atrás, girar a la izquierda/derecha, comenzar a dibujar, dejar de dibujar, etc.
 
@@ -32,7 +32,7 @@ Acá vemos un ejemplo que dibuja un cuadrado
 
 
 
-## []()Motor = Tortue
+## Motor = Tortue
 
 Ahora para este ejemplo necesitábamos implementar el **backend o runtime** que sería básicamente implementar el logo, además del lenguaje.
 Entonces, en lugar de hacer eso de cero, estamos reutilizando una implementación de LOGO hecha en java, de código libre que se llama Tortue.

@@ -8,7 +8,7 @@ Arrancamos contando un poco sobre la materia. Definimos que ibamos a ver "herram
 Hicimos referencia a este google site. 
 
 
-### []()Introducción a la Materia
+### Introducción a la Materia
 
 #### **[]()Cuestiones administrativas
 Definimos que la forma de evaluación de la materia está principalmente basada en las prácticas, con 4 Trabajos Prácticos:
@@ -40,7 +40,7 @@ Por eso, ya desde esta semana comenzamos con una entrega de un TP0 que es "para 
 #### **[]()Contenido de la Materia
 Comenzamos hablando sobre la [visión general de la materia](conceptos-abstracciones-y-conceptos-visin-general-de-la-materia) y luego describimos rápidamente cada una de las unidades, que se encuentran en definidas en el [Temario](temario).
 
-### []()Unidad I
+### Unidad I
 
 
 Arrancamos haciendo un [repaso del paradigma de objetos](conceptos-tipos-binding-repaso-objetos--smalltalk) y presentamos el [Pharo Smalltalk](te-smalltalk).

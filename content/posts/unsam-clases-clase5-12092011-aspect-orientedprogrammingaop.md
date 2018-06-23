@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Aspectos Administrativos
+## Aspectos Administrativos
 
 Al principio de la clase vimos algunos aspectos (valga la redundancia) administrativos, respecto de los TP's.
 Dijimos que la próxima clase ibamos a hacer la primer entrega y revisión del TP1.
@@ -13,7 +13,7 @@ Dijimos que la próxima clase ibamos a hacer la primer entrega y revisión del T
 Vimos que el segundo TP va a ser incluso más libre permitiendo elegir entre: Aspectos, Prototipos y Metaprogramación.
 
 
-## []()AOP
+## AOP
 
 Luego de lo administrativo arrancamos con el tema de la clase: aspectos.
 
@@ -28,7 +28,7 @@ Entonces un aspecto nos permite resolver problemas como: quiero que todos mis ob
 Esto último existe de hecho en varios lenguajes de programación y se llama **Code Coverage** (ej de herramientas [http://cobertura.sourceforge.net/](http://cobertura.sourceforge.net/))
 
 
-### []()Conceptos de AOP: Join-Point, Point-cut y Advice
+### Conceptos de AOP: Join-Point, Point-cut y Advice
 
 Vimos luego los conceptos **core **del dominio de la **programación orientada a aspectos.**
 
@@ -45,7 +45,7 @@ Luego vimos un ejemplo de la syntaxis de AspectJ para definir un aspecto para lo
 Ese ejemplo está en la [página del site](conceptos-aop)
 
 
-### []()Weaving
+### Weaving
 
 Luego surgió la pregunta natural de "cómo hace la magia ?" (de interceptar el código y manipularlo).
 Acá surge otro concepto de la programación de aspectos, que es el **weaving**.
@@ -91,7 +91,7 @@ El fwk se va a encargar de crear un proxy, es decir "simular" una subclase.
 Quizás para esto utiliza un tipo de metaprogramación o proxies dinámicos como vimos que hacen algunos fwks de aspectos.
 
 
-## []()Ejemplos en AspectJ
+## Ejemplos en AspectJ
 
 Luego nos metimos en directo a ver ejemplos en código de aspectj.
 

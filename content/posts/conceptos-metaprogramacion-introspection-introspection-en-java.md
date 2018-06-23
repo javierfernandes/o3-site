@@ -17,25 +17,25 @@ Introducimos un modelo de objetos de ejemplo. El de una librería que presta lib
   `**private** Cliente cliente;`
 
 
-  `**public** Libro(String autor, String titulo) {`
+  `**public** Libro(String autor, String titulo) 
   `**this**.autor = autor;`
   `**this**.titulo = titulo;`
   `}`
  
-  `**public** String getAutor() {`
+  `**public** String getAutor() 
   `**return this**.autor;`
   `}`
  
-  `**public** String getTitulo() {`
+  `**public** String getTitulo() 
   `**return this**.titulo;`
   `}`
  
-  `**public** Cliente getCliente() {`
+  `**public** Cliente getCliente() 
   `**return** this.cliente;`
   `}`
  
-  `**public void** prestarA(Cliente cliente) {`
-  `**if** (**this**.cliente != **null**) {`
+  `**public void** prestarA(Cliente cliente) 
+  `**if** (**this**.cliente != **null**) 
   `**throw new** LibreriaException("Libro ya prestado a " + this.cliente.getNombre());`
   `}`
   `**this**.cliente = cliente;`
@@ -57,13 +57,13 @@ Ahora veamos cómo desde java, a través del API de reflection podemos sacar mir
 
 
         **public static void **main(String[] args) {
-          introspect(Libro.**class**, **new** PrintWriter(System.out));
+          introspect(Libro.**class**, new PrintWriter(System.out));
         }
 
 
         **private static void** introspect(Class aClass, PrintWriter printer) {
  `printer.println("Un '" + aClass.getSimpleName() + "'");`
- `**for** (Field field : aClass.getDeclaredFields()) {`
+ `**for** (Field field : aClass.getDeclaredFields()) 
  `printer.print("\ttiene ");`
  `printer.print(field.getName());`
  `printer.println(" de tipo " + field.getType().getSimpleName());`
@@ -80,9 +80,9 @@ Si ejecutamos este main vamos a ver este resultado:
 
         Un **Libro**
 
- `tiene **autor** de tipo **String**`
- `tiene **titulo** de tipo **String**`
- `tiene **cliente** de tipo **Cliente**`
+ `tiene **autor** de tipo **String
+ `tiene **titulo** de tipo **String
+ `tiene **cliente** de tipo **Cliente
 
 
 #### **[]()Explicando el ejemplo
@@ -105,7 +105,7 @@ Ejecutémoslo con otra clase:
 
 
 
-        introspect(String.**`class`**`,`` `**`new`**` ``PrintWriter(System.out));`
+        introspect(String.class,`` newPrintWriter(System.out));`
 
 
 Resulta en:
@@ -117,12 +117,12 @@ Resulta en:
         Un **String**
 
  `tiene **value** de tipo **char**[]`
- `tiene **offset** de tipo **int**`
- `tiene **count** de tipo **int**`
- `tiene **hash** de tipo **int**`
- `tiene **serialVersionUID** de tipo **long**`
+ `tiene **offset** de tipo **int
+ `tiene **count** de tipo **int
+ `tiene **hash** de tipo **int
+ `tiene **serialVersionUID** de tipo **long
  `tiene **serialPersistentFields** de tipo **ObjectStreamField**[]`
- `tiene **CASE_INSENSITIVE_ORDER** de tipo **Comparator**`
+ `tiene **CASE_INSENSITIVE_ORDER** de tipo **Comparator
 
 
 Como vemos nuestro código "funciona" con cualquier clase, incluso en este caso lo estamos usando con una clase del propio JDK, String.
@@ -145,7 +145,7 @@ Para eso vamos a hacer algo similar al ejemplo anterior, pero con un nuevo méto
 
  `Class objectType = anObject.getClass();`
  `printer.println("Un " + objectType.getSimpleName() + "");`
- `**for **(Field field : objectType.getDeclaredFields()) {`
+ `**for **(Field field : objectType.getDeclaredFields()) 
  `field.setAccessible(**true**);`
  `printer.print("\tcon ");`
  `printer.print(field.getName());`
@@ -157,7 +157,7 @@ Para eso vamos a hacer algo similar al ejemplo anterior, pero con un nuevo méto
 
 
 **public static void** main(String[] args) **throws** IllegalArgumentException, IllegalAccessException {
-    introspectInstance(**new** Libro("Orson Scott Card", "El Juego de Ender"), **new **PrintWriter(System.out));
+    introspectInstance(new Libro("Orson Scott Card", "El Juego de Ender"), **new **PrintWriter(System.out));
 }**
 
 **
@@ -175,9 +175,9 @@ Si ejecutamos el main con la instancia de libro ahí creada de ejemplo vemos:
 
         Un **Libro**
 
- `con **autor** = **Orson Scott Card**`
- `con **titulo** = **El Juego de Ender**`
- `con **cliente** = **null**`**
+ `con **autor** = **Orson Scott Card
+ `con **titulo** = **El Juego de Ender
+ `con **cliente** = **null**
 
 **
 
@@ -223,11 +223,11 @@ Veamos un ejemplo:
 
 
         **public static void** main(String[] args) **throws** ... {
- `Libro libro = **new** Libro("Orson Scott Card", "El Juego de Ender");`
- `introspectInstance(libro, **new** PrintWriter(System.out));`
+ `Libro libro = new Libro("Orson Scott Card", "El Juego de Ender");`
+ `introspectInstance(libro, new PrintWriter(System.out));`
  
- `invokeMethod(libro, "prestarA", **new** Cliente("Lector Asiduo"));`
- `introspectInstance(libro, **new** PrintWriter(System.out));`
+ `invokeMethod(libro, "prestarA", new Cliente("Lector Asiduo"));`
+ `introspectInstance(libro, new PrintWriter(System.out));`
         }
 
 
@@ -259,7 +259,7 @@ En este caso le estamos diciendo que invoque el método de la clase **Libro:**
 
 
         public void prestarA(Cliente cliente) {
- `if (this.cliente != null) {`
+ `if (this.cliente != null) 
  `throw new LibreriaException("Libro ya prestado a " + this.cliente.getNombre());`
  `}`
  `this.cliente = cliente;`
@@ -275,11 +275,11 @@ Si ejecutamos este main() obtendremos:
         Un Libro
  `con autor = Orson Scott Card`
  `con titulo = El Juego de Ender`
- `con cliente = **null**`
+ `con cliente = **null
         Un Libro
  `con autor = Orson Scott Card`
  `con titulo = El Juego de Ender`
- `con cliente = **Cliente:Lector Asiduo**`
+ `con cliente = **Cliente:Lector Asiduo
 
 
 Como verán la primera vez el libro no tenía cliente, y luego de invocarlo por reflection ya tiene asignado al cliente "Lector Asiduo".
@@ -294,7 +294,7 @@ Ahora sí mostramos el código del método **invokeMethod **que no incluimos ini
  `NoSuchMethodException, `
                 `IllegalArgumentException, `
  `IllegalAccessException, `
- `InvocationTargetException {`
+ `InvocationTargetException 
  
   `Method method = object.getClass().getMethod(methodName, argumentTypes(args));``
     Object result = method.invoke(object, args);`
@@ -303,7 +303,7 @@ Ahora sí mostramos el código del método **invokeMethod **que no incluimos ini
 
 
         **private static** Class[] argumentTypes(Object[] args) {
- `Class[] types = **new** Class[args.length];`
+ `Class[] types = new Class[args.length];`
             **int** i = 0;
         **    for** (Object argument : args) {
  `types[i++] = argument.getClass();`

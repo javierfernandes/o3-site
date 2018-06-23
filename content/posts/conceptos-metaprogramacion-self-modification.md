@@ -4,10 +4,10 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Self-Modification
+## Self-Modification
 
 Este tipo de funcionalidad no es tan común en los MOPs. 
-### []()En Javascript
+### En Javascript
 
 Siguiendo el mismo ejemplo del libro, podemos agregar una nueva property al objeto:
 
@@ -24,6 +24,6 @@ Y el mismo lenguaje tiene soporte para borrar una property con la keyword **dele
 
 
         **delete** libro.edicion
-### []()
+### 
 
 TODO: ejemplo en diferentes lenguajes

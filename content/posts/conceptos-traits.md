@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Introducción
+## Introducción
 
 Surge como una respuesta al problema de la reutilización. Como una nueva opción a:
 * Herencia simple.
@@ -15,13 +15,13 @@ Surge como una respuesta al problema de la reutilización. Como una nueva opció
 * Herencia basada en mixins.
 
 
-### []()Herencia Simple:
+### Herencia Simple:
 
 * Duplicación de código entre jerarquías.
 * Limitante: en la capacidad de abstracción y de reutilización de código.
 * java "interfaces" resuelven el problema de subtipos y de la conceptualización (abstracción), pero no de la reutilización de código.
 
-### []()Herencia Múltiple:
+### Herencia Múltiple:
 
 * Complejidad de implementación.
 * Conflictos: metodos & fields. Problema del diamante.
@@ -33,7 +33,7 @@ Surge como una respuesta al problema de la reutilización. Como una nueva opció
 * Capacidad de composición limitada: no soporta la capacidad de definir un componente que implemente y exportando un feature (metodo) pero a su vez utilize la implementación original de clases de diferentes jerarquías. (como permiten los mixins)
 
 
-### []()Mixins:
+### Mixins:
 
 * Se comportan bien aplicando un único mixin.
 * Problemas de compatibilidad entre ellos al aplicar "muchos" mixins.
@@ -44,8 +44,8 @@ Surge como una respuesta al problema de la reutilización. Como una nueva opció
  * A veces no se puede planchar los mixins que quiero usar a un único "orden total".
 * La clase que componemos *no tienen control sobre la composición* (herencia + mixins).    
 
-## []()Traits
-Aparece entronces la idea de **trait** para atacar estos problemas. Lo primero a notar es el contexto de solución en el cual aparecen los traits. La idea es atacar el problema de **reutilización de código**.
+## Traits
+Aparece entronces la idea de trait para atacar estos problemas. Lo primero a notar es el contexto de solución en el cual aparecen los traits. La idea es atacar el problema de **reutilización de código**.
 Identificamos que muchas veces repetimos código entre clases de diferentes jerarquías. Una opción que ya vimos arriba era, entonces, modificar el mecanismo de herencia.
 
 Los traits en cambio, adoptan otro enfoque. Intentan encontrar otra forma de compartir código entre clases. Podemos pensar que este es un mecanismo para **componer** **una clase**.
@@ -57,9 +57,9 @@ Pensemos los traits como los ladrillos que utilizamos para construir la clase in
 
 A diferencia del mixin, **no forma parte de la cadena de delegación**, como un elemento más, ya que en realidad la construcción no tiene sentido en tiempo de ejecución. Un trait simplemente sirve para construir una clase (agregar métodos, por ejemplo), pero no modifica el mecanismo de herencia.  Siguen siendo clases, solo que sus métodos se construyeron y combinaron (reutilizaron).
 
-## []()Ejemplos Básicos
+## Ejemplos Básicos
 
-### []()Lenguaje Pharo
+### Lenguaje Pharo
 Para los ejemplos a continuación se va a utilizar el lenguaje Pharo.
 
 
@@ -68,7 +68,7 @@ Una características de los traits de Pharo es que **no pueden tener estado, **s
 
 Otra limitación en comparación con los mixins de Scala es que un trait en Pharo no puede ser aplicado sobre un objeto, sólo a las clases.
 
-## []()Primer trait simple
+## Primer trait simple
 
 Un trait se define en el mismo panel donde se definen las clases, con la siguiente sintaxis:
 
@@ -119,7 +119,7 @@ Es decir, la clase Socrates usa al trait Filosofo. Una vez hecho eso, las instan
 
         socrates := Socrates new.
         socrates filosofar.
-### []()Múltiples traits sobre una clase
+### Múltiples traits sobre una clase
 
 Para aplicar más de un trait sobre una clase:
 
@@ -149,7 +149,7 @@ Para aplicar más de un trait sobre una clase:
 
 
 La clase Jacobo tiene tanto los métodos de Filosofo como de Charlatan. siempre y cuando no haya *conflictos, *es decir mientras no definan ambos traits un método con el mismo nombre.  (La resolución de conflictos se explica más adelante.)
-### []()Requerimientos de un trait (o trait abstracto)
+### Requerimientos de un trait (o trait abstracto)
 
 Un trait puede utilizar métodos que no implementa. En ese caso, el trait *requiere *que la clase en la que ese trait se usa, esté definido el método correspondiente.
 
@@ -219,7 +219,7 @@ Con esas definiciones de Alquilable y Gratuito, podemos definir:
  `category: 'Paco-Examples-Traits'`
 
 
-### []()Manejo del estado
+### Manejo del estado
 
 Como se dijo, Pharo, por una cuestión de simplificar la implementación, no permite que los traits definan estado. 
 
@@ -298,12 +298,12 @@ Por ejemplo, el mismo trait Alquilable podría ser utilizado por otra bicicleta 
 
 
 
-        class **`Bicicleta`**
+        class Bicicleta`**
 
-            uses: **`Alquilable`**
+            uses: Alquilable`**
 
 
- `instanceVariableNames: 'inquilino`**`, precio`**`'`
+ `instanceVariableNames: 'inquilino, precio'`
  `classVariableNames: ''`
  `poolDictionaries: ''`
  `category: 'Paco-Examples-Traits'`
@@ -317,19 +317,19 @@ Por ejemplo, el mismo trait Alquilable podría ser utilizado por otra bicicleta 
             inquilino := nuevoInquilino
 
 
-``**Bicicleta >> precio**``
+``**Bicicleta >> precio`
         **    ^ precio`
-**`
+
         **
 
 **
 
-``**Bicicleta >> precio: nuevoPrecio**``
-``**    precio := nuevoPrecio**`
+``**Bicicleta >> precio: nuevoPrecio`
+``**    precio := nuevoPrecio
         
 
         En este caso, los tres requerimientos son resueltos por accessors y mutators a variables de intancia de la clase.
-## []()Apuntes de Clase (TODO: refactorizar)
+## Apuntes de Clase (TODO: refactorizar)
 
 Diferencias entre traits de pharo respecto de los mixins de Scala:
 
@@ -351,7 +351,7 @@ Diferencias entre traits de pharo respecto de los mixins de Scala:
 
 **
 
-### []()**Flattening**
+### **Flattening**
 
 
 Funciona como si copiara los mètodos del trait a la clase a la que aplicamos.
@@ -415,7 +415,7 @@ En cambio el flattening no resuelve conflicto automaticamente, yo lo tengo que h
 Además no hay un orden ni muchas clases/traits que se encadenen. Con lo cual perdí esa capacidad (por ejemplo de redefinir y reutilizar igualmente el comportamiento original).
 
 
-### []()**Caracterización de los "conflictos"**
+### **Caracterización de los "conflictos"**
 
 
 
@@ -454,7 +454,7 @@ En flattening y en particular en la impl de Pharo, nos fuerza a nosotros a resol
 Para eso, existe un **algebra de traits**.
 
 
-### []()Algebra de Traits (operaciones)
+### Algebra de Traits (operaciones)
 
 Son operaciones que puedo hacer sobre los traits.
 Tiene 3 operaciones:
@@ -500,9 +500,9 @@ Persona subclass: #JacoboWinograd`
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1346699905526/conceptos/traits/TraitOperations.png)
 ](conceptos-traits-TraitOperations-png?attredirects=0)
-### []()Herencia de Traits
+### Herencia de Traits
 
-### []()Un trait puede heredar de otro trait ? Sì, un trait tiene el "uses" al declararlo.
+### Un trait puede heredar de otro trait ? Sì, un trait tiene el "uses" al declararlo.
 
 
 * Mismas reglas, el trait le gana a sus propios traits aplicados.
@@ -510,7 +510,7 @@ Persona subclass: #JacoboWinograd`
 * En realidad el que usa este trait va a estar usando un unico trait que ya se contruyó una única vez.
 
 
-### []()**Discusión Linearizado vs Aplanado.**
+### **Discusión Linearizado vs Aplanado.**
 
 
 La diferencia màs característica es que en la linearizacion la resolucion de conflictos es automática. En el aplanado,  es manual.
@@ -520,16 +520,16 @@ La diferencia màs característica es que en la linearizacion la resolucion de c
 
 * **Manual**: me permite hacer más cosas
 
-## []()Para leer
+## Para leer
 
 * [Paper seminal de traits](http://scg.unibe.ch/archive/phd/schaerli-phd.pdf), de Nathaniel Shaerli y Stéphane Ducasse
 * [Traits: Composable Units of Behaviour](http://scg.unibe.ch/archive/papers/Scha03aTraits.pdf), de Nathanael Schärli, Stéphane Ducasse, Oscar Nierstrasz, and Andrew P. Black
 * [Traits vs Aspectos](http://blog.objectmentor.com/articles/2008/09/27/traits-vs-aspects-in-scala)
 * [Traits en PHP](http://www.php.net/manual/es/language.oop5.traits.php)
 
-## []()Temas Relacionados
+## Temas Relacionados
 
 
 * [Perl6 tiene una idea similar llamada "Roles"](http://en.wikipedia.org/wiki/Perl_6#Roles)
 
-### []()
+### 

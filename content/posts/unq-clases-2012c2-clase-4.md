@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Introducción
+### Introducción
 
 Arrancamos motivando el concepto de aspecto siguiendo el ejemplo de [Objetos Observables](conceptos-aop#TOC-Objetos-Observables) que nos llevó a pensar en la necesidad de **herramientas que nos permitan modelar conceptos transversales a la jerarquía de clases.** 
 
@@ -24,7 +24,7 @@ Acá van algunos ejemplos*:
 * La idea de "transaccionalidad".
 * Los frameworks de persistencia proxean objetos para hacer lazy el acceso a la BD. Obviamente aplicable a cualquier tipo de objeto.
 
-### []()Conceptos de Programación Orientada a Aspectos: Join-Point, Point-cut y Advice
+### Conceptos de Programación Orientada a Aspectos: Join-Point, Point-cut y Advice
 
 Vimos luego los conceptos **core **del dominio de la **programación orientada a aspectos.**
 
@@ -36,7 +36,7 @@ Si bien vamos a ver aspectos con una implementación para java llamada **AspectJ
 
 Luego vimos un ejemplo de la syntaxis de AspectJ para definir un aspecto para loggear llamadas a métodos.
 Ese ejemplo está en la [página del site](conceptos-aop)
-### []()Weaving
+### Weaving
 
 Luego surgió la pregunta natural de "cómo hace la magia ?" (de interceptar el código y manipularlo).
 Acá surge otro concepto de la programación de aspectos, que es el **weaving**.
@@ -57,7 +57,7 @@ Enumeramos un par de estratégias de weaving:
 * **Debugging Hooks**
 
 
-### []()Ejemplos en AspectJ
+### Ejemplos en AspectJ
 
 Luego nos metimos en directo a ver ejemplos en código de aspectj.
 Vemos el primer ejemplo **simple **de objetos observables.
@@ -80,7 +80,7 @@ Y el mismo aspecto le define las implementaciones de esos métodos, en forma par
 
 **
 
-### []()Material
+### Material
 
 * Página de la materia con teoría de [Programación Orientada a Aspectos](conceptos-aop)
 * Página de la materia sobre la herramienta [AspectJ](te-aspectj)

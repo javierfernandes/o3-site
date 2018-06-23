@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Introducción
+## Introducción
 
 Queremos hacer un DSL que permita planificar una conferencia. 
 
@@ -26,7 +26,7 @@ El enunciado pide una gran cantidad de validaciones. Estas validaciones pueden h
  * Lo obligatorio es que al menos una de las validaciones se haga en el editor, las demás quedan a su criterio.
  * Lo ideal sería que el propio editor tenga la mayor cantidad de validaciones posibles, así a medida que uno escribe le va informando de los problemas. 
 
-## []()Descripción de las actividades
+## Descripción de las actividades
 
 La conferencia tiene diferentes actividades:
 
@@ -39,7 +39,7 @@ De cada actividad se sabe también la cantidad de asistentes esperada.
 
 
 La conferencia tiene varios "tracks" cada uno orientado a una temática dinstinta, como ser: docencia, arquitectura de software, herramientas y frameworks, metodología, etc. De cada charla se debe saber a qué track corresponde.
-## []()Schedule
+## Schedule
 
 El siguiente paso para organizar la conferencia es definir los horarios de cada actividad. Para ello se le debe asignar un horario a cada charla y un espacio. 
 De los espacios se sabe su nombre y la cantidad de asientos que tienen. Las aulas con computadoras también deben estar definidas como espacios y sólo se pueden usar para los talleres.
@@ -75,7 +75,7 @@ Reglas y checkeos
 * Algunas charlas pueden estar definidas como "keynote". En el momento que se realiza una keynote no puede haber otras charlas al mismo tiempo.
 
 
-## []()Generación de Código
+## Generación de Código
 
 El objetivo final de este DSL es generar una página HTML que muestre el schedule de la conferencia, mostrando las charlas con sus oradores y tracks. A continuación se presenta un ejemplo del resultado esperado.
 

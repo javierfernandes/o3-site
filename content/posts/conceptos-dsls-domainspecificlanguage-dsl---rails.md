@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Ruby & Rails
+### Ruby & Rails
 
 Vemos un poco de ruby on rails.
 Generamos el scaffold para una nueva entidad, y vemos un poco el código generado para especificar la DB, específicamente la especificación de la creación de la tabla. Llamados objetos Migrators.
@@ -13,17 +13,17 @@ Generamos el scaffold para una nueva entidad, y vemos un poco el código generad
 
         class `CreatePosts < ActiveRecord::Migration`
               `def` `self``.up`
-                `create_**table** ``:**posts**` `do` `|t|`
-                  `t.string ``:**name**`
-                  `t.string ``:**title**`
-                  `t.text ``:**content**`
+                `create_**table**:**posts `do` `|t|`
+                  `t.string:**name
+                  `t.string:**title
+                  `t.text:**content
      
-                  `t.**timestamps**`
+                  `t.**timestamps
                 `end`
               `end`
      
               `def` `self``.down`
-                `drop_table ``:posts`
+                `drop_table:posts`
               `end`
             end
 Es UN DSL!
@@ -33,9 +33,9 @@ Luego vemos las entidades de dominio generadas.
 
 
         class `**Post** < ActiveRecord::Base`
-          `**validates** ``:**name**``,  ``:**presence**` `=> ``true`
-          `validates ``:**title**``, ``:presence` `=> ``true``,`
-                     `:**length**` `=> { ``:**minimum**`** `=> ``5`** `}`
+          `**validates**:**name`, :**presence `=>true`
+          `validates:**title`,:presence` `=>true``,`
+                     `:**length `=> {:**minimum** `=>5`** `}`
         end
 Vemos acá un par de cosas:
 
@@ -71,12 +71,12 @@ Ejemplo de uso:
 
 
  class` `**Post **< ActiveRecord::Base`
-           `**has_many** ``:**comments**`
+           `**has_many**:**comments
          end
 
 
          class `**Comment** < ActiveRecord::Base`
-           `**belongs_to** ``:**post**`
+           `**belongs_to**:**post
          end
 
 Post **has_many :comments**

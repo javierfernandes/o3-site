@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Descripción
+### Descripción
 La idea de la materia es la de transmitir el conocimiento en cuanto a herramientas/conceptos moderna/os. En cuanto a modernas, nos referimos a herramientas que aún la industria, junto a los lenguajes mainstream, no han adoptado, por lo que estos temas no han alcanzado la luz en forma masiva.
 
 Quizás el término "modernas" provenga por el hecho de que eventualmente, lenguajes mainstreams como java van incorporándolas, dando la sensación de ser features nuevos de la programación.
@@ -17,7 +17,7 @@ Y como cada lenguaje tiene su complejidad, ya por temas inherentes como la sinta
 Por esto es que les vamos a dar una Virtual Machine ya operativa para cada uno de los lenguajes que vamos a manejar.
 
 
-### []()Qué es una Virtual Machine ?
+### Qué es una Virtual Machine ?
 El concepto de **virtualización** (como se llama a esta práctica), se refiere básicamente, a poder "embeber" una máquina completa **virtual**, con su propio sistema operativo, su propia estructura de storage (discos rígidos), y memoria, dentro de otra máquina "real".
 
 **En palabras más simples**: te permite simular una nueva PC corriendola dentro de la tuya. 
@@ -29,7 +29,7 @@ Se pueden compartir recursos entre ambas máquinas.
 
 Existen varias tecnologías de virtualización. Entre las más conocidas estan: [VMWare](http://www.vmware.com/) y [Sun Virtual Box](http://www.virtualbox.org/)
 
-### []()Cómo se va a distribuir la VM ?
+### Cómo se va a distribuir la VM ?
 Vamos a pasarles un **DVD** con el siguiente contenido.
 
 * **phm-vm** : contiene los archivos de la VM en formato [OVF (Open Virtual Format)](http://en.wikipedia.org/wiki/Open_Virtualization_Format)
@@ -39,7 +39,7 @@ No distribuimos los binarios de virtualbox para otro tipo de sistema operativo q
 Ustedes deberan averiguar cómo instalar un player de VM para su distribución de linux.
 
 
-### []()Cómo **"instalo"** la VM ?
+### Cómo **"instalo"** la VM ?
 
 1. **Copiá el directorio con los archivos** de la VM a tu disco rígido.
 
@@ -63,7 +63,7 @@ Pero ojo, mirá en la siguiente sección porque una vez que arranca vas a tener 
 
 Cualquier duda podés checkear [esta página oficial](http://www.virtualbox.org/manual/ch01.html#ovf) de VirtualBox
 
-### []()Qué tiene la VM ?
+### Qué tiene la VM ?
 Básicamente es un linux ubuntu 10.10
 Tiene 3 díscos montados de la siguiente forma
 
@@ -87,7 +87,7 @@ Tiene 3 díscos montados de la siguiente forma
 
 
 
-### []()Cuál es el software de PHM ?
+### Cuál es el software de PHM ?
 Probablemente esta parte quede desactualizada a lo largo de las diferentes cursadas, lo mejor será que navegues un poco por la partición **/opt** que es donde instalaremos todo el soft.
 
 Pero a modo ilustrativo la estructura y contenido es
@@ -124,7 +124,7 @@ Por eso, al comenzar a usar la VM deben hacer esto:
 Esto va a actualizar la working copy.
 
  
-### []()Instrucciones básicas para el uso de la VM
+### Instrucciones básicas para el uso de la VM
  
 * **usuario:** phm
 * **contraseña:** phm

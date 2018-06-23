@@ -4,14 +4,14 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Descripción
+### Descripción
 
 Es un lenguaje con soporte multiparadigma: objetos, funcional e imperativo. Tiene tipado de variables **explícito** (fuertemente tipado). Es un lenguaje **dinámico**, sin embargo tiene características híbridas de tipado estático y dinámico.
 Tiene un sistema de tipos flexible con las ventajas de agilidad y rapidez de los lenguajes dinámicos, pero a su vez la seguridad de los lenguajes estáticos.
 
 
 
-### []()Ambiente de Trabajo
+### Ambiente de Trabajo
 
 * **Interprete:**
 
@@ -46,7 +46,7 @@ Tiene un sistema de tipos flexible con las ventajas de agilidad y rapidez de los
    * en consola se deberían reportar los errores y los mensajes de write()
 
  
-### []()Referencias
+### Referencias
 
 * Homepage: [http://pike.ida.liu.se/](http://pike.ida.liu.se/)
 

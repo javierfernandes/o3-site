@@ -71,12 +71,12 @@ Y por último vimos un sintax sugar llamado **"cascadeo de mensajes"**, que perm
 Finalmente nos fuimos antes de que nos echaran o nos dejaran dentro de la facultad hasta el otro día :)
 
 
-### []()Presentación
+### Presentación
 
 Se puede bajar la presentación que se usó aquí: 
 [Unidad 1 - Esquemas de tipado](conceptos-tipos-binding)
 
-### []()Referencias
+### Referencias
 
 Algunos **referencias** que hicimos:
 
@@ -86,7 +86,7 @@ Algunos **referencias** que hicimos:
 * **Simula 68:** primer lenguaje con un tinte objetoso.
 * **Smalltalk** 72, 78 y 80
 
-### []()Tareas
+### Tareas
 
 * Hacer andar la VM
 * Jugar un poco con el Pharo

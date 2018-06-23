@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Pic para expresar diagramas de secuencia
+### Pic para expresar diagramas de secuencia
 
 Pic2plot es un DSL construido utilizando otros lenguajes y herramientas GNU para generar diagramas UML de secuencia.
 
@@ -19,11 +19,11 @@ Por ejemplo, supongamos que queremos hacer este diagrama:
 Cómo podríamos implementarlo utilizando un lenguaje de propósito general como Java ?
 
 ```java
-    DiagramaSecuencia diagrama = **new** DiagramaSecuencia();
-    StakeHolder switch = **new** StakeHolder(*"s:Switch"*);
+    DiagramaSecuencia diagrama = new DiagramaSecuencia();
+    StakeHolder switch = new StakeHolder(*"s:Switch"*);
     diagrama.add(switch);
 
-    StakeHolder pump = **new** StakeHolder(*"p:Pump"*);
+    StakeHolder pump = new StakeHolder(*"p:Pump"*);
     diagrama.add(pump);
 
     diagrama.*drawSlot*();    
@@ -31,8 +31,8 @@ Cómo podríamos implementarlo utilizando un lenguaje de propósito general como
         diagrama.*startControlOn*(switch);    
         diagrama.*startControlOn*(pump);        
         
-    diagrama.addMessage(**new** *Message*(switch, pump, *"run()"*, RIGHT_TO_LEFT));
-    diagrama.addMessage(**new** Message(switch, pump, *"stop()"*, RIGHT_TO_LEFT));
+    diagrama.addMessage(new *Message*(switch, pump, *"run()"*, RIGHT_TO_LEFT));
+    diagrama.addMessage(new Message(switch, pump, *"stop()"*, RIGHT_TO_LEFT));
 
     diagrama.*drawSlot*();
 
@@ -53,7 +53,7 @@ Observemos:
 
  * **constantes **(como RIGHT_TO_LEFT)
 
-* **new** : aparece la idea de instanciar objetos, que podría considerarse como un detalle de implementación de mi sistema, Al menos, al tipo que tiene que definir como quiere que sea su diagramar, le gustaría no tener que lidear con parafernalia extra que no sea propia del diagrama de secuencia.
+* new : aparece la idea de instanciar objetos, que podría considerarse como un detalle de implementación de mi sistema, Al menos, al tipo que tiene que definir como quiere que sea su diagramar, le gustaría no tener que lidear con parafernalia extra que no sea propia del diagrama de secuencia.
 * DiagramaSecuencia: 
 
 
@@ -93,7 +93,7 @@ Cosas para notar acá:
 
 
   * **=>** para el envío de mensaje
-  * ```
+  *`
 ********| ********para incluir un espacio (proyectando lo gráficos hacia abajo). 
 ```
 

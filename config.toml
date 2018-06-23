@@ -4,8 +4,37 @@ title = "Programación Avanzada con Objetos"
 
 theme = "minimo"
 
+# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
+pygmentsCodefences = true
+enableEmoji = true
+
+[params.settings]
+# date & time format: https://golang.org/pkg/time/
+dateFormat = "02 Jan 2006"
+listDateFormat = "02 Jan 2006"
+archiveDateFormat = "02 Jan"
+showReadingTime = true
+taxonomyCloudShuffle = true
+accentColor = "#ffcd00"
+hideMainMenu = false
+
 [params.sidebar]
 enable = true
 
 [sidebar_menu]
 title = 'Side bar'
+
+[params.widgets]
+homepage = ["recent_posts"]
+sidebar = ["about","sidebar_menu","taxonomy_cloud"]
+
+[taxonomies]
+author = "authors"
+category = "categories"
+series = "series"
+tag = "tags"
+
+[params.assets]
+customCSS = ["custom.css"]
+
+

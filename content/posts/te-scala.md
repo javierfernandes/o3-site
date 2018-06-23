@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-### []()Entorno de trabajo
+### Entorno de trabajo
 
 * Hay dos IDEs que se suelen utilizar para trabajar en Scala: 
 
@@ -20,7 +20,7 @@ date:  2018-06-20T19:27:10-03:00
 
  * Bajar un eclipse que ya incluye el plugin de scala desde acá [http://scala-ide.org/download/sdk.html](http://scala-ide.org/download/sdk.html)
 
-### []()Material de referencia y consulta
+### Material de referencia y consulta
 
 #### **[]()Primeros pasos:
 
@@ -41,13 +41,13 @@ date:  2018-06-20T19:27:10-03:00
 * Introductorio: [https://github.com/uqbar-paco/obj3-scala-intro](https://github.com/uqbar-paco/obj3-scala-intro)
 * Todos los ejemplos en Scala: [https://github.com/uqbar-paco?utf8=%E2%9C%93&query=scala](https://github.com/uqbar-paco?utf8=%E2%9C%93&query=scala)
 
-## []()
+## 
 
 
-## []()
+## 
 
 
-## []()Ejemplos Viejos (deprecated)
+## Ejemplos Viejos (deprecated)
 
 #### **[]()Ejemplos de uso del lenguaje y sus características más importantes
 

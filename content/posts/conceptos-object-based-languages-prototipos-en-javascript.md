@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Intro a Javascript
+## Intro a Javascript
 Quizás ya conozcan este lenguaje por el lado de la programación web. Quién no haya trabajado mucho en este lenguaje, al menos alguna vez vió algo de código, o bueno, al menos lo habrán escuchado nombrar.
 
 Con la llegada y conquista de la arquitectura de aplicaciones web Javascript se convirtió en un lenguaje masivo y mainstream, ya que es parte del set de estandards de la programación web, junto a: **http, html, css**.
@@ -15,7 +15,7 @@ Con la llegada y conquista de la arquitectura de aplicaciones web Javascript se 
 Es decir que los browsers o navegadores "entienden" y ejecutan código javascript.
 
 
-### []()Características y Clasificación del Lenguaje
+### Características y Clasificación del Lenguaje
 En primer término, decimos que JavaScript es un lenguaje de programación de **propósito general**. Es decir que con él, en principio, como lenguaje podríamos codificar cualquier tipo de aplicación y en forma completa *(Ver [DSLs](conceptos-dsls-domainspecificlanguage))*
 
 En cuanto a su [sistema de tipos](conceptos-tipos-binding)  ...
@@ -24,7 +24,7 @@ En cuanto a su [sistema de tipos](conceptos-tipos-binding)  ...
 Es decir que los checkeos se realizan en tiempo de ejecución. En la misma forma en que lo hacen lenguajes como: smalltalk, ruby, groovy, etc.
 ```
 
-**`var `**`perro = `**`new `**`Perro();`**`
+var perro = new Perro();
         **perro.ladrar();`
 ```
  
@@ -42,7 +42,7 @@ Por si les interesa o sienten curiosidad acá va un ejemplo:
 ```
 
         **function** test() {
-         **var** i = 3;
+         var i = 3;
          print(i + 2);
         }
 El bytecode generado al compilar esto sería:
@@ -81,7 +81,7 @@ Ejemplo:
 **
 
         **function** holaA(alguien) {
-    **var** saludo = 'Hola ' + alguien;
+    var saludo = 'Hola ' + alguien;
     document.writeln(saludo);
 }
  
@@ -96,7 +96,7 @@ Acá vemos dos variables:
  * tampoco declara un tipo.
  * a diferencia del parámetro, hay que declarar el hecho de que es una variable local con el **keyword var.** 
 
-## []()Funciones en JavaScript
+## Funciones en JavaScript
 JavaScript posee la idea de funciones como **first-class objects**. Es decir que las funciones son entidades principales del lenguaje, y se pueden manipular. Por ejemplo pasar como parámetro a otra función. Lo cual lo convierte en un lenguaje bastante poderoso. 
 Pero además, al tener luego soporte para objetos, como vamos a ver, significa que es un lenguaje **multiparadigma, **ya que permite programar en funcional, objetos e imperativo.
 
@@ -104,11 +104,11 @@ Ejemplo de función simple, recursiva de factorial:
 ```
 
 
-**`function`**` factorial``(``n``)` `{`
- **`if`** `(``n ``==` `0``)` `{`
- **`return`** `1``;`
+function factorial``(``n``)` `
+ if`** `(``n==` `0``)` `
+ return`** `1``;`
  `}`
- **`return`**` n ``*`` factorial``(``n ``-` `1``)``;` 
+ return n*`` factorial``(``n-` `1``)``;` 
         }
 
 ```
@@ -121,7 +121,7 @@ Ejemplo de función como parámetro:```
          }
         }
 
-        **var** holaMundo = **function**() {
+        var holaMundo = **function**() {
          document.writeln('Hola Mundo!');
         }
 
@@ -133,14 +133,14 @@ O incluso se pueden pasar funciones "anónimas", es decir que no tienen un nombr
 
 ```
 
-**function** ejecutarNVeces(funcion, veces) { **for** (**var** i = 0; i < veces; i++) { funcion(); } } ejecutarNVeces(**function**() { document.writeln('Hola Mundo!'); }, 4);
+**function** ejecutarNVeces(funcion, veces) { **for** (var i = 0; i < veces; i++) { funcion(); } } ejecutarNVeces(**function**() { document.writeln('Hola Mundo!'); }, 4);
         
 
 Nótese que estamos definiendo la función en el mismo lugar donde pasa por parámetro.
 ```
 
  
-## []()Objetos en JavaScript
+## Objetos en JavaScript
  Si bien javascript permite programar con funciones, también permite programar en objetos.
 
 
@@ -197,7 +197,7 @@ Esto nos permite la idea de openclass, donde podemos agregarle miembros. Ejemplo
         Animal.*`prototype`*`.energia = 0;`
 
 
-        Animal.*`prototype`*`.comer = `**`function`**`(alimento) {`
+        Animal.*`prototype`*`.comer = function(alimento) 
             **this**.energia++;
 
         }
@@ -225,12 +225,12 @@ Es decir que cualquier mensaje que nuestro objeto no entienda se va a delegar al
 
 
 Entonces, ahora si revisamos el código nuevamente, vemos que los miembros se los estamos agregando al prototipo en realidad y no al objeto.
-### []()"Herencia" simple
+### "Herencia" simple
 
 A diferencia de Self donde podíamos tener múltiples **parent slots, **en javascript solo podemos tener un prototype. Y de hecho el slot siempre se llama **prototype** es un nombre fijo.
 
 
-### []()Prototipos dinámicos
+### Prototipos dinámicos
 
 También al igual que en Self, el prototype de un objeto se puede cambiar en runtime.
 
@@ -240,20 +240,20 @@ Ejemplo:
 
 
 
-**`function`**` ``Animal(patas) {`
-           ` `**`this`**`.value = patas;`
+functionAnimal(patas) 
+           ` this.value = patas;`
                ` `
-           ` `**`this`**`.correr =`` `**`function`**`() {`
+           ` this.correr =`` function() 
                 document.writeln('CORRO con mis ' + this.value + ' patas!<br>');
             }
         }
 
-**`function`**` Gallina() {`
+function Gallina() 
         }
             
-        Gallina.prototype = **`new`**` Animal(2);`
+        Gallina.prototype = new Animal(2);`
 
-**`var`**` g = `**`new`**` Gallina(2);`
+var g = new Gallina(2);`
         g.correr();
 En este ejemplo estamos asignando un objeto de tipo **Animal ** como prototype de la función constructor** Gallina.**
 
@@ -263,12 +263,12 @@ En este ejemplo estamos asignando un objeto de tipo **Animal ** como prototype d
 
 
 
-### []()Objetos Literales
+### Objetos Literales
 
 La segunda forma de crear objetos en javascript es a través de literales de tipo Mapa.
 Es decir que creamos un mapa, donde las keys son los nombres de los slots y los values sus valores. Que pueden ser valores constantes o literales o pueden ser function's, es decir, métodos.
 
-        **var** Animal = {
+        var Animal = {
            patas : 2,
            cantar : function() { document.writeln("Canto bajo la lluvia!"); }
         };
@@ -280,24 +280,24 @@ Es decir que creamos un mapa, donde las keys son los nombres de los slots y los 
 
         Oso.*prototype* = Animalito;
 
-        **var** oso = new Oso();
+        var oso = new Oso();
 
         document.writeln("Oso Patas:" + oso.patas);
 
 Luego, podemos y combinar ambas formas.
 
-## []()Temas Pendientes
+## Temas Pendientes
 
-### []()Algo de Historia y Demonización de JavaScript
+### Algo de Historia y Demonización de JavaScript
   // TODO
 
 
-## []()Interpretes y Ambiente de Trabajo
+## Interpretes y Ambiente de Trabajo
 
-### []()Web
+### Web
   // TODO
 
-### []()No-Web
+### No-Web
 
 * [Google V8 Engine](http://code.google.com/p/v8/)
 * [Node.js](http://nodejs.org/)
@@ -306,7 +306,7 @@ Luego, podemos y combinar ambas formas.
 
 
 
-## []()Referencias
+## Referencias
 
 * [Introduction to Object-Oriented JavaScript](https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript)
 * [Finally Grasping Prototypal Object Oriented Programming in Javascript](http://blog.nategood.com/finally-grasping-prototypical-object-oriented)

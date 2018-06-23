@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción
+## Introducción
 JVM bytecode es el formato binario de código ejecutable por la máquina virtual de java.
 Algo así como el famoso lenguaje máquina "assembler", pero para la VM de java.
 
@@ -12,7 +12,7 @@ Podemos ver el bytecode al abrir un archivo .class
 Por supuesto va a ser completamente inentendible. Entonces, para esto podemos usar un plugin de eclipse como [este](http://andrei.gmxhome.de/bytecode/index.html).
 
 
-### []()OpCode's e Instrucciones
+### OpCode's e Instrucciones
 Este lenguaje (porque en definitiva es un lenguaje, si bien de bajo nivel y binario, es un lenguaje) consta básicamente de **instrucciones**, cada instrucción tiene un código que la identifica llamado **opcode** y opcionalmente parámetros.
 El **opcode** se expresa en forma de bytes, pero existe una convención de nombres cortos para poder hacer más legible el bytecode.
 
@@ -27,19 +27,19 @@ Entonces, veamos un ejemplo. El siguiente código que suma dos valores:
 Se traduce al siguiente bytecode:
 
 
-**`iconst_2`**
+iconst_2`**
 
         **istore** 1
-**`iconst_3`**
+iconst_3`**
 
         **istore** 2
 
         **iload** 1
-**`i`**`**load** 2`
-**`iadd`**
+i**load** 2`
+iadd`**
 
         **istore** 3
-**`return`**
+return`**
 
 
         **maxstack** 2
@@ -67,7 +67,7 @@ Cada linea tiene una instrucción con su respectivo **opcode** en formato "legib
 
 
 
-### []()Stack-Oriented model
+### Stack-Oriented model
 Como vimos en el ejemplo anterior aparece la idea de **stack.** Esto es importante de al menos mencionar, la JVM y su bytecode está diseñada en base a un stack y no de registros. Como es por ejemplo el modelo de assembler.
 Este modelo está relacionado con la idea del modelo de objetos (llamadas a métodos).
 
@@ -79,12 +79,12 @@ Esto hace al bytecode un poco más dificil de leer y más verborrágico.
 
 
 
-### []()Hola Mundo (invokevirtual)
+### Hola Mundo (invokevirtual)
 Veamos como se traduce el famoso hola mundo de esto:
 
- ```
+`
 
-        **public class** HelloWorld `{`
+        **public class** HelloWorld `
          **public static void** main(String[] args) {
          System.out.println("Hello, world!");
          }
@@ -96,7 +96,7 @@ A bytecode:
         **getstatic** java/lang/System.out : Ljava/io/PrintStream;
         **ldc** "Hello, world!"
         **invokevirtual** java/io/PrintStream.println(Ljava/lang/String;)V
-**`return`**
+return`**
 
 Donde:
 
@@ -107,7 +107,7 @@ Donde:
  * el último elemento agregado (el string) como parámetro.
  * el anterior, como el receptor.
 
-### []()Invoke*
+### Invoke*
 Existen varios opcode para la invocación de métodos:
 
 * **invokevirtual**
@@ -175,7 +175,7 @@ Es una instrucción nueva en la JVM versión 7, que muchos lenguajes están espe
 Esto va a dar el soporte necesario para lenguajes dinámicos que hoy en día igualmente se construyen sobre la JVM pero con muchas limitaciones o con "truquitos" para evadir la naturaleza estática y los checkeos de java. Muchas veces esto causa un pérdida considerable de performance de estos lenguajes o consumo de memoria.
  
  
-## []()Referencias
+## Referencias
 
 * ["Java Bytecode Fundamentals"](http://arhipov.blogspot.com/2011/01/java-bytecode-fundamentals.html)
 * ["Java Bytecode Fundaments: Using objects and calling Methods"](http://www.zeroturnaround.com/blog/java-bytecode-fundamentals-using-objects-and-calling-methods/)

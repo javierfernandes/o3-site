@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Extendiendo o embebiendo XBase
+## Extendiendo o embebiendo XBase
 
 XBase es el lenguaje en el cual se basa xtend. Y está hecho, lógicamente con xtext. Con lo cual cualquiera de nuestros lenguajes puede extender XBase, o bien utilizar algunas de sus construcciones, por ejemplo para escribir código "java" o similar dentro de nuestros lenguajes.
 Para eso, en nuestra gramática debemos agregar

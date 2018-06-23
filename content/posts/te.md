@@ -10,7 +10,7 @@ La lista de las tecnologías más importantes en las que van a tener que program
 * Ruby
 * Xtend
 
-## []()Otras tecnologías
+## Otras tecnologías
 
 
 

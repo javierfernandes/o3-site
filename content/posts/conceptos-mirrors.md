@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Introducción
+### Introducción
 Mirrors se refiere a un conjunto de ideas de diseño aplicadas a la creación de un "framework" de reflection y metaprogramación para un lenguaje dado.
 Algunas de estas ideas, no son más que aplicaciones directas de lineamientos ya conocidos de diseño de objetos o en general, como: encapsulamiento, separation of concerns, etc.
 
@@ -16,11 +16,11 @@ De hecho, Self, tiene una implementación de mirrors para el manejo de reflectio
 
 
 
-### []()Intro a Metaprogramación
+### Intro a Metaprogramación
 Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramación](conceptos-metaprogramacion).
 
 
-### []()Ideas para el diseño de una API de reflection o metaprogramación
+### Ideas para el diseño de una API de reflection o metaprogramación
 
 * **Encapsulamiento:**
 
@@ -48,10 +48,10 @@ Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramaci
  * Capacidad del API de reflejar todos los elementos del lenguaje en forma completa.
 
 
-### []()
+### 
 
 
-### []()Correspondencia Ontológica
+### Correspondencia Ontológica
 
 #### **[]()Correspondencia Temporal
  
@@ -103,10 +103,10 @@ Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramaci
  * Permite además tener varios lenguajes sobre una misma VM (ej: java). Cada lenguaje debería tener su API de reflection con su propia semántica.
 
 
-### []()
+### 
 
 
-### []()Cosas interesantes a contar
+### Cosas interesantes a contar
 
 * el hecho de que al usar nuestra propia API de reflection, podríamos
 

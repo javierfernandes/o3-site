@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Breve Intro
+## Breve Intro
 
 Scala es un lenguaje...
 
@@ -20,10 +20,10 @@ Scala es un lenguaje...
 * **Que compila a JVM:** es decir que es compatible con otros programas y librerías Java.
 * Tiene su propio compilador y SDK que necesitamos además de la JDK.
 
-## []()Temas básicos
+## Temas básicos
 
 A continuación vamos a ver algunas cuestiones bien básicas del lenguaje.
-### []()Sintaxis
+### Sintaxis
 
 En principio la sintaxis parece similar al lenguaje Java. Léase: llaves, punto y coma, etc.
 Sin embargo acá van algunas diferencias:
@@ -57,7 +57,7 @@ Se pueden ver como "variables" o "constantes". Para esto existen dos keywords: *
 
 
 
-        **var** nombre : String = "World";
+        var nombre : String = "World";
         println("Hello, " + nombre + "!");
 **
 
@@ -78,7 +78,7 @@ Por otro lado, si fuera una constante o **valor**, se escribiría así:
 
 
 
-**`val`**` ``nombre : String = "World";`
+valnombre : String = "World";`
         println("Hello, " + nombre + "!");
 
 Y en tal caso la linea *'nombre = "PACO"'* no compilaría. Ya que los valores no pueden modificarse (son referencias inmutables)
@@ -115,7 +115,7 @@ Sería:
 Incluso, si encadenamos mensajes, se pueden eliminar los puntos. En este caso es un único mensaje, un único punto, pero quedaría:
 
         perro ladrar
-### []()Definición de una clase
+### Definición de una clase
 
 En su forma más simple una clase se ve muy similar a su par en java
 
@@ -133,20 +133,20 @@ O bien
 
         class Robot {
  `val material = "cobre"`
- `**var** nombre = "C3PO"`
+ `var nombre = "C3PO"`
         }
 
 
-### []()Métodos
+### Métodos
 
 Acá es donde más variantes tenemos y donde más vamos a ver diferencias de sintaxis con Java.
-Los métodos siempre se definen con la palabra reservada **def**.
+Los métodos siempre se definen con la palabra reservada  def.
 
 
 
 
 
-        **def** presentarse() {
+         def presentarse() {
           println("Soy " + nombre)
         }
 En este caso estamos definiendo un método que no recibe parámetros y que tampoco retorna ningún valor. Si no declaramos el tipo de retorno, y tampoco utilizamos el símbolo igual ("="), que ya vamos a ver a continuación, el compilador interpreta esto como un método **void**.
@@ -154,12 +154,12 @@ En scala el tipo para **void ** es **Unit**
 
 Si necesitamos un parámetro, se definiría así:
 
-        **def** presentarseA(alguien : String) {
+         def presentarseA(alguien : String) {
           println("Hola " + alguien + ", soy " + nombre)
         }
 Si en cambio queremos hacer un método que nos retorne el string
 
-        **def** decimeTuNombre() : String = {
+         def decimeTuNombre() : String = {
  `  **return** "Soy " + nombre`
         }
 En este caso estamos especificando el tipo de retorno del método, luego de los parámetros (a diferencia de java y C donde se escriben antes del nombre).
@@ -167,20 +167,20 @@ Otro detalle es que al retornar algo, el método se debe declarar con el símbol
 Ahora veamos cómo reducir un poco de código.
 Podemos eliminar la palabra **return**. El compilador asume que el retorno es la última expresión del cuerpo del método.
 
- `**def** decimeTuNombre() : String = {`
+ ` def decimeTuNombre() : String = 
  `  "Soy " + nombre`
  `}`
 Como en este caso el cuerpo del método es una única expresión, podemos evitar los paréntesis, que sirven para agrupar más de una expresión.
- `**def** decimeTuNombre() : String = "Soy " + nombre`
+ ` def decimeTuNombre() : String = "Soy " + nombre`
 Además, como dijimos en la introducción, Scala tiene inferencia de tipos. Puede "ver" que según el cuerpo del método, estamos retornando un String, con lo cual podría inferir el tipo de retorno del método (viendo también el símbolo "igual", se dá cuenta que es un método que retorna algo, así que debe tener un tipo).
 Así infiere el tipo a String
-        **def** decimeTuNombre() = "Soy " + nombre 
+         def decimeTuNombre() = "Soy " + nombre 
 Finalmente, si quisieramos que este método siempre se llame sin usar los paréntesis (ya que no recibe parámetros), podemos eliminarlos de la declaración:
-        **def** decimeTuNombre = "Soy " + nombre
+         def decimeTuNombre = "Soy " + nombre
 Ojo al piojo que ahora este llamado **no compilaría**:
         robot.decimeTuNombre()
 También ojo al piojo que ahora la declaración se parece mucho a la declaración de  una variable de instancia, pero no lo es ! Esto es un método que se va a estar ejecutando en cada llamado.
-### []()Constructores locos
+### Constructores locos
 Otro punto donde difiere bastante de java y un poco de xtend.
 El caso más simple es cuando una clase tiene un único constructor. Éste se puede escribir como parámetros en el mismo nombre de la clase.
 En nuestro caso del robo
@@ -194,7 +194,7 @@ En nuestro caso del robo
         **class** Robot(nombre:String) {
         
 
-          **def** decimeTuNombre = "Soy " + nombre
+           def decimeTuNombre = "Soy " + nombre
         
 
         }
@@ -206,7 +206,7 @@ Simplemente decimos que el Robot tiene un atributo "nombre" y que éste se debe 
 
 
 
-        **val** unRobot = **new** Robot("R2D2")
+        val unRobot = new Robot("R2D2")
 Con dos parámetros sería
 
 
@@ -222,9 +222,9 @@ Para eso, podemos escribir, lo que en java sería como el "cuerpo del constructo
 
 
         **class** Robotito(nombre:String, material : String) {
-          **val** codigo = nombre.substring(0, 2) + System.currentTimeMillis
+          val codigo = nombre.substring(0, 2) + System.currentTimeMillis
           
-          **def** decimeTuNombre = "Soy " + nombre + " (" + codigo + ")"
+           def decimeTuNombre = "Soy " + nombre + " (" + codigo + ")"
         }
 
 
@@ -239,7 +239,7 @@ Los demás, se escriben como en xtend, o bien como métodos (?) con nombre "this
 
 
         **class** Robotito(nombre:String, material : String) {
-          **val** codigo = nombre.substring(0, 2) + System.currentTimeMillis
+          val codigo = nombre.substring(0, 2) + System.currentTimeMillis
           
           **def this**(nombre:String) = {
             **this**(nombre, "acero")
@@ -281,7 +281,7 @@ En este caso estamos fijando los valores. Pero si queremos recibirlos también c
         **class** RobotitoFurioso(n:String, m: String) **extends** Robotito(n,m) {
             ...
         }
-### []()Getters & Setters
+### Getters & Setters
 
 En los ejemplos hasta ahora vimos como declarar variables de instancia dentro de una clase. Por la forma en la que lo hicimos serán accesibles desde afuera. Por ejemplo podríamos hacer esto:
 
@@ -290,7 +290,7 @@ En los ejemplos hasta ahora vimos como declarar variables de instancia dentro de
 
 
 
-          **val** r = **new** Robotito("R2D2", "acero")
+          val r = new Robotito("R2D2", "acero")
           r.nombre = "23"
 Si bien parece que estamos accediendo diréctamente a las variables de instancia, en realidad Scala genera internamente métodos getters y setters. De hecho cambia el nombre de la variable de instancia a "_nombre".
 Igualmente es un detalle interno, lo importante es, cómo podemos nosotros incluir código en los getters y setters ?
@@ -300,10 +300,10 @@ Acá un ejemplo pavo donde nosotros definimos una nueva propiedad "color".
           var codigo = nombre.substring(0, 2) + System.currentTimeMillis
           **private var** _color : String = "gris"
             
-          **def** color = {
+           def color = {
             _color
           }
-          **def** color_= (nuevo:String) = {
+           def color_= (nuevo:String) = {
             _color = nuevo
           }
         }
@@ -321,10 +321,10 @@ Todo esto lo podemos achicar bastante con las cosas que ya vimos:
 Y quedaría:
 
         **private var** _color : String = "gris"
-        **def** color = _color
-        **def** color_= (nuevo:String) = _color = nuevo
+         def color = _color
+         def color_= (nuevo:String) = _color = nuevo
 Hay que acostrumbrarse a todos esos símbolos "igual" :P
-### []()Sobrescritura de métodos
+### Sobrescritura de métodos
 
 En principio vamos a decir que la herencia funciona igual que en Java/xtend. Es decir que una clase puede heredar de una única clase. Después vamos a ver un complemento a esto, los traits.
 
@@ -343,13 +343,13 @@ Por ejemplo para sobrescribir el toString de nuestro Robotito
 
 
         **class** Robotito(nombre:String, material : String) {
-          **def** decimeTuNombre = "Soy " + nombre
+           def decimeTuNombre = "Soy " + nombre
           
-          **override def** toString() = decimeTuNombre
+          override def toString() = decimeTuNombre
         }
 
 
-### []()Cuestiones de Estilo
+### Cuestiones de Estilo
 
 #### **[]()1 archivo = N clases
 Una diferencia con java, es que en un archivo .scala se puede definir más de una clase.
@@ -387,9 +387,9 @@ Se puede importar dentro de una clase:```
 ```
 
 Más información sobre packages e imports en [éste enlace externo](http://booksites.artima.com/programming_in_scala_2ed/examples/html/ch13.html)
-## []()Temas avanzados
+## Temas avanzados
 
-### []()Definición de Objetos (en lugar de clases)
+### Definición de Objetos (en lugar de clases)
 
 A diferencia de Java, en Scala no existen los métodos de clase o estáticos (static). Sin embargo posee la idea de definir "objetos" además (en lugar de) clases.
 
@@ -398,8 +398,8 @@ A diferencia de Java, en Scala no existen los métodos de clase o estáticos (st
 
 
         **object** Pepita {
-        **  var** energia = 20
-        **  def** volar(metros : Int) = energia -= metros * 3
+        var energia = 20
+        def volar(metros : Int) = energia -= metros * 3
         }
 
 
@@ -420,7 +420,7 @@ O podemos asignarlo a una variable
 
 
 
-        **var** pep = Pepita
+        var pep = Pepita
         pep.volar(23)
         println(pep.energia)
 
@@ -433,7 +433,7 @@ Algunas cuestiones extra sobre estos objetos:
 
 
 
-### []()Tipos estructurales (aka ducktyping)
+### Tipos estructurales (aka ducktyping)
 
 Scala posee la idea de "tipos estructurales". Es decir que además de poder definir un tipo mediante un nombre (por ejemplo, codificando una clase con el nombre Golondrina), podemos definir un tipo mediante su estructura. Por ejemplo definimos un tipo como "todos los objetos que entienden el mensaje *volar"**
 
@@ -458,7 +458,7 @@ Si queremos usar tipos nominales, para que el método "comé" pueda recibir obje
 
 
 
-        **def** come(comida : { **def** energia : Int }) : Unit = {
+         def come(comida : {  def energia : Int }) : Unit = {
             energia -= comida.energia
         }
 
@@ -466,7 +466,7 @@ Fíjense que reemplazamos "Comida", por "{ def energia : Int }".
 Podríamos requerir que entienda más de un mensaje, especificándolos entre las llaves.
 Ahora podemos llamar a come, pasándole cualquier objeto que entienda ese mensaje, no importa su clase.
 Lo interesante es que el lenguaje sigue haciendo el checkeo en tiempo de compilación.
-### []()Cómo crear una aplicación
+### Cómo crear una aplicación
 Al no tener métodos estáticos la forma de hacer un "main" es con objetos, como sigue:
 
 
@@ -474,7 +474,7 @@ Al no tener métodos estáticos la forma de hacer un "main" es con objetos, como
 
 
         **object** Hello {
-        **  def** main(args : Array[String]) : Unit = {
+        def main(args : Array[String]) : Unit = {
             println("Hello")
          `  }`
         }
@@ -492,7 +492,7 @@ Una variante a esto es crear un objeto que extienda de App
 
         }
 
-## []()Colecciones
+## Colecciones
 Existen dos grandes familias de colecciones en Scala: 
 
 
@@ -510,7 +510,7 @@ Podemos construir una lista de la siguiente forma
 
 
 
-        **var** lista = List(1,2,3)
+        var lista = List(1,2,3)
 
 Acá estamos creando una lista con 3 elementos, los números 1, 2 y 3.
 La variable lista se infiere al tipo List[Int], es decir lista de Int's.
@@ -530,7 +530,7 @@ La linea anterior es equivalente a:
 
 
 
-        **var** lista : List[Int] = List(1,2,3)
+        var lista : List[Int] = List(1,2,3)
 
 Además, existen otras formas de definir una lista.
 Por un lado hay que saber que "Nil" es un objeto (singleton) especial que representa a la lista vacía (e inmutable).
@@ -538,21 +538,21 @@ Con lo cual podemos "crear" una lista vacía así:
 
 
 
-        **var** listaVacia = Nil
+        var listaVacia = Nil
 
 Por otro lado, las listas entienden el mensaje "::" (dos veces dos puntos), lo cual retorna una nueva lista concatenando un elemento en la cabeza y otra lista como cola. El "::" asocia a derecha. Con esto podemos definir una lista por extensión
 
 
 
-        **var** igualALaPrimera = 1 :: 2 :: 3 :: Nil
-**var** igualALaPrimeraBis = 1 :: (2 :: (3 :: Nil))  // asociando explicitamente
+        var igualALaPrimera = 1 :: 2 :: 3 :: Nil
+var igualALaPrimeraBis = 1 :: (2 :: (3 :: Nil))  // asociando explicitamente
 
 Usando ":::" (tres veces dos puntos) se concatenan listas, ponele
 
 
 
 
-        **val** otraMas = List(1,2) ::: List(3)
+        val otraMas = List(1,2) ::: List(3)
         
 
 
@@ -566,7 +566,7 @@ Entonces:
 
 
 
-        **var** numeros = List(1,2,3)
+        var numeros = List(1,2,3)
 
 Quiere decir que, el objeto lista al que apuntamos con la variable "numeros" es inmutable. No se le pueden agregar o eliminar elementos.
 En cambio la referencia sí es mutable. Con lo cual lo que sí podemos hacer es, hacerla apuntar a otra lista distinta.
@@ -575,17 +575,17 @@ Si queremos que sea una constante, es decir que siempre apunte a la misma lista
 
 
 
-        **val** numeros = List(1,2,3)
+        val numeros = List(1,2,3)
 
 Podríamos tener en otro caso, un valor (referencia inmutable) pero que apunta a un objeto mutable
 
 
 
-        **val** numeros = ArrayBuffer(1,2,3)
+        val numeros = ArrayBuffer(1,2,3)
 
 
 
-### []()Jerarquía de Colecciones
+### Jerarquía de Colecciones
 
 La jerarquía de colecciones de Scala es bastante completa/ja. Y hace uso extensivo del concepto de **Mixins **que vamos a ver en la materia.
 Acá un diagrama a modo esquemático de las "interfaces" **genéricas, comunes** a colecciones mutables e inmutables:
@@ -615,7 +615,7 @@ Y acá las mutables:
 ](http://docs.scala-lang.org/resources/images/collections.immutable.png)
 Más info [acá](http://docs.scala-lang.org/overviews/collections/overview.html)
 
-### []()Algunos métodos de las colecciones
+### Algunos métodos de las colecciones
 El foreach es un método similar al "do" de Smalltalk, que permite ejecutar una lógica con cada uno de los elementos de la colección.
 Para esto recibe como parámetro un "bloque" que opera con un elemento
 
@@ -623,10 +623,10 @@ Para esto recibe como parámetro un "bloque" que opera con un elemento
 
 
 
-        **val** donald = **new** Pato
-        **val** pepita = **new** Golondrina
+        val donald = new Pato
+        val pepita = new Golondrina
             
-        **val** animales : List[Animal] = List(donald, pepita)
+        val animales : List[Animal] = List(donald, pepita)
 
 
         animales.foreach { a : Animal => a.vola(20)}
@@ -689,7 +689,7 @@ Ojo porque también existe el **collect** y **detect**, pero tienen otro signifi
 
 
 
-## []()Links interesantes a temas aún más avanzados
+## Links interesantes a temas aún más avanzados
 
 
 * [Option's, Some y None](http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html)

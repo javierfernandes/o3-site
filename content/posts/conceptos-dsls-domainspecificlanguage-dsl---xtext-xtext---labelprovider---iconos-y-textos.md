@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Intro
+## Intro
 
 Podemos customizar un aspecto más "visual" o "accesorio" si se quiere de nuestro lenguaje es que la parte estética del plugin IDE que nos genera.
 En particular acá vamos a ver dos cosas:
@@ -12,7 +12,7 @@ En particular acá vamos a ver dos cosas:
 * Cambiarle el ícono a los elementos de nuestro lenguaje
 * Cambiarle el texto con el cual se representa uno de nuestros elementos del leguaje.
 
-## []()Outline Default (no customizado)
+## Outline Default (no customizado)
 
 Además del editor de texto, xtext nos genera una vista "Outline".
 Ésta muestra en forma de arbol el contenido de uno de nuestros archivos y se va refrescando y vinculando con el editor de texto. Así si elegimos un elemento en esa vista, lo selecciona en el código y vice-versa.
@@ -29,7 +29,7 @@ La vista de la derecha es el "outline".
 Como se ve usa los mismos íconos feuchos para todos los elementos (definiciones de **Alguien** y **Saludo**'s).
 
 
-## []()Customizando el *DSLLabelProvider
+## Customizando el *DSLLabelProvider
 
 Existe un objeto que se encarga de, a partir de los objetos de nuestro modelo semántico saber calcular:
 
@@ -54,20 +54,20 @@ Acá el ejemplo para los saludos.
 
 
  `@Inject`
- `new(AdapterFactoryLabelProvider delegate) {`
+ `new(AdapterFactoryLabelProvider delegate) 
  `super(delegate);`
  `}`
  
  `// Saludo`
- `**def** text(Saludo saludo) {`
+ ` def text(Saludo saludo) 
  `'Un saludo a ' + saludo.AQuien.name `
  `}`
- `**def** image(Saludo saludo) {`
+ ` def image(Saludo saludo) 
  `'saludo.jpg'`
  `}`
  
  `// Alguien`
- `**def** image(Alguien alguien) {`
+ ` def image(Alguien alguien) 
  `'alguien.png'`
  `}`
         }
@@ -93,7 +93,7 @@ Acá se muestra como queda nuestro ejemplo.
 Como se ve a la derecha, está usando nuestros íconos (que pusimos en la carpeta "icons"), y la descripción de los saludos ha cambiado a nuestro texto ("Un saludo a Jose").
 
 
-## []()Dinamismo por objeto
+## Dinamismo por objeto
 
 Como éstos métodos reciben a los objetos instancias de las clases de nuestro modelo semántico. Tiene entre su estado interno, lo que ingresó el usuario en el DSL (así como estamos mostrando "Un saludo a XXXX"
 

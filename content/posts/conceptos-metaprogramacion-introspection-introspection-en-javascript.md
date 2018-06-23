@@ -13,7 +13,7 @@ date:  2018-06-20T19:27:10-03:00
 
 
 
-        **var** libro = { 
+        var libro = { 
             titulo: "El Juego de Ender",
             autor: "Orson Scott Card",  
             cliente: null,
@@ -54,10 +54,10 @@ date:  2018-06-20T19:27:10-03:00
 
 
         Un objeto
- `con **titulo**`
- `con **autor**`
- `con **cliente**`
- `con **prestarA**`
+ `con **titulo
+ `con **autor
+ `con **cliente
+ `con **prestarA
 Ahora accedamos a un slot en particular:
         println("Titulo: " + libro["titulo"])
 Podemos checkear si un slot existe en el objeto con:

@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Qué es **XText **?
+## Qué es **XText **?
 
 * Es un **framework** (o herramienta) **para la creación de lenguajes**.
 * Hecho **en java**, conectado con otros **proyectos de eclipse** para desarrollo de **metamodelos** (EMF).
@@ -33,7 +33,7 @@ date:  2018-06-20T19:27:10-03:00
   * content assist (autocomplete)
 
 
-## []()Gramática, Generadores e Inferrers
+## Gramática, Generadores e Inferrers
 
 La forma en que trabajamos con XText para definir nuestro lenguaje se puede resumir así:
 
@@ -44,7 +44,7 @@ La forma en que trabajamos con XText para definir nuestro lenguaje se puede resu
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402154799550/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext-overview.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-overview-png?attredirects=0)
 
-### []()Gramática .xtext y modelo semántico
+### Gramática .xtext y modelo semántico
 
 A diferencia de otras herramientas, la gramática de xtext define dos cosas:
 
@@ -76,7 +76,7 @@ Luego XText automáticamente cuando parsea un archivo en nuestro lenguaje, gener
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402157014999/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext-generainstanciasmodelo.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-generainstanciasmodelo-png?attredirects=0)
-### []()Especificación de la Gramática .xtext
+### Especificación de la Gramática .xtext
 
 Éste archivo tiene su propia sintaxis y significado (semántica). Con lo cual sería largo y molesto escribir acá una especificación. Además ya existe en la documentació de xtext.
 Así que para entender mejor todo lo que se puede hacer y cómo en la gramática, pueden ir a este link:
@@ -84,7 +84,7 @@ Así que para entender mejor todo lo que se puede hacer y cómo en la gramática
 
 [http://www.eclipse.org/Xtext/documentation.html#grammarLanguage](http://www.eclipse.org/Xtext/documentation.html#grammarLanguage)
 
-### []()Procesando el Modelo Semántico
+### Procesando el Modelo Semántico
 
 
 Al procesar un archivo en nuestro DSL, podemos realizar alguna tarea. Un compilador por ejemplo genera código ejecutable.
@@ -107,7 +107,7 @@ Entonces tenemos a grandes rasgos 3 opciones para procesar nuestro modelo:
 
 A continuación vamos a ver las variantes.
 
-### []()Generador
+### Generador
 
 XText modela la idea de un **Generador**.
 El objetivo del generador es, justamente a partir del input, generar "algo" como output.
@@ -173,7 +173,7 @@ Entonces podríamos repensar el diagrama así (aunque no exáctamente el orden o
 Ver en la documentación de XText [http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration](http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration)
 
 
-### []()JVM Inferrer
+### JVM Inferrer
 
 Como vimos un generator permite generar código de cualquier lenguaje (genera texto), y además, en forma bastante rápida/simple.
 
@@ -213,13 +213,13 @@ Algunas cosas a notar:
 * El segundo parámetro, el "acceptor", es un objeto que nos permite registrarle nuevas clases Java que querramos generar. No en forma de archivos, sino con una API propia de xtend que modela las clases.
 
 Al usar un inferrer estamos de alguna forma declarando un "mapeo" entre nuestros objetos del DSL y los elementos de Java. Con lo cual, XText puede hacer cosas como mantener esa relación y darnos un debugger para nuestro DSL !! :)
-### []()
+### 
 
 #### **[]()Ejemplo de JvmModelInferrer
 
 Ver ejemplo en la documentación de XText  [http://www.eclipse.org/Xtext/documentation.html#_8](http://www.eclipse.org/Xtext/documentation.html#_8)
 
-### []()DSL's Interpretados
+### DSL's Interpretados
 
 Un lenguaje interpretado, no genera código (ni en forma de strings, ni con una API), sino que es un programa que ejecuto pasándole como entrada el nombre de un archivo escrito en nuestro DSL y el diréctamente toma eso como entrada y **hace algo**, es decir que se ejecuta.
 Qué hace ? Bueno, depende del DSL, claro.
@@ -243,7 +243,7 @@ En [éste link](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interp
 
 Un segundo ejemplo, el de [La Tortuga](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---tortuga-aka-logo-interpretada), implementa un intérprete, pero dentro de eclipse, como un plugin, ya que lo que hace es graficar en una vista de eclipse (como el Logo).
 Cambia un poco la forma en que el intérprete llama a XText para que haga el parseo y nos de el modelo semántico.
-## []()Ejemplos en XText
+## Ejemplos en XText
 
 
 * [Hola Mundo's](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos): 
@@ -267,7 +267,7 @@ Cambia un poco la forma en que el intérprete llama a XText para que haga el par
 
 * [DSL para pedidos HTTP](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---http)
 
-## []()Extendiendo diferentes aspectos del DSL de XText
+## Extendiendo diferentes aspectos del DSL de XText
 
 
 * Checkeos: ver [Saludos](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)

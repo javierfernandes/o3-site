@@ -5,11 +5,11 @@ date:  2018-06-20T19:27:10-03:00
 
 
 Nota: actualizado a xtext 2.6
-## []()Introducción
+## Introducción
 
 Este es el primer ejemplo bien sencillo que podemos hacer con XText. Una especie de "Hola Mundo".
 En realidad vamos a hacer un lenguaje (DSL) que servirá para escribir "Saludos hola mundo".
-### []()Creando un Nuevo Proyecto
+### Creando un Nuevo Proyecto
 
 Veamos como usar xtext para crear un minilenguaje de ejemplo (de hecho el que ya se crea por default):
 
@@ -55,7 +55,7 @@ Los archivos más importantes son
 
 
 
-### []()Gramática en XText y modelo semántico
+### Gramática en XText y modelo semántico
 
 
 Analizamos un poco el archivo que contiene la gramática (el .xtext)
@@ -205,7 +205,7 @@ Para más información sobre el formato de la gramática ver la documentación d
 
 
 [http://www.eclipse.org/Xtext/documentation.html#grammarLanguage](http://www.eclipse.org/Xtext/documentation.html#grammarLanguage)
-### []()Generando el modelo semántico y ejecutando
+### Generando el modelo semántico y ejecutando
 
 Ejecutamos el workflow. Para esto tenemos dos opciones, que son equivalentes:
 - hacer click derecho sobre el archivo .xtext (la gramática) y "Run as" as "Generate Xtext Artifacts"
@@ -251,7 +251,7 @@ Fíjense que son los nombres de nuestras dos reglas !
 Esto es porque xtext genera, a partir de la gramática, objetos para cada una de nuestras reglas.
 
 
-### []()Ejecutamos el plugin
+### Ejecutamos el plugin
 
 Para probar nuestro lenguaje vamos a usar un IDE, que, obviamente va a ser eclipse. Pero necesitamos levantar un eclipse nuevo, que tenga nuestros plugins. Porque uno de ellos es el que tiene el editor de texto.
 
@@ -286,7 +286,7 @@ Luego podemos crear un proyecto normal java, y dentro un archivo con nuestra ext
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402163584249/conceptos/dsls/domainspecificlanguage/dsl---xtext/dsl-en-xtext---saludos/saludos-ejemplo-editor.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos-saludos-ejemplo-editor-png?attredirects=0)
 
-### []()El Generador 
+### El Generador 
 Implementamos el generador entonces en xtend. Para eso primero tenemos una primer parte de código que se encarga de, dado el archivo que estamos procesando, obtener su nombre, sacando la extensión, etc.
 Y así "inferir" el nombre de la clase java a generar.
 Luego usamos los "RichStrings" o "templates" de xtend para no escribir tantos strings sueltos.
@@ -296,14 +296,14 @@ Luego usamos los "RichStrings" o "templates" de xtend para no escribir tantos st
 **class** SaludosDSLGenerator **implements** IGenerator {
          
             **override void** doGenerate(Resource resource, IFileSystemAccess fsa) {
-         **val** model = resource.allContents.head as Model
-         **val**` fileName = resource.URI.lastSegment`
-         **val**` className = fileName.until(".").firstUpper`
+         val model = resource.allContents.head as Model
+         **val fileName = resource.URI.lastSegment`
+         **val className = fileName.until(".").firstUpper`
          
          fsa.generateFile(className + ".java", model.generateJavaClass(className))
             }
          
-            **def** generateJavaClass(Model m, String className) '''
+             def generateJavaClass(Model m, String className) '''
          public class «className» {
          public static void main(String[] args) {
          «**FOR** saludo : m.saludos »
@@ -317,7 +317,7 @@ Luego usamos los "RichStrings" o "templates" de xtend para no escribir tantos st
 
 
 
-## []()Checkeos & Validaciones
+## Checkeos & Validaciones
 Otro punto de extensión de xtext es escribir validaciones semánticas en la clase Validator que nos genera.
 Acá una validación sobre las Despedida's
 
@@ -346,26 +346,26 @@ Esto código usa a su vez extension methods que le agregamos al modelo semántic
 
 
 
-        **def** bienvenida(Despedida despedida) {
+         def bienvenida(Despedida despedida) {
  `despedida.model.saludos.filter(Bienvenida).findFirst[AQuien == despedida.AQuien]`
         }
 
 
-        **def** model(Saludo saludo) {
+         def model(Saludo saludo) {
  `saludo.eContainer as Model`
         }
  
-        **def** estaDespuesDe(Saludo a, Saludo b) {
+         def estaDespuesDe(Saludo a, Saludo b) {
  `a.posicion > b.posicion`
         }
  
-        **def** posicion(Saludo s) {
+         def posicion(Saludo s) {
  `s.model.saludos.indexOf(s)`
         }
 
 
 
-## []()Quick Fixes
+## Quick Fixes
 
 Ahora vamos a ver cómo extender un poquito la parte del IDE que nos genera (el editor).
 En particular, ya que detectamos un error con los checkeos anteriores, está bueno que le demos un "quick fix" al usuario, que los arregle solito.
@@ -416,10 +416,10 @@ Luego, en la clase **SaludosDSLQuickFixProvider **cada método es una quickfix, 
 
 
 
- `**@Fix(SaludosDSLValidator.DESPEDIDA_SIN_BIENVENIDA)**`
- `def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {`
- `acceptor.accept(issue, 'Crear Bienvenida', 'Agregar Bienvenida.', null, new ISemanticModification() {`
- `override apply(EObject element, IModificationContext context) throws Exception {`
+ `**@Fix(SaludosDSLValidator.DESPEDIDA_SIN_BIENVENIDA)
+ `def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) 
+ `acceptor.accept(issue, 'Crear Bienvenida', 'Agregar Bienvenida.', null, new ISemanticModification() 
+ `override apply(EObject element, IModificationContext context) throws Exception 
  `val despedida = element as Despedida`
  `val aQuien = despedida.AQuien.name`
  `context.xtextDocument.replace(element.before, element.node.length, "Hola " + aQuien + " ! " + element.node.text)`
@@ -448,11 +448,11 @@ Este método está usando unos extensions methods que definimos más abajo en la
         }
 
 
-        **def** **static** after(EObject element) {
+         def **static** after(EObject element) {
  `element.node.endOffset`
         }
  
-        **def** **static **node(EObject element) {
+         def **static **node(EObject element) {
  `NodeModelUtils.findActualNodeFor(element)`
         }
 

@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción - Decorator Pattern
+## Introducción - Decorator Pattern
 
 
 Como vimos en los lenguajes basados pura y exclusívamente en objetos la delegación es un mecanismo bastante poderoso. En esos lenguajes era automático, y vimos entonces que hacer un "decorator" por ejemplo era bastante trivial, agregando un nuevo parent object que solo interceptaba los mensajes que le interesaban.
@@ -22,7 +22,7 @@ Veamos un ejemplo:
 
 Acá podemos ver como se usaría en un main():
 
-            `    ``List<Integer> numeros = Arrays.asList(10, 20, 30, 40, 50, 60);`
+            `   List<Integer> numeros = Arrays.asList(10, 20, 30, 40, 50, 60);`
                 
                 System.out.println("Original:");
                 Iterator<Integer> numerosIterator = numeros.iterator(); 
@@ -31,7 +31,7 @@ Acá podemos ver como se usaría en un main():
                 }
                 
                 System.out.println("Salteado:");
-*`        numerosIterator = **new** SalteaIteratorDecorator<Integer>(numeros.iterator());  `*<<--- ACA DECORAMOS!
+*`        numerosIterator = new SalteaIteratorDecorator<Integer>(numeros.iterator());  `*<<--- ACA DECORAMOS!
                 **while**(numerosIterator.hasNext()) {
                     System.out.println(numerosIterator.next());
                 }
@@ -97,14 +97,14 @@ Por si no se entiende, este decorator es como que se "anticipa", y ya sabe (cach
 Esto está hecho así, porque para poder implementar el hasNext() no podemos símplemente delegarle al decorado, porque éste podría tener 1 más, pero no 2 más. En ese caso nosotros deberíamos responder false (nuestro decorator).
  Entonces, lo más fácil es que siempre esté adelantado. En cualquier momento cuando intenta avanzar dos posiciones y no tiene más, deja en null "siguiente", que significa que no hay más.
 
-## []()Ventajas
+## Ventajas
 
 A diferencia de la herencia yo puedo decorar y "des"decorar un objeto en runtime. En cambio si yo hacía una subclase de un Iterador que sobrescribía el comportamiento, toda instancia de esa clase iba a ser siempre un iterador "salteador", y no podría yo agregar/sacar ese comportamiendo en runtime.
 
 Otro ventaja del decorator es que yo ahora lo puedo aplicar para meterle este comportamiendo a cualquier Iterator. Si usaba herencia y tenía varias clases de Iterators que quería "saltear" hubiera tenido que subclasear cada una repitiendo código.
 
 
-## []()Problema del Decorator (Burocracia!)
+## Problema del Decorator (Burocracia!)
 
 
 Pero no todo es alegria con el Decorator. Al menos no en lenguajes con checkeos de tipos. Lo malo es que a veces queremos solo "interceptar" un único método, por ejemplo el add() o dos métodos, add() y addAll() de un List. Pero como nuestro decorator tiene que implementar List, nos tira encima toda la burocracia y el trabajo de tener que implementar todos los métodos de List, que son varios.
@@ -116,7 +116,7 @@ Eso es "burocracia", o más bien un embole.
 Si después se agrega un método a la interfaz (ok, a List no se puede, pero si fuera una nuestra), deberíamos tocar todos los decorators para agregarles ese método nuevo.
 
 
-## []()Enunciado del TP
+## Enunciado del TP
 
 Entonces dicho todo esto, y luego de esta larga introducción, la intención del TP es implementar un mecanismo genérico que nos permita decorar un objeto para interceptar ciertos métodos, sin necesidad de la burocracia de tener que implementar todos los otros métodos.
 Este mecanismo se debe poder utilizar para decorar:
@@ -142,7 +142,7 @@ En cambio nosotros queremos que hagan:
   * Definimos una convención, a continuación:
 
 
-### []()Convención de Uso
+### Convención de Uso
 Si yo quiero decorar un **List** para hacer algo solo en el método add():
 
 * Creo una clase
@@ -161,6 +161,6 @@ Nuestro interceptor será:
             }
 
         }
-### []()TestCase
+### TestCase
 
 Les pasamos ***acá adjunto ***un test case con pruebas que deberá pasar su interceptor. Deberán modificar el método **crearInterceptor** para allí instanciar su propia clase!

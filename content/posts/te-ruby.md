@@ -4,18 +4,18 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Ruby
+## Ruby
 
 
 * [http://ick.rubyforge.org/inside.html](http://ick.rubyforge.org/inside.html)
 
-### []()Documentación de referencia
+### Documentación de referencia
 
 
 * [attr_reader, attr_writer & attr_accessor](http://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby)
 
 
-### []()IDE
+### IDE
 
 Un buen IDE para Ruby es el [RubyMine de JetBrains](http://www.jetbrains.com/ruby/download/index.html). No es libre ni gratuito, pero funciona bastante mejor que la mayoría de los IDEs que existen para Ruby, al menos al momento.
 
@@ -27,14 +27,14 @@ Contamos con una licencia educativa que pueden utilizar para la cursada, que est
 **
 
 Una alternativa gratuita es el [Aptana Studio](http://aptana.com/products/studio3/download).
-## []()Ruby On Rails
+## Ruby On Rails
 
-### []()Instalación
+### Instalación
 
 * Para instalar Ruby y Rails en Ubuntu: [https://help.ubuntu.com/community/RubyOnRails](https://help.ubuntu.com/community/RubyOnRails)
 * Si encuentran algún problema con la instalación, tal vez esto ayude: [http://heatware.net/ruby-rails/solved-installing-sqlite3-ruby-gem-extconf-rb-mkmf-loaderror/](http://heatware.net/ruby-rails/solved-installing-sqlite3-ruby-gem-extconf-rb-mkmf-loaderror/).
 
-### []()Ejemplos
+### Ejemplos
 
 Para generar una aplicación simple, acá hay un tutorial bastante sencillo: [http://guides.rubyonrails.org/getting_started.html](http://guides.rubyonrails.org/getting_started.html).
 

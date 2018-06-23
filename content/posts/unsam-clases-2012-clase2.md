@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Unidad I
+### Unidad I
 
 Estuvimos un rato largo hablando de [Sistemas de tipos](conceptos-tipos-binding-sistemas-de-tipos).
 

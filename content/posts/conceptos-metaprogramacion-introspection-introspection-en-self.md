@@ -29,7 +29,7 @@ Acá entonces creamos un objeto libro...
 
 ******
 
-******`parent`******`* = traits oddball`
+****parent`***** = traits oddball`
 ****Y ahora sí obtenemos el mirror con
 
 **************
@@ -79,7 +79,7 @@ Entonces, ya no necesitamos la ventanida de nuestro libro para introspectarlo, p
 Hagamos algo más interesante. Cambiémosle el valor del slot **titulo** mediante su mirror.
 
 
-**************`at: 'titulo' PutContents: (reflect: 'Ubik')
+************at: 'titulo' PutContents: (reflect: 'Ubik')
         **************
 
 Luego de hacer **Do it**, vemos que el objeto cambió *(a la izquierda)*

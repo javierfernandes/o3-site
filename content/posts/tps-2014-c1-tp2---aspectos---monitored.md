@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Condiciones Generales
+## Condiciones Generales
 
 Se pide:
 
@@ -38,10 +38,10 @@ Para todos los ejemplos a continuaci ́n se considera la siguiente clase *Person
                 **this**.nombre = nombre;
             }
         }
-## []()Requerimientos Específicos
+## Requerimientos Específicos
 
 
-### []()Ejercicio 1
+### Ejercicio 1
 
 Construir un aspecto que contabilice la cantidad de veces que se llama un método determinado. Para seleccionar los métodos a utilizar se utiliza una annotation denominada *@Monitored*
 
@@ -75,7 +75,7 @@ A continuación se presenta un ejemplo de una clase de dominio y un test a reali
         }
 
 
-### []()Ejercicio 2
+### Ejercicio 2
 
 
 Monitorear los valores de una variable de instancia, asignándole a cada variable un validador y tirando una
@@ -89,29 +89,29 @@ A continuación se muestra un posible test:
 
 
 
-**`public class`**` ValidarStringNoVacio `**`implements`**` Validador<String> {`
-            **`public void`**` validar (String valor) {`
-                **`return`**` valor.size > 0;`
+public class ValidarStringNoVacio implements Validador<String> 
+            public void validar (String valor) 
+                return valor.size > 0;`
             }
         }
 
 
 
 
-**`public class`**` NombreNoVacioTest {`
+public class NombreNoVacioTest 
             
             @Test
-            **`public void`**` noDebePermitirNombresVacios () {`
+            public void noDebePermitirNombresVacios () 
                 Persona p1 = new Persona();
                 ValidadorAspect.aspectOf()
                      .agregarValidador(p1, "nombre", new ValidarStringNoVacio());
                 p1.setNombre("Nico");
                 assertEquals("Nico", p1.getNombre()); // Se asigna `el nombre correctamente`
-                **`try`**` {`
+                try 
                     p1.setNombre("");
                     fail("Debera haber tirado excepcion al asignarle un nombre vacio);
                 }
-                **`catch`**` (ValorInvalidoException e) {`
+                catch (ValorInvalidoException e) 
                     assertEquals("Nico", p1.getNombre()); // El nombre no cambio
                 }
             }
@@ -119,9 +119,9 @@ A continuación se muestra un posible test:
 
 
 
-## []()Ejercicios  Bonus
+## Ejercicios  Bonus
 
-### []()Ejercicio 3
+### Ejercicio 3
 
 
 Definir el aspecto del ejercicio 1 como pertarget de forma de tener una instancia del aspecto por cada objeto
@@ -139,7 +139,7 @@ pasará tener la forma:
         ContadorLlamadasAspect.aspectOf(p1).cantLlamadas("getNombre");
 
 
-### []()Ejercicio 4
+### Ejercicio 4
 
 
 Siguiendo la técnica utilizada en el ejemplo ObservableByMixinAspect (*1) , agregar los métodos necesarios a las clases de dominio (en este ejemplo Persona), de forma de poder utilizarlas de la siguiente manera:
@@ -171,4 +171,4 @@ Siguiendo la técnica utilizada en el ejemplo ObservableByMixinAspect (*1) , agr
 
 
 
-## []()
+## 

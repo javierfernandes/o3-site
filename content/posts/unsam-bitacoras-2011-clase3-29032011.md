@@ -6,7 +6,7 @@ date:  2018-06-20T19:27:10-03:00
 
 En esta clase continuamos con algunos puntos que nos habían quedado de las clases anteriores.
 
-## []()Duck Typing
+## Duck Typing
 En la primer parte de la clase, continuamos el tema de Sistemas de Tipos. Específicamente vimos la idea de **duck typing en un lenguaje con checkeos en tiempos de compilación**, como **scala**.
 
 *Scala* es un lenguaje que vamos a usar para varios ejemplos, que se compila y se ejecuta sobre la VM de Java. Tiene varios features interesantes que vamos a ir viendo para diferentes conceptos de la materia, pero hoy nos interesa el Duck Typing.
@@ -42,7 +42,7 @@ Finalmente, comentamos la idea de que este tipo de concepto, feature y/o herrami
 
 
 
-## []()TDD
+## TDD
 Como segunda parte de la clase vimos el concepto de Test-Driven Development.
 Que es básicamente una práctica que viene del mundo smalltalk, y bastante relacionada con las buenas prácticas de XP (extremme programming), que se refiere a la idea de:
 
@@ -58,7 +58,7 @@ El punto de incluir TDD en esta materia, no era explicar esta práctica completa
 
 Los slides de TDD se pueden descargar de acá: [Unidad 1 - Esquemas de tipado](conceptos-tipos-binding)
 
-## []()Bloques y Colecciones
+## Bloques y Colecciones
 Vimos un ejemplo simple en smalltalk utilizando el mensaje "collect"
 
 #(1 2 3 4 5).collect: [n | n^2]  

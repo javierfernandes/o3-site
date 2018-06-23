@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Introducción
+### Introducción
 En la clase de hoy arrancamos comparando los modelos de herencia simple y múltiple, analizando las ventajas y desventajas de cada uno. Para tratar de tomar lo mejor de ambos mundos aparecen dos modelos alternativos denominados [traits](conceptos-traits) y [mixins](conceptos-mixins). 
 
 
@@ -13,7 +13,7 @@ Para analizarlos vimos ejemplos de traits en Pharo y de mixins en Scala. (Cabe r
 
 
 
-### []()Traits vs. Mixins
+### Traits vs. Mixins
 
 Marcamos dos diferencias importantes entre ambos conceptos:
 
@@ -27,7 +27,7 @@ Es un error común suponer que la diferencia entre traits y mixins pasa por la c
 
 
 Entre las implementaciones que elegimos también aparece otra diferencia interesante que es la posibilidad de aplicar un mixin directamente sobre un objeto al instanciarlo, cosa que Scala permite y Pharo no. Sin embargo eso depende mucho del lenguaje y para ambos conceptos existen tanto lenguajes que permiten la aplicación sobre una instancia como los que no. (En este sentido es interesante leer sobre [Talents](http://scg.unibe.ch/research/bifrost/talents).)
-### []()Diseño con traits y/o mixins
+### Diseño con traits y/o mixins
 
 Las interpretaciones que se hace de las herramientas lleva a diferentes estrategias para diseñar utilizando traits o mixins, citamos algunas ideas:
 
@@ -35,7 +35,7 @@ Las interpretaciones que se hace de las herramientas lleva a diferentes estrateg
 * Otras visiones proponen utilizar los traits y mixins para modelar conceptos que puedan ser aplicados a distintas clases.
 * En en [paper seminal de traits](http://scg.unibe.ch/archive/phd/schaerli-phd.pdf), Shaerli y Ducasse proponen poner todo el código de la aplicación en traits y utilizar las clases sólo para definir variables de instancia y *glue code.*
 
-### []()Material de lectura 
+### Material de lectura 
 
 
 Las lecturas más importantes son:
@@ -55,7 +55,7 @@ Otras lecturas interesantes:
 * Un antecedente a los mixins: [Flavors, de David Moon](http://dl.acm.org/citation.cfm?id=28698) (ese paper lamentablemente no se puede conseguir online gratuitamente, pero acá hay [otra publicación de David Moon sobre Flavors](ftp:-publications-ai-mit-edu-ai-publications-pdf-AIM-602-pdf)).
 * Una extensión a la idea de traits: [Talents](http://scg.unibe.ch/research/bifrost/talents)
 
-### []()Ejemplos
+### Ejemplos
 
 
 * En [http://xp-dev.com/svn/uqbar/examples/paco/trunk/traits](http://xp-dev.com/svn/uqbar/examples/paco/trunk/traits) hay ejemplos en Scala y en Pharo.

@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Dispatch Por Valor
+## Dispatch Por Valor
 
 
 Como vimos en la página relativa a Múltiple Dispatch, existen variantes al dispatch tradicional que permite el polimorfismo en base al receptor.
@@ -18,8 +18,8 @@ Esto es algo muy común en lenguajes funcionales.
 Ejemplo:
 
 ```
-        digitToString(digit, language) `{`
-         **throw** **new** Exception("Couldn't convert "digit" to language "language);
+        digitToString(digit, language) `
+         **throw** new Exception("Couldn't convert "digit" to language "language);
         }
 
         digitToString(1, "english") = "one";
@@ -34,7 +34,7 @@ Ejemplo:
 ```
 
 Como verán en este ejemplo, **la declaración de los parámetros tiene valores, y no tipos**. Nice soporta este feature solo en forma acotada a los tipos básicos y no a objetos complejos. Aunque sería más que interesante, pensar en un lenguaje con soporte para expresarlo para objetos complejos.
-## []()Relación con pattern matching
+## Relación con pattern matching
 
 Los lenguajes funcionales hacen uso extensivamente de esta idea.
 Ya que para una función podemos definir en realidad varias implementaciones, dependiendo de patrones sobre los parámetros de entrada. El famoso "pattern matching".

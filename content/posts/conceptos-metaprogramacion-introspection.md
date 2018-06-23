@@ -20,7 +20,7 @@ En objetos sería algo así como un API que permitiría **inspeccionar** otros o
 * etc.
 
 
-### []()Tipos de Introspection
+### Tipos de Introspection
 
 
 * **Introspection estática:**
@@ -32,7 +32,7 @@ En objetos sería algo así como un API que permitiría **inspeccionar** otros o
 
  * me permite interactuar con el programa para que haga algo. Para eso interactuamos ya no con objetos que representen las clases, sino también con las instancias mismas. Por ejemplo enviarle un mensaje a un objeto.
 
-### []()Ejemplos de introspection en diferentes lenguajes
+### Ejemplos de introspection en diferentes lenguajes
 
 #### **[]()
 * [Introspection en Java](conceptos-metaprogramacion-introspection-introspection-en-java)
@@ -42,4 +42,4 @@ En objetos sería algo así como un API que permitiría **inspeccionar** otros o
 
 
 
-### []()
+### 

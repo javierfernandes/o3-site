@@ -4,13 +4,13 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Descripción
+## Descripción
 Ioke es un lenguaje de programación **experimental **lo que quiere decir que su objetivo no es el de un lenguaje de nivel productivo. De hecho en el sitio del lenguaje el autor Ola Bini, lo describe como su lenguaje para probar ciertas ideas radicales.
 Es un lenguaje de objetos, con checkeos en tiempo de ejecución y tipado implícito. A diferencia de smalltalk es un lenguaje sin clases, lo que se llama **prototipado**.
 
 Si todo esto no se entiendo del todo, no importa, porque lo vamos a explicar a continuación.
 
-## []()Setup del ambiente
+## Setup del ambiente
 
 
 * Simplemente bajamos un tar.gz / zip de [acá](http://ioke.org/download.html)
@@ -29,7 +29,7 @@ Si todo esto no se entiendo del todo, no importa, porque lo vamos a explicar a c
 
 
 
-## []()Primeros Pasos
+## Primeros Pasos
 
 Ejecutamos**
 
@@ -77,28 +77,28 @@ Nuevamente lo que sucede aquí son mensajes.
 
         +> "hola al Mundo"
 
-## []()Objetos & Celdas
+## Objetos & Celdas
 
 En ioke todo es un **objeto. **Y los objetos pueden tener **celdas.**
 
-Por ahora vamos decir que lo que difiere de smalltalk es la forma de crear un nuevo objeto, ya que es un lenguaje prototipado. Esto lo vamos a ver en la siguiente sección. Por ahora digamos que no vamos a construir un objeto a partir de un **new** sino a partir de otro objeto
+Por ahora vamos decir que lo que difiere de smalltalk es la forma de crear un nuevo objeto, ya que es un lenguaje prototipado. Esto lo vamos a ver en la siguiente sección. Por ahora digamos que no vamos a construir un objeto a partir de un new sino a partir de otro objeto
 
 
 
 
         iik> **persona = Origin mimic**
 
-        +>` ``#<Origin:147545B>`
+        +>`#<Origin:147545B>`
         iik> **persona nombre = "Arturo"**
 
-        +>` ``Arturo`
+        +>`Arturo`
         iik> **persona edad = 35**
 
-        +>` ``35`
+        +>`35`
 
         iik> **persona edad**
 
-        +>` ``35`
+        +>`35`
 
 
 
@@ -194,7 +194,7 @@ Ahora que entendemos esto veamos de nuevo la definición de un método
 
 
 
-        iik>` `**`persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")`**
+        iik>` persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")`**
 
 
 
@@ -207,7 +207,7 @@ Si bien esto está expresado en una forma bastante declarativa, al ejecutarse se
 
 
 
-## []()Mimics (o cómo compartir comportamiento)
+## Mimics (o cómo compartir comportamiento)
 
 Entonces hasta ahora vimos que:
 
@@ -261,7 +261,7 @@ En ioke se dice **mimic**
 
 
 
-        iik> **arturo = persona mimic**`iik> **luciana = persona mimic**`
+        iik> **arturo = persona mimiciik> **luciana = persona mimic
 
 Probemos...
 
@@ -323,7 +323,7 @@ Esto produce:
 Es decir que al agregarle un nuevo comportamiento a **persona** todos los objetos que la tenían como Mimic pasaron a tenerlo.
 
 
-## []()Creación de Objetos y Prototipos
+## Creación de Objetos y Prototipos
 
 En la introducción a lenguajes sin clases mencionamos que entonces los objetos se tenían que crear en base a otros objetos.
 En [Self](conceptos-object-based-languages-self) por ejemplo, esto se puede hacer clonando un objeto explícitamente.
@@ -335,7 +335,7 @@ Acá podemos ver que las celdas nombre y edad estan definidas en los dos lugares
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1367099399598/te/ioke/Screenshot%20from%202013-04-27%2018%3A48%3A30.png)
 ](te-ioke-Screenshot%20from%202013-04-27%2018%3A48%3A30-png?attredirects=0)
 
-### []()Mimics con estado y Constructores
+### Mimics con estado y Constructores
 
 
 Entonces por lo que vimos recién un mimic puede tener, además del comportamiento que queremos reutilizar, estado. Porque ioke ya hace la magia de "redefinirlo" en los objetos derivados.
@@ -371,7 +371,7 @@ Lo podemos definir como:
         r1 perimetro
 
 
-## []()Cambiando el Mimic en tiempo de ejecución
+## Cambiando el Mimic en tiempo de ejecución
 
 Dijimos que el mimic estaba entonces cumpliendo algunas de las funciones que cumplía la clase, en lenguajes con clases. Por un lado lo utilizamos para reutilizar comportamiendo y definición de estado, y por otro lado sirve como creador de instancias, con el mensaje **mimic**.
 
@@ -391,7 +391,7 @@ Veamos para eso un ejemplo de vehículos.
 //TODO
 
 
-## []()Mixins
+## Mixins
 //TODO: intro contar mixins como convención, heredan de... y uno siempre crea un Origin mimic y manipula sus mimics agrgando el mixin.
 
 
@@ -402,7 +402,7 @@ En este ejemplo simplemente vamos a darle un comportamiento único, de trasladar
 
         **Vehiculo = Mixins mimic**
 
-**`Vehiculo trasladarse = method("me muevo abstractamente" println)`**
+Vehiculo trasladarse = method("me muevo abstractamente" println)`**
 
 
 
@@ -424,11 +424,11 @@ Así que vamos a crear abstracciones (fíjense que no decimos **clases**) más p
 Y ahora sí, vamos a trabajar con una instancia particular de Vehículo, con un **objeto**. Vamos a hacer que tenga como mimic al Vehiculo Terrestre.
 
 
-        **miAuto****` = Origin mimic`**
+        **miAuto** = Origin mimic`**
 
-        **miAuto****` mimic!(Vehiculo Terrestre) `**
+        **miAuto** mimic!(Vehiculo Terrestre) `**
 
-**`mi``Auto mimics`**
+mi``Auto mimics`**
 
         +> [ Origin:
           ===                          = ===:method(...)
@@ -453,16 +453,16 @@ Lo trasladamos !
 Ahora, como somos relocos queremos convertir nuestro auto en un avión, entonces eliminamos el mimic Vehiculo Terrestre y agregamos el Aereo
 
 
-        iik> `**miAuto**``** removeMimic!(Vehiculo Terrestre)**`
-        iik> `**miAuto**``** mimic!(Vehiculo Aereo)          **`
-        iik> `**miAuto**``** trasladarse**`
+        iik> `**miAuto`** removeMimic!(Vehiculo Terrestre)
+        iik> `**miAuto`** mimic!(Vehiculo Aereo)          
+        iik> `**miAuto`** trasladarse
         +> *`me muevo por el aire`*
 
 Listo, nuestro auto ya se comporta como un Vehículo Aereo, no es más un terrestre.
 
 
 
-## []()Referencias
+## Referencias
 
 * [http://ioke.org/wiki/index.php/Guide](http://ioke.org/wiki/index.php/Guide)
 * [http://mikael-amborn.blogspot.com/2009/07/prototype-based-programming-in-ioke.html](http://mikael-amborn.blogspot.com/2009/07/prototype-based-programming-in-ioke.html)

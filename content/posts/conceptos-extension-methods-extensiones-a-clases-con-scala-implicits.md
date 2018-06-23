@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Intro
+## Intro
 
 Scala no posee un feature específico que se llame extension methods. Es decir que no tiene soporte directo o un mecanismo como veníamos viendo en XTend o en Nice.
 Sin embargo tiene un conjunto de features asociados que se llaman **implicits.**
@@ -17,9 +17,9 @@ Estos implicits son todo un mundo para aprender. Pero vamos a ver acá cómo uti
 
 Previo a explicar cómo implementar extensiones, necesitamos entender algunas cositas locas de Scala
 
-## []()Features de Scala
+## Features de Scala
 
-### []()Métodos Implicits en Scala
+### Métodos Implicits en Scala
 
 Un **implicit method**, se puede pensar como una función que recibe un objeto de un tipo, y retorna otro, generalmente de otro tipo. Así, es como una **conversión**.
 Por ejemplo esta sabe converitr de Integer a Millas
@@ -29,14 +29,14 @@ Por ejemplo esta sabe converitr de Integer a Millas
 Luego, es **implícito**, porque desde otra parte de mi código, puedo importar este método, y en cualquier parte del código que requiere un objeto de tipo Milla, puedo pasar/usar uno de tipo Integer. Scala automática (e implícitamente) va a convertir de Integer a Millas por nosotros, llamando a nuestro implicit method.
 Ej:
 
-**`class`**` ``Auto {`
-**`    var`**` ``millasRecorridas : Millas = _`
+classAuto 
+    varmillasRecorridas : Millas = _`
         }
 
 
 
-**`def`**` ``main(args : Array[String]) : Unit = {`
-           ` `**`val`**` ``auto = new Auto`
+defmain(args : Array[String]) : Unit = 
+           ` valauto = new Auto`
             auto.millasRecorridas =` `*`23`*
         }
 
@@ -49,19 +49,19 @@ Fíjense que en ScalaIDE, se puede ver subrayado y un ícono a la izquierda para
 
 
 
-## []()Extensiones a través de Implicits
+## Extensiones a través de Implicits
 
-### []()Implicit Method con un nuevo Tipo Anónimo
+### Implicit Method con un nuevo Tipo Anónimo
 
 Ahora sí, utilizando implicit methods, definimos un método que recibe a la Persona por parámetro y retorna un nuevo objeto que entiende nuevos métodos. En este caso uno solo "cantar", que sería la extensión.
 
-        **implicit** **def** cantarWrapper(p: Persona) =
-            **new** {
-              **def** cantar = println("Soy " + p + " y canto!!")
+        **implicit**  def cantarWrapper(p: Persona) =
+            new {
+               def cantar = println("Soy " + p + " y canto!!")
             }
         
-**def** main(args : Array[String]) : **Unit** = {
-            `**var** persona = **new** Persona`
+ def main(args : Array[String]) : **Unit** = {
+            `var persona = new Persona`
             persona.*cantar*
         }
         
@@ -85,17 +85,17 @@ Hacemos uso acá de la idea de crear  nuevas clases inline en scala, como si fue
 
 
 
-        **def** main(args : Array[String]) : Unit = {
-           ` **val** objetoLoco = **new** {`
-             `**def** imprimirAlgo() = println("algo")`
-             `**def** imprimirOtraCosa() = println("otra cosa")`
+         def main(args : Array[String]) : Unit = {
+           ` val objetoLoco = new 
+             ` def imprimirAlgo() = println("algo")`
+             ` def imprimirOtraCosa() = println("otra cosa")`
             }
             objetoLoco.imprimirAlgo()
             objetoLoco.imprimirOtraCosa()
         }
 
 
-### []()Extensiones a través de Implicit Class
+### Extensiones a través de Implicit Class
 
 La segunda forma de extender una clase, a diferencia de la anterior, es definiendo una nueva clase. Una especie de "Decorator" de la clase original que queremos extender.
 Y, declarándola además como **implicit **(a la clase, no hace falta a sus métodos)
@@ -105,10 +105,10 @@ Y, declarándola además como **implicit **(a la clase, no hace falta a sus mét
 
 
         **  implicit class** PersonaCantante(p: Persona) {
-** **`**  def** cantarOpera() {`
+** def cantarOpera() 
  `    println("O sole mio!!!")`
  `  }`
-** **`**  def** cantarPayada() {`
+** def cantarPayada() 
  `    println("Aro aro aro!")`
  `  }`
           } 
@@ -120,8 +120,8 @@ Luego:
 
 
 
-        **def** main(args : Array[String]) : Unit = {
-            **var** persona = new Persona
+         def main(args : Array[String]) : Unit = {
+            var persona = new Persona
 
 
             *persona*.cantarOpera()
@@ -135,7 +135,7 @@ Al momento de ejecutar, probáblemente genere una nueva instancia de PersonaCant
 
 
 ***Nota:* **todas las implicit classes deber recibir por parámetro a un objeto de la clase que van a "decorar".
-### []()Implicit Method + Clase Provider Regular
+### Implicit Method + Clase Provider Regular
 
 Este caso es una variante de los anteriores.
 Podríamos definir la clase provider como una clase normal, sin que sea implicit, y luego tener sí un método implicit que haga la conversión de Persona a PersonaCantante.
@@ -144,11 +144,11 @@ Podríamos definir la clase provider como una clase normal, sin que sea implicit
 
 
 
-        **  class** PersonaCantante(p: Persona) {
- `  **def **cantarOpera() {`
+        class PersonaCantante(p: Persona) {
+ `  **def **cantarOpera() 
  `    println("O sole mio!!!")`
  `  }`
- `  **def** cantarPayada() {`
+ `   def cantarPayada() 
  `    println("Aro aro aro!")`
  `  }`
           }

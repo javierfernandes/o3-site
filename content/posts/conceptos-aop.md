@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Introducción
+## Introducción
 
 Para evitar arrancar dando definiciones teóricas que resulten difíciles de entender, vamos ir directo a tratar de explicar AOP (Aspect-Oriented Programming) con un ejemplo.
 
@@ -20,7 +20,7 @@ Entonces, una buena solución para esto es que nuestros objetos sean **Observabl
 E igualmente mantenemos el desacoplamiento entre el modelo y la vista.
 
 
-### []()Objetos Observables
+### Objetos Observables
 
 Entonces la forma de hacer esto normalmente sería:
 
@@ -42,32 +42,32 @@ Supongamos que tenemos una clase **Conversor** que permite convertir de **kilóm
 
 
 
-**`public`**` `**`class`**` ``Conversor`` ``{`**`
+public classConversor``{
 
-    private`**` `**`double`**` ``millas;`
-**`    private`**` `**`double`**` ``kilometros;`
-**`
-    public`**` `**`void`**` ``convertir() {`
- **`this`**`.setKilometros(`**`this`**`.getMillas() * 1.60934);`
+    private doublemillas;`
+    private doublekilometros;`
+
+    public voidconvertir() 
+ this.setKilometros(this.getMillas() * 1.60934);`
             }
  
-**`    public`**` `**`double`**` ``getMillas() {`
- **`return`**` `**`this`**`.millas;`
+    public doublegetMillas() 
+ return this.millas;`
             }
 
 
-**`    public`**` `**`void`**` ``setMillas(`**`double`**` ``millas) {`
- **`this`**`.millas = millas;`
+    public voidsetMillas(doublemillas) 
+ this.millas = millas;`
 
             }
-**`
-    public`**` `**`double`**` ``getKilometros() {`
- **`return`**` `**`this`**`.kilometros;`
+
+    public doublegetKilometros() 
+ return this.kilometros;`
             }
 
 
-**`    public`**` `**`void`**` ``setKilometros(`**`double`**` ``kilometros) {`
- **`this`**`.kilometros = kilometros;`
+    public voidsetKilometros(doublekilometros) 
+ this.kilometros = kilometros;`
             }
 
 
@@ -83,7 +83,7 @@ Y la interfaz observable:
 
         **public** **interface** ObservableObject {
 
-        **    public**`** void** addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
+        **    public** void** addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
         
 
 **    public** **void** removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
@@ -107,26 +107,26 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
  `**private** **double** kilometros;`
 
 
- `**public** **void** convertir() {`
+ `**public** **void** convertir() 
  `**this**.setKilometros(**this**.getMillas() * 1.60934);`
  `}`
  
- `**public** **double** getMillas() {`
+ `**public** **double** getMillas() 
  `**return** **this**.millas;`
  `}`
 
 
- `**public** **void** setMillas(**double** millas) {`
+ `**public** **void** setMillas(**double** millas) 
  `**this**.setFieldValue("millas", millas);`
  `}`
 
 
- `**public** **double** getKilometros() {`
+ `**public** **double** getKilometros() 
  `**return** **this**.kilometros;`
  `}`
 
 
- `**public** **void** setKilometros(**double** kilometros) {`
+ `**public** **void** setKilometros(**double** kilometros) 
  `**this**.setFieldValue("kilometros", kilometros);`
  `}`
 
@@ -148,7 +148,7 @@ Quizás no parecerá tan grave si pensamos en este ejemplo acotado ahora, cuando
 
 
 
-### []()Problemas de la implementación "manual" o tradicional
+### Problemas de la implementación "manual" o tradicional
 
 * **Múltiples jerarquías**: si quiero hacer observable clases de múltiples jerarquías, tenemos que implementar la misma lógica en todas (una forma de evitar esto sería con traits como ya vimos, pero pocos lenguajes tienen traits)
 
@@ -175,7 +175,7 @@ Quizás no parecerá tan grave si pensamos en este ejemplo acotado ahora, cuando
 Entonces aparece la idea de ***aspecto***.
 
 
-## []()Qué es un aspecto ?
+## Qué es un aspecto ?
 Este problema de la observabilidad de objetos es apenas un ejemplo de un tipo de problemática a resolver que aparece varias veces en una arquitectura.
 Entonces ciertas personas decidieron repensar el paradigma teniendo en cuenta esta problemática.
 
@@ -193,7 +193,7 @@ Entonces en este nuevo "paradigma" se identifican como entidades principales (as
 
 
 
-### []()Diferencia con Traits & Mixins
+### Diferencia con Traits & Mixins
 Si bien algunos de los problemas que mencionamos acá se pueden **mitigar** con traits, como por ejemplo la observabilidad, hay otros que no. Y de hecho la observabilidad con traits no resuelve el hecho de tener que modificar las asignaciones a variables.
 
 Veamos como quedaría el Conversor con un trait imaginario en java:
@@ -205,26 +205,26 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
  `**private** **double** kilometros;`
 
 
- `**public** **void** convertir() {`
+ `**public** **void** convertir() 
  `**this**.setKilometros(**this**.getMillas() * 1.60934);`
  `}`
  
- `**public** **double** getMillas() {`
+ `**public** **double** getMillas() 
  `**return** **this**.millas;`
  `}`
 
 
- `**public** **void** setMillas(**double** millas) {`
+ `**public** **void** setMillas(**double** millas) 
  `**this**.setFieldValue("millas", millas);`
  `}`
 
 
- `**public** **double** getKilometros() {`
+ `**public** **double** getKilometros() 
  `**return** **this**.kilometros;`
  `}`
 
 
- `**public** **void** setKilometros(**double** kilometros) {`
+ `**public** **void** setKilometros(**double** kilometros) 
  `**this**.setFieldValue("kilometros", kilometros);`
  `}`
 
@@ -244,7 +244,7 @@ Entonces acá vemos que lo que podemos hacer con traits/mixins tiene varias limi
 
 Así, permite implementar y modelar casos más complejos y dinámicos que los traits.
 
-### []()Ejemplos
+### Ejemplos
 Acá van algunos ejemplos*:
 *
 * Si quiero monitorear el uso de mis objetos. Ej: [Code Coverage](http://en.wikipedia.org/wiki/Code_coverage)
@@ -263,7 +263,7 @@ Podría querer tener lineas de logging en cualquier parte de mi código.
 *
 
 *
-## []()Y entonces qué es un aspecto concretamente ?
+## Y entonces qué es un aspecto concretamente ?
 
 Ok, con la definición y los ejemplos pero se puso un poco abstracto esto, cómo sería un aspecto entonces ?
 
@@ -291,31 +291,31 @@ Y acá entonces tenemos la definición de nuestro aspecto.
 Escribámosla en pseudo código (o nuestro propio DSL -ya vamos a ver en otra unidad qué significa esto-)
 
 
-**`aspecto`**` Observabilidad {`
+aspecto Observabilidad 
 
-            **`luego de`** **`asignacion`**`(x, viejo, nuevo) **agregar**`` {  `
-            `    `**`if`**` (nuevo != viejo) {`
-            `    ``    `**`this`**`.firePropertyChanged(x, viejo, nuevo)`
-            `    ``}`
+            luego de`** asignacion(x, viejo, nuevo) **agregar` {  `
+            `    if (nuevo != viejo) 
+            `       this.firePropertyChanged(x, viejo, nuevo)`
+            `   }`
             `}`
 
 
- `    **agregar** {`
- `        ``**private** Set<Observer> observers = **new** HashSet);`
+ `    **agregar** 
+ `       **private** Set<Observer> observers = new HashSet);`
 
- `        ``**public void** addObserver(Observer o) {`
- `        ``    ``**this**.observers.add(o);`
- `        ``}`
+ `       **public void** addObserver(Observer o) 
+ `          **this**.observers.add(o);`
+ `       }`
 
- **`        `**`**public void** removeObserver(Observer o) {`
- `    ``        ``**this.**observers.remove(o);`
- `        ``}`
+         **public void** removeObserver(Observer o) 
+ `          **this.**observers.remove(o);`
+ `       }`
 
- `        ``**public void** firePropertyChanged(String propertyName, Object oldValue, Object newValue) {`
- `        ``    ``**for** (Observer o : **this.**observers) {`
- `        ``    ``    ``o.propertyChanged(propertyName, oldValue, newValue);`
- `        ``    ``}`
- `        ``}`
+ `       **public void** firePropertyChanged(String propertyName, Object oldValue, Object newValue) 
+ `          **for** (Observer o : **this.**observers) 
+ `             o.propertyChanged(propertyName, oldValue, newValue);`
+ `          }`
+ `       }`
 
  `    }`
             
@@ -330,9 +330,9 @@ En particular nosotros vamos a ver uno para java que se llama [**AspectJ**](http
 Pero agreguemos algunas definiciones teóricas a lo que vimos.
 
 
-## []()Conceptos de un Aspecto
+## Conceptos de un Aspecto
 
-### []()Join-Point
+### Join-Point
 Uno de los componentes que definimos de nuestro aspecto de observabilidad era **el punto que nos interesaba del código.** Es decir "las asignaciones a variables de instancia".
 Este **punto de interés en el código** es lo que en la teoría de aspectos se denomia **join-point** y es uno de los componentes de un aspecto.
 
@@ -364,22 +364,22 @@ Existen diferentes "tipos" de join-points que se derivan del mismo paradigma (o 
 En nuestro pseudo código era:
 
     
- **`asignacion`**`(x, viejo, nuevo)`
+ asignacion(x, viejo, nuevo)`
 
-### []()Point-Cut
+### Point-Cut
 Supongamos que en nuestro ejemplo queremos aplicar el aspecto a un conjunto de clases nada más. Digamos solo a las clases del paquete **tpi.unq.objetos3.
 
 **
 
-**`aspecto`**` Observabilidad {`
+aspecto Observabilidad 
 
-            **`asignacion`**`(x, viejo, nuevo) `**`y si class en `**`tpi.unq.objetos3``.*`
+            asignacion(x, viejo, nuevo) y si class en tpi.unq.objetos3``.*`
 
-            **`    ``luego`** **`agregar`**` {  `
-            `    ``    `**`if`**` (nuevo != viejo) {`
-            `    ``    ``    `**`this`**`.firePropertyChanged(x, viejo, nuevo)`
-            `    ``    ``}`
-            `    ``}`
+               luego`** agregar {  `
+            `       if (nuevo != viejo) 
+            `          this.firePropertyChanged(x, viejo, nuevo)`
+            `      }`
+            `   }`
             `...`
         }
 Acá vemos que estamos combinando varios join-points, el de "asignación de variable" con el de "clase de package".
@@ -401,19 +401,19 @@ Contiene uno o varios joint-points combinados mediante operadores: "**&&**", "**
 Reformulamos nuestro ejemplo de lenguaje con esta idea:
 
 
-**`aspecto`**` Observabilidad {`
+aspecto Observabilidad 
 
-            **`point-cut`**` puntoAObservar = `**`asignacion`**`(x, viejo, nuevo) `**`&& class en `**`tpi.unq.objetos3``.*`
+            point-cut puntoAObservar = asignacion(x, viejo, nuevo) && class en tpi.unq.objetos3``.*`
 
-            **`luego`**` **de** ``puntoAObservar` **`agregar`**` {  `
-            `    `**`if`**` (nuevo != viejo) {`
-            `    ``    `**`this`**`.firePropertyChanged(x, viejo, nuevo)`
+            luego **de**puntoAObservar` agregar {  `
+            `    if (nuevo != viejo) 
+            `       this.firePropertyChanged(x, viejo, nuevo)`
             `    }`
             `}`
             `...`
         }
 
-### []()Advice
+### Advice
 Finalmente el último elemento que identificamos en nuestra definición del aspecto de observabilidad era que, cuando se cumpía la condición del punto **interesante**, que ahora podemos llamar **point-cut, **había que agregar código.
 
 Esa acción a realizar ante un point es lo que se llama **advice**.
@@ -422,15 +422,15 @@ Que básicamente define la modificación al código que vamos a hacer en el cont
 En nuestro ejemplo sería:
 
 
-**`aspecto`**` Observabilidad {`
+aspecto Observabilidad 
 
-            **`asignacion`**`(x, viejo, nuevo) **&&**`**` class en `**`tpi.unq.objetos3``.*`
+            asignacion(x, viejo, nuevo) **&&** class en tpi.unq.objetos3``.*`
 
-            **`    ``luego`** **`agregar`**` {  `
-            `    ``    `**`if`**` (nuevo != viejo) {`
-            `    ``    ``    `**`this`**`.firePropertyChanged(x, viejo, nuevo)`
-            `    ``    ``}`
-            `    ``}`
+               luego`** agregar {  `
+            `       if (nuevo != viejo) 
+            `          this.firePropertyChanged(x, viejo, nuevo)`
+            `      }`
+            `   }`
             `...`
         }
 Decimos dos cosas:
@@ -451,7 +451,7 @@ En AspectJ existen diferentes "instrucciones" (o **cuándo**'s) que le podemos d
 * **around**: cuando el flujo llega a ejecutar el join-point, permite que nuestra lógica pueda determinar si proceder o no.
 
 
-### []()Weaving
+### Weaving
 
 Vimos entonces que por un lado podemos definir un **point-cut** y luego un **advice.** Con esas dos cosas estamos diciendo **cómo modificar el código** y **dónde/cuándo.**
 
@@ -462,12 +462,12 @@ A esta "inyección" de comportamiento se la conoce como **"*advice weaving*"**. 
 
 Más adelante vamos a ver algunas estratégias de weaving que usan ciertos frameworks para implementar esto que es básicamente la magia que hace posible AOP.
 
-## []()
+## 
 
 
-## []()AspectJ
+## AspectJ
 
-### []()Características de un aspecto en AspectJ
+### Características de un aspecto en AspectJ
 
 * Es un "**tipo**"* (recordemos sistemas de tipos de la unidad 1)*
 
@@ -490,7 +490,7 @@ Más adelante vamos a ver algunas estratégias de weaving que usan ciertos frame
  * implementar interfaces
 
 
-### []()Ejemplos
+### Ejemplos
 
 
 #### **[]()Primer ejemplo: Loggeo
@@ -516,9 +516,9 @@ Es importante ver que es declarativo, es decir target y newValue no son parámet
 * Luego queremos definir un advice, que se parece a un método con una cabecera especial:
 
 
-        **void** **around**(Object target, Object newValue`) : fieldWrite(target, newValue) {`
+        **void** **around**(Object target, Object newValue`) : fieldWrite(target, newValue) 
             ...                 `         // código que quiera agregar
-    **proceed**(target, newValue);   ``// se ejecuta el código original (*)
+    **proceed**(target, newValue);  // se ejecuta el código original (*)
 ``    ...``                          // más código que se ejecuta después del field set.
  `
         }
@@ -614,7 +614,7 @@ En el uso desde AspectJ, podemos utilizar la clase y mandarle también los mensa
                 
                 // Agrego un listener...
         //Este mensaje fue agregado por el aspecto!
-        object.**addPropertyChangeListener**("name", **new** PropertyChangeListener(){`
+        object.**addPropertyChangeListener**("name", new PropertyChangeListener()
             ...`
                 });
                 
@@ -632,7 +632,7 @@ Un detalle técnico es que tenemos dos interfaces: ObservableObject, que es la q
 ***
 
 
-## []()Estrategias de Weaving
+## Estrategias de Weaving
 
 
 Weaving es el proceso que utilizan los fwks de aspectos de código para implementar aspectos, es decir para manipular el código. Para **combinar** **el código del aspecto con la lógica base **(de nuestro dominio o clases a aspectear).
@@ -651,7 +651,7 @@ Enumeramos un par de estratégias de weaving:
 
 
 
-## []()Metaprogramación & Reflection en Aspectos
+## Metaprogramación & Reflection en Aspectos
 AspectJ provee un API de reflection extendida a los conceptos de aspectos.
 Permite accederlas desde los aspectos de forma de:
 
@@ -668,7 +668,7 @@ Permite accederlas desde los aspectos de forma de:
 
 
 
-## []()Cuándo usar Aspectos ?
+## Cuándo usar Aspectos ?
 
 * Cuando detectamos cierta lógica / requerimiento / funcionalidad / **responsabilidad** que no pertenece a un único punto en una única jerarquía, sino que **afecta varias clases**, en diversas jerarquías.
 * Cuando además, **queremos encapsular** esa lógica, y desacoplarla de las clases. Por ejemplo para:
@@ -680,7 +680,7 @@ Permite accederlas desde los aspectos de forma de:
 * Cuando queremos **reutilizar** esa lógica en diferentes proyectos o dominios.
 
 
-## []()Aspectos en Lenguajes Dinámicos ?
+## Aspectos en Lenguajes Dinámicos ?
 
 #### **[]()Esta idea de aspectos, aplica igualmente a lenguajes con checkeos dinámicos ?
 Y.. sí. En realidad la idea de aspectos poco tiene que ver con el momento de los checkeos. De hecho aparecen más inconvenientes o burocracia cuando implementamos aspectos en leguajes con checkeos estáticos que en uno dinámico.
@@ -703,13 +703,13 @@ En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el 
 ```
 
         **class** `ServiceTracer`
- **`include`** `Aquarium``::``DSL`
- **`before`** `:calls_to` `=>` `:all_methods``,` `:in_types` `=>` `/``Service$``/` `do` `|``join_point``,` `object``,` `*``args``|`
- **`log`** `"``Entering: ``#{join_point.target_type.name}``#``#{join_point.method_name}``: object = ``#{object}``, args = ``#{args}``"` 
- **`end`**
+ include`** `Aquarium``::``DSL`
+ before`** `:calls_to` `=>` `:all_methods``,` `:in_types` `=>` `/``Service$``/` `do` `|``join_point``,` `object``,` `*``args``|`
+ log`** `"``Entering:#{join_point.target_type.name}``#``#{join_point.method_name}``: object =#{object}``, args =#{args}``"` 
+ end`**
 
- **`after`** `:calls_to` `=>` `:all_methods``,` `:in_types` `=>` `/``Service$``/` `do` `|``join_point``,` `object``,` `*``args``|`
- **`log`** `"``Leaving: ``#{join_point.target_type.name}``#``#{join_point.method_name}``: object = ``#{object}``, args = ``#{args}``"` 
+ after`** `:calls_to` `=>` `:all_methods``,` `:in_types` `=>` `/``Service$``/` `do` `|``join_point``,` `object``,` `*``args``|`
+ log`** `"``Leaving:#{join_point.target_type.name}``#``#{join_point.method_name}``: object =#{object}``, args =#{args}``"` 
          **end**
 
         end
@@ -717,10 +717,10 @@ En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el 
 
 ```
 
-## []()Vínculo con Otros Conceptos
+## Vínculo con Otros Conceptos
 
 
-### []()CSS
+### CSS
 
 
 Los que hayan cursado la materia construcción de interfaces de usuario, o conozca programación web, y en particular CSS ([cascading style sheets](http://en.wikipedia.org/wiki/Cascading_Style_Sheets)) van a encontrar que la idea o concepto es similar.
@@ -732,12 +732,12 @@ Al igual que en aspectj el lenguaje de CSS es **declarativo** y por lo tanto es 
 Los **join-point** y **point-cuts** se definen como las reglas de matcheo del css.
 Ej:```
 
-        **h1** `{` `color``:` `white``;`` }`
-        **.miLink** `{` `color``:`` blue``;`` }`
-        **#alert** `{` `color``:` `red`` }
+        **h1** ` `color``:` `white``;`` }`
+        **.miLink** ` `color``:`` blue``;`` }`
+        **#alert** ` `color``:` `red`` }
 
 ````
-        **body a.miLink** `{` `color``:`` blue``;`` `}
+        **body a.miLink** ` `color``:`` blue``;`` `}
 ```
 
 
@@ -760,7 +760,7 @@ El punto más importante de trazar esta analogía es contar que la idea más gen
 Y la idea es de hecho lo que contamos a continuación: Separation Of Concerns.
 
 
-### []()Separation Of Concerns
+### Separation Of Concerns
 AOP o Aspectos es considerado de hecho como un caso particular de un concepto más general llamado **separation of concerns**.
 Esto se refiere, como cuando en objetos distribuimos responsabilidades, para no tener god objects o código spaghetti todo mezclado. O como cuando utilizamos el patrón MVC para separar la complejidad de la vista del modelo, o mismo como vimos acá cuando separamos la estética del HTML con CSS's.
 
@@ -770,7 +770,7 @@ Tratando de eliminar la duplicidad.
 Aspectos ataca los concerns que atraviezan varias clases de diversas jerarquías.
 
 
-### []()Subject-Oriented Programming
+### Subject-Oriented Programming
 
 Otra idea de [separation of concerns](http://en.wikipedia.org/wiki/Separation_of_concerns) muy interesante, aunque con menos auge actualmente es la de **Subject-Oriented Programming **([wikipedia](http://en.wikipedia.org/wiki/Subject-oriented_programming))
 En este caso, SoP, ataca la problemática que aparece cuando un mismo tipo u objeto tiene diferentes comportamientos dependientes del contexto o sujeto.
@@ -783,7 +783,7 @@ La clase base Auto tendrá el comportamiento **intrínseco **al auto, que aplica
 Así, logramos **separar **esta incumbencia. 
 
  
-## []()Tecnologías para programar con Aspectos
+## Tecnologías para programar con Aspectos
 
 
 * [AspectJ](te-aspectj)

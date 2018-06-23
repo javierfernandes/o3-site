@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()MultiMethods en un lenguaje funcional (clojure)
+### MultiMethods en un lenguaje funcional (clojure)
 Primero definimos la "herencia":
 
         (**derive** ::artesano ::trabajador)
@@ -26,19 +26,19 @@ Declaramos ahora el multimethod usando la función especial defmulti y luego def
 Y ahora ya podemos invocar esta función a ver qué pasa:
 
 
-        user=>` (`**`trabajar`**` ::artesano ::cuero)`
-**`"Hice un llaverito!"`**
+        user=>` (trabajar ::artesano ::cuero)`
+"Hice un llaverito!"`**
 
 
-        user=>` (`**`trabajar`**` ::zapatero ::cuero)`
-**`"Hice un mocasin!"`**`**
+        user=>` (trabajar ::zapatero ::cuero)`
+"Hice un mocasin!"**
 
-**`
+
 Ahora invoquémoslo con una variable, en lugar de usar directamente los objetos (symbols). 
 
-        user=> (**def** trabajador ::artesano)    // definimos la variable 'trabajador' como el symbol 'artesano'
-**`#'user/trabajador`**           
+        user=> ( def trabajador ::artesano)    // definimos la variable 'trabajador' como el symbol 'artesano'
+#'user/trabajador`**           
         user=> trabajador                 // a ver qué tiene trabajador ?....
-**`:user/artesano`**                       // bien.. tiene artesano
+:user/artesano`**                       // bien.. tiene artesano
         user=> (**trabajar** trabajador ::goma)            // invocamos ahora trabajar con la variable
-**`"Trabajo con: :user/goma"`**                      // bien, se ejecutó el método de artesano + goma.
+"Trabajo con: :user/goma"`**                      // bien, se ejecutó el método de artesano + goma.

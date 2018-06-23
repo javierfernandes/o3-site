@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 [[_TOC_]]
 
 
-## []()Dispatch
+## Dispatch
 Cuando vemos el paradigma de objetos se nos hace hincapié en la idea de polimorfismo. Que básicamente se refiere a la capacidad de dos (o más) objetos de responder a un mismo mensaje. Permitiendo a un tercer objeto, el cliente de ellos, abstraerse de las implementaciónes y sus diferencias.
 
 #### **[]()Veamos un Ejemplo
@@ -17,7 +17,7 @@ Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos 
  `    trabajar``() {
          System.out.println("No hago nada!!");
      }
- ``}`
+}`
 
         **class** Artesano **extends** Trabajador {
             trabajar`() {
@@ -33,14 +33,14 @@ Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos 
 
 Y ahora el tercer objeto, el cliente, sería nuestro código de ejemplo que pone a trabajar a la gente :)
 
-        Artesano artesano = **new** Artesano();
+        Artesano artesano = new Artesano();
 artesano.trabajar();
 
 *Qué va a imprimir ???*
 
 Y, ahora este otro ejemplo, asignamos el artesano a una variable de tipo Trabajador.
 
-        Trabajador trabajador = **new** Artesano();
+        Trabajador trabajador = new Artesano();
 trabajador.trabajar();
 
 *Qué va a imprimir en este caso entonces ??*
@@ -55,7 +55,7 @@ Porque el método real que se ejecuta, no depende para nada del tipo de la varia
 A este mecanismo mágico se lo llama ***"dispatching"***.
 Y se refiere a que la resolución dinámica del método a ejecutar.
 
-### []()Single Dispatch
+### Single Dispatch
 
 Es simplemente lo que acabamos de ver. El dispatching puede verse como un mecanismo de resolución de un método o función a utilizarse.
 
@@ -71,7 +71,7 @@ Sí, y eso es justamente ***Multiple-Dispatch***, o también llamado ***Multi-me
 
 ***
 
-### []()Multiple-Dispatch ó Multi-Methods
+### Multiple-Dispatch ó Multi-Methods
 
  Para enteder multiple-dispatch tenemos que hacer un switch y cambiar la noción que tenemos "objetosa" de los métodos.
 Del ejemplo anterior, podríamos pensar que el método **trabajar**(), en lugar de estar definido dentro de una clase, podría estar definido fuera de ella, y recibir el objeto receptor, como parámetro.
@@ -87,7 +87,7 @@ Entonces se podría escribir/pensar como:
      }`
 
             trabajar`(Trabajador`` t``) {
-         ``System.out.println("No hago nada!!");``
+        System.out.println("No hago nada!!");``
      }`
 
 Cuando hacemos esta cambio de punto de vista, le estamos dando más importancia al concepto de método. Ahora pasa a ser un FirstClassObject (concepto primario del paradigma o lenguaje que estamos utilizando).
@@ -97,7 +97,7 @@ No hay diferencia entre el primer argumento, o el segundo, tercero, etc.
 
 Este modelo permite generalizar el mecanismo de dispatching, en lugar de basándose en un receptor, podría basarse en todos los argumentos del método.
 
-### []()Pongamoslo en un ejemplo
+### Pongamoslo en un ejemplo
 Resulta que todo trabajador necesita una materia prima para trabajar y convertir en un producto. Pero el resultado del trabajo no solo va a depender del trabajador, sino también del material que le demos para que trabaje.
 Un Artesano, por ejemplo, puede hacer con cuero, un pequeño souvenir a modo de llavero. Mientras que un Zapatero hará un lindo zapato de cuero.
 En cambio si proveemos al trabajador de goma, el Zapatero podrá hacer unas sandalias, mientras que el Artesano hará un juego para chicos para ubicar las letras.
@@ -110,13 +110,13 @@ Veamos las 3 formas principales. De más "precaria" a más completa.
         **class** Artesano **extends** Trabajador {
             trabajar`(Material material) {
          **if** (material **instanceof** Cuero) {
-            **return** **new** Llavero((Cuero) material);
+            **return** new Llavero((Cuero) material);
         }
         **else** **if** (material **instanceof** Goma) {
-``            **return** **new** Juego((Goma) material);`
+``            **return** new Juego((Goma) material);`
                 }
         **else** {
-            **throw** **new** NoConozcoElMaterialException(material);
+            **throw** new NoConozcoElMaterialException(material);
         }
      }
         }
@@ -124,13 +124,13 @@ Veamos las 3 formas principales. De más "precaria" a más completa.
         **class** Zapatero **extends** Trabajador {
             `trabajar``(Material material) {
          **if** (material **instanceof** Cuero) {
-             **return** **new** ZapatoCuero((Cuero) material);
+             **return** new ZapatoCuero((Cuero) material);
          }
          **else** **if** (material **instanceof** Goma) {
- ``            **return** **new** Sandalia((Goma) material);`
+            **return** new Sandalia((Goma) material);`
  `        }
          **else** {
-             **throw** **new** NoConozcoElMaterialException(material);
+             **throw** new NoConozcoElMaterialException(material);
          }
      }`
         }
@@ -147,7 +147,7 @@ Vemos la clase trabajador como quedaría...
 
         **abstract class** Trabajador {
  `    trabajar``(Material material) {
- ``        material.decimeQuienSos(this);
+        material.decimeQuienSos(this);
      }`
         
     **abstract** trabajar`Cuero(Cuero cuero);`
@@ -159,19 +159,19 @@ Vemos la clase trabajador como quedaría...
 Y la jerarquía de materiales:
 
         **abstract class** Material {
- `    decimeQuienSos``(Trabajador trabajador) {``
+ `    decimeQuienSos``(Trabajador trabajador) `
         trabajador.trabajarMaterial(this);
      }`
  `}`
 
         **abstract class** Cuero {
- `    decimeQuienSos``(Trabajador trabajador) {``
+ `    decimeQuienSos``(Trabajador trabajador) `
          trabajador.trabajarCuero(this);
      }`
  `}`
 
         **abstract class** Goma {
- `    decimeQuienSos``(Trabajador trabajador) {``
+ `    decimeQuienSos``(Trabajador trabajador) `
          trabajador.trabajarGoma(this);
      }`
  `}`
@@ -180,25 +180,25 @@ Finalmente, los trabajadores particulares:
 
         **class** Artesano **extends** Trabajador {
              trabajar`Cuero(Cuero cuero) {
-        ``**return** **new** Llavero((Cuero) material);`
+       **return** new Llavero((Cuero) material);`
             }
  `    trabajar``Goma(Goma goma) {
-``        **return** **new** Juego((Goma) material);`
+``        **return** new Juego((Goma) material);`
             }
  `**    **trabajar``Material(Material material) {
-        ``**throw** **new** NoConozcoElMaterialException(material);`
+       **throw** new NoConozcoElMaterialException(material);`
             }
  `}`
 
         **class** Zapatero **extends** Trabajador {
  `     trabajar``Cuero(Cuero cuero) {
-         ``**return** **new** ZapatoCuero((Cuero) material);`
+        **return** new ZapatoCuero((Cuero) material);`
  `    }
  ` `    trabajar``Goma(Goma goma) {
- ``        ``**return** **new** Sandalia((Goma) material);`
+       **return** new Sandalia((Goma) material);`
  `    }
  ` `**    **trabajar``Material(Material material) {
-         ``**throw** **new** NoConozcoElMaterialException(material);`
+        **throw** new NoConozcoElMaterialException(material);`
  `    }
  ` `}`
 
@@ -244,8 +244,8 @@ Y ahora probamos con la implementación más básica:
 Si ejecutamos el siguiente código:
 
         **void** main(String[] args) {
-            Trabajador t = **new** Artesano();
-            Material m = **new** Cuero();
+            Trabajador t = new Artesano();
+            Material m = new Cuero();
             System.out.println(t.trabajar(m));
         }
 
@@ -287,7 +287,7 @@ Sin embargo podríamos haber definido los múlti-methods en las propias clases A
         }
 
 
-## []()Multiple Dispatch en XTend
+## Multiple Dispatch en XTend
 
 Xtend también soporta múltiple dispatch. Para eso los métodos se deben marcar con el keyword "dispatch". Todos los que formen parte del multimethod.
 No hace falta declarar la firma del método original (el que será visible para el usuario del método).
@@ -297,15 +297,15 @@ Ejemplo:
 
 
 
-**`class`**` Zapatero `**`extends`**` Trabajador {`
+class Zapatero extends Trabajador 
 
 
 
- `**def dispatch** trabajar(Cuero c) {`
+ `**def dispatch** trabajar(Cuero c) 
  `"Te hago un mocasin!"` 
  `}`
  
- `**def dispatch** trabajar(Goma g) {`
+ `**def dispatch** trabajar(Goma g) 
             `    "Te hago una sandalia"`
 
  `}`
@@ -344,8 +344,8 @@ Si ejecutamos esto:
 
 
         **class** Blah {
- `**def static void** main(String[] args) {`
- `**new** Zapatero().trabajar("unString")`
+ `**def static void** main(String[] args) 
+ `new Zapatero().trabajar("unString")`
  `}`
         }
 
@@ -359,14 +359,14 @@ Va a fallar en runtime con este mensaje
         Exception in thread "main" java.lang.IllegalArgumentException: Unhandled parameter types: [unString]
  `at org.uqbar.xtend.extensions.doblepolimorfismo.Zapatero.trabajar(Zapatero.java:31)`
  `at org.uqbar.xtend.extensions.doblepolimorfismo.Blah.main(Blah.java:9)`
-## []()Variantes y temas adicionales
+## Variantes y temas adicionales
 
 
 * [Dispatch por valor](conceptos-multiple-dispatch-dispatch-basado-en-valor)
 * [Multimethods en un Clojure (dialecto de LISP)](conceptos-multiple-dispatch-multimethods-en-clojure-lisp)
 * [**Slate**:](http://slatelanguage.org/) un lenguaje basado en prototipos con multimethods.
 
-### []()Bibliografía / Papers:
+### Bibliografía / Papers:
 
 
 * ["Prototypes with Multiple-Dispatch", ](http://files.slatelanguage.org/doc/pmd/pmd.pdf)

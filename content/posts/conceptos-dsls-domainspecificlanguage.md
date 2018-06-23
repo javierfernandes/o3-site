@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Introducción
+## Introducción
 En general cuando nos enfrentamos a un problema de programación aparecen varias actividades que trataremos de simplificar ampliamente acá:
 
 1. **Entendimiento del problema/dominio**
@@ -86,7 +86,7 @@ Aquí otro diagrama que muestra el nuevo proceso de desarrollo.
 
 [![](http://www.onboard.jetbrains.com/articles/04/10/lop/img/figure2.png)
 ](http://www.onboard.jetbrains.com/articles/04/10/lop/img/figure2.png)
-## []()DSL
+## DSL
 DSL viene de las siglas en inglés "**D**omain-**S**pecific **L**anguage".
 
 Un DSL es un lenguaje ideado para expresar cierta parte de un sistema. Por eso se dice que es un **lenguaje de propósito específico.** A diferencia de los **lenguajes de propósito general.
@@ -111,7 +111,7 @@ C, Java, Smalltalk, Self, ADA, Haskell, Prolog, etc.
 xpath, SQL, pic, sed
 
 
-## []()Ejemplos de DSL
+## Ejemplos de DSL
 A continuación subpáginas con ejemplos de DSL's que posiblemente utilizamos
 
 * [Ejemplo del Restaurante](conceptos-dsls-domainspecificlanguage-dsl---ejemplo-restaurante)
@@ -121,7 +121,7 @@ A continuación subpáginas con ejemplos de DSL's que posiblemente utilizamos
 * [Ruby on Rails](conceptos-dsls-domainspecificlanguage-dsl---rails)
 * [Otros](ejemplos-extra-de-dsls)
 
-### []()Para qué sirve un DSL ?
+### Para qué sirve un DSL ?
 
 O dicho de otra forma, por qué debería yo hacer un DSL ?
 
@@ -150,7 +150,7 @@ Suponemos que con la comparación que ya vimos, aparecen varias razones. Pero va
  * problema que normalmente solucionamos con patrones creacionales, como factories, builders & prototypes.
 
 
-## []()Tipos de DSL's
+## Tipos de DSL's
 A grandes rasgos, podríamos catalogar los DSLs a través de las siguientes categorías. Existen autores que refinan mucho más a detalle la categorización, incluyendo nuevos tipos. A fines prácticos de explicar la idea general a nivel de programación, nosotros optamos por acotar esa categorización:
 
 * **Externos:**
@@ -179,7 +179,7 @@ A grandes rasgos, podríamos catalogar los DSLs a través de las siguientes cate
 
  * Ej: ruby
 
-## []()Internal vs External DSLs
+## Internal vs External DSLs
 
  **External 
 ****Internal 
@@ -202,4 +202,4 @@ A grandes rasgos, podríamos catalogar los DSLs a través de las siguientes cate
 * Encontramos limitaciones del lenguaje GPL en cuanto a customizar la sintaxis. 
 
 
-## []()
+## 

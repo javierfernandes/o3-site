@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Objetos sin clases en Self
+## Objetos sin clases en Self
 
 Un lenguaje que vamos a ver para ejemplificar esta idea se denomina **Self**.
 El comportamiento y el estado (todo junto) de un objeto está dado por un conjunto de **slots**, que pueden ser de tres tipos:

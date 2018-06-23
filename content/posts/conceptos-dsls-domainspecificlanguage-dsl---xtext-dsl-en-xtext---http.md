@@ -4,13 +4,13 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Ejemplo de DSL en XText para invocaciones HTTP
+## Ejemplo de DSL en XText para invocaciones HTTP
 
 
 //TODO: 
 - poner link al código fuente.
 - embeber algo de código de la gramática y del inferrer.
-### []()Dominio
+### Dominio
 
 Veamos un ejemplo bien práctico. Vamos a usar un mismo dominio para ir mostrándo temas más avanzados de xtext.
 **Dominio:**
@@ -77,7 +77,7 @@ Ejemplos de request HTTP:
 ```
 
 
-### []()Bosquejando el lenguaje
+### Bosquejando el lenguaje
 
 Entonces, bosquejamos un ejemplo de lenguaje para especificar estas invocaciones http.
 En un notepad o lo que sea.
@@ -100,7 +100,7 @@ En un notepad o lo que sea.
 Pensamos en los conceptos del lenguaje: type, url, header, body, etc.
 ```
 
-### []()Modelo semántico y gramática = Http.xtext
+### Modelo semántico y gramática = Http.xtext
 
 Entonces vamos a implementar nuestro lenguaje de invocaciones http con xtext.
 Definimos la gramática y modelo.
@@ -108,7 +108,7 @@ Vemos el archivo .xtext y acá ya tenemos un modelo un poquito más complejo que
 Vemos el mapeo o la relación entre la definición y las clases del dominio.
 
 
-### []()Implementando un Interpreter Java
+### Implementando un Interpreter Java
 Como vimos antes, xtext ya se ocupa de toda la complejidad relacionada con el parsing de nuestro lenguaje. Y se basa en la idea de generar instancias de un "modelo semántico" como salida.
 Es decir, que nuestros archivos son parseados y traducidos a instancias de nuestro modelo.
 Una vez que llegamos al mundo de objetos y del modelo, las capacidades son infinitas. Justamente la gente de xtext decide expresar el modelo semántico a través de un framework de metamodelo llamado EMF (Eclipse Modelling Framework), sobre el cual existen muchas herramientas ya implementadas que podríamos usar sobre nuestro modelo, por ejemplo:

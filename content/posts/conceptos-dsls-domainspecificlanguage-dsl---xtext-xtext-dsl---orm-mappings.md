@@ -4,9 +4,9 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Nota: actualizado a xtext 2.6
+## Nota: actualizado a xtext 2.6
 
-## []()Introducción
+## Introducción
 
 Este DSL es parte de nuestros ejemplos de mapeo objeto relacional que usamos para "programación declarativa".
 
@@ -14,7 +14,7 @@ Este DSL es parte de nuestros ejemplos de mapeo objeto relacional que usamos par
 Vamos a usarlo de ejemplo acá para ver algunos features de xtext.
 
 
-## []()Referencias a Tipos Java
+## Referencias a Tipos Java
 
 En nuestro lenguaje queremos poder referenciar clases java. Y que, por ejemplo, el lenguaje checkee que la clase exista, y de hecho nos dé autocomplete.
 
@@ -66,7 +66,7 @@ Acá un ejemplo de uso:
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402280866165/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext-dsl---orm-mappings/typeRef-autocomplete.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings-typeRef-autocomplete-png?attredirects=0)
 
-## []()Imports
+## Imports
 
 Escribir los nombres completos de las clases no tiene mucha onda. Entonces está bueno que agreguemos imports a nuestro lenguaje. Por suerte esto es algo bastante común en DSL's sobre xtext así que es bastante simple.
 En la gramática
@@ -106,11 +106,11 @@ Ya podemos usar el DSL
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402281750947/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext-dsl---orm-mappings/typeRef-imports.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings-typeRef-imports-png?attredirects=0)
 
-## []()Referencias a Properties
+## Referencias a Properties
 
 En nuestro DSL dentro de un mapping necesitamos hacer referencia a properties válidas. En lugar de usar Strings, queremos poder usar id's verdaderos. De modo de poder tener checkeos.
 Para eso entonces tenemos que hacer varias cosas:
-### []()Modificar la Gramática
+### Modificar la Gramática
 
 Necesitamos declarar esto en la gramática. En la regla MappingProperty
 
@@ -126,7 +126,7 @@ Necesitamos declarar esto en la gramática. En la regla MappingProperty
 
 
 Acá se ve que tenemos referencia no a JvmType, sino a **JvmField**, que representa justamente a los fields de java.
-### []()Customizando el Scope Provider
+### Customizando el Scope Provider
 
 Para que resuelva la referencia adecuadamente de acuerdo al tipo declarado del mapping necesitamos customizar un punto de extensión de xtext llamado ScopeProvider.
 Para eso primero vamos a hacer una clase que tenga la lógica para calcular el scope, dado un mapping (o una property). Lo hacemos como un extension provider:
@@ -137,33 +137,33 @@ Para eso primero vamos a hacer una clase que tenga la lógica para calcular el s
 
         **class** MappingScopeExtensions {
  
- `**def** getScope(MappingProperty property) {`
+ ` def getScope(MappingProperty property) 
  `property.mapping.scope`
  `}`
  
- `**def** getScope(Mapping mapping) {`
- `**val** JvmType containerType = mapping.beanType;`
+ ` def getScope(Mapping mapping) 
+ `val JvmType containerType = mapping.beanType;`
  `**if** (containerType == **null** || containerType.eIsProxy)`
  `**return** IScope::NULLSCOPE`
- `**return** **new** MapBasedScope(containerType.fields.toMap[f | f.qName ])`
+ `**return** new MapBasedScope(containerType.fields.toMap[f | f.qName ])`
  `}`
 
 
  `// extension Methods`
         
 
-            **def** mapping(MappingProperty property) {
+             def mapping(MappingProperty property) {
  `property.eContainer **as** Mapping`
  `}`
  
- `**def** getFields(JvmType type) {` 
- `**val** fields = newArrayList`
+ ` def getFields(JvmType type)  
+ `val fields = newArrayList`
  `collectFeatures(type, fields)`
  `fields`
  `}`
  
- `**def** void collectFeatures(JvmType containerType, List<JvmField> result) {`
- `**if** (containerType **instanceof** JvmDeclaredType) {`
+ ` def void collectFeatures(JvmType containerType, List<JvmField> result) 
+ `**if** (containerType **instanceof** JvmDeclaredType) 
  `containerType.superTypes`
  `.filter[type != **null**]`
  `.forEach[sup | collectFeatures(sup.type, result) ]`
@@ -174,7 +174,7 @@ Para eso primero vamos a hacer una clase que tenga la lógica para calcular el s
  `}`
  `}`
  
- `**def** qName(JvmField f) {`
+ ` def qName(JvmField f) 
  `**return** QualifiedName.create(f.simpleName)`
  `}`
 
@@ -198,11 +198,11 @@ Ahora sí, ya tenemos la lógica, tenemos que engancharla en xtext. Para:
  `@Inject **extension **MappingScopeExtensions`
 
 
- `**def **IScope scope_MappingProperty_name(MappingProperty property, EReference eRef) {`
+ `**def **IScope scope_MappingProperty_name(MappingProperty property, EReference eRef) 
  `property.mapping.scope`
  `}`
  
-** **`**def** IScope scope_MappingProperty_name(Mapping mapping, EReference eRef) {`
+**  def IScope scope_MappingProperty_name(Mapping mapping, EReference eRef) 
  `mapping.scope`
  `}`
 
@@ -224,7 +224,7 @@ Luego tenemos dos parámetros, el objeto regla donde se está parado en estos mo
 
 En nuestro caso podemos definir el scope ya teniendo un Mapping (que define el beanType).
 
-### []()Registrar (bindear) el ScopeProvider
+### Registrar (bindear) el ScopeProvider
 
 Ya tenemos nuestro scope provider, ahora para que xtext lo use, necesitamos engancharlo en su startup, cuando crea todos los objetos y los conecta.
 Para eso es importante la clase central de nuestro plugin **MappingDslRuntimeModule**
@@ -274,7 +274,7 @@ Más o menos :S
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1402322984832/conceptos/dsls/domainspecificlanguage/dsl---xtext/xtext-dsl---orm-mappings/cannotresolvejvmfield.png)
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings-cannotresolvejvmfield-png?attredirects=0)
 
-### []()Customizando XbaseBatchScopeProvider
+### Customizando XbaseBatchScopeProvider
 
 Lo anterior funcionaría si estuvieramos customizando un DSL 100% nuestro que no use XBase. 
 En nuestro caso las referencias son de hecho a objetos de XBase (JvmFields).
@@ -297,10 +297,10 @@ Creamos una nueva clase:
  `@Inject **extension** MappingScopeExtensions`
 
 
- `**override** IScope getScope(EObject context, EReference reference) {`
- `**if** (context **instanceof** MappingProperty && "name".equals(reference.name)) {`
+ `**override** IScope getScope(EObject context, EReference reference) 
+ `**if** (context **instanceof** MappingProperty && "name".equals(reference.name)) 
  `(context **as** MappingProperty).scope`
- `} **else**`
+ `} **else
  `**super**.getScope(context, reference)`
  `}`
 
@@ -336,7 +336,7 @@ Lo primero es un workaround medio oscuro que sirve para que el nuevo "bindXbaseB
 
 
 Ahora sí !
-### []()AutoComplete
+### AutoComplete
 
 Para el autocomplete no hay que hacer nada, si bien es un punto de extensión del proyecto ".ui", por default al haber definido el scope con los providers, el autocomplete usa a los scopeProviders, así que deberían ver esto:
 

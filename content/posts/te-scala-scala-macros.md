@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### []()Documentación
+### Documentación
 
 * [Documentación Oficial](http://docs.scala-lang.org/overviews/macros/overview.html)
 * Tutorial sencillo: [Starting with Scala Macros](http://www.warski.org/blog/2012/12/starting-with-scala-macros-a-short-tutorial/)
@@ -20,7 +20,7 @@ date:  2018-06-20T19:27:10-03:00
  * [Scala Macros: Let our powers combine!](http://scalamacros.org/paperstalks/2013-04-22-LetOurPowersCombine.pdf)
  * [Embedded Domain-Specific Languages using Libraries and Dynamic Programming](http://gilles.dubochet.ch/publications/2011_dubochet_phd.pdf)
 
-### []()Ejemplos
+### Ejemplos
 
 
 * Macros bien básicas para empezar: [http://xp-dev.com/svn/uqbar/examples/paco/trunk/dsl/scala-macros/](http://xp-dev.com/svn/uqbar/examples/paco/trunk/dsl/scala-macros/)

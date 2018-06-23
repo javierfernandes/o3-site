@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## []()Aclaraciones iniciales
+## Aclaraciones iniciales
 En este TP vamos a desarrollar una librería o framework, es decir, una herramienta reutilizable independiente del dominio. El objetivo es que esa herramienta pueda ser utilizada en muchos dominios. Por eso es importante que el código específico de la herramienta no tenga relaciones con el dominio. 
 
 
@@ -17,9 +17,9 @@ Por eso su entrega debe consistir de tres partes:
 * Un dominio que se utilizará para las pruebas
 * Tests
 
-## []()Requerimientos
+## Requerimientos
 
-### []()1 - Trait GenericEquals
+### 1 - Trait GenericEquals
 
 
 Programar un traits de nombre `GenericEquals` con los siguientes métodos:
@@ -71,7 +71,7 @@ En cambio, si modificamos el método #keyProperties de la siguiente manera:
 
 La misma porción de código se evaluaría como falsa, dado que los dos Soldados tienen la misma cantidad de puntosDeVida pero no la misma posición.
 
-### []()2 - Trait GenericPrint
+### 2 - Trait GenericPrint
 
 Siguiendo el mismo esquema del ejercicio anterior, programar el trait `GenericToString`, con los métodos:
 
@@ -90,7 +90,7 @@ Luego la siguiente porción de código:
 
 
 Al evaluarse deberían imprimir `Soldado(posicion = 100@100, puntosDeVida: 100)`, considerando la segunda versión de #keyProperties.
-### []()3 - Refactor SimpleRenameProperty
+### 3 - Refactor SimpleRenameProperty
 
 Programar la clase RenameProperty que sea capaz de renombrar una variable de instancia y sus accessors consistentemente.
 
@@ -114,13 +114,13 @@ Se busca que renombre tanto la variable de instancia como los dos métodos `posi
 **Nota: **Para simplificar, podemos considerar que ni la variable ni los métodos tienen referencias y por lo tanto con que el rename sea consistente es suficiente y no es necesario mirar dentro del código.
 
 
-## []()Requerimientos Bonus
+## Requerimientos Bonus
 
-### []()1 - Refactor FullRenameProperty
+### 1 - Refactor FullRenameProperty
 
 Al refactor anterior agregarle la capacidad de buscar referencias a la variable y a los métodos renombrados, acotándolo al package.
 
 
-### []()2 - Interfaz de usuario
+### 2 - Interfaz de usuario
 
 Implementar alguno de los refactors de RenameProperty dentro del Refactoring Browser

@@ -16,10 +16,10 @@ Material Ejercicios/ Ejemplos 0** Sistemas de Tipos**[- Intro a Sistemas de Tipo
  - [FP + OOP (scala)](https://docs.google.com/presentation/d/15OYGb2OtPmmtkHZayCHNiirlMvZh4XqMnTZXyqCSR8U/) 
 
 
-## []()
+## 
 
 
-## []()Temario Ampliado
+## Temario Ampliado
 
 Este es  un conjunto de apuntes más completo que incluye temas relacionados a los que vemos en la materia, pero que quizás no vemos en la cursada. Aunque lo vimos otras cursadas.
 Sirve como referencia para entender mejor los temas
