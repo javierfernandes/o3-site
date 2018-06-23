@@ -124,7 +124,7 @@ En su forma más simple una clase se ve muy similar a su par en java
 Cuando no se especifica una superclase (igual que en java con **extends**) automáticamente esto quiere decir que la clase hereda de **AnyRef**.
 La forma de especificar variables de instancia es también similar a java, pero teniendo en cuenta lo que ya vimos de **valores y variables **(y la inferencia de tipos)
 
-        **class** Robot **extends** AnyRef {
+        **class** Robot extends AnyRef {
  `**val **material = "acero"`
         }
 O bien
@@ -268,7 +268,7 @@ En scala tenemos ese se hace así:
 
 
 
-        **class** C3PO **extends** Robotito("c3po", "cobre") {
+        **class** C3PO extends Robotito("c3po", "cobre") {
             ...
         }
 
@@ -278,7 +278,7 @@ En este caso estamos fijando los valores. Pero si queremos recibirlos también c
 
 
 
-        **class** RobotitoFurioso(n:String, m: String) **extends** Robotito(n,m) {
+        **class** RobotitoFurioso(n:String, m: String) extends Robotito(n,m) {
             ...
         }
 ### Getters & Setters
@@ -484,7 +484,7 @@ Una variante a esto es crear un objeto que extienda de App
 
 
 
-        **object** Pepita1 **extends** App {
+        **object** Pepita1 extends App {
 
 
             println("hola pepita")

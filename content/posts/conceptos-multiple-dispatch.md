@@ -19,13 +19,13 @@ Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos 
      }
 }`
 
-        **class** Artesano **extends** Trabajador {
+        **class** Artesano extends Trabajador {
             trabajar`() {
          System.out.println("Hice un duendecito!");
      }`
         }
 
-        **class** Zapatero **extends** Trabajador {
+        **class** Zapatero extends Trabajador {
             trabajar`() {
          System.out.println("Hice un mocasín!");
      }`
@@ -107,7 +107,7 @@ Cómo resolvemos este problema que requiere de seleccionar el comportamiento en 
 Veamos las 3 formas principales. De más "precaria" a más completa.
 
 #### **[]()Emulando Multiple-dispatching a pulmón (con if instanceof's)
-        **class** Artesano **extends** Trabajador {
+        **class** Artesano extends Trabajador {
             trabajar`(Material material) {
          **if** (material **instanceof** Cuero) {
             **return** new Llavero((Cuero) material);
@@ -121,7 +121,7 @@ Veamos las 3 formas principales. De más "precaria" a más completa.
      }
         }
 
-        **class** Zapatero **extends** Trabajador {
+        **class** Zapatero extends Trabajador {
             `trabajar``(Material material) {
          **if** (material **instanceof** Cuero) {
              **return** new ZapatoCuero((Cuero) material);
@@ -178,7 +178,7 @@ Y la jerarquía de materiales:
 
 Finalmente, los trabajadores particulares:
 
-        **class** Artesano **extends** Trabajador {
+        **class** Artesano extends Trabajador {
              trabajar`Cuero(Cuero cuero) {
        **return** new Llavero((Cuero) material);`
             }
@@ -190,7 +190,7 @@ Finalmente, los trabajadores particulares:
             }
  `}`
 
-        **class** Zapatero **extends** Trabajador {
+        **class** Zapatero extends Trabajador {
  `     trabajar``Cuero(Cuero cuero) {
         **return** new ZapatoCuero((Cuero) material);`
  `    }
@@ -226,12 +226,12 @@ Además, compila a bytecode de java, con lo cual eso completamente compatible y 
 Definimos primero entonces las clases y las jerarquías
 
         **class** Trabajador {}
-        **class** Artesano **extends** Trabajador {}
-        **class** Zapatero **extends** Trabajador {}
+        **class** Artesano extends Trabajador {}
+        **class** Zapatero extends Trabajador {}
 
         **class** Material {}
-        **class** Cuero **extends** Material {}
-        **class** Goma **extends** Material {}
+        **class** Cuero extends Material {}
+        **class** Goma extends Material {}
 
 Luego podemos declarar la firma del método trabajar
 
@@ -276,12 +276,12 @@ Sin embargo podríamos haber definido los múlti-methods en las propias clases A
             String trabajar(Material m) = *"Trabajador no sabe que hacer con material"*;
         }
 
-        **class** Artesano **extends** Trabajador {
+        **class** Artesano extends Trabajador {
             trabajar(Cuero c) = *"Te hago un llavero!"*;
             trabajar(Goma c) = *"Te hago un jueguito!"*;
         }
 
-        **class** Zapatero **extends** Trabajador {
+        **class** Zapatero extends Trabajador {
             trabajar(Cuero c) = *"Te hago un mocasin!"*;
             trabajar(Goma c) = *"Te hago una sandalia!"*;
         }

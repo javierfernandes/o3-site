@@ -119,7 +119,7 @@ Podemos tener más de una precondicion separándolas por el caracter "coma".
 En este caso estamos definiendo una clase abstracta (podría ser una interface). Y entonces mostramos una implementación de ejemplo:
 
 
-        **class** StackImpl **extends** Stack {
+        **class** StackImpl extends Stack {
             **int** currentCapability = 0;
             **int** maxCapability = 3;
             

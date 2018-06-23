@@ -18,3 +18,27 @@
       font-size: 1em;
   }
 }
+
+/* TOC */
+
+.container.entry-toc {
+  border: 1px solid #efefd4;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.entry-toc a {
+  color: #d0b237;
+}
+
+/* ENTRY */
+
+.entry .sep-after:after, .sep-before:before {
+  margin-top: 1em;
+}
+
+/* POSTS section list */
+
+.widget-recent_posts time {
+  color: gray;
+}

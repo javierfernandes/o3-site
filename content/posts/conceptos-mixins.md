@@ -2,7 +2,6 @@
 title: "conceptos-mixins"
 date:  2018-06-20T19:27:10-03:00
 toc: true
-menu: "main"
 ---
 
 
@@ -44,7 +43,7 @@ trait Filosofo {
 Luego, se aplica a una clase. Si la clase no tiene una superclase **debemos** usar extends.
 
 ```scala
-class Socrates **extends Filosofo {
+class Socrates extends Filosofo {
   def hablar() {
    filosofar()
   }
@@ -477,7 +476,7 @@ La implementación es parecida a la anterior
 
 
 ```scala
-trait Rejuvenece **extends **Persona`` 
+trait Rejuvenece extends **Persona`` 
              override`` def envejecer() 
 *`          edad -= 1`*
 
@@ -703,7 +702,7 @@ Otro caso. Si el método en Cola no fuera abstracto y tuviera una implementació
             println("La Cola no hace nada al hacer put con " + i)
           }
         }
-        trait Duplicador **extends **Cola {
+        trait Duplicador extends **Cola {
           override def put(i:Int) {
             **super**.put(2 * i)
           }

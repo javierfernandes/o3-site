@@ -325,7 +325,7 @@ Acá una validación sobre las Despedida's
 
 
 
-        **class** SaludosDSLValidator **extends **AbstractSaludosDSLValidator {
+        **class** SaludosDSLValidator extends **AbstractSaludosDSLValidator {
 
 
           @Check

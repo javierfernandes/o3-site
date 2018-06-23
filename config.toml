@@ -37,4 +37,10 @@ tag = "tags"
 [params.assets]
 customCSS = ["custom.css"]
 
+[[menu.main]]
+name = "Home"
+weight = 1
+identifier = "home"
+url = "/"
+
 

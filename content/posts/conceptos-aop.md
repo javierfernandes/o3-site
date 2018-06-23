@@ -102,7 +102,7 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
 
 
 
-        **public** **class** Conversor **extends** ObservableObjectImpl {
+        **public** **class** Conversor extends ObservableObjectImpl {
  `**private** **double** millas;`
  `**private** **double** kilometros;`
 
@@ -200,7 +200,7 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
 
 
 
-        **public** **class** Conversor **extends** AbstractConversor **with **ObservableTrait {
+        **public** **class** Conversor extends AbstractConversor **with **ObservableTrait {
  `**private** **double** millas;`
  `**private** **double** kilometros;`
 
