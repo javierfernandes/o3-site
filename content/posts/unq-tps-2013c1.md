@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Condiciones de Aprobación de la materia
+#### Condiciones de Aprobación de la materia
 
 
 * La evaluación de la materia consiste de 5 trabajos prácticos, con las fechas pautadas en la [planificación](../unsam-planificacion).

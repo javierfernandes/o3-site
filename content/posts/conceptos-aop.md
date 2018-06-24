@@ -493,7 +493,7 @@ Más adelante vamos a ver algunas estratégias de weaving que usan ciertos frame
 ### Ejemplos
 
 
-#### **[]()Primer ejemplo: Loggeo
+#### Primer ejemplo: Loggeo
 Algunos conceptos básicos de AspectJ:
 
 * Defino un aspecto: 
@@ -549,7 +549,7 @@ Otros scopes posibles son: **perthis** (por cada lugar desde donde se llama el c
 Permite trabajar con fields (o lo que fuera) en clases que tengan la annotation @LoggeableAnnotation.
 
 
-#### **[]()Segundo ejemplo: Mixins.
+#### Segundo ejemplo: Mixins.
 Para agregar un mixin debemos realizar dos pasos:
 
 1. Desde el aspecto hacemos que la clase que nos interesa implemente una interfaz definida por nosotros:
@@ -682,7 +682,7 @@ Permite accederlas desde los aspectos de forma de:
 
 ## Aspectos en Lenguajes Dinámicos ?
 
-#### **[]()Esta idea de aspectos, aplica igualmente a lenguajes con checkeos dinámicos ?
+#### Esta idea de aspectos, aplica igualmente a lenguajes con checkeos dinámicos ?
 Y.. sí. En realidad la idea de aspectos poco tiene que ver con el momento de los checkeos. De hecho aparecen más inconvenientes o burocracia cuando implementamos aspectos en leguajes con checkeos estáticos que en uno dinámico.
 Por ejemplo, si ya programador de mi sistema ya se que estoy haciendo todos mis objetos observables a partir de un aspecto, y que entonces van a entender el mensaje **addObserver** entonces simplemente envío ese mensaje en las partes de mi código que lo necesiten. En un lenguaje dinámico, no hay diferencia entre ese envío del mensaje y cualquier otro mensaje declarado en la clase misma.
 En un lenguaje con checkeos estáticos, en principio, sería dificil, porque el compilador quiere tener control sobre todo lo que hacemos, entonces por más que nosotros sepamos en que en runtime a una instancia de la clase **Boton **se la va a hacer observable, mientras compilamos, el compilador no sabe eso, entonces va a fallar.
@@ -693,7 +693,7 @@ Entonces haces las magias que ya vimos.
 En fín. El punto es que aspectos es en sí una idea justamente para agregar dinamismo a nuestro sistema. Para entonces es compatible con lenguajes dinámicos tranquilamente.
 
 
-#### **[]()Qué tan "especial" es en lenguajes dinámicos ? 
+#### Qué tan "especial" es en lenguajes dinámicos ? 
 Los lenguajes dinámicos como smalltalk o self, suelen proveernos un gran poder de reflection, introspection e intercession, es decir que nos permiten modificar dinámicamente la estructura de una clase (u objeto), entonces, el concepto de aspectos realmente no parece tener nada de especial, porque están al alcance de la mano, a través de la metaprogramación.
 
 En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el lenguaje nativo de la VM (bytecode)

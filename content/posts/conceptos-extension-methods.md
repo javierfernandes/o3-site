@@ -76,7 +76,7 @@ En xtend podemos codificar un método similar y luego utilizarlo como un extensi
 
 
 Como se ve acá, es un método **static **que recibe al string como parámetro. Xtend entonces, dada una variable de tipo String, nos permite llamarle a métodos que estén en esa clase (o superclase), pero también "busca" otros métodos que reciban ese tipo String como primer parámetro en la clase en la que estemos.
-#### **[]()Import static extensions
+#### Import static extensions
 
 En este ejemplo definimos el extension méthod en la misma clase en la que estamos.
 Más interesante es tenerlo en una clase aparte que reuna todas las extensiones a los Strings. Así los podemos usar desde diferentes partes de nuestro sistema.
@@ -206,7 +206,7 @@ Sin embargo **el nombre** (como si fuera un atributo) no es necesario porque jus
 
 
 El **valor no es necesario **porque podría suceder que alguien desde afuera nos dé la instancia particular.
-#### **[]()Inyección de la extension
+#### Inyección de la extension
 
 Por ejemplo en XText se usa mucho la **inyección de dependencias** sobre extensiones:
 
@@ -221,7 +221,7 @@ Y luego solito el frameworks se encarga de setearnos una instancia.
 
 
 Ojo, que si nadie setea una instancia, luego va a lanzar una **NullPointerException** al momento de llamar a un extension method.
-#### **[]()Inyección manual con setters
+#### Inyección manual con setters
 
 Si la extensión tuviera un nombre como si fuera un atributo podriamos cambiarla, por ejemplo con un setter:
 
@@ -246,7 +246,7 @@ Si la extensión tuviera un nombre como si fuera un atributo podriamos cambiarla
  `**this**.provider = provider`
  `}`
         }
-#### **[]()Providers que pasan por parámetro
+#### Providers que pasan por parámetro
 
 Otra opción es recibir una extensión por parámetro a un método.
 Esto acota el uso de las extensiones, solo a ese método.

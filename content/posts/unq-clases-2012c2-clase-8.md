@@ -31,20 +31,20 @@ El objetivo del trabajo práctico es hacer un refactoring en Pharo, que a partir
  * Modificar las dos subclases originales, cambiándoles la superclase y eliminando las variables comunes (por razones técnicas, es necesario que estos dos pasos se hagan juntos. Es decir que al mismo tiempo cambiamos la herencia y eliminamos las variables.)
 * Deben proveer algunos tests para verificar su código.
 
-#### **[]()Forma de entrega
+#### Forma de entrega
 Por el formato de este TP, no conviene hacerlo en papel como los anteriores. Tenemos dos opciones:
 
 * Para los que quieran, lo vemos durante la clase, personalmente. Creo que esto es lo mejor en la medida que nos alcance el tiempo.
 * Como alternativa, me lo pueden mandar por mail, hacen fileout del package y me mandan el .st
 
-#### **[]()Ayudas
+#### Ayudas
 
 
 * Pueden tomar como base el ejemplo visto en clase (instrucciones para bajarlo en el apartado anterior).
 * Para testear, van a tenere que generar clases de prueba, que se van a romper en cada refactor. Para regenerar esas clases, les puede servir el `ScriptBuilder` que mostré en la última parte de la clase.
 La documentación para utilizar el ScriptBuilder está aquí: [https://sites.google.com/site/proyectouqbar/nuestros-proyectos/script-builder](https://sites.google.com/site/proyectouqbar/software/script-builder)
 
-#### **[]()Opcionales
+#### Opcionales
 
 Hay dos tareas interesantes con las que pueden jugar opcionalmente. La idea es que sean un poquito más desafiantes, involucran un poco de creatividad o de investigar cosas que no vimos en clase (y por eso son opcionales, si les resultan demasiado complejas simplemente ignórenlas).
 

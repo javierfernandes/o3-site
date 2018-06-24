@@ -14,7 +14,7 @@ Vamos a tener 4 trabajos prácticos:
 * TP3: Metaprogramación (en Pharo)
 * [TP4: Domain Specific Languages (en XText)](../unq-tps-2013c2-TP3-metaprogramacion-pdf?attredirects=0&d=1)
 
-#### **[]()Condiciones de Aprobación de la Materia
+#### Condiciones de Aprobación de la Materia
 
 De cada TP tienen una entrega y un recuperatorio a la semana siguiente. Las fechas de entrega las pueden ver en la [Planificación](../unq-planificacion). Recalcamos que dada la cantidad de TPs, un atraso implica comprometer el TP siguiente, por eso vamos a ser estrictos con las fechas de entrega, es decir, **no se aceptarán entregas fuera de término**.
 

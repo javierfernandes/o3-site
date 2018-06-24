@@ -13,7 +13,7 @@ Vamos a ver una nueva forma de modelado con objetos, que también nos va a mostr
 Las clases no son la única forma de pensar la programación orientada a objetos.
 
 
-#### **[]()Prototipos
+#### Prototipos
 
 En un ambiente de objetos basado en prototipos **lo único que existe en el sistema son objetos**, no hay clases. 
 
@@ -33,14 +33,14 @@ Dado que no existe la noción de clases ni de herencia para la clasificación y/
 * El mecanismo para compartir código se basa en **traits o mixins**.
 
 El lenguaje que vamos a ver para ejemplificar esta idea se denomina **Self**.
-#### **[]()¿Cómo se crean objetos si no tengo clases?
+#### ¿Cómo se crean objetos si no tengo clases?
 
 Hay dos formas de crea un objeto:
 
 * **Clonando** un objeto ya existente
 * Creando un objeto **"literal"** (similar a crear un objeto vacío).
 
-#### **[]()¿Cómo se define el comportamiento?
+#### ¿Cómo se define el comportamiento?
 
 El comportamiento y el estado (todo junto) de un objeto está dado por un conjunto de **slots**, que pueden ser de tres tipos:
 
@@ -53,7 +53,7 @@ El comportamiento y el estado (todo junto) de un objeto está dado por un conjun
 
 
 Todo lo que tiene el objeto son slots y todos los slots son intercambiables en cualquier momento, es decir, quien envía un mensaje no tiene por qué enterarse de si el slot que se está utilizando para resolver su mensaje es un data slot o un method slot.
-#### **[]()Composición y reutilización
+#### Composición y reutilización
 
 La forma de reutilización es a partir de lo que se denomina **parents** o **delegates**. Cuando un objeto recibe un mensaje que no entiende ese mensaje se reenvía a alguno de sus delegates, Para agregar un delegate a un objeto, en self se le agrega un slot que tenga sufijo "*".
 
@@ -97,7 +97,7 @@ El obejto más común con ese comportamiento tiene un nombre raro: oddball, y pa
   c = (error: 'no se puede')
 |)
 
-#### **[]()Un ejemplo un poco más complejo: Animales
+#### Un ejemplo un poco más complejo: Animales
 
 
 * Para pensar este ejemplo arrancamos definiendo un objeto que representa a un pato, que entiende dos mensajes:
@@ -122,7 +122,7 @@ Luego ponemos ese nuevo objeto como parent de los dos anteriores (lo referenciam
 Es muy interesante notar que **no se necesita una construcción especial para tener un trait**: *es simplemente un objeto* que pongo en mi cadena de delegación y tiene sólo el mensaje nadar (es importante que no tenga nada más). No hay diferencia entre los "objetos" y los "traits"
 
 
-#### **[]()¿Por qué todas las ventanitas dicen "A slots object"?
+#### ¿Por qué todas las ventanitas dicen "A slots object"?
 
 
 

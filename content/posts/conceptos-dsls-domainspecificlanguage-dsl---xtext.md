@@ -168,7 +168,7 @@ Entonces podríamos repensar el diagrama así (aunque no exáctamente el orden o
 ](conceptos-dsls-domainspecificlanguage-dsl---xtext-generador-modelo-png?attredirects=0)
 
 
-#### **[]()Ejemplo de IGenerator
+#### Ejemplo de IGenerator
 
 Ver en la documentación de XText [http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration](http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration)
 
@@ -215,7 +215,7 @@ Algunas cosas a notar:
 Al usar un inferrer estamos de alguna forma declarando un "mapeo" entre nuestros objetos del DSL y los elementos de Java. Con lo cual, XText puede hacer cosas como mantener esa relación y darnos un debugger para nuestro DSL !! :)
 ### 
 
-#### **[]()Ejemplo de JvmModelInferrer
+#### Ejemplo de JvmModelInferrer
 
 Ver ejemplo en la documentación de XText  [http://www.eclipse.org/Xtext/documentation.html#_8](http://www.eclipse.org/Xtext/documentation.html#_8)
 

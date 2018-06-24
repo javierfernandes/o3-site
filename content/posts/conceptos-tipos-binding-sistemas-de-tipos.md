@@ -21,7 +21,7 @@ Ej:
 * Los puedo: sumar, restar, dividir, etc..
 
 
-#### **[]()¿Y en objetos?
+#### ¿Y en objetos?
 
 Los "valores" son los objetos, las "operaciones" son los mensajes. En objetos tenemos eso, objetos y mensajes.
 Creemos que para pensar las implicancias del concepto de tipo en objetos, conviene pensar a los tipos más desde las operaciones que como conjuntos de valores.
@@ -117,7 +117,7 @@ En realidad este es el tipo de polimorfismo típico de los objetos, el (justamen
 
 
 
-#### **[]()Problemas de la relación de subtipado
+#### Problemas de la relación de subtipado
 
 
 Pensemos en clases que modelan Cuadrados y Rectángulos. ¿Cuál es la relación entre esos clases? ¿Alguna resulta ser subtipo de otra?
@@ -184,7 +184,7 @@ Distinguimos entre estas tres opciones:
 
  * Al encontrarse un error de tipos durante la ejecución / evaluación, el lenguaje no lo detecta, y las consecuencias son impredecibles.
 
-#### **[]()Casteo
+#### Casteo
 
 Ponele que en un programa Java tenemos también paseadores, que en principio pueden pasear cualquier mamífero
 
@@ -243,7 +243,7 @@ El lenguaje C también tiene esta característica. Pero con una diferencia: *si 
 El caso del paseador de perros se puede solucionar en Java usando Generics (o su nombre más correcto en la teoría de tipos: "*tipos paramétricos*"), que es la misma característica que usamos para declarar una lista de perros como x, y por lo tanto enviarle el mensaje y a cada elemento.
 Los Generics eliminan las necesidades de casteo más típicas de Java, pero no todas. Por eso siguen estando los casteos ... y por lo tanto la necesidad de mantener algo de chequeo dinámico en Java y C#.
 
-#### **[]()Coerciones - parece parecido pero es otra cosa
+#### Coerciones - parece parecido pero es otra cosa
 
 Miremos este código Java:
 
@@ -361,7 +361,7 @@ Habilitar que se le pueda enviar un Organismo como parámetro a aplicarCuidados(
 La idea de tipado estructural permite que el lenguaje no trabe estos usos de la idea de polimorfismo.
 
 
-#### **[]()Distintos casos de tipado estructural
+#### Distintos casos de tipado estructural
 En lenguajes con tipado dinámico e implícito, como Smalltalk o Ruby, el tipado es naturalmente estructural. Por ejemplo:
 
 
@@ -403,22 +403,22 @@ Lo interesante de **la intersección de estos dos features** (checkeos + ducktyp
 
 ### Estudio de algunos lenguajes
 Ahora usemos los criterios que definimos para estudiar algunos lenguajes de programación juntando varios elementos que aparecieron.
-#### **[]()Java
+#### Java
 
 Momento del chequeoMayormente *estático*, pero *en presencia de chequeos se hace dinámico*. Modelo de error de tipos en chequeo dinámico: ClassCastException.Información de tipos que    hay que escribirMucha, está muy del lado *explícito*. 
 En la "cultura Java" se considera esto una ventaja, se dice que facilita la comprensión de las interfaces y de los programas, para las personas que los tienen que usar y mantener. Identificación de tiposNominal. Lenguajes similaresC# (hasta donde sabemos)
 
-#### **[]()Smalltalk
+#### Smalltalk
 
 Momento del chequeo*Dinámico*, modelo de error de tipos: DoesNotUnderstand.Información de tipos que  hay que escribirLa mínima posible, está muy del lado *implícito*.
 La idea es minimizar la cantidad de "burocracia" en el código. El nombre del lenguaje es muy claro al respecto.Identificación de tiposNaturalmente *estructural *: no se le pone nombre a los tipos.Lenguajes similaresRuby (hasta donde sabemos)
 
 
-#### **[]()Scala
+#### Scala
 
 Momento del chequeo*Estático*. La idea es brindar muchas herramientas desde el sistema de tipos para poder combinar chequeo estático con flexibilidad para aprovechar el polimorfismo. Una de estas ideas es permitir tipado estructural, otra la veremos más adelante.Información de tipos que  hay que escribir*Intermedio*. En varias ocasiones puede inferir tipos. en otras hay los tiene que proveer el programador.Identificación de tiposPermite que el programador combine tipado nominal en algunos lugares y estructural en otros, dentro del mismo programa.Lenguajes similaresno conocemos
 
-#### **[]()Haskell
+#### Haskell
 
 Momento del chequeo*Estático*. Muy preocupado desde la concepción por evitar errores de tipos. Da herramientas para permitir polimorfismo.Información de tipos que  hay que escribirMuy poca, está muy del lado *implícito*. Entre sus objetivos está aprovechar la inferencia de tipos todo lo que se pueda. En algunos (pocos) casos a la inferencia no le da la nafta, y el programador debe ayudarla poniendo algo de información de tipos.Identificación de tiposEn general *nominal*, hay *mecanismos de tipado estructural provistos* por el lenguaje (polimorfismo paramétrico).Lenguajes similaresno conocemos
 
@@ -462,7 +462,7 @@ Por ejemplo el lenguaje **Pike** tiene checkeos tanto estáticos como dinámicos
 Es decir que nos fuerza a declarar tipos de las variables (explícitos) y con esos tipos hace checkeos en tiempo de compilación (estático).
 Sin embargo permite cierto dinamismo en la declaración de los tipos.
 
-#### **[](../)Declaración de múltiples tipos (Tagged Unions)
+#### Declaración de múltiples tipos (Tagged Unions)
 
 Podemos declarar una variable con opciones de tipos
 ```
@@ -479,7 +479,7 @@ Y de la misma forma podemos aplicar esto a métodos:```
 Este método **make_array** recibe un parámetro llamado **x** que puede ser o bien **int** ó, **string**, ó **float**. Y retorna un objeto de tipo **array** de elementos de tipo **int**, **string, **o** float**.
 El cuerpo del método crea un array con el único element **x**.
 
-#### **[]()Variables de tipo Mixto
+#### Variables de tipo Mixto
 
 En el extremo del dinamismo, podemos declarar variables de tipo **mixed** que significa **de cualquier tipo**.
 Si hacemos todo nuestro sistema con variables de tipo mixto, estariamos utilizando el lenguaje como uno puramente **dinámico** e **implícito**.
@@ -504,7 +504,7 @@ Otro ejemplo:
 Que en java, al intentar compilar este código fallaría. Ni siquiera comenzaría a ejecutarse.
 En cambio, en **pike** este código compila sin ningún error. Sin embargo falla al ejecutarse.
 Quiere decir que en java el checkeo se hizo en el momento de compilación (**estático**), pero en pike se hizo en tiempo de ejecución (**dinámico**).
-#### **[]()Option Types en Nice
+#### Option Types en Nice
 En lenguajes imperativos con asignaciones de variables, obviamente aparece el concepto de **null, nil, **o como se llame según el lenguaje, que se refiere a que en un momento dado, la variable puede no estar referenciando a un objeto.
 
 También, por esto, sucede que suele ser un error bastante común intentar enviarle un mensaje a una variable sin referenciar. En java es el famoso **NullPointerException.** En smalltalk simplemente va a decir que el objeto **nil **no entiende el mensaje que le estamos enviando.

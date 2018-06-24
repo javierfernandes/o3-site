@@ -83,8 +83,8 @@ ruby script/generate scaffold Customer name:string
 
         #Levantar el server
         ruby script/serve
-#### **[]()
-#### **[]()Información de referencia útil
+#### 
+#### Información de referencia útil
 
 
 * Guía sobre el uso de **asociaciones**: [http://guides.rubyonrails.org/association_basics.html](http://guides.rubyonrails.org/association_basics.html)

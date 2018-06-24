@@ -4,11 +4,11 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Instalación
+#### Instalación
 La forma más sencilla de utilizar AspectJ es a través de un plugin de eclipse denominado AJDT. Las instrucciones para instalar este plugin se pueden bajar de la página de [](http://www.eclipse.org/ajdt/downloads/#dev36)[downloads de AJDT](http://www.eclipse.org/ajdt/downloads/#dev36).
 
 [](http://www.eclipse.org/ajdt/downloads/#dev36)
-#### **[]()Algunos links útiles
+#### Algunos links útiles
 Acontinuación algunos ejemplos de uso de esta tecnología:
 
 * [Referencia del lenguaje AspectJ](http://www.eclipse.org/aspectj/doc/released/progguide/language.html)

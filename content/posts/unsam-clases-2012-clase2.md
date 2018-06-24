@@ -10,7 +10,7 @@ Estuvimos un rato largo hablando de [Sistemas de tipos](../conceptos-tipos-bindi
 
 
 
-#### **[]()Intro a Scala
+#### Intro a Scala
 
 Vimos algunas cosas básicas del lenguaje siguiendo [este tutorial](../te-scala). Los temas que mencionamos son:
 
@@ -21,7 +21,7 @@ Vimos algunas cosas básicas del lenguaje siguiendo [este tutorial](../te-scala)
 Les dejo para ustedes mirar la interacción con Java. 
 
 
-#### **[]()Cosas para leer
+#### Cosas para leer
 
 
 

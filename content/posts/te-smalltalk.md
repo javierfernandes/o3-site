@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 Vamos a utilizar un dialecto de Smalltalk llamado Pharo. 
 Para instalar Pharo Smalltalk recomiendo seguir las instrucciones de [esta página](http://pdep.com.ar/Home/software/software-pharo) (ignoren todo lo que diga "Object Browser", eso no nos aplica a nosotros).
 
-#### **[]()Breve introducción al Pharo Smalltalk
+#### Breve introducción al Pharo Smalltalk
 
 
 (Esta intro es producto de las notas de una clase, sirve como repaso de lo visto en el aula. 

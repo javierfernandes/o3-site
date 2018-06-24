@@ -9,7 +9,7 @@ Ya nos metemos de lleno en la unidad 2. Vamos a tocar un tema un poco más abstr
 Lo importante en el paradigma de objetos son los mensajes y en la primera unidad pensamos mucho en eso: mensajes, polimorfismo, tipos. Ahora vamos a ver las diferentes formas de definir lo que hay del otro lado de los mensajes.
 
 
-#### **[]()Clases
+#### Clases
 La forma tradicional de ponerle comportamiento a un objeto son las clases. Una clase tiene dos objetivos:
 
 * Es una **unidad de creación**, sirve como molde para crear objetos. Cuando yo quiero crear un objeto lo hago (en la versión más simple) a partir de su clase. Para poder crear objetos entonces, estas clases tienen que ser "completas". No pueden definir un objeto a medias.
@@ -28,7 +28,7 @@ La raiz del problema es que estamos utilizando las clases para dos cosas. Como u
 
 Porque como dijimos, *una clase para poder crear instancias debe definir un objeto "completo"*. *En cambio muchas veces lo que necesitamos es poder reutilizar un "pedazo de código" o un comportamiento específico, que define cierta característica de un objeto, pero que no lo define completamente*. Por ejemplo: Observable, Comparable, etc.
 
-#### **[]()Mixins 
+#### Mixins 
 Los **mixins** tienen todas las características de una clase, sin definir una superclase, por eso a veces se los menciona como *subclases abstractas*. Son "pedazos de clases", pueden tener atributos y métodos, pero no tienen constructores ni superclase.
 
 Al agregar un mixin en una clase, este pasa a formar parte de la cadena de resolución de métodos, es decir *forma parte de la cadena de herencia*. Al hacer esto proveen una forma de resolución de los conflictos implícita, que depende del orden en el que se agregan los mixins a la clase en cuestión.
@@ -37,7 +37,7 @@ Y por ejemplo combinado con la herencia, puede traer varios problemas (por ej: s
 
 Otro problema de los mixins es la posibilidad de tener estado, ya que los conflictos entre las variables pueden ser más complejos que los conflictos entre los métodos.
 
-#### **[]()Traits
+#### Traits
 El concepto detrás de los traits es formar *unidades de composición*. En esta visión, una clase podría ser simplemente la composición de varios traits.  Y un trait, como unidad de reutilización, no requiere definir un objeto "completo".
 
 Para llevar esto a cabo, las diferencias fundamentales con los mixins son:
@@ -67,7 +67,7 @@ La versión más radical dice "glue methods", es decir, únicamente métodos que
 ### Ejemplos
 Finalizada la parte teórica pasamos a ver algunos ejemplos en Pharo y Scala. 
 
-#### **[]()Animales
+#### Animales
 Modelamos Animales que subclasivicamos en Mamíferos, Aves y Reptiles. Encontramos que algunas de sus características no podían ponerse en una jerarquía de herencia y las modelamos como traits:
 
 * forma de reproducción (vivíparos, ovíparos) 
@@ -162,7 +162,7 @@ Pero también lo podemos asociar a los objetos:
         var miBicicleta = new Bicicleta with Alquilable
 
 
-#### **[]()Múltiples mixins
+#### Múltiples mixins
 En el último ejemplo definimos múltiples mixins sobre la clase Ball y eso nos permitió ver cómo al componerlos de diferente manera cambiaba el comportamiento. Esto nos muestra que los mixins se meten en la jerarquía de herencia, a diferencia de los traits.
 
 Por lo tanto las dos líneas siguientes producen comportamientos distintos:

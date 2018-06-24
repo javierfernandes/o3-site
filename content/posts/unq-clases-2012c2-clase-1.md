@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Contenido teórico
+#### Contenido teórico
 
 Arrancamos presentando la materia, los objetivos, este site, la forma de evaluación y pasamos rápidamente por las unidades.
 También les conté sobre cómo armar el entorno de trabajo, en particular utilizando la [Virtual Machine](../te-virtualmachine) que proveemos.
@@ -15,7 +15,7 @@ Eso nos sirvió para introducir a los principales contenidos teóricos de la Uni
 
 
 Luego, introdujimos el lenguaje [Scala](../te-scala), que nos va a servir para hacer el primer TP.
-#### **[]()Tarea para el hogar
+#### Tarea para el hogar
 
 La tarea para estas dos semanas (el lunes que viene no hay clase) consiste en preparar el entorno de trabajo para el TP, lo que se puede hacer de dos maneras:
 

@@ -59,11 +59,11 @@ Después vimos que ese aspecto que es un objeto tiene un **ciclo de vida **que d
 
 
 
-#### **[]()Ejemplo con Annotations
+#### Ejemplo con Annotations
 
 En segundo término vimos una forma alternativa de lograr el mismo resultado. Pero estableciendo un contrato entre los objetos a aspectear y el aspecto.
 Acá el aspecto aplica solo a las clases anotadas con @Observable.
-#### **[]()Ejemplo con Mixins
+#### Ejemplo con Mixins
 
 Vimos que define que los objetos anotados con @Observable ahora pasan a implementar una nueva interfaz.
 Y el mismo aspecto le define las implementaciones de esos métodos, en forma parecida (conceptualmente) a la idea de **Open Class **que vimos en **Nice.**

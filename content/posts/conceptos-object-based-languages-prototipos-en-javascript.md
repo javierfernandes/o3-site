@@ -20,7 +20,7 @@ En primer término, decimos que JavaScript es un lenguaje de programación de **
 
 En cuanto a su [sistema de tipos](../conceptos-tipos-binding)  ...
 
-#### **[]()Es dinámico
+#### Es dinámico
 Es decir que los checkeos se realizan en tiempo de ejecución. En la misma forma en que lo hacen lenguajes como: smalltalk, ruby, groovy, etc.
 ```
 
@@ -67,7 +67,7 @@ El bytecode generado al compilar esto sería:
 
 ```
 
-#### **[]()Es implícito
+#### Es implícito
 Dos puntos:
 
 1. Al ser dinámico, **dos objetos van a ser polimórficos si entienden el mismo mensaje** que les estoy enviando. No hace falta que tengan un tipo en común (supertipo, o lo que sea). Igual que vimos en smalltalk. Es decir que el polimorfismo es **implícito.**

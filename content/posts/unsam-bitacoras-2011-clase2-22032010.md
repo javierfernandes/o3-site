@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 ### Sistemas de Tipos
 
 
-#### **[]()¿Qué es un tipo?
+#### ¿Qué es un tipo?
 
 * conjunto de valores o "elementos de ese conjunto"
 * conjunto de operaciones que puedo realizar sobre ellos
@@ -18,7 +18,7 @@ Y en objetos ?
 La primer idea es matchear un tipo con una clase.
 Pero no es la única idea de tipos en OOP. Porque un objeto puede implementar **varios tipos**.
 
-#### **[]()Sistema de tipos en Java:
+#### Sistema de tipos en Java:
 Tipo las variables. Ej: Perro perro
 Me agrega restricciones. Por ejemplo, Perro perro = new ArrayList<Object>(); 
 

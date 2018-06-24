@@ -4,25 +4,25 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-Clase 5 - 9/9 **Contenido de la clase**
+# Clase 5 - 09/09 **Contenido de la clase**
 
+Características típicas en los lenguajes OO más tradicionales:
 
-* Dos características típicas en los lenguajes OO más tradicionales:
-
- * Las clases tienen varios roles:
-
+* Las clases tienen varios roles:
   * Definición del comportamiento de un objeto.
   * Definición de tipos
   * Creación de objetos
- * La única herramienta *automática* para compartir comportamiento es la herencia (más aún, herencia simple).
+* La única herramienta *automática* para compartir comportamiento es la herencia (más aún, herencia simple).
 * La delegación no alcanza para solucionar esos problemas. Por ejemplo en presencia de estructuras tipo Template Method.
-* Problemas de la herencia múltiple.
+
+Problemas de la herencia múltiple.
 
  * ¿Qué pasa si heredo métodos con la misma firma de dos o más superclases?
  * ¿Qué pasa si quiero combinar el comportamiento heredado de diferentes superclases?
  * ¿Cómo se resuelven los chequeos de tipos en las superclases abstractas?
  * ¿Qué pasa si quiero ponerle un comportamiento especial sólo a algunos objetos?
-* Mixins
+
+Mixins
 
  * Sintaxis en Scala.
  * Linearización.
@@ -37,17 +37,13 @@ Clase 5 - 9/9 **Contenido de la clase**
 
 
 * [Mixins](../conceptos-mixins)
-
 * Especificación de las reglas de [linearización en Scala](http://jim-mcbeath.blogspot.com.ar/2009/08/scala-class-linearization.html#rules).
 * [Herencia múltiple y method resolution en Python](http://www.python.org/download/releases/2.3/mro/)
 
 **Tarea para el Hogar**
 
-
 * Comenzar con la entrega 2 del TP1
  Clase 4 - 2/9 **Contenido de la clase**
-
-
 * Posibles clasificaciones para los sistemas de tipos en el paradigma de objetos.
 * Casteos y Coerciones.
 * Duck Typing.
@@ -73,9 +69,8 @@ Clase 5 - 9/9 **Contenido de la clase**
 
 
 * Introducción al Scala: clases, objetos, métodos, variables (var) y constantes (val).
-
- * Uso de variables públicas y/o accessors en Java vs. Scala, análisis desde el punto de vista del **binding**.
- * Funciones de orden superior.
+* Uso de variables públicas y/o accessors en Java vs. Scala, análisis desde el punto de vista del **binding**.
+* Funciones de orden superior.
 * Double Dispatch
 * Pattern mathching.
 * Introducción a los sistemas de tipos. 
@@ -119,7 +114,7 @@ Clase 2 - 19/8Feriado Nacional  Clase 1 - 12/8
 
 * Definiciones de las ideas de [Binding, Polimorfismo y Sobrecarga](http://uqbar-wiki.org/index.php?title=Binding%2C_polimorfismo_y_sobrecarga).
 * Material teórico sobre [Multiple Dispatch](../conceptos-multiple-dispatch)
-* Otro [ejemplo](https://docs.google.com/document/d/1XWq9azqchoJZ7h8-hLcpA1Zj5T1UtvFtDKbpzxoQ-dw/edit#heading=h.gjdgxs).
+* Otro [ejemplo](https://docs.google.com/document/d/1XWq9azqchoJZ7h8-hLcpA1Zj5T1UtvFtDKbpzxoQ-dw/edit#heading=h.gjdgxs)
 
 **Tarea para el Hogar**
 

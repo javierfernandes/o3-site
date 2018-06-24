@@ -4,10 +4,10 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Material teórico
+#### Material teórico
 El material teórico disponible se encuentra en [Domain Specific Language](../conceptos-dsls-domainspecificlanguage).
 
-#### **[]()Ejemplos
+#### Ejemplos
 
 Todos los ejemplos se pueden bajar de acá: [https://xp-dev.com/svn/utn-tadp-projects/phm/trunk/programacionDeclarativa/](https://xp-dev.com/svn/utn-tadp-projects/phm/trunk/programacionDeclarativa/).
 Para hacerlos andar, conviene pensar en tres workspaces diferentes:

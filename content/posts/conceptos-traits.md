@@ -423,7 +423,7 @@ Además no hay un orden ni muchas clases/traits que se encadenen. Con lo cual pe
 * Trait vs Trait
 * Superclase vs Trait
 
-#### **[]()**Clase/trait**
+#### **Clase/trait**
 
 
 Agregamos el "mandarseUna" en "Voladora". => conflicto entre Pato y Voladora.
@@ -432,7 +432,7 @@ En pharo: gana la clase, porque solo se copian los mètodos de los traits que no
 Ojo, que el efecto es que perdemos la implementaciòn "mandarseUna" que venía de "Voladora".
 
 
-#### **[]()**Superclase/trait**
+#### **Superclase/trait**
 
 
 Para generar el conflicto, aagergamos "ponerHuevos" al trait Voladora.
@@ -442,7 +442,7 @@ En la linearización se agrega a la "anonima". Sigue la misma regla.  Gana el de
 En traits pasa lo mismo. Se copia el mètodo del trait al Pato. Gana ese. Pero sigue estando accesible el del Ave.
 
 
-#### **[]()Trait/trait
+#### Trait/trait
 
 Ponemos "nadar" en Voladora.
 En la lineraización quedan todos los mètodos, uno en cada anònima. Gana el ùltimo mixin aplicado (Voladora). Que sobrescribe al mètodo de Nadadora. Puedo reutilizarlo con super.
@@ -494,7 +494,7 @@ Persona subclass: #JacoboWinograd`
 
 
 
-#### **[]()Operaciones sobre traits
+#### Operaciones sobre traits
 
 
 

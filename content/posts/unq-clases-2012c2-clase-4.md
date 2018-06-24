@@ -67,11 +67,11 @@ Luego vimos que el aspecto es de hecho un objeto, y que puedo obtenerlo y accede
 Mencionamos que ese aspecto que es un objeto tiene un **ciclo de vida **que define cuando se va a crear la instancia del aspecto y cuanto va a vivir. Esto puedo definirlo a través de **pertarget** y **perthis**. 
 
 
-#### **[]()Ejemplo con Annotations
+#### Ejemplo con Annotations
 
 En segundo término vimos una forma alternativa de lograr el mismo resultado. Pero estableciendo un contrato entre los objetos a aspectear y el aspecto.
 Acá el aspecto aplica solo a las clases anotadas con @Observable.
-#### **[]()Ejemplo con Mixins
+#### Ejemplo con Mixins
 
 Vimos que define que los objetos anotados con @Observable ahora pasan a implementar una nueva interfaz.
 Y el mismo aspecto le define las implementaciones de esos métodos, en forma parecida (conceptualmente) a la idea de **Open Class **que vimos en **Nice.**

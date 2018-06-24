@@ -53,7 +53,7 @@ Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramaci
 
 ### Correspondencia Ontológica
 
-#### **[]()Correspondencia Temporal
+#### Correspondencia Temporal
  
 * **Correspondencia Temporal:**
 
@@ -77,7 +77,7 @@ Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramaci
  * Ejemplo radical, pre/post condiciones (como en Eiffel), permitirían a una interfaz de usuario validar parámetros o inputs sin siquiera ejecutar los métodos. Esa separación es sana, incluso validaciónes que no dependen de la instancia (digamos, como "de clase") permitirían realizar validaciones mucho antes de tiempo, sin necesidad de crear objetos inconsistentes o deshechables.
  
 
-#### **[]()Correspondencia Estructural
+#### Correspondencia Estructural
  
 * **Correspondencia Estructural:** Se refiere a la capacidad del API de modelar y reflejar todos los elementos del lenguaje:
 

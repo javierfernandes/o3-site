@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Introducción
+#### Introducción
 Como parte de la unidad vamos a seguir viendo diferentes estratégias para romper con "la dictadura de la clase". Es decir, para definir comportamiento del sistema fuera de las formas tradicionales: la clase y su jerarquía (superclases).
 
 La clase pasada vimos mixins y traits, como variantes a los modelos de jerarquía múltiple, simple y composición.
@@ -29,7 +29,7 @@ Entonces, este mecanismo, si bien útil, parece tener ciertas limitaciones:
 * ¿Qué pasa si quiero poder activar / desactivar la funcionalidad ?
 Acá entra la idea de "aspecto".
 
-#### **[]()Cross-cutting concerns
+#### Cross-cutting concerns
 Todos los paradigmas utilizan la idea de abstracción y encapsulamiento, aunque en diferentes maneras. Y todos ellos intentan entonces modelar de forma cohesiva y encapsulada ciertos bloques de construcción. Es la vieja estratégica de "divide y conquistarás". 
 Algunos ejemplos: procedimientos, funciones, módulos, clases, métodos, y hasta traits :)
 
@@ -71,7 +71,7 @@ Generalmente estas cuestiones cross-cutting se utilizan para cosas tecnológicas
 
 Para llevar estas ideas a la práctica vamos a usar un lenguaje que extiende al Java, denominado AspectJ.
 
-#### **[]()Primer ejemplo: Loggeo
+#### Primer ejemplo: Loggeo
 Algunos conceptos básicos de AspectJ:
 
 * Defino un aspecto: 
@@ -127,7 +127,7 @@ Otros scopes posibles son: perthis (por cada lugar desde donde se llama el códi
 Permite trabajar con fields (o lo que fuera) en clases que tengan la annotation @LoggeableAnnotation.
 
 
-#### **[]()Segundo ejemplo: Mixins.
+#### Segundo ejemplo: Mixins.
 Para agregar un mixin debemos realizar dos pasos:
 
 1. Desde el aspecto hacemos que la clase que nos interesa implemente una interfaz definida por nosotros:

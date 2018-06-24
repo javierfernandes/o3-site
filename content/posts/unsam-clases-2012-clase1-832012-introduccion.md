@@ -10,7 +10,7 @@ Hicimos referencia a este google site.
 
 ### Introducción a la Materia
 
-#### **[]()Cuestiones administrativas
+#### Cuestiones administrativas
 Definimos que la forma de evaluación de la materia está principalmente basada en las prácticas, con 4 Trabajos Prácticos:
 
 * TP0 - Práctica introductoria con Smalltalk (entrega 15/3) y Scala (entrega 29/3).
@@ -30,14 +30,14 @@ En principio vamos a estar trabajando los martes. Los martes los trataremos "on-
 
 
 
-#### **[]()Tecnologías
+#### Tecnologías
 En la materia vamos a estar utilizando muchas tecnologías distintas que nos permiten poner a prueba los distintos conceptos que vamos aprendiendo.
 Para simplificar un poco armamos una [Máquina Virtual de la materia](../te-virtualmachine) que ya contiene todos entornos para trabajar sin perder tiempo en complejidad accidental de instalaciones y configuraciones.
 Sin embargo, **es importante no dejarse estar con las cuestiones tecnológicas**, porque no es infrecuente que produzcan trabas; si lo dejo para el último día y me encuentro con una traba, entonces voy a estar en problemas.
 Por eso, ya desde esta semana comenzamos con una entrega de un TP0 que es "para entrar en calor". Ojo, el TP es sencillo, pero es obligatorio.
 
 
-#### **[]()Contenido de la Materia
+#### Contenido de la Materia
 Comenzamos hablando sobre la [visión general de la materia](conceptos-abstracciones-y-conceptos-visin-general-de-la-materia) y luego describimos rápidamente cada una de las unidades, que se encuentran en definidas en el [Temario](../temario).
 
 ### Unidad I
@@ -46,7 +46,7 @@ Comenzamos hablando sobre la [visión general de la materia](conceptos-abstracci
 Arrancamos haciendo un [repaso del paradigma de objetos](conceptos-tipos-binding-repaso-objetos--smalltalk) y presentamos el [Pharo Smalltalk](../te-smalltalk).
 
 Aquí pueden encontrar una presentación que se usó para dar esta clase en otro cuatrimestre: [Unidad 1 - Esquemas de tipado](../conceptos-tipos-binding)
-#### **[]()Referencias
+#### Referencias
 Algunos **referencias** que hicimos:
 
 * **Alan Kay:** quien inventó el concepto de OOP.
@@ -55,7 +55,7 @@ Algunos **referencias** que hicimos:
 * **Simula 68:** primer lenguaje con un tinte objetoso.
 * **Smalltalk** 72, 78 y 80
 
-#### **[]()Tareas
+#### Tareas
 
 * TP0
 * (para dentro de 15 días) hacer andar la VM.

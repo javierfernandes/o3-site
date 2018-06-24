@@ -85,7 +85,7 @@ Si ejecutamos este main vamos a ver este resultado:
  `tiene **cliente** de tipo **Cliente
 
 
-#### **[]()Explicando el ejemplo
+#### Explicando el ejemplo
 
 Vamos a comentar algunas cositas de este código de ejemplo más bien sencillo:
 
@@ -212,7 +212,7 @@ Ah, y cuanto más cosas usamos del API de reflection más larga se hace la lista
 
 **
 
-#### **[]()Enviando mensajes por Reflection
+#### Enviando mensajes por Reflection
 
 Por último, vamos a ver otro ejemplo. **Ver** la estructura de las clases es una parte de reflection. Ver los valores de las intancias es otra aplicación. Pero la tercer aplicación que mostramos acá es otra parte muy utilizada e importante: interactuar con los objetos enviándoles mensajes.
 

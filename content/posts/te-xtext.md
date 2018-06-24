@@ -14,7 +14,7 @@ date:  2018-06-20T19:27:10-03:00
 * [Tutorial](http://www.eclipse.org/Xtext/documentation/1_0_0/xtext.html#getting-started)
 * [Guía del usuario completa](http://www.eclipse.org/Xtext/documentation/1_0_0/xtext.html)
 
-#### **[]()XText 2.1
+#### XText 2.1
 
 * [Xtext 2.1 Documentation](http://www.eclipse.org/Xtext/documentation/2_1_0/Xtext%202.1%20Documentation.pdf) (pdf)
 * [Using JVM Types in Xtext 2.1 and the ImportManager](http://www.rcp-vision.com/?p=1573)
@@ -24,9 +24,9 @@ date:  2018-06-20T19:27:10-03:00
 * [Five simple steps to your JVM language](http://www.eclipse.org/Xtext/documentation.html#JvmDomainmodel)
 * Creación de un Scope Provider: [http://www.peterfriese.de/writing-xtext-scope-providers-with-xtend/](http://www.peterfriese.de/writing-xtext-scope-providers-with-xtend/)
 
-#### **[]()XTend
+#### XTend
 
 
 * [http://www.eclipse.org/xtend/documentation.html](http://www.eclipse.org/xtend/documentation.html)
 
-#### **[]()
+#### 

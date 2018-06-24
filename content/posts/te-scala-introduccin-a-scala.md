@@ -46,7 +46,7 @@ En scala:
             unMetodo(**unString : String**, **numero : Integer**)
 
 
-#### **[](../)Variables (y valores) locales
+#### Variables (y valores) locales
 
 Las variables en scala se pueden declarar de dos tipos, como **mutables** o **inmutables.**
 
@@ -82,7 +82,7 @@ valnombre : String = "World";`
         println("Hello, " + nombre + "!");
 
 Y en tal caso la linea *'nombre = "PACO"'* no compilaría. Ya que los valores no pueden modificarse (son referencias inmutables)
-#### **[]()Elementos opcionales
+#### Elementos opcionales
 
 A diferencia de java, varios elementos de la sintaxis son opcionales, de forma de escribir menos código, y que éste quede más conciso y legible (en teoría, ja!).
 Al principio nos resulta dificil entender en qué casos es opcional escribir algo y en cuales otros no.
@@ -351,12 +351,12 @@ Por ejemplo para sobrescribir el toString de nuestro Robotito
 
 ### Cuestiones de Estilo
 
-#### **[]()1 archivo = N clases
+#### 1 archivo = N clases
 Una diferencia con java, es que en un archivo .scala se puede definir más de una clase.
 No es necesaria la restricción de 1 clase = 1 archivo.
 Esto sumado a la capacidad de Scala para escribir lo mismo en menos lineas de código, hace posible que uno organize varias clases en un mismo archivo. Además de la categorización por paquetes.
 
-#### **[]()Imports locos
+#### Imports locos
 
 Acá tenemos varias cositas.
 Para empezar, el caracter para "importar todo", no es el asterisco, sino el guión bajo. O sea,

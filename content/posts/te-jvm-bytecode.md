@@ -121,14 +121,14 @@ Existen varios opcode para la invocación de métodos:
 * **invokedynamic **(nuevo en java7)
 
 
-#### **[]()invokevirtual
+#### invokevirtual
 Como ya vimos en el ejemplo de "Hola Mundo", el **invokevirtual** se utiliza para invocar métodos haciéndo uso del mecanismo de dispatching dinámico para localizar y ejecutar la implementación del método de acuerdo a la clase concreta del receptor.
 Este dispatching se hace sobre la jerarquía de la clase.
 
 Algo importante a tener en cuenta es que esta instrucción se utiliza para invocar métodos de instancia declarados en clases y no en **interfaces**. Para este último caso existe la instrucción **invokeinterface**.
 
 
-#### **[]()invokeinterface
+#### invokeinterface
  Bastante similar al **invokevirtual** se utiliza para invocar un método, declarado en una **interface**.** **De nuevo se ejecutará el dispatching dinámico sobre el receptor.
 Veamos un ejemplo:
 ```
@@ -149,7 +149,7 @@ En este caso Enumeration es una **interface** y estamos invocando el método **h
 
 ```
 
-#### **[]()invokespecial
+#### invokespecial
 
 Se utiliza para invocar un método puntual, sin realizar dispatching dinámico. Es decir para invocar métodos "no-virtuales". En java decimos que todos los métodos son virtuales por default, porque generalmente el bytecode que escribimos se traduce a instrucciones **invokevirtual** y/o **invokeinterface**. En otros lenguajes como C# se da lo contrario y hay que especificar qué métodos queremos que sean virtuales.
 En fin, volviendo a java, el tema es que hay ciertas invocaciones especiales donde no hay dispatching. Estos son los casos:
@@ -166,11 +166,11 @@ En fin, volviendo a java, el tema es que hay ciertas invocaciones especiales don
  * Ej: **super.toString()**
 
 
-#### **[]()invokestatic
+#### invokestatic
  Se utiliza para invocar métodos **static**. Obviamente no hay dispatching.
 
 
-#### **[]()invokedynamic
+#### invokedynamic
 Es una instrucción nueva en la JVM versión 7, que muchos lenguajes están esperando, porque permitirá invocar un método en forma dinámica, es decir, con dispatching, pero sin necesidad de especificar la clase que lo declara y la firma del método.
 Esto va a dar el soporte necesario para lenguajes dinámicos que hoy en día igualmente se construyen sobre la JVM pero con muchas limitaciones o con "truquitos" para evadir la naturaleza estática y los checkeos de java. Muchas veces esto causa un pérdida considerable de performance de estos lenguajes o consumo de memoria.
  

@@ -72,7 +72,7 @@ Vemos que:
 * La **segunda linea** indica a xtext que, en base a este archivo, deberá generar un modelo de objetos para los conceptos de nuestro lenguaje. E indica además un nombre (largo) para ese modelo de objetos (Como si fuera el package donde va a estar, o una URL).
 * **Luego** viene **lo más interesante y es la definición de la gramática de nuestro archivo** (DSL).
 
-#### **[]()Reglas de gramática
+#### Reglas de gramática
 
 El cuerpo del archivo .xtext es un conjunto de **reglas **que definen la sintaxis de nuestro lenguaje.
 Como si fuera una especie de "regular expresion" pero no ta complicada (mmmm ...)
@@ -98,7 +98,7 @@ La sintaxis es
 
 Entonces, cuando yo quiera escribir en mi DSL algo, Xtext va a buscar que lo que escribo cumpla con la regla definida.
 En este caso solo me va a dejar escribir "Hello World!", y una única vez.
-#### **[]()Variables
+#### Variables
 
 Ahora, este es un ejemplo bastante tonto. Entonces, vamos de a poco. Hagamos que el usuario pueda parametrizar el saludo, en lugar de que siempre escriba "World", que pueda poner su propio text.
 Necesitamos decir algo así (en pseudo código)
@@ -137,7 +137,7 @@ Ahora nuestro DSL se puede usar así
 
 Acá se ve que los strings que ponemos sueltos dentro de una regla, solito los marca Xtext como keywords en negrita y bordó.
 
-#### **[](../)Variables para muchos valores (listas)
+#### Variables para muchos valores (listas)
 
 Supongamos que se puedan definir muchos "aQuien". Es decir así:
 
@@ -165,7 +165,7 @@ Hay dos cosas a notar:
 
 Entonces eso se lee así:
            Solo puede aparecer un elemento de tipo STRING. Si aparece se agrega a la lista de "aQuien". A su vez, puede aparecer no uno, sino muchos de estos.
-#### **[]()Referencia entre reglas
+#### Referencia entre reglas
 
 Nos falta una solo cosa para llegar al ejemplo original generado por xtext.
 Recién hicimos que se pueda especificar una lista de STRINGs dentro de una regla.

@@ -112,7 +112,7 @@ Pero a modo ilustrativo la estructura y contenido es
     -- xtext
 
 
-#### **[]()Nota:
+#### Nota:
 La carpeta "workspaces" está versionada a través de subversion (svn). Es decir que esta carpeta fue checkouteada y es una working copy local que se puede actualizar con el contenido del servidor.
 Esto nos permite a nosotros generar una única versión de la VM y luego ir agregándo ejemplos sin tener que redistribuir la VM nuevamente. Solo deben hacerse update de esta carpeta.
 Por eso, al comenzar a usar la VM deben hacer esto:

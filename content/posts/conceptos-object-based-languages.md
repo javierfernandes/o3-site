@@ -25,7 +25,7 @@ El comportamiento definido en los propios objetos nos permite lograr todos conce
 
 
 
-#### **[]()¿Qué lenguajes incorporan estos conceptos?
+#### ¿Qué lenguajes incorporan estos conceptos?
 
 El lenguaje más tradicional en el que se definió el concepto de object-based es **[Self](../te-self)**. En su momento Self fue un proyecto revolucionario no sólo por su concepción sin clases sino por su virtual machine que incorporó ideas muy novedosas (que son las que permitieron que hoy en día muchos lenguajes utilicen VMs). Pero hoy en día el proyecto Self no tiene mucha actividad y hay otros lenguajes que lo han ido superando en diferentes aspectos. 
 
@@ -33,7 +33,7 @@ El lenguaje más tradicional en el que se definió el concepto de object-based e
 Desde hace varios hay un lenguaje muy popular que es object-based: [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](../te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
 
 
-#### **[]()¿Y quién cumple la función de las clases si no existen ?
+#### ¿Y quién cumple la función de las clases si no existen ?
 
 Dado que no existe la noción de clases ni de herencia para la clasificación y/o reuso, necesitamos otros mecanismos para crear objetos y para compartir comportamiento. Recordemos que las clases cumplen esas dos funciones, por un lado son creadoras de instancias, y por el otro permiten modelar abstracciones definiendo tipos y comportamientos compartidos entre las instancias de ese tipo.
 
@@ -42,7 +42,7 @@ Para eso en lenguajes de objetos sin clases:
 * La **creación** se basa en la clonación de objetos (denominados **prototipos**).
 * El mecanismo para compartir código se basa en la **delegación automática**, (y luego sobre ésta la idea de **traits o mixins**)
 
-#### **[]()¿Cómo se crean objetos si no tengo clases?
+#### ¿Cómo se crean objetos si no tengo clases?
 
 La ausencia de clases obliga a pensar en otra forma de crear un objeto. En general existen dos formas:
 
@@ -61,7 +61,7 @@ En cambio en ***Ioke*** no es necesario clonar/copiar, porque el mismo mecanismo
 
 
 
-#### **[]()¿Cómo se define el comportamiento?
+#### ¿Cómo se define el comportamiento?
 
 Bien, vimos que copiando objetos yo podría reutilizar la definición de un objeto. Por ejemplo, primero creo un primero objeto Persona, le agrego todos sus slots, y finalmente para utilizarlo con personas concretas concretos, lo clono.
 Esto copia el estado, pero también los métodos.

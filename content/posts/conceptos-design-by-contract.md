@@ -56,7 +56,7 @@ Ahora se va a entender en la siguiente sección con un ejemplo.
 
 ### Precondiciones
  
-#### **[]()Ejemplo
+#### Ejemplo
 
 Ya que el comportamiento es algo dinámico, a veces sucede que ciertos métodos son solo válidos bajo ciertas condiciones. 
 Ejemplo:
@@ -191,10 +191,10 @@ Ejemplo:
 El tamaño de una pila **size()** siempre será >= 0
 
 
-class Stack  create`[]()** 
- []()`    **make **    invariant`** 
- []()`        size >= 0`
- **[]()` end -- class ACCOUNT `
+class Stack  create`** 
+ `    **make **    invariant`** 
+ `        size >= 0`
+ **` end -- class ACCOUNT `
 
 
 ### Contratos & Herencia
@@ -224,23 +224,23 @@ Entonces, la pregunta es, por qué preferiría tener soporte nativo del lenguaje
 
 Por varios motivos, aunque sutiles, igualmente importantes.
 
-#### **[]()Reificación
+#### Reificación
 
 En primer lugar, al tenerlo, estamos reconociendo las precondiciones, postcondiciones e invariantes como elementos de nuestro paradigma, tan importantes como los otros elementos (objeto, mensaje, etc). Es decir que estos conceptos pasan a estar **reificados,** plasmados en el lenguaje mismo como first-class objects
 
-#### **[]()Declaratividad
+#### Declaratividad
 Ya veremos más adelante de qué se trata la declaratividad en las siguientes unidades. 
 Lo interesante en este caso es que, si el lenguaje me provee soporte nativo, nosotros **no vamos a tener que codificar la lógica de la ejecución de los checkeos**, en su lugar, **solo definiremos las condiciones, como predicados, independientes de la ejecución**. 
 La VM será la encargada de ejecutar la lógica asociada a las condiciones, en el momento que corresponda.
 
 Ahora que **desacoplamos la declaración de las condiciones, de la ejecución**, es decir del código que la ejecuta, podríamos pensar que estas condiciones se pueden usar/ejecutar en diferentes momentos, o por diferentes objetos cliente.
 
-#### **[]()Capacidades de Metaprogramación
+#### Capacidades de Metaprogramación
 Además, con el soporte nativo, la declaratividad y la reificación, **desacoplamos las condiciones del cuerpo del método**.
 Antes, cuando las teníamos dentro del cuerpo, para ejecutar los checkeos debíamos ejecutar el método. No podíamos separarlas.
 En cambio **ahora,** si el lenguaje provee soporte, y modela estos conceptos en su API de reflection, nosotros **podremos ejecutar las precondiciones antes de ejecutar el método,** por ejemplo, para saber si ese método será ejecutable, y en caso de no serlo, deshabilitar el botón asociado a el en una interfaz de usuario, por ejemplo.
 
-#### **[]()Expresividad y Claridad
+#### Expresividad y Claridad
 Un poco como consequencia de estos motivos que mencionamos, ganamos claridad en nuestro código y legibilidad.
 Como no tenemos código mezclado:
 

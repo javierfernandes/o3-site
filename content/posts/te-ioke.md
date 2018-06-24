@@ -135,7 +135,7 @@ Fíjense que el método no se define con una sintaxis especial como en otros len
 Esto es muy importante en ioke y en parte viene de otros lenguajes como LISP. Y nos lleva al siguiente tema a ver.
 
 
-#### **[]()Ground, Mensajes y Contextos
+#### Ground, Mensajes y Contextos
 
 La idea de mensajes y celdas es central en ioke.
 Una pregunta que podría surgir del ejemplo anterior es ¿dónde están las variables? ¿es **persona** una variable?, ¿por qué no la declaramos de alguna forma, como en otros lenguajes se usa **var **(scala), o | variable | (smalltalk) ?

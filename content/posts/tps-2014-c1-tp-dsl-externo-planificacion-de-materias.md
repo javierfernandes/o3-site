@@ -103,7 +103,7 @@ Ejemplo:
 
 Ya definimos a grandes rasgos todas las entidades y sus relaciones. Ya se pueden armar planificaciones. Sin embargo nos falta lo más importantes, la reglas de negocio, que restringirán todo esto. 
 Es decir los checkeos que deberá hacer el lenguaje para ayudarnos a encontrar los problemas.
-#### **[]()Carga horaria de docente
+#### Carga horaria de docente
 
 No puedo asignar a un docente a más materias de las que le corresponde su dedicación.
 Por ejemplo si Leo Gassman tiene una SIMPLE, solo puedo asignarlo a una materia.
@@ -120,7 +120,7 @@ Si en la planificación de un semestre lo asigno a más de una materia, me deber
 
 
 
-#### **[]()Todas las materias deben estar asignadas
+#### Todas las materias deben estar asignadas
 
 Si dentro de una planificación dije que se van a dar las materias A, B, y C, todas ellas deben estar en algún día planificadas.
 
@@ -138,14 +138,14 @@ Si dentro de una planificación dije que se van a dar las materias A, B, y C, to
         ERROR !! falta asignar un día y horario a la materia C 
 
 
-#### **[]()Carga horaria de materia y días
+#### Carga horaria de materia y días
 
 Debe validar que la asignación respete la carga horaria de la materia y los días definidos.
 Ej:
 
 * **Algo3 de 2 días y 8 hs**: debe estar asignada a dos días de la planificación (ej "martes" y "jueves", y la suma de las horas debe dar 8.
 
-#### **[]()Compatibilidad de Aula para Materia
+#### Compatibilidad de Aula para Materia
 
 La asignación de horarios también define el aula.
 Hay que checkear que esa aula tenga todos los recursos que necesita la materia.
@@ -168,7 +168,7 @@ LabElectronica3 debe tener proyector, y maquinas, por ejemplo. Si no las tuviera
 
 
 
-#### **[]()Superposición de Materias en Aulas
+#### Superposición de Materias en Aulas
 
 No puedo asignar dos materias en horarios que se superpongan el mismo día, a la misma aula.
 

@@ -18,7 +18,7 @@ El comportamiento y el estado (todo junto) de un objeto está dado por un conjun
 
 
 Todo lo que tiene el objeto son slots y todos los slots son intercambiables en cualquier momento, es decir, quien envía un mensaje no tiene por qué enterarse de si el slot que se está utilizando para resolver su mensaje es un data slot o un method slot.
-#### **[]()Composición y reutilización
+#### Composición y reutilización
 
 La forma de reutilización es a partir de lo que se denomina **parents** o **delegates**. Cuando un objeto recibe un mensaje que no entiende ese mensaje se reenvía a alguno de sus delegates, Para agregar un delegate a un objeto, en self se le agrega un slot que tenga sufijo "*".
 
@@ -62,7 +62,7 @@ El obejto más común con ese comportamiento tiene un nombre raro: oddball, y pa
   c = (error: 'no se puede')
 |)
 
-#### **[]()Un ejemplo un poco más complejo: Animales
+#### Un ejemplo un poco más complejo: Animales
 
 
 * Para pensar este ejemplo arrancamos definiendo un objeto que representa a un **pato**, que entiende dos mensajes:
@@ -87,7 +87,7 @@ Luego ponemos ese nuevo objeto como parent de los dos anteriores (lo referenciam
 Es muy interesante notar que **no se necesita una construcción especial para tener un trait**: *es simplemente un objeto* que pongo en mi cadena de delegación y tiene sólo el mensaje nadar (es importante que no tenga nada más). No hay diferencia entre los "objetos" y los "traits"
 
 
-#### **[]()¿Por qué todas las ventanitas dicen "A slots object"?
+#### ¿Por qué todas las ventanitas dicen "A slots object"?
 
 Un problema que tenemos es que los tres objetos y los dos traits que creamos no tienen nombre, para eso tenemos varios pasos un poco burocráticos:
 * Desde un shell (o algún objeto) agregar slots constantes denominados pato, perro y cocodrilo que referencien a los objetos que creamos antes.

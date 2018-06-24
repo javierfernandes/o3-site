@@ -4,12 +4,12 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-#### **[]()Hands-on
+#### Hands-on
 **//TODO:** instrucciones de cómo empezar a jugar con Self en la VM de la materia.
 
 
 
-#### **[]()Clases
+#### Clases
 - Clase 1 - El Lenguaje
     - Introducción
     - Conceptos básicos
@@ -38,12 +38,12 @@ date:  2018-06-20T19:27:10-03:00
     - Delegator
 
 
-#### **[]()Herramientas
+#### Herramientas
 
 * La máquina virtual de self junto con un snapshot para arrancar pueden bajarse desde [aquí](http://selflanguage.org/download/index.html), hay para diferentes sistemas operativos.
 
 
-#### **[]()Material de referencia
+#### Material de referencia
 
 * Para comenzar puede ser útil este [tutorial](http://selflanguage.org/_static/tutorial/Tutorial/index.html).
 * Luego, para un conocimiento más formal, es conveniente leer la [referencia del lenguaje](http://docs.selflanguage.org/langref.html).

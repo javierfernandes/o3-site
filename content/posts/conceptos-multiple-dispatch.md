@@ -10,7 +10,7 @@ date:  2018-06-20T19:27:10-03:00
 ## Dispatch
 Cuando vemos el paradigma de objetos se nos hace hincapié en la idea de polimorfismo. Que básicamente se refiere a la capacidad de dos (o más) objetos de responder a un mismo mensaje. Permitiendo a un tercer objeto, el cliente de ellos, abstraerse de las implementaciónes y sus diferencias.
 
-#### **[]()Veamos un Ejemplo
+#### Veamos un Ejemplo
 Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos casos concretos pueden ser un **Artesano**, que generará adornos o artesanías como parte de su trabajo, o un **Zapatero**, que creará un zapato.
 
         **abstract class** Trabajador {
@@ -106,7 +106,7 @@ Cómo resolvemos este problema que requiere de seleccionar el comportamiento en 
 
 Veamos las 3 formas principales. De más "precaria" a más completa.
 
-#### **[](../)Emulando Multiple-dispatching a pulmón (con if instanceof's)
+#### Emulando Multiple-dispatching a pulmón (con if instanceof's)
         **class** Artesano extends Trabajador {
             trabajar`(Material material) {
          **if** (material **instanceof** Cuero) {
@@ -138,7 +138,7 @@ Veamos las 3 formas principales. De más "precaria" a más completa.
 Como vemos es bastante nefasto. Y además, si agregamos un nuevo material, deberemos ir a modificar cada uno de los métodos trabajar de cada trabajador, para agregar una nueva condición al if.
 Lo peor de esta solución es que nos fuerza a preguntarle al material "sos cuero ? sos goma ? sos ... ".
  
-#### **[]()Emulando Multiple-dispatching con Double Dispatch
+#### Emulando Multiple-dispatching con Double Dispatch
 
 Double dispatch, intenta resolver la selección del método, utilizando polimorfismo. Específicamente resuelve el problema de andar preguntando.
 En lugar de que el trabajador le pregunte de qué clase es al material, le va a llamar a un método diciéndole "decime vos quien sos, llamándome a diferentes métodos".
@@ -212,7 +212,7 @@ Esta solución, si bien es factible, solo es posible para dispatching de 2 argum
 Para N, aparece la solución más interesante....
 
 
-#### **[]()Multiple-dispatch con Multi-methods
+#### Multiple-dispatch con Multi-methods
 
  Para realmente evitar tanto los if's como la burocracía del doble llamado del double-dispatch, el enfoque más "prolijo" y poderoso es que, el lenguaje soporte multi-methods directamente.
 
