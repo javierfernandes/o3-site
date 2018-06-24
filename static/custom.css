@@ -37,6 +37,15 @@
   margin-top: 1em;
 }
 
+.entry-content a {
+  border-bottom: none;
+  color: #e6ba04
+}
+.entry-content a:hover {
+  color: #ffcd00;
+}
+
+
 /* POSTS section list */
 
 .widget-recent_posts time {

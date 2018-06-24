@@ -6,7 +6,8 @@ menu: "main"
 
 
 Esta es la página del curso de **Programación con Objetos III** de la **Universidad Nacional de Quilmes**. A continuación te dejamos información que puede ser de tu interés. 
-* [Planificación](unq-planificacion)
+
+* [Planificación](../unq-planificacion)
 * [Seguimiento Clase a Clase](https://github.com/unq-objetos3-alumnos/bitacoras-2017s1)
 * Enunciados de los [Trabajos Prácticos](tps-2014-c1)
 * [Notas](unq-notas-unq)
