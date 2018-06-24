@@ -56,7 +56,7 @@ Otra cosa interesante de hacer los testcases primero es que, *en primera instanc
 
 El punto de incluir TDD en esta materia, no era explicar esta práctica completamente, sino ver cómo se implementa en un lenguaje dinámico como smalltalk, donde uno puede ir construyendo desde el test, y a medida que se va ejecutando, ir creando y completando la aplicación. En otros lenguajes con checkeos nos va forzando a escribir mucho más código inicialmente, antes de correr el test.
 
-Los slides de TDD se pueden descargar de acá: [Unidad 1 - Esquemas de tipado](conceptos-tipos-binding)
+Los slides de TDD se pueden descargar de acá: [Unidad 1 - Esquemas de tipado](../conceptos-tipos-binding)
 
 ## Bloques y Colecciones
 Vimos un ejemplo simple en smalltalk utilizando el mensaje "collect"

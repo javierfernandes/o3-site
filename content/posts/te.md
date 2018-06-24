@@ -6,7 +6,7 @@ date:  2018-06-20T19:27:10-03:00
 
 La lista de las tecnologías más importantes en las que van a tener que programar son:
 
-* [Scala](te-scala)
+* [Scala](../te-scala)
 * Ruby
 * Xtend
 
@@ -15,21 +15,21 @@ La lista de las tecnologías más importantes en las que van a tener que program
 
 
 En esta sección también pueden encontrar tecnologías que utilizamos en otro tiempo en la materia para ver ejemplos adicionales:
-* [Smalltalk](te-smalltalk)
+* [Smalltalk](../te-smalltalk)
 
-* [AspectJ](te-aspectj)
-* [Ioke](te-ioke)
+* [AspectJ](../te-aspectj)
+* [Ioke](../te-ioke)
 
-* [Xtext](te-xtext)
+* [Xtext](../te-xtext)
 * [Pike](te-pike)
-* [Nice](te-nice)
+* [Nice](../te-nice)
 
-* [Ruby (y Ruby on Rails)](te-ruby)
+* [Ruby (y Ruby on Rails)](../te-ruby)
 
-* [Lisp](te-lisp)
-* [Slate](te-slate)
-* [Self](te-self)
-* [Clojure](te-clojure)
+* [Lisp](../te-lisp)
+* [Slate](../te-slate)
+* [Self](../te-self)
+* [Clojure](../te-clojure)
 
 Si necesitan (?) utilizar Maven
 

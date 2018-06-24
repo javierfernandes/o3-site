@@ -6,7 +6,7 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Material teórico
 
-El material teórico de esta clase es continuación de la clase anterior: [https://sites.google.com/site/programacionhm/conceptos/metaprogramacion](conceptos-metaprogramacion). En esta clase nos concentramos en la parte de **self-modification**.
+El material teórico de esta clase es continuación de la clase anterior: [https://sites.google.com/site/programacionhm/conceptos/metaprogramacion](../conceptos-metaprogramacion). En esta clase nos concentramos en la parte de **self-modification**.
 ### Ejemplos de self-modification en Pharo
 Los ejemplos vistos en clase se pueden bajar de [http://ss3.gemstone.com/ss/uqbar](http://ss3.gemstone.com/ss/uqbar):
 

@@ -36,7 +36,7 @@ Clase 5 - 9/9 **Contenido de la clase**
 **Material de Lectura**
 
 
-* [Mixins](conceptos-mixins)
+* [Mixins](../conceptos-mixins)
 
 * Especificación de las reglas de [linearización en Scala](http://jim-mcbeath.blogspot.com.ar/2009/08/scala-class-linearization.html#rules).
 * [Herencia múltiple y method resolution en Python](http://www.python.org/download/releases/2.3/mro/)
@@ -60,13 +60,13 @@ Clase 5 - 9/9 **Contenido de la clase**
 **Material de Lectura**
 
 
-* [Sistemas de tipos](conceptos-tipos-binding-sistemas-de-tipos)
+* [Sistemas de tipos](../conceptos-tipos-binding-sistemas-de-tipos)
 
 
 **Tarea para el Hogar**
 
 
-* Terminar la primera parte del [TP1](unq-tps-2013c2) (ejercicios 1 y 3) y traerlo **andando** para la próxima clase.
+* Terminar la primera parte del [TP1](../unq-tps-2013c2) (ejercicios 1 y 3) y traerlo **andando** para la próxima clase.
 * Coordinar por mail un horario para la entrega de TP.
 * Sería bueno si pueden ir publicando el TP en un svn o git. Por ahora no lo vamos a exigir porque hasta donde yo puedo ver no es posible hacer commit desde el aula, entonces no tiene demasiada utilidad. Pero espero que tarde o temprano se pueda y ahí sí va a ser obligatorio tener un repositorio de código.
  Clase 3 - 26/8**Contenido de la clase**
@@ -94,8 +94,8 @@ Clase 5 - 9/9 **Contenido de la clase**
 **Material de Lectura**
 
 
-* Material teórico sobre [Multiple Dispatch](conceptos-multiple-dispatch)
-* [Sistemas de tipos](conceptos-tipos-binding-sistemas-de-tipos)
+* Material teórico sobre [Multiple Dispatch](../conceptos-multiple-dispatch)
+* [Sistemas de tipos](../conceptos-tipos-binding-sistemas-de-tipos)
 
 
 **Tarea para el Hogar**
@@ -107,24 +107,24 @@ Clase 2 - 19/8Feriado Nacional  Clase 1 - 12/8
 **Contenido de la clase**
 
 
-* Introducción a la materia, de qué se trata, horaro de clase, [trabajos prácticos](unq-tps-2013c2) y criterios de evaluación
-* Comenzamos con el material de la Unidad 1, que habla sobre [Tipos y Binding](-site-programacionhm-temario-unidad-1) 
+* Introducción a la materia, de qué se trata, horaro de clase, [trabajos prácticos](../unq-tps-2013c2) y criterios de evaluación
+* Comenzamos con el material de la Unidad 1, que habla sobre [Tipos y Binding](../-site-programacionhm-temario-unidad-1) 
 
 **Ejemplos de código**
 
-* El ejemplo lo pueden checkoutear con el svn de [acá](http://xp-dev.com/svn/uqbar/examples/paco/trunk/dispatch/xtend/). El ejemplo está hecho en XTend y Java, las intrucciones para armar un entorno con XTend son las mismas que para hacer andar [XText](te-xtext).
+* El ejemplo lo pueden checkoutear con el svn de [acá](http://xp-dev.com/svn/uqbar/examples/paco/trunk/dispatch/xtend/). El ejemplo está hecho en XTend y Java, las intrucciones para armar un entorno con XTend son las mismas que para hacer andar [XText](../te-xtext).
 
 **Material de Lectura**
 
 
 * Definiciones de las ideas de [Binding, Polimorfismo y Sobrecarga](http://uqbar-wiki.org/index.php?title=Binding%2C_polimorfismo_y_sobrecarga).
-* Material teórico sobre [Multiple Dispatch](conceptos-multiple-dispatch)
+* Material teórico sobre [Multiple Dispatch](../conceptos-multiple-dispatch)
 * Otro [ejemplo](https://docs.google.com/document/d/1XWq9azqchoJZ7h8-hLcpA1Zj5T1UtvFtDKbpzxoQ-dw/edit#heading=h.gjdgxs).
 
 **Tarea para el Hogar**
 
 
 * Armar parejas de TP y mandarlas por mail.
-* Preparar el entorno de [Scala](te-scala), tanto para poder trabajar en casa como en la Universidad (coordinar con el compañero de TP).
-* Programar la primera parte del TP1 (ver la página de [Trabajos Prácticos](unq-tps-2013c2)), aprovechar para aprender Scala, venir con preguntas!
+* Preparar el entorno de [Scala](../te-scala), tanto para poder trabajar en casa como en la Universidad (coordinar con el compañero de TP).
+* Programar la primera parte del TP1 (ver la página de [Trabajos Prácticos](../unq-tps-2013c2)), aprovechar para aprender Scala, venir con preguntas!
 * Repasar el material de lectura y en particular el último ejemplo, que tiene un enunciado sobre el que vamos a trabajar la clase que viene.

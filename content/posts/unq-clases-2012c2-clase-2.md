@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-### Repaso de la [Clase 1](unq-clases-2012c2-clase-1)
+### Repaso de la [Clase 1](../unq-clases-2012c2-clase-1)
 La clase pasada establecimos la diferencia entre clase y tipo. Las clases nos permiten definir todo el comportamiento de un objeto: qué mensajes entiende, cómo reacciona frente a esos mensajes (a partir de métodos) y el estado interno de los objetos. El tipo sólo se refiere a lo que puedo hacer con el objeto, específicamente qué mensajes entiende. En muchos lenguajes, las clases definen tipos y eso puede llevar a confundir los conceptos. En Java hay dos formas de definir un tipo, a partir de una clase o a partir de una ***interface***.
 
 
@@ -34,4 +34,4 @@ Para ordenar mejor los diferentes esquemas de tipado que se utilizan en lenguaje
 * Según la forma en que se determina el tipo de una expresión o de una variable, el tipado puede ser **explícito o implícito**.
 * Según la forma en que se establece la relación entre un objeto y su tipo, así como las relaciones de subtipado, el tipado puede ser **estructural o nominal**.
 
-Los detalles sobre estas ideas los pueden encontrar en la página de [Sistemas de tipos](conceptos-tipos-binding-sistemas-de-tipos).
+Los detalles sobre estas ideas los pueden encontrar en la página de [Sistemas de tipos](../conceptos-tipos-binding-sistemas-de-tipos).

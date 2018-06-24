@@ -106,7 +106,7 @@ Cómo resolvemos este problema que requiere de seleccionar el comportamiento en 
 
 Veamos las 3 formas principales. De más "precaria" a más completa.
 
-#### **[]()Emulando Multiple-dispatching a pulmón (con if instanceof's)
+#### **[](../)Emulando Multiple-dispatching a pulmón (con if instanceof's)
         **class** Artesano extends Trabajador {
             trabajar`(Material material) {
          **if** (material **instanceof** Cuero) {
@@ -268,7 +268,7 @@ Y así, dependiendo el tipo real de los objetos que pasamos como parámetro, la 
 
 ***Nota: ***
 
-En este ejemplo declaramos los métodos "fuera de la clase" como si se trataran de [Extension Methods](conceptos-extension-methods).
+En este ejemplo declaramos los métodos "fuera de la clase" como si se trataran de [Extension Methods](../conceptos-extension-methods).
 Sin embargo podríamos haber definido los múlti-methods en las propias clases Artesano y Zapatero, de esta forma:
 
 
@@ -362,8 +362,8 @@ Va a fallar en runtime con este mensaje
 ## Variantes y temas adicionales
 
 
-* [Dispatch por valor](conceptos-multiple-dispatch-dispatch-basado-en-valor)
-* [Multimethods en un Clojure (dialecto de LISP)](conceptos-multiple-dispatch-multimethods-en-clojure-lisp)
+* [Dispatch por valor](../conceptos-multiple-dispatch-dispatch-basado-en-valor)
+* [Multimethods en un Clojure (dialecto de LISP)](../conceptos-multiple-dispatch-multimethods-en-clojure-lisp)
 * [**Slate**:](http://slatelanguage.org/) un lenguaje basado en prototipos con multimethods.
 
 ### Bibliografía / Papers:

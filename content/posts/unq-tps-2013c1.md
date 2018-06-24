@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 #### **[]()Condiciones de Aprobación de la materia
 
 
-* La evaluación de la materia consiste de 5 trabajos prácticos, con las fechas pautadas en la [planificación](unsam-planificacion).
+* La evaluación de la materia consiste de 5 trabajos prácticos, con las fechas pautadas en la [planificación](../unsam-planificacion).
 * Para aprobar la materia se deberá tener un promedio de 7 en los trabajos prácticos y al menos 6 en cada uno de ellos.
 * Los que tengan todos los tps con nota 4 o más pero no alcancen la situación anterior, deberán realizar un examen integrador, que incluirá ejercicios teórico-prácticos y un coloquio.
 * El trabajo práctico 6 es opcional, de realizarlo se promediará con los demás permitiendo eximirse del examen integrador en caso de alcanzar el promedio 7 considerando los 6 TPs.

@@ -20,7 +20,7 @@ Así Scala por ejemplo, compila a JVM bytecode, y su runtime es la JVM.
 ## Ejemplos preliminares
 
 Acá un par de ejemplos para darse una idea, todavía sin entrar en la implementación.
-* [TCP / IP](conceptos-dsls-domainspecificlanguage-dsl---tcpip)
+* [TCP / IP](../conceptos-dsls-domainspecificlanguage-dsl---tcpip)
 * CSS
 * xorg.conf
 * regular expressions.
@@ -29,4 +29,4 @@ Acá un par de ejemplos para darse una idea, todavía sin entrar en la implement
 ## Construir un DSL externo con XText
 
 En esta otra página van a encontrar información sobre cómo construir un DSL externo utilizando la herramienta de eclipse XText.
-* [DSL con XText](conceptos-dsls-domainspecificlanguage-dsl---xtext)
+* [DSL con XText](../conceptos-dsls-domainspecificlanguage-dsl---xtext)

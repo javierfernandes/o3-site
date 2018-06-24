@@ -26,9 +26,9 @@ Sirve como referencia para entender mejor los temas
 * **Conceptos Generales**
 
 
-[    Abstracciones y conceptos: visión general de la materia](conceptos-abstracciones-y-conceptos-visin-general-de-la-materia)
+[    Abstracciones y conceptos: visión general de la materia](../conceptos-abstracciones-y-conceptos-visin-general-de-la-materia)
 [    ¿Qué entendemos por programación orientada a objetos?](http://uqbar-wiki.org/index.php?title=%C2%BFQu%C3%A9_entendemos_por_Programaci%C3%B3n_Orientada_a_Objetos%3F)
-* [**Esquemas de tipado**](conceptos-tipos-binding)
+* [**Esquemas de tipado**](../conceptos-tipos-binding)
 **        ****  **  Definición de Tipo. Tipo en el paradigma de objetos.
             Checkeos.
             Tipado estático y dinámico.
@@ -42,25 +42,25 @@ Sirve como referencia para entender mejor los temas
             Design By Contract.
 
 
-* **[Definiendo comportamiento más allá de las clases](conceptos-metamodelos)
+* **[Definiendo comportamiento más allá de las clases](../conceptos-metamodelos)
 **
 
 
 **        ****  **  Closures. Open Clases.
-            [Mixins](conceptos-mixins) & [Traits.](conceptos-traits)
-            [Prototype-Oriented Programming](conceptos-object-based-languages).
-            [Aspect-Oriented Programming](conceptos-aop) (AOP).
+            [Mixins](conceptos-mixins) & [Traits.](../conceptos-traits)
+            [Prototype-Oriented Programming](../conceptos-object-based-languages).
+            [Aspect-Oriented Programming](../conceptos-aop) (AOP).
             Behavioural completeness.
             Revisión de los patrones de diseño.
 
 
-* [**Reflexividad y metaprogramación**](conceptos-unidad-3)
+* [**Reflexividad y metaprogramación**](../conceptos-unidad-3)
 
-**          **  [Metraprogramación](conceptos-metaprogramacion): reflection, introspection, self-modification e intercession. 
+**          **  [Metraprogramación](../conceptos-metaprogramacion): reflection, introspection, self-modification e intercession. 
             Meta-Objects. MOP. 
-            Bonus: [Mirrors.](conceptos-mirrors)
+            Bonus: [Mirrors.](../conceptos-mirrors)
 
-* [**Programación Declarativa**](conceptos-declaratividad)
+* [**Programación Declarativa**](../conceptos-declaratividad)
 Concepto de declaratividad. Caracterísiticas. 
 Implementaciones y ejemplos.
 Ventajas: abstracción, portabilidad, paralelismo.

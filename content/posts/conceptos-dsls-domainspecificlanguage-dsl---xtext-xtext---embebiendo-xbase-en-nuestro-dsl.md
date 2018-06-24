@@ -32,4 +32,4 @@ Al hacer esto se va a generar automáticamente el paquete "jvmmodel" y una clase
 Además se van a incluir dependencias a varios plugins de xbase que tienen bastante código de ejemplo o para reutilizar en los diferentes extension points de xtext.
 
 
-El ejemplo de [ORM Mappings](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings) usa elementos Java embebidos. Ahí mismo explica como hacer varias cositas útiles.
+El ejemplo de [ORM Mappings](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings) usa elementos Java embebidos. Ahí mismo explica como hacer varias cositas útiles.

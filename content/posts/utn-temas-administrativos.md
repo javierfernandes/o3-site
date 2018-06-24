@@ -15,7 +15,7 @@ El último programa estable de la materia pertenece al plan 2008, [podés descar
 **Listas de discusión, de subscripción obligatoria para los alumnos**
 
 
-1. [tadp_cursada@yahoogroups.com](mailto:tadp_cursada@yahoogroups-com): Grupo de cursada de TADP de este cuatrimestre para temas administrativos. Para suscribirse enviar un mail a [tadp_cursada-subscribe@yahoogroups.com](https://sites.google.com/)
-1. [TecnicasAvanzadasDeProgramacion@yahoogroups.com](mailto:TecnicasAvanzadasDeProgramacion@yahoogroups-com): Es la lista técnica de personas que fueron cursando TADP, y donde se comparte conocimiento que no necesariamente es de esta cursada (puede ser del trabajo, de investigaciones personales, etc.)
+1. [tadp_cursada@yahoogroups.com](../mailto:tadp_cursada@yahoogroups-com): Grupo de cursada de TADP de este cuatrimestre para temas administrativos. Para suscribirse enviar un mail a [tadp_cursada-subscribe@yahoogroups.com](https://sites.google.com/)
+1. [TecnicasAvanzadasDeProgramacion@yahoogroups.com](../mailto:TecnicasAvanzadasDeProgramacion@yahoogroups-com): Es la lista técnica de personas que fueron cursando TADP, y donde se comparte conocimiento que no necesariamente es de esta cursada (puede ser del trabajo, de investigaciones personales, etc.)
 
 Es imprescindible que los alumnos estén anotados al primer grupo ya que por allí se harán todos los comunicados de índole académica que sean necesarios.

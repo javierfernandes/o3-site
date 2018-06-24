@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-* [TP3 - DSLs](tp-dsl-externo-planificacion-de-conferencia)
+* [TP3 - DSLs](../tp-dsl-externo-planificacion-de-conferencia)
 
 ### Aclaraciones TP1 - Mixines
 El enunciado está en la sección de archivos, nombre TP1-CENSO-ECONOMICO.PDF.

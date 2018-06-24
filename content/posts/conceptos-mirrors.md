@@ -11,13 +11,13 @@ Algunas de estas ideas, no son más que aplicaciones directas de lineamientos ya
 *Traducción:*
 Imaginen que tiene que diseñar el API de reflection de un lenguaje. Estas personas analizaron las APIs existentes en distintos lenguajes, y utlizando principios de diseño generales, plantean un modelo de esa API, que tiene una serie de ventajas sobre los existentes.
 
-La idea surge a partir de un paper de [Gilad Bracha](http://bracha.org/Site/Home.html) y David Ungar. Este último, uno de los creadores del lenguaje [Self](te-self).
+La idea surge a partir de un paper de [Gilad Bracha](http://bracha.org/Site/Home.html) y David Ungar. Este último, uno de los creadores del lenguaje [Self](../te-self).
 De hecho, Self, tiene una implementación de mirrors para el manejo de reflection y metaprogramación.
 
 
 
 ### Intro a Metaprogramación
-Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramación](conceptos-metaprogramacion).
+Antes de arrancar con mirrors conviene haber leído el apunte de [metaprogramación](../conceptos-metaprogramacion).
 
 
 ### Ideas para el diseño de una API de reflection o metaprogramación

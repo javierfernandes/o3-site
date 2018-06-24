@@ -786,6 +786,6 @@ Así, logramos **separar **esta incumbencia.
 ## Tecnologías para programar con Aspectos
 
 
-* [AspectJ](te-aspectj)
+* [AspectJ](../te-aspectj)
 
 * [Phantom](http://pleiad.cl/research/software/phantom)

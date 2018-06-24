@@ -247,7 +247,7 @@ Como no tenemos código mezclado:
 * cuerpo de mensaje + pre/post condiciones
 * condiciones + lógica de ejecución
 
-Logramos separar los conceptos (Ver [Separation Of Concerns](conceptos) en Conceptos).
+Logramos separar los conceptos (Ver [Separation Of Concerns](../conceptos) en Conceptos).
 
 El código ahora expresa más rápidamente la intención (Principio de "*Intention Revealing*").
 

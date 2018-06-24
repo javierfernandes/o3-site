@@ -251,7 +251,7 @@ Dos variantes:
 ## Intérprete (backend / runtime)
 
 La ejecución de estos archivos de DSL la vamos a hacer a través de un intérprete.
-Para más información sobre cómo hacer uno, ver [ésta página](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interprete-standalone).
+Para más información sobre cómo hacer uno, ver [ésta página](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interprete-standalone).
 
 
 Básicamente va a ser una aplicación más bien sencilla (porque ya la primera parte del TP es bastante grande), que dado el conjunto de hechos declarados por el ususario sobre planificaciones, deberá presentar cierta información.

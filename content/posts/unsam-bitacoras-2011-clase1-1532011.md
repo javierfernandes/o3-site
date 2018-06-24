@@ -14,11 +14,11 @@ Definimos que la forma de evaluación de la materia es puramente basada en las p
 1. Reflection y Metaprogramación en java y en smalltalk, con fecha 24/5
 1. TP a definir, con fecha 21/6
 
-Les contamos que vamos a trabajar con [la Máquina Virtual de la materia](te-virtualmachine) que ya contiene todos entornos para trabajar sin perder tiempo en complejidad accidental de instalaciones y configuraciones.
+Les contamos que vamos a trabajar con [la Máquina Virtual de la materia](../te-virtualmachine) que ya contiene todos entornos para trabajar sin perder tiempo en complejidad accidental de instalaciones y configuraciones.
 
-Dijimos que en principio vamos a estar trabajando los martes. Los jueves los trataremos "on-demand", para despejar dudas, o si hace falta, para recuperar algún tema si nos atrasamos. La planificación de la materia está en [esta página](unsam-planificacion).
+Dijimos que en principio vamos a estar trabajando los martes. Los jueves los trataremos "on-demand", para despejar dudas, o si hace falta, para recuperar algún tema si nos atrasamos. La planificación de la materia está en [esta página](../unsam-planificacion).
 
-Mencionamos las unidades de la materia, que se encuentran en definidas en el [Temario](temario), y dimos una breve descripción de cada una.
+Mencionamos las unidades de la materia, que se encuentran en definidas en el [Temario](../temario), y dimos una breve descripción de cada una.
 
 Luego de toda esta introducción entramos ya en la **primer unidad** a las 7:40.
 
@@ -42,7 +42,7 @@ Vimos los diferentes browsers, que sirven para inspeccionar el ambiente: class b
 Luego, 8:20 nos metimos completamente a ver una **descripción del lenguaje**.
 
 Vimos que tiene tipos, pero no así sus variables. Es decir que no se hacen checkeos de tipos, como hace por ejemplo el compilador de java. Entonces, los mensajes se evalúan dinámicamente, realmente se intenta enviar el mensaje, en tiempo de ejecución, y ahí se verá si el objeto lo entiende o no. De hecho, en caso de no entenderlo, tiene un mensaje propio llamado "doesNotUnderstand" que también se podría redefinir ! :)
-Esto se llama **late binding** y vamos a profundizarlo en la [siguiente clase](conceptos-tipos-binding).
+Esto se llama **late binding** y vamos a profundizarlo en la [siguiente clase](../conceptos-tipos-binding).
 
 Contamos que al no existir tipado de variables ni checkeos, se tiene **polimorfismo, sin necesidad de interfaces** (en contraposición con java). Cuando dos objetos entienden el mismo mensaje (en tiempo de ejecución), se dice que son polimórficos, y ya.
 
@@ -74,7 +74,7 @@ Finalmente nos fuimos antes de que nos echaran o nos dejaran dentro de la facult
 ### Presentación
 
 Se puede bajar la presentación que se usó aquí: 
-[Unidad 1 - Esquemas de tipado](conceptos-tipos-binding)
+[Unidad 1 - Esquemas de tipado](../conceptos-tipos-binding)
 
 ### Referencias
 

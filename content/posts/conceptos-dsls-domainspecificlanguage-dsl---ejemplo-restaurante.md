@@ -211,7 +211,7 @@ El código más bien "configura" un conjunto de objetos, para declarar el "QUÉ"
 Separamos la lógica general, de este caso particular. Construimos así un "motorcito" que sirve no solo para tomar una receta, sino que es algo más genérico, es como un "frameworkcito para interfaces por consola MVC".
 
 
-Véase [Programación Declarativa](conceptos-declaratividad) para más teoría al respecto.
+Véase [Programación Declarativa](../conceptos-declaratividad) para más teoría al respecto.
 
 
 

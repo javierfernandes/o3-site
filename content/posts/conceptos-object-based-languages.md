@@ -6,7 +6,7 @@ date:  2018-06-20T19:27:10-03:00
 
 ## Introducción
 
-Vamos a ver una nueva forma de modelado con objetos, que también nos va a mostrar una alternativa a la programación tradicional orientada a objetos (asociando código a las clases). Como ya vimos existen múltiples problemas que no pueden ser atacados elegantemente mediante la clasificación y la herencia (ver [Mixins](conceptos-mixins), [Traits](conceptos-traits) y [Aspectos](conceptos-aop)), al hacerlo nos vemos obligados a repetir código. Hay porciones de código que no podemos reutilizar.
+Vamos a ver una nueva forma de modelado con objetos, que también nos va a mostrar una alternativa a la programación tradicional orientada a objetos (asociando código a las clases). Como ya vimos existen múltiples problemas que no pueden ser atacados elegantemente mediante la clasificación y la herencia (ver [Mixins](conceptos-mixins), [Traits](conceptos-traits) y [Aspectos](../conceptos-aop)), al hacerlo nos vemos obligados a repetir código. Hay porciones de código que no podemos reutilizar.
 
 
 Las clases no son la única forma de pensar la programación orientada a objetos. **Una desventaja de las clases es que muchas veces nos llevan a pensar en la estructura y no en el comportamiento**. Modelos como el UML colaboran para que nos focalicemos en los diagramas de clases (vista estática del sistema) y en la estructura.
@@ -27,10 +27,10 @@ El comportamiento definido en los propios objetos nos permite lograr todos conce
 
 #### **[]()¿Qué lenguajes incorporan estos conceptos?
 
-El lenguaje más tradicional en el que se definió el concepto de object-based es **[Self](te-self)**. En su momento Self fue un proyecto revolucionario no sólo por su concepción sin clases sino por su virtual machine que incorporó ideas muy novedosas (que son las que permitieron que hoy en día muchos lenguajes utilicen VMs). Pero hoy en día el proyecto Self no tiene mucha actividad y hay otros lenguajes que lo han ido superando en diferentes aspectos. 
+El lenguaje más tradicional en el que se definió el concepto de object-based es **[Self](../te-self)**. En su momento Self fue un proyecto revolucionario no sólo por su concepción sin clases sino por su virtual machine que incorporó ideas muy novedosas (que son las que permitieron que hoy en día muchos lenguajes utilicen VMs). Pero hoy en día el proyecto Self no tiene mucha actividad y hay otros lenguajes que lo han ido superando en diferentes aspectos. 
 
 
-Desde hace varios hay un lenguaje muy popular que es object-based: [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
+Desde hace varios hay un lenguaje muy popular que es object-based: [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](../te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
 
 
 #### **[]()¿Y quién cumple la función de las clases si no existen ?
@@ -81,9 +81,9 @@ A este mecanismo se lo conoce como **delegación automática.** Es lo que en len
 
 En un principio en la materia utilizábamos Self como lenguaje para explicar y mostrar estas ideas de objetos sin clases. Luego pasamos a Ioke que evita algunas complejidades de la interfaz gráfica de Self, y por otro lado tiene algunas ideas más modernas.
 Así que en estas páginas de cada lenguaje se pueden ver estas ideas aplicadas:
-* [Ioke](te-ioke)
-* [Self](conceptos-object-based-languages-self)
-* [Prototipos en JavaScript](conceptos-object-based-languages-prototipos-en-javascript)
+* [Ioke](../te-ioke)
+* [Self](../conceptos-object-based-languages-self)
+* [Prototipos en JavaScript](../conceptos-object-based-languages-prototipos-en-javascript)
 
 ## Otros lenguajes con prototipos
 

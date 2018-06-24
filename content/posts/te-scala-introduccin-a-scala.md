@@ -46,7 +46,7 @@ En scala:
             unMetodo(**unString : String**, **numero : Integer**)
 
 
-#### **[]()Variables (y valores) locales
+#### **[](../)Variables (y valores) locales
 
 Las variables en scala se pueden declarar de dos tipos, como **mutables** o **inmutables.**
 

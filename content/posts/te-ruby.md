@@ -20,7 +20,7 @@ date:  2018-06-20T19:27:10-03:00
 Un buen IDE para Ruby es el [RubyMine de JetBrains](http://www.jetbrains.com/ruby/download/index.html). No es libre ni gratuito, pero funciona bastante mejor que la mayoría de los IDEs que existen para Ruby, al menos al momento.
 
 
-Contamos con una licencia educativa que pueden utilizar para la cursada, que está [aquí](te-ruby-RMLicense-zip?attredirects=0). La contraseña del ZIP es **paco.**
+Contamos con una licencia educativa que pueden utilizar para la cursada, que está [aquí](../te-ruby-RMLicense-zip?attredirects=0). La contraseña del ZIP es **paco.**
 
 **
 

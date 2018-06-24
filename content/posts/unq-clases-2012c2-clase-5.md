@@ -6,18 +6,18 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Introducción
 
-En esta clase hablamos de lenguajes **[object-based](conceptos-object-based-languages)**, comparándolos con los lenguajes class-based que habíamos visto hasta ahora (no sólo en esta materia sino en todas las anteriores de programación con objetos). 
+En esta clase hablamos de lenguajes **[object-based](../conceptos-object-based-languages)**, comparándolos con los lenguajes class-based que habíamos visto hasta ahora (no sólo en esta materia sino en todas las anteriores de programación con objetos). 
 
 
-El lenguaje más viejo que implementa esta característica es [Self](te-self), y el más popular es [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
+El lenguaje más viejo que implementa esta característica es [Self](te-self), y el más popular es [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](../te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
 
 
 ### Material
 
 
-* [Object-Based Languages](conceptos-object-based-languages)
+* [Object-Based Languages](../conceptos-object-based-languages)
 
-* [Ioke](te-ioke)
+* [Ioke](../te-ioke)
 
 * Plugin de eclipse para Ioke (en desarrollo) [https://code.google.com/p/iokeclipse/](https://code.google.com/p/iokeclipse/)
 

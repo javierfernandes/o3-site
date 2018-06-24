@@ -18,7 +18,7 @@ Además del editor de texto, xtext nos genera una vista "Outline".
 Ésta muestra en forma de arbol el contenido de uno de nuestros archivos y se va refrescando y vinculando con el editor de texto. Así si elegimos un elemento en esa vista, lo selecciona en el código y vice-versa.
 
 
-Acá un ejemplo de cómo se ve por default para nuestro [ejemplo de los saludos](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos).
+Acá un ejemplo de cómo se ve por default para nuestro [ejemplo de los saludos](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos).
 
 
 

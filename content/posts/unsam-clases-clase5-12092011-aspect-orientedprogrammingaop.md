@@ -42,7 +42,7 @@ Dependiendo del framework se podrán definir de diferentes formas.
 * **Advice**: dado un **pointcut, **es decir un contexto de un punto de ejecución, representa una manipulación de ese código. Por ejemplo, poder agregar código antes y después de ese punto (**around)**.
 
 Luego vimos un ejemplo de la syntaxis de AspectJ para definir un aspecto para loggear llamadas a métodos.
-Ese ejemplo está en la [página del site](conceptos-aop)
+Ese ejemplo está en la [página del site](../conceptos-aop)
 
 
 ### Weaving

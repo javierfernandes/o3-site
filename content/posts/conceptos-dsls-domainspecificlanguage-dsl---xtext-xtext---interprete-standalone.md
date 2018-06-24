@@ -83,7 +83,7 @@ Lo que se hace ahí es:
 
 ## Ejemplo de Saludos
 
-El segmento de código que vimos recién pertence al ejemplo de los [Saludos](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
+El segmento de código que vimos recién pertence al ejemplo de los [Saludos](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
 Acá la implementación del método que faltaba, el interpret().
 
 
@@ -130,7 +130,7 @@ Y la correspondiente salida del intérprete en consola:
 
 ## Ejemplo de Mappings
 
-Acá vemos otro intérprete también muy pavo para el ejemplo de [Mappings](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings)
+Acá vemos otro intérprete también muy pavo para el ejemplo de [Mappings](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings)
 
 
 

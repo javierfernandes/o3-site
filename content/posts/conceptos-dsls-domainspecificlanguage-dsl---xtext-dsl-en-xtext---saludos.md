@@ -137,7 +137,7 @@ Ahora nuestro DSL se puede usar así
 
 Acá se ve que los strings que ponemos sueltos dentro de una regla, solito los marca Xtext como keywords en negrita y bordó.
 
-#### **[]()Variables para muchos valores (listas)
+#### **[](../)Variables para muchos valores (listas)
 
 Supongamos que se puedan definir muchos "aQuien". Es decir así:
 

@@ -1,9 +1,17 @@
-.entry-meta {
-  font-size: 0.7rem;
-}
+/* general styling */
+
+.site .main { width: 100%; }
 
 .sidebar {
   width: 280px;
+}
+
+/* space between main and footer */
+main#content footer.entry-footer .container.sep-before:before {
+  margin-bottom: 1em;
+}
+footer#footer .container.sep-before:before {
+  display: none;
 }
 
 @media screen and (min-width: 920px) {
@@ -33,8 +41,24 @@
 
 /* ENTRY */
 
-.entry .sep-after:after, .sep-before:before {
-  margin-top: 1em;
+/* subtitle decoration like last modified, etc */
+.entry-meta {
+  font-size: 0.7rem;
+}
+
+/* next prev page link */
+.entry-nav .container {
+  display: flex;
+  justify-content: space-between;
+
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+.entry-nav .container .sep-before:before {
+  display: none;
+}
+.entry-nav .container a span {
+  color: #e6ba04;
 }
 
 .entry-content a {

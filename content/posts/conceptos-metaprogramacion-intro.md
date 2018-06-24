@@ -73,9 +73,9 @@ Para esto, generalmente, es necesario contar con facilidades o herramientas espe
 
 * **[Introspection](introspection): **se refiere a la capacidad de un sistema, de analizarse a sí mismo. Algo así como la introspección humana, pero en términos de programa. Para eso, el lenguaje debe proveer ciertas herramientas, que le permitan al mismo programa, "ver" o "reflejar" cada uno de sus componentes.
 
-* **[Self-Modification](conceptos-metaprogramacion-self-modification): **es la capacidad de un programa de modificarse a sí mismo. Nuevamente esto requiere cierto soporte del lenguaje. Y las limitaciones van a depender de este soporte.
+* **[Self-Modification](../conceptos-metaprogramacion-self-modification): **es la capacidad de un programa de modificarse a sí mismo. Nuevamente esto requiere cierto soporte del lenguaje. Y las limitaciones van a depender de este soporte.
 
-* **[Intercession](conceptos-metaprogramacion-intercession): **es la capacidad de modificar la semántica del modelo que estamos manipulando, **desde** el mismo lenguaje.
+* **[Intercession](../conceptos-metaprogramacion-intercession): **es la capacidad de modificar la semántica del modelo que estamos manipulando, **desde** el mismo lenguaje.
 
 
 

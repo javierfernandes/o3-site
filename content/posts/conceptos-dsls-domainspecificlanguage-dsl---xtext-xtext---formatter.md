@@ -166,4 +166,4 @@ Para eso usamos el "between" y las dos reglas, de Alguien y Saludo. between(Algu
 ## Ejemplos
 
 
-* Ver clase **MappingDslFormatter **del ejemplo de los [Mappings](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings) para un formatter un poco más complejo.
+* Ver clase **MappingDslFormatter **del ejemplo de los [Mappings](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings) para un formatter un poco más complejo.

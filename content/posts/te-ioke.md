@@ -227,7 +227,7 @@ En los lenguajes basados en clases, esta función la cumple la clase, ya que sir
 A su vez, para compartir código entre diferentes clases, tenemos la herencia en lenguajes más tradicionales, y mixins, traits, etc. en algunos otros que ya vimos.
 
 
-En un lenguaje sin clases, debe existir otra forma de **herencia** sin éstas, En ioke es a través de un mecanismo de **delegación automática, **como lo mencionamos [acá](conceptos-object-based-languages)
+En un lenguaje sin clases, debe existir otra forma de **herencia** sin éstas, En ioke es a través de un mecanismo de **delegación automática, **como lo mencionamos [acá](../conceptos-object-based-languages)
 
 
 
@@ -326,7 +326,7 @@ Es decir que al agregarle un nuevo comportamiento a **persona** todos los objeto
 ## Creación de Objetos y Prototipos
 
 En la introducción a lenguajes sin clases mencionamos que entonces los objetos se tenían que crear en base a otros objetos.
-En [Self](conceptos-object-based-languages-self) por ejemplo, esto se puede hacer clonando un objeto explícitamente.
+En [Self](../conceptos-object-based-languages-self) por ejemplo, esto se puede hacer clonando un objeto explícitamente.
 En Ioke no es tan así. Si bien uno podría implementar un mensaje **copy** o **clone**, el lenguaje ya es un poco más amigable para eso. Y al hacer **mimic** estaremos construyendo un nuevo objeto que tiene como mimic al receptor. Como vimos en el ejemplo anterior con Arturo.
 Ahora, también como vimos en el ejemplo anterior, el Mimic puede tener slots con estado, y al derivar dos objetos de ellos, estos estados no se entremezclan. En realidad esto ya lo vimos en el ejempo anterior, al tener dos objetos, Arturo y Luciana, derivados de Persona.
 Cuando les asignamos nuevos valores a **nombre** y **edad** en lugar de modificar el valor de las celdas en **Persona** se crearon nuevos slots con los mismos nombres en cada objeto **Arturo** y **Luciana**.

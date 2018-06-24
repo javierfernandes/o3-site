@@ -100,4 +100,4 @@ Es la relación que se establece entre el envío de un mensaje y el momento en q
 
 * Pharo by example
 * Comparar collection utils de java con smalltalk
-* En la página de la [Unidad 1](conceptos-tipos-binding) hay algunos links con material para leer.
+* En la página de la [Unidad 1](../conceptos-tipos-binding) hay algunos links con material para leer.

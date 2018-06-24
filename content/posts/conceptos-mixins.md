@@ -796,14 +796,14 @@ La ejecución es así.
 
 * Especificación de las reglas de [linearización en Scala](http://jim-mcbeath.blogspot.com.ar/2009/08/scala-class-linearization.html#rules).
 * [Paper seminal de Mixin-Based Inheritance](http://www.st.informatik.tu-darmstadt.de:8080/lehre/ss02/aose/Papiere/Thema1/flatt98classe.pdf), por Bracha y Cook.
-* [Mixin-based Inheritance](conceptos-mixins-Paper%20-%20Bracha%2C%20Cook%20-%20Mixin-Based%20Inheritance-pdf?attredirects=0), por Bracha y Cook (otro link)
+* [Mixin-based Inheritance](../conceptos-mixins-Paper%20-%20Bracha%2C%20Cook%20-%20Mixin-Based%20Inheritance-pdf?attredirects=0), por Bracha y Cook (otro link)
 * [Otra definición de Mixins](http://www.st.informatik.tu-darmstadt.de:8080/lehre/ss02/aose/Papiere/Thema1/flatt98classe.pdf), de .Flatt, Krishnamurthi y Felleisen
 * [Traits de Scala](https://www.artima.com/pins1ed/traits.html), Martin Odersky, Lex Spoon, and Bill Venners
 * Un antecedente: [Flavors, de David Moon](http://dl.acm.org/citation.cfm?id=28698) (ese paper lamentablemente no se puede conseguir online gratuitamente, pero acá hay [otra publicación de David Moon sobre Flavors](ftp:-publications-ai-mit-edu-ai-publications-pdf-AIM-602-pdf)).
 
 ## Temas Relacionados
  
-* [Traits](conceptos-traits)
+* [Traits](../conceptos-traits)
 * Chain of Responsibilities Pattern (?)
 
 * Decorator Pattern (?)

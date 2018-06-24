@@ -24,7 +24,7 @@ date:  2018-06-20T19:27:10-03:00
 
 #### **[]()Primeros pasos:
 
-* **Nuestra [Introducción a Scala](te-scala-introduccin-a-scala).**
+* **Nuestra [Introducción a Scala](../te-scala-introduccin-a-scala).**
 
 * [Documentación de la API online](http://scala-lang.org/api) y los [manuales completos](http://www.scala-lang.org/node/198)
 * [Introducción al lenguaje](http://www.scala-lang.org/docu/files/ScalaTutorial.pdf) bastante interesante *(link externo).*
@@ -35,7 +35,7 @@ date:  2018-06-20T19:27:10-03:00
 * [Tutorial Importar un proyecto SBT en IntelliJ](https://www.youtube.com/watch?v=5afCjM4r8Vo&spfreload=10)
 * [Si insisten con Maven](http://www.scala-lang.org/node/347)
 
-#### **[]()Ejemplos (Github)
+#### **[](../)Ejemplos (Github)
 
 
 * Introductorio: [https://github.com/uqbar-paco/obj3-scala-intro](https://github.com/uqbar-paco/obj3-scala-intro)

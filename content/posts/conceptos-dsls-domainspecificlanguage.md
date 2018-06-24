@@ -114,12 +114,12 @@ xpath, SQL, pic, sed
 ## Ejemplos de DSL
 A continuación subpáginas con ejemplos de DSL's que posiblemente utilizamos
 
-* [Ejemplo del Restaurante](conceptos-dsls-domainspecificlanguage-dsl---ejemplo-restaurante)
-* [SQL](conceptos-dsls-domainspecificlanguage-dsl---sql)
-* [Pic2Plot: diagramas de secuencia](conceptos-dsls-domainspecificlanguage-dsl---pic2plot-diagramas-de-secuencia)
-* [Sed (linux Stream EDitor)](conceptos-dsls-domainspecificlanguage-dsl---sed)
-* [Ruby on Rails](conceptos-dsls-domainspecificlanguage-dsl---rails)
-* [Otros](ejemplos-extra-de-dsls)
+* [Ejemplo del Restaurante](../conceptos-dsls-domainspecificlanguage-dsl---ejemplo-restaurante)
+* [SQL](../conceptos-dsls-domainspecificlanguage-dsl---sql)
+* [Pic2Plot: diagramas de secuencia](../conceptos-dsls-domainspecificlanguage-dsl---pic2plot-diagramas-de-secuencia)
+* [Sed (linux Stream EDitor)](../conceptos-dsls-domainspecificlanguage-dsl---sed)
+* [Ruby on Rails](../conceptos-dsls-domainspecificlanguage-dsl---rails)
+* [Otros](../ejemplos-extra-de-dsls)
 
 ### Para qué sirve un DSL ?
 

@@ -21,5 +21,5 @@ Ideas prácticas
 
  * addSlot, removeSlot, decorateSlot
  * más heavy mover todos los slots de un objeto a uno nuevo, poner a ese nuevo como parent del original... eso nos da un lugar donde "sobreescribir" los slots que quieras, como un decorator.
-* [Mirrors](conceptos-mirrors)
+* [Mirrors](../conceptos-mirrors)
 * Otra cosa que se podría dar es metaprogramación en prolog (si lo vieron antes con dodino).

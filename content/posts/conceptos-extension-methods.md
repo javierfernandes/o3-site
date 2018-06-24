@@ -379,7 +379,7 @@ Puedo hacer eso con extension methods ?
 O sea, que se ejecuten cosas distintas, no en base a la clase del provider (lo que vimos en el punto anterior), sino en base al tipo concreto (en runtime) del receptor ?
 
 
-Sí, si usamos [multiple dispatch](conceptos-multiple-dispatch)
+Sí, si usamos [multiple dispatch](../conceptos-multiple-dispatch)
 
 
 Ejemplo: tenemos una jerarquía de **Clientes**.
@@ -525,7 +525,7 @@ Están en el SVN de la materia:
 
 Scala merece una página propia para explicar sus mecanismos para extender clases.
 Así que pasen por acá y vean:
-[Extensiones a clases con Scala Implicits](conceptos-extension-methods-extensiones-a-clases-con-scala-implicits)
+[Extensiones a clases con Scala Implicits](../conceptos-extension-methods-extensiones-a-clases-con-scala-implicits)
 ## Extension Methods en otras tecnologías
 
 

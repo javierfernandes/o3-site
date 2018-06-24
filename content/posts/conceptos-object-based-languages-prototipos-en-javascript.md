@@ -16,9 +16,9 @@ Es decir que los browsers o navegadores "entienden" y ejecutan código javascrip
 
 
 ### Características y Clasificación del Lenguaje
-En primer término, decimos que JavaScript es un lenguaje de programación de **propósito general**. Es decir que con él, en principio, como lenguaje podríamos codificar cualquier tipo de aplicación y en forma completa *(Ver [DSLs](conceptos-dsls-domainspecificlanguage))*
+En primer término, decimos que JavaScript es un lenguaje de programación de **propósito general**. Es decir que con él, en principio, como lenguaje podríamos codificar cualquier tipo de aplicación y en forma completa *(Ver [DSLs](../conceptos-dsls-domainspecificlanguage))*
 
-En cuanto a su [sistema de tipos](conceptos-tipos-binding)  ...
+En cuanto a su [sistema de tipos](../conceptos-tipos-binding)  ...
 
 #### **[]()Es dinámico
 Es decir que los checkeos se realizan en tiempo de ejecución. En la misma forma en que lo hacen lenguajes como: smalltalk, ruby, groovy, etc.

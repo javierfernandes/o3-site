@@ -238,40 +238,40 @@ Lo importante es que trabaja diréctamente sobre los objetos instancias de nuest
 Con lo cual,  vamos a tener la restricción de que el intérprete tiene que estar hecho en Java / Xtend, porque nuestras clases del modelo ya están en ese lenguaje.
 
 
-En [éste link](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interprete-standalone) se muestra el ejemplo más básico de cómo hacer un intérprete para XText.
+En [éste link](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---interprete-standalone) se muestra el ejemplo más básico de cómo hacer un intérprete para XText.
 
 
-Un segundo ejemplo, el de [La Tortuga](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---tortuga-aka-logo-interpretada), implementa un intérprete, pero dentro de eclipse, como un plugin, ya que lo que hace es graficar en una vista de eclipse (como el Logo).
+Un segundo ejemplo, el de [La Tortuga](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---tortuga-aka-logo-interpretada), implementa un intérprete, pero dentro de eclipse, como un plugin, ya que lo que hace es graficar en una vista de eclipse (como el Logo).
 Cambia un poco la forma en que el intérprete llama a XText para que haga el parseo y nos de el modelo semántico.
 ## Ejemplos en XText
 
 
-* [Hola Mundo's](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos): 
+* [Hola Mundo's](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos): 
 
  * primer ejemplo, intro a xtext, gramática, etc
  * checkeos y quick fix
  * **Generator**
 
-* [ORM Mappings](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings)
+* [ORM Mappings](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext-dsl---orm-mappings)
 
  * Gramática un poquito más compleja
  * Referencias a clases Java y Fields.
  * Validaciones
  * **JvmInferrer**
 
-* [Tortuga](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---tortuga-aka-logo-interpretada) (aka Logo)
+* [Tortuga](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---tortuga-aka-logo-interpretada) (aka Logo)
 
  * Lenguajecito más complejo (expresiones, valores, procedimientos, etc)
  * Con una vista en el IDE y Menu + Botón "Run"
  * **Interpretado**
 
-* [DSL para pedidos HTTP](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---http)
+* [DSL para pedidos HTTP](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---http)
 
 ## Extendiendo diferentes aspectos del DSL de XText
 
 
-* Checkeos: ver [Saludos](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
-* QuickFixes: ver [Saludos](conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
-* [Formatter](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---formatter) (formateo de código)
-* [**Embebiendo Código XBase** (XTend) en nuestro DSL](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---embebiendo-xbase-en-nuestro-dsl)
-* [LabelProvider (textos e íconos en el IDE).](conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---labelprovider---iconos-y-textos)
+* Checkeos: ver [Saludos](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
+* QuickFixes: ver [Saludos](../conceptos-dsls-domainspecificlanguage-dsl---xtext-dsl-en-xtext---saludos)
+* [Formatter](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---formatter) (formateo de código)
+* [**Embebiendo Código XBase** (XTend) en nuestro DSL](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---embebiendo-xbase-en-nuestro-dsl)
+* [LabelProvider (textos e íconos en el IDE).](../conceptos-dsls-domainspecificlanguage-dsl---xtext-xtext---labelprovider---iconos-y-textos)

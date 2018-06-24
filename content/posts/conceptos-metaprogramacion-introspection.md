@@ -35,9 +35,9 @@ En objetos sería algo así como un API que permitiría **inspeccionar** otros o
 ### Ejemplos de introspection en diferentes lenguajes
 
 #### **[]()
-* [Introspection en Java](conceptos-metaprogramacion-introspection-introspection-en-java)
-* [Introspection en Javascript (lenguaje dinámico)](conceptos-metaprogramacion-introspection-introspection-en-javascript)
-* [Introspection en Self (mirrors)](conceptos-metaprogramacion-introspection-introspection-en-self)
+* [Introspection en Java](../conceptos-metaprogramacion-introspection-introspection-en-java)
+* [Introspection en Javascript (lenguaje dinámico)](../conceptos-metaprogramacion-introspection-introspection-en-javascript)
+* [Introspection en Self (mirrors)](../conceptos-metaprogramacion-introspection-introspection-en-self)
 
 
 

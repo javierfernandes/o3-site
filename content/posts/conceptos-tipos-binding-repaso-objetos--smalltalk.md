@@ -14,10 +14,10 @@ Esto es importante, porque **rompe la idea de fases o ciclo de desarrollo tradic
 
 Esto convierte al programador en un usuario más del ambiente, en la misma forma en que el usuario final también interactúa con los objetos (indirectamente a través de una UI, etc.).
 
-Uno de los ambientes de objetos más fieles a esta teoría es el de [Pharo Smalltalk](te-smalltalk).
+Uno de los ambientes de objetos más fieles a esta teoría es el de [Pharo Smalltalk](../te-smalltalk).
 
 ## Material
 
-[Presentación](conceptos-tipos-binding) 
+[Presentación](../conceptos-tipos-binding) 
 
 ### 

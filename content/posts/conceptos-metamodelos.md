@@ -6,9 +6,9 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Contenidos Teóricos
 
-* [Mixins](conceptos-mixins) & [Traits](conceptos-traits)
-* [Aspect-Oriented Programming](conceptos-aop)
-* [Object-Based Languages (vs. class-based)](conceptos-object-based-languages)
+* [Mixins](conceptos-mixins) & [Traits](../conceptos-traits)
+* [Aspect-Oriented Programming](../conceptos-aop)
+* [Object-Based Languages (vs. class-based)](../conceptos-object-based-languages)
 
  * Clonación
  
@@ -21,22 +21,22 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Tecnologías
 
-* Mixins: [Scala](te-scala)
-* Traits: [Pharo](te-smalltalk)
-* [AspectJ](te-aspectj)
-* [Ioke](te-ioke)
+* Mixins: [Scala](../te-scala)
+* Traits: [Pharo](../te-smalltalk)
+* [AspectJ](../te-aspectj)
+* [Ioke](../te-ioke)
 * Bonus
 
  * [Herencia múltiple y method resolution en Python](http://www.python.org/download/releases/2.3/mro/)
 
- * [Self](te-self)
- * [Prototipos en JavaScript](conceptos-object-based-languages-prototipos-en-javascript)
+ * [Self](../te-self)
+ * [Prototipos en JavaScript](../conceptos-object-based-languages-prototipos-en-javascript)
 
 
 ### Bibliografía
 
 * [Antero Taivalsaari. *The notion of Inheritance*](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.72.6812&rep=rep1&type=pdf)
-* [Gilad Bracha. ](temario-goog_810575391)*[Mixin-based Inheritance](http://stephane.ducasse.free.fr/Teaching/CoursAnnecy/0506-Master/ForPresentations/p303-bracha.pdf)*
+* [Gilad Bracha. ](../temario-goog_810575391)*[Mixin-based Inheritance](http://stephane.ducasse.free.fr/Teaching/CoursAnnecy/0506-Master/ForPresentations/p303-bracha.pdf)*
 * [Stéphane Ducasse. ](http://scg.unibe.ch/archive/papers/Scha02bTraits.pdf)*[Traits: Composable Units of Behavior](http://scg.unibe.ch/archive/papers/Scha02bTraits.pdf)
 *
 

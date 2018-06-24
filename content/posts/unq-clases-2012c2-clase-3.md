@@ -5,7 +5,7 @@ date:  2018-06-20T19:27:10-03:00
 
 
 ### Introducción
-En la clase de hoy arrancamos comparando los modelos de herencia simple y múltiple, analizando las ventajas y desventajas de cada uno. Para tratar de tomar lo mejor de ambos mundos aparecen dos modelos alternativos denominados [traits](conceptos-traits) y [mixins](conceptos-mixins). 
+En la clase de hoy arrancamos comparando los modelos de herencia simple y múltiple, analizando las ventajas y desventajas de cada uno. Para tratar de tomar lo mejor de ambos mundos aparecen dos modelos alternativos denominados [traits](conceptos-traits) y [mixins](../conceptos-mixins). 
 
 
 
@@ -39,8 +39,8 @@ Las interpretaciones que se hace de las herramientas lleva a diferentes estrateg
 
 
 Las lecturas más importantes son:
-* [](conceptos-traits)[Traits](conceptos-traits)
-* [Mixins](conceptos-mixins)
+* [](conceptos-traits)[Traits](../conceptos-traits)
+* [Mixins](../conceptos-mixins)
 
 * [Paper seminal de traits](http://scg.unibe.ch/archive/phd/schaerli-phd.pdf), de Nathaniel Shaerli y Stéphane Ducasse
 * [Paper seminal de Mixin-Based Inheritance](http://www.st.informatik.tu-darmstadt.de:8080/lehre/ss02/aose/Papiere/Thema1/flatt98classe.pdf), por Bracha y Cook.

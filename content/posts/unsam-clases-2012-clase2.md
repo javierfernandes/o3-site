@@ -6,13 +6,13 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Unidad I
 
-Estuvimos un rato largo hablando de [Sistemas de tipos](conceptos-tipos-binding-sistemas-de-tipos).
+Estuvimos un rato largo hablando de [Sistemas de tipos](../conceptos-tipos-binding-sistemas-de-tipos).
 
 
 
 #### **[]()Intro a Scala
 
-Vimos algunas cosas básicas del lenguaje siguiendo [este tutorial](te-scala). Los temas que mencionamos son:
+Vimos algunas cosas básicas del lenguaje siguiendo [este tutorial](../te-scala). Los temas que mencionamos son:
 
 * Un poco de sintaxis, como definir clases, métodos, constructores, variables.
 * Todo es un objeto: números, funciones.
@@ -29,5 +29,5 @@ Les dejo para ustedes mirar la interacción con Java.
 
 Tienen dos cosas importantes para leer:
 
-* Sobre la teoría de tipos hay bastante material en [Unidad 1 - Esquemas de tipado](conceptos-tipos-binding)
-* Y como ayuda para el TP0, tienen la página que armamos con material sobre [Scala](te-scala).
+* Sobre la teoría de tipos hay bastante material en [Unidad 1 - Esquemas de tipado](../conceptos-tipos-binding)
+* Y como ayuda para el TP0, tienen la página que armamos con material sobre [Scala](../te-scala).

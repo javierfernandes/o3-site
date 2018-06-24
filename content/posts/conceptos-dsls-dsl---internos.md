@@ -12,7 +12,7 @@ Mediante diferentes técnicas y herramientas se ocultan detalles y complejidades
 
 Para hacerse una idea de cómo es un DSL interno desde el punto de vista de quien lo usa.
 
-* [Rails](conceptos-dsls-domainspecificlanguage-dsl---rails)
+* [Rails](../conceptos-dsls-domainspecificlanguage-dsl---rails)
 * Mockito
 * ...
 
@@ -58,5 +58,5 @@ Acá vemos una lista de elementos de lenguajes que se pueden utilizar como técn
 ## Técnicas específicas según GPL
 
 
-* [DSL's en XTend](conceptos-dsls-dsl---internos-dsls-internos-en-xtend)
-* [DSL's en Scala](conceptos-dsls-dsl---internos-dsls-en-scala)
+* [DSL's en XTend](../conceptos-dsls-dsl---internos-dsls-internos-en-xtend)
+* [DSL's en Scala](../conceptos-dsls-dsl---internos-dsls-en-scala)

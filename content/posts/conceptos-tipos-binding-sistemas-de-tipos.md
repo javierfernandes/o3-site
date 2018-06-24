@@ -32,7 +32,7 @@ La primer idea es matchear un tipo con una clase.Pero no es la única idea de ti
 
 
 Sirve comparar tipo y clase en Smalltalk y en Java que son los dos lenguajes que conocemos, y también pensar en la defnición de polimorfismo ¿se está hablando de tipos o de clases ahí?.
-[Este](ClasesEjemplo-png?attredirects=0) es el ejemplo que usamos para explicar esto.
+[Este](../ClasesEjemplo-png?attredirects=0) es el ejemplo que usamos para explicar esto.
 
 ### ¿Para qué sirven los tipos?
 
@@ -462,7 +462,7 @@ Por ejemplo el lenguaje **Pike** tiene checkeos tanto estáticos como dinámicos
 Es decir que nos fuerza a declarar tipos de las variables (explícitos) y con esos tipos hace checkeos en tiempo de compilación (estático).
 Sin embargo permite cierto dinamismo en la declaración de los tipos.
 
-#### **[]()Declaración de múltiples tipos (Tagged Unions)
+#### **[](../)Declaración de múltiples tipos (Tagged Unions)
 
 Podemos declarar una variable con opciones de tipos
 ```

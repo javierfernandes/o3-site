@@ -6,7 +6,7 @@ date:  2018-06-20T19:27:10-03:00
 
 ### Introducción
 
-Arrancamos motivando el concepto de aspecto siguiendo el ejemplo de [Objetos Observables](conceptos-aop#TOC-Objetos-Observables) que nos llevó a pensar en la necesidad de **herramientas que nos permitan modelar conceptos transversales a la jerarquía de clases.** 
+Arrancamos motivando el concepto de aspecto siguiendo el ejemplo de [Objetos Observables](../conceptos-aop#TOC-Objetos-Observables) que nos llevó a pensar en la necesidad de **herramientas que nos permitan modelar conceptos transversales a la jerarquía de clases.** 
 
 
 A menudo vemos que los ejemplos motivadores pasan por encontrar problemas que no pueden resolverse si *código duplicado.* El motivo es que entendemos que nos vemos obligados a escribir dos veces lo mismo simplemente porque no tenemos una herramienta para expresar esa idea en un único lugar y luego utilizarla. 
@@ -35,7 +35,7 @@ Si bien vamos a ver aspectos con una implementación para java llamada **AspectJ
 * **Advice**: dado un **pointcut, **es decir un contexto de un punto de ejecución, representa una manipulación de ese código. Por ejemplo, poder agregar código antes y después de ese punto (**around)**.
 
 Luego vimos un ejemplo de la syntaxis de AspectJ para definir un aspecto para loggear llamadas a métodos.
-Ese ejemplo está en la [página del site](conceptos-aop)
+Ese ejemplo está en la [página del site](../conceptos-aop)
 ### Weaving
 
 Luego surgió la pregunta natural de "cómo hace la magia ?" (de interceptar el código y manipularlo).
@@ -82,8 +82,8 @@ Y el mismo aspecto le define las implementaciones de esos métodos, en forma par
 
 ### Material
 
-* Página de la materia con teoría de [Programación Orientada a Aspectos](conceptos-aop)
-* Página de la materia sobre la herramienta [AspectJ](te-aspectj)
+* Página de la materia con teoría de [Programación Orientada a Aspectos](../conceptos-aop)
+* Página de la materia sobre la herramienta [AspectJ](../te-aspectj)
 * [Paper seminal de Gregor Kiczales](http://cseweb.ucsd.edu/~wgg/CSE218/aop-ecoop97.pdf) que introduce el concepto de AOP
 * Una [introducción a AspectJ](http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA417906), también de Gregor Kickzales y el resto del equipo en el Xerox PARC.
 

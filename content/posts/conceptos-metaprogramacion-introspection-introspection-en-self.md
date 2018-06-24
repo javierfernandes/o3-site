@@ -7,7 +7,7 @@ date:  2018-06-20T19:27:10-03:00
 Self es un poquito más dificil de mostrar porque tenemos que poner screenshots :(
 
 Pero es interesante ver algún ejemplo.
-El MOP de Self está basado en una idea llamada mirrors. La teoría de esto se explica en [esta otra sección del site](conceptos-mirrors)
+El MOP de Self está basado en una idea llamada mirrors. La teoría de esto se explica en [esta otra sección del site](../conceptos-mirrors)
 Sin embargo acá vamos a ver ejemplos prácticos de reflection.
 A modo de simplificación vamos a decir que el MOP está conformada por objetos llamados mirrors, que representan o reflejan nuestros objetos.
 
