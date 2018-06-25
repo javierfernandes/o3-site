@@ -67,9 +67,23 @@
   src: url('/fonts/alpaca/Alpaca Scarlett Demo.ttf');
 }
 
+/* Monserrat */
+@font-face {
+  font-family: Montserrat;
+  src: url('/fonts/montserrat/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('/fonts/montserrat/Montserrat-Bold.ttf');
+  font-weight: bold;
+}
+
 /* general styling */
 body {
   font-family: "Muli",avenir,"helvetica neue",helvetica,ubuntu,roboto,noto,"segoe ui",arial,sans-serif;
+}
+h1, h2, h3 {
+  font-family: Montserrat;
 }
 
 .sidebar { width: 280px; }
