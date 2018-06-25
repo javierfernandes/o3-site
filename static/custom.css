@@ -1,10 +1,84 @@
+/* custom fonts */
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-Italic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-SemiBold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-SemiBoldItalic.ttf);
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-Bold.ttf);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-BoldItalic.ttf);
+  font-weight: bolder;
+  font-style: italic;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-Light.ttf);
+  font-weight: lighter;
+}
+@font-face {
+  font-family: Josefin-Sans;
+  src: url(/fonts/josefin-sans/JosefinSans-LightItalic.ttf);
+  font-weight: lighter;
+  font-style: italic;
+}
+/* muli */
+@font-face {
+  font-family: Muli;
+  src: url(/fonts/muli/Muli-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Muli;
+  src: url(/fonts/muli/Muli-Italic.ttf);
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: Muli;
+  src: url(/fonts/muli/Muli-Light.ttf);
+  font-weight: lighter;
+}
+
 /* general styling */
+body {
+  font-family: "Muli",avenir,"helvetica neue",helvetica,ubuntu,roboto,noto,"segoe ui",arial,sans-serif;
+}
+
+.sidebar { width: 280px; }
+.sidebar, .main-menu {
+  font-family: 'Josefin-Sans' 
+}
+.sidebar-menu .sub-menu {
+  font-size: 0.8rem;
+}
+
+.site-title {
+
+}
 
 .site .main { width: 100%; }
-
-.sidebar {
-  width: 280px;
-}
 
 /* space between main and footer */
 main#content footer.entry-footer .container.sep-before:before {
