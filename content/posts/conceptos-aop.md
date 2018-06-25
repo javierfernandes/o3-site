@@ -86,7 +86,7 @@ Y la interfaz observable:
         **    public** void** addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
         
 
-**    public** **void** removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
+**    public** void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
         
 
 }`
@@ -102,12 +102,12 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
 
 
 
-        **public** **class** Conversor extends ObservableObjectImpl {
+        **public** class Conversor extends ObservableObjectImpl {
  `**private** **double** millas;`
  `**private** **double** kilometros;`
 
 
- `**public** **void** convertir() 
+ `**public** void convertir() 
  `**this**.setKilometros(**this**.getMillas() * 1.60934);`
  `}`
  
@@ -116,7 +116,7 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
  `}`
 
 
- `**public** **void** setMillas(**double** millas) 
+ `**public** void setMillas(**double** millas) 
  `**this**.setFieldValue("millas", millas);`
  `}`
 
@@ -126,7 +126,7 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
  `}`
 
 
- `**public** **void** setKilometros(**double** kilometros) 
+ `**public** void setKilometros(**double** kilometros) 
  `**this**.setFieldValue("kilometros", kilometros);`
  `}`
 
@@ -200,12 +200,12 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
 
 
 
-        **public** **class** Conversor extends AbstractConversor **with **ObservableTrait {
+        **public** class Conversor extends AbstractConversor **with **ObservableTrait {
  `**private** **double** millas;`
  `**private** **double** kilometros;`
 
 
- `**public** **void** convertir() 
+ `**public** void convertir() 
  `**this**.setKilometros(**this**.getMillas() * 1.60934);`
  `}`
  
@@ -214,7 +214,7 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
  `}`
 
 
- `**public** **void** setMillas(**double** millas) 
+ `**public** void setMillas(**double** millas) 
  `**this**.setFieldValue("millas", millas);`
  `}`
 
@@ -224,7 +224,7 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
  `}`
 
 
- `**public** **void** setKilometros(**double** kilometros) 
+ `**public** void setKilometros(**double** kilometros) 
  `**this**.setFieldValue("kilometros", kilometros);`
  `}`
 
@@ -516,7 +516,7 @@ Es importante ver que es declarativo, es decir target y newValue no son parámet
 * Luego queremos definir un advice, que se parece a un método con una cabecera especial:
 
 
-        **void** **around**(Object target, Object newValue`) : fieldWrite(target, newValue) 
+        void **around**(Object target, Object newValue`) : fieldWrite(target, newValue) 
             ...                 `         // código que quiera agregar
     **proceed**(target, newValue);  // se ejecuta el código original (*)
 ``    ...``                          // más código que se ejecuta después del field set.
@@ -563,15 +563,15 @@ Esto hace que todas las clases anotadas con @Observable implementen la interfaz 
 1. En el aspecto definimos los métodos que proveen la implementación de esa interfaz, por ejemplo:
 
 
-            **public** **void** ObservableObject.addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+            **public** void ObservableObject.addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
                 **this**.changeSupport.addPropertyChangeListener(propertyName, listener);
             }
             
-            **public** **void** ObservableObject.removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+            **public** void ObservableObject.removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
                 **this**.changeSupport.removePropertyChangeListener(propertyName, listener);
             }
             
-            **public** **void** ObservableObject.fieldChanged(String fieldName, Object oldValue, Object newValue) {
+            **public** void ObservableObject.fieldChanged(String fieldName, Object oldValue, Object newValue) {
                 **this**.changeSupport.firePropertyChange(fieldName, oldValue, newValue);
             }
 También podemos agregar variables:
@@ -592,7 +592,7 @@ El resto del proceso es ya conocido, declaramos un pointcut y un Advice:
                 && !**withincode**(*.new(..))
                 && **within**(@Observable *);
 
-            **void** **around**(ObservableObjectSupport target, Object newValue) : fieldWrite(target, newValue) {
+            void **around**(ObservableObjectSupport target, Object newValue) : fieldWrite(target, newValue) {
                 String fieldName = **thisJoinPoint**.getSignature().getName();
                 Object oldValue = Utils.getField(target, fieldName);
 
@@ -609,7 +609,7 @@ Se puede ver que desde el advice podemos mandarle mensajes al target que son los
 En el uso desde AspectJ, podemos utilizar la clase y mandarle también los mensajes de la interfaz que agregamos por aspectos, es decir que tiene el mismo comportamiento que una interfaz agregada de la forma tracicional (implements).
 
 
-            **public** **static** **void** main(String[] args) {
+            **public** **static** void main(String[] args) {
                 ObservableTestObject object = new ObservableTestObject();
                 
                 // Agrego un listener...
@@ -702,7 +702,7 @@ En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el 
 
 ```
 
-        **class** `ServiceTracer`
+        class `ServiceTracer`
  include`** `Aquarium``::``DSL`
  before`** `:calls_to` `=>` `:all_methods``,` `:in_types` `=>` `/``Service$``/` `do` `|``join_point``,` `object``,` `*``args``|`
  log`** `"``Entering:#{join_point.target_type.name}``#``#{join_point.method_name}``: object =#{object}``, args =#{args}``"` 

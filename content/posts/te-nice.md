@@ -30,13 +30,13 @@ Ahora ya podemos crear un archivo .nice
 Ahí ya podemos tirar algo de código.
 Ejemplo:
 
-        **class** Paloma {}
+        class Paloma {}
 
-        **void** piar(Paloma p) {
+        void piar(Paloma p) {
             System.out.println("pio pio!");
         }
 
-        **void** main(String[] args) {
+        void main(String[] args) {
             Paloma p = new Paloma()
             p.piar();
         }

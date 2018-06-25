@@ -135,7 +135,7 @@ Para eso primero vamos a hacer una clase que tenga la lógica para calcular el s
 
 
 
-        **class** MappingScopeExtensions {
+        class MappingScopeExtensions {
  
  ` def getScope(MappingProperty property) 
  `property.mapping.scope`
@@ -194,7 +194,7 @@ Ahora sí, ya tenemos la lógica, tenemos que engancharla en xtext. Para:
 
 
 
-        **class** MappingScopeProvider extends AbstractDeclarativeScopeProvider {
+        class MappingScopeProvider extends AbstractDeclarativeScopeProvider {
  `@Inject **extension **MappingScopeExtensions`
 
 
@@ -259,7 +259,7 @@ sobrescribimos el que nos interesa para definir el scope provider
 
         @Override
         **public Class**<? extends org.eclipse.xtext.scoping.IScopeProvider> bindIScopeProvider() {
- `**return** MappingScopeProvider.**class**;`
+ `**return** MappingScopeProvider.class;`
         }
 
 
@@ -293,7 +293,7 @@ Creamos una nueva clase:
 
 
 
-        **class** MappingBatchScopeProvider extends XbaseBatchScopeProvider {
+        class MappingBatchScopeProvider extends XbaseBatchScopeProvider {
  `@Inject **extension** MappingScopeExtensions`
 
 
@@ -327,7 +327,7 @@ Y luego, agregar esto a nuestro runtimeModule para que la use:
 
         @Override
         **public** Class<? extends XbaseBatchScopeProvider> bindXbaseBatchScopeProvider() {
- `**return** MappingBatchScopeProvider.**class**;`
+ `**return** MappingBatchScopeProvider.class;`
         }
 
 

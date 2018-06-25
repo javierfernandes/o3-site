@@ -60,7 +60,7 @@ Algunas consecuencias:
 * **Legibilidad:**
 
 
- * nuestro código contendrá una mezcla entre conceptos de dominio (una Cuenta, un Cliente, etc) y palabras propias del lenguajes (keywords, como **public** **class**, **trait, **etc).
+ * nuestro código contendrá una mezcla entre conceptos de dominio (una Cuenta, un Cliente, etc) y palabras propias del lenguajes (keywords, como **public** class, **trait, **etc).
  * Quien se incorpore al proyecto o quiera revisar la solución deberá, naturalmente, hacer el proceso inverso, como una **ingeniería reversa,** a partir del código y de lo expresado en el GPL abstraerse para generar una representación mental del problema/dominio.
 * **Flexibilidad** (cambios de requerimientos o dominio)
 

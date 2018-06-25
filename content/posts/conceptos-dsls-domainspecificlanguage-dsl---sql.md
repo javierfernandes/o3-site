@@ -202,7 +202,7 @@ Nótese que el método project recibe un tipo paramétrico entre corchetes, y lu
 
 
 
-        **class** Relation[+T] {
+        class Relation[+T] {
              def project[U >: T]): Relation[U]
             ...
         }

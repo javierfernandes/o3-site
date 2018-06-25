@@ -50,7 +50,7 @@ Acá el ejemplo para los saludos.
 
 
 
-        **class** SaludosDSLLabelProvider extends **DefaultEObjectLabelProvider {
+        class SaludosDSLLabelProvider extends **DefaultEObjectLabelProvider {
 
 
  `@Inject`

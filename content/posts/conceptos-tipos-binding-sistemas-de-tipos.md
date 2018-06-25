@@ -520,11 +520,11 @@ Lo interesante, es que **el compilador hace checkeos** !!! Y tiene un tipo de **
 
 **
 
-        **class** Persona {
+        class Persona {
             **?String** nombre;
         }
 
-        **void** imprimirNombre(String nombre) {
+        void imprimirNombre(String nombre) {
             println(name);
         }
 Esto indica que una Persona **puede o no, tener nombre**.
@@ -550,7 +550,7 @@ Pero, hará solo un checkeo de tipos, considerando que por ser "?" es distinto y
 Qué pasa si agregamos un **if** por **null** ??`
         
 
-**void** main(String[] args) 
+void main(String[] args) 
             Person p = new Person(name: "blah");
             **let** name = p.name;
             **if** (name != null) {                       

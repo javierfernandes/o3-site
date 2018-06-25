@@ -119,12 +119,12 @@ Incluso, si encadenamos mensajes, se pueden eliminar los puntos. En este caso es
 
 En su forma más simple una clase se ve muy similar a su par en java
 
-        **class** Robot {
+        class Robot {
         }
 Cuando no se especifica una superclase (igual que en java con **extends**) automáticamente esto quiere decir que la clase hereda de **AnyRef**.
 La forma de especificar variables de instancia es también similar a java, pero teniendo en cuenta lo que ya vimos de **valores y variables **(y la inferencia de tipos)
 
-        **class** Robot extends AnyRef {
+        class Robot extends AnyRef {
  `**val **material = "acero"`
         }
 O bien
@@ -149,7 +149,7 @@ Los métodos siempre se definen con la palabra reservada  def.
          def presentarse() {
           println("Soy " + nombre)
         }
-En este caso estamos definiendo un método que no recibe parámetros y que tampoco retorna ningún valor. Si no declaramos el tipo de retorno, y tampoco utilizamos el símbolo igual ("="), que ya vamos a ver a continuación, el compilador interpreta esto como un método **void**.
+En este caso estamos definiendo un método que no recibe parámetros y que tampoco retorna ningún valor. Si no declaramos el tipo de retorno, y tampoco utilizamos el símbolo igual ("="), que ya vamos a ver a continuación, el compilador interpreta esto como un método void.
 En scala el tipo para **void ** es **Unit**
 
 Si necesitamos un parámetro, se definiría así:
@@ -191,7 +191,7 @@ En nuestro caso del robo
 
 
 
-        **class** Robot(nombre:String) {
+        class Robot(nombre:String) {
         
 
            def decimeTuNombre = "Soy " + nombre
@@ -211,7 +211,7 @@ Con dos parámetros sería
 
 
 
-        **class** Robotito(nombre:String, material : String) { ... }
+        class Robotito(nombre:String, material : String) { ... }
 
 
 Y cómo hacemos si en el constructor debemos realizar algún cálculo ? Por ejemplo, supongamos que tenemos un valor en el robot, su "código", que se autogenera en base al nombre y un número único.
@@ -221,7 +221,7 @@ Para eso, podemos escribir, lo que en java sería como el "cuerpo del constructo
 
 
 
-        **class** Robotito(nombre:String, material : String) {
+        class Robotito(nombre:String, material : String) {
           val codigo = nombre.substring(0, 2) + System.currentTimeMillis
           
            def decimeTuNombre = "Soy " + nombre + " (" + codigo + ")"
@@ -238,7 +238,7 @@ Los demás, se escriben como en xtend, o bien como métodos (?) con nombre "this
 
 
 
-        **class** Robotito(nombre:String, material : String) {
+        class Robotito(nombre:String, material : String) {
           val codigo = nombre.substring(0, 2) + System.currentTimeMillis
           
           **def this**(nombre:String) = {
@@ -251,7 +251,7 @@ O bien más conciso sin las llaves:
 
 
 
-        **class** Robotito(nombre:String, material : String) {
+        class Robotito(nombre:String, material : String) {
         **  val** codigo = nombre.substring(0, 2) + System.currentTimeMillis
           
           **def this**(nombre:String) = **this**(nombre, "acero")
@@ -268,7 +268,7 @@ En scala tenemos ese se hace así:
 
 
 
-        **class** C3PO extends Robotito("c3po", "cobre") {
+        class C3PO extends Robotito("c3po", "cobre") {
             ...
         }
 
@@ -278,7 +278,7 @@ En este caso estamos fijando los valores. Pero si queremos recibirlos también c
 
 
 
-        **class** RobotitoFurioso(n:String, m: String) extends Robotito(n,m) {
+        class RobotitoFurioso(n:String, m: String) extends Robotito(n,m) {
             ...
         }
 ### Getters & Setters
@@ -296,7 +296,7 @@ Si bien parece que estamos accediendo diréctamente a las variables de instancia
 Igualmente es un detalle interno, lo importante es, cómo podemos nosotros incluir código en los getters y setters ?
 Acá un ejemplo pavo donde nosotros definimos una nueva propiedad "color".
 
-        **class** Robotito(nombre:String, material : String) {
+        class Robotito(nombre:String, material : String) {
           var codigo = nombre.substring(0, 2) + System.currentTimeMillis
           **private var** _color : String = "gris"
             
@@ -342,7 +342,7 @@ Por ejemplo para sobrescribir el toString de nuestro Robotito
 
 
 
-        **class** Robotito(nombre:String, material : String) {
+        class Robotito(nombre:String, material : String) {
            def decimeTuNombre = "Soy " + nombre
           
           override def toString() = decimeTuNombre
@@ -383,7 +383,7 @@ Por otro lado, como dentro de un archivo podemos tener varias clases, al declara
 Por eso es que los imports se pueden ubicar en varios otros lugares, además del encabezado del archivo.
 Se puede importar dentro de una clase:```
 
-         **class** Rocket { **import** Rocket.fuel def canGoHomeAgain = fuel > 20 }
+         class Rocket { **import** Rocket.fuel def canGoHomeAgain = fuel > 20 }
 ```
 
 Más información sobre packages e imports en [éste enlace externo](http://booksites.artima.com/programming_in_scala_2ed/examples/html/ch13.html)

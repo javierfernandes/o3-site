@@ -57,7 +57,7 @@ Ahora veamos cómo desde java, a través del API de reflection podemos sacar mir
 
 
         **public static void **main(String[] args) {
-          introspect(Libro.**class**, new PrintWriter(System.out));
+          introspect(Libro.class, new PrintWriter(System.out));
         }
 
 
@@ -186,7 +186,7 @@ Si ejecutamos el main con la instancia de libro ahí creada de ejemplo vemos:
 **Cosas a notar:**
 
 
-* A diferencia del introspectType() que recibía un **Class** este nuevo método puede espera un **Object**, por lo cual le podemos pasar cualquier **instancia.**
+* A diferencia del introspectType() que recibía un class este nuevo método puede espera un **Object**, por lo cual le podemos pasar cualquier **instancia.**
 
 * A partir de un Object podemos obtener su objeto del MOP **Class **con **obj.getClass()**.
 * Luego estamos con el mismo objeto que utilizamos en el ejemplo anterior.

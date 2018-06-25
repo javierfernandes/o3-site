@@ -293,7 +293,7 @@ Luego usamos los "RichStrings" o "templates" de xtend para no escribir tantos st
 
 
 
-**class** SaludosDSLGenerator **implements** IGenerator {
+class SaludosDSLGenerator **implements** IGenerator {
          
             **override void** doGenerate(Resource resource, IFileSystemAccess fsa) {
          val model = resource.allContents.head as Model
@@ -325,7 +325,7 @@ Acá una validación sobre las Despedida's
 
 
 
-        **class** SaludosDSLValidator extends **AbstractSaludosDSLValidator {
+        class SaludosDSLValidator extends **AbstractSaludosDSLValidator {
 
 
           @Check

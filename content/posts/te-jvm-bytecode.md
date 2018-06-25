@@ -133,7 +133,7 @@ Algo importante a tener en cuenta es que esta instrucción se utiliza para invoc
 Veamos un ejemplo:
 ```
 
-        **void** test(Enumeration enum) {
+        void test(Enumeration enum) {
          **boolean** x = enum.hasMoreElements();
          ...
         }

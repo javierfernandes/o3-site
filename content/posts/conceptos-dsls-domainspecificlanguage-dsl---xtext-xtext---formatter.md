@@ -86,7 +86,7 @@ Entonces ahora sí podemos definir reglas, declarando que necesitamos el Grammar
 
 
 
-        **class** SaludosDSLFormatter extends AbstractDeclarativeFormatter {
+        class SaludosDSLFormatter extends AbstractDeclarativeFormatter {
 
 
  `@Inject **extension **SaludosDSLGrammarAccess`

@@ -1,10 +1,8 @@
 ---
 title: "conceptos-multiple-dispatch"
 date:  2018-06-20T19:27:10-03:00
+toc: true
 ---
-
-
-[[_TOC_]]
 
 
 ## Dispatch
@@ -19,13 +17,13 @@ Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos 
      }
 }`
 
-        **class** Artesano extends Trabajador {
+        class Artesano extends Trabajador {
             trabajar`() {
          System.out.println("Hice un duendecito!");
      }`
         }
 
-        **class** Zapatero extends Trabajador {
+        class Zapatero extends Trabajador {
             trabajar`() {
          System.out.println("Hice un mocasín!");
      }`
@@ -107,7 +105,7 @@ Cómo resolvemos este problema que requiere de seleccionar el comportamiento en 
 Veamos las 3 formas principales. De más "precaria" a más completa.
 
 #### Emulando Multiple-dispatching a pulmón (con if instanceof's)
-        **class** Artesano extends Trabajador {
+        class Artesano extends Trabajador {
             trabajar`(Material material) {
          **if** (material **instanceof** Cuero) {
             **return** new Llavero((Cuero) material);
@@ -121,7 +119,7 @@ Veamos las 3 formas principales. De más "precaria" a más completa.
      }
         }
 
-        **class** Zapatero extends Trabajador {
+        class Zapatero extends Trabajador {
             `trabajar``(Material material) {
          **if** (material **instanceof** Cuero) {
              **return** new ZapatoCuero((Cuero) material);
@@ -178,7 +176,7 @@ Y la jerarquía de materiales:
 
 Finalmente, los trabajadores particulares:
 
-        **class** Artesano extends Trabajador {
+        class Artesano extends Trabajador {
              trabajar`Cuero(Cuero cuero) {
        **return** new Llavero((Cuero) material);`
             }
@@ -190,7 +188,7 @@ Finalmente, los trabajadores particulares:
             }
  `}`
 
-        **class** Zapatero extends Trabajador {
+        class Zapatero extends Trabajador {
  `     trabajar``Cuero(Cuero cuero) {
         **return** new ZapatoCuero((Cuero) material);`
  `    }
@@ -225,39 +223,52 @@ Además, compila a bytecode de java, con lo cual eso completamente compatible y 
 
 Definimos primero entonces las clases y las jerarquías
 
-        **class** Trabajador {}
-        **class** Artesano extends Trabajador {}
-        **class** Zapatero extends Trabajador {}
+```scala
+        class Trabajador {}
+        class Artesano extends Trabajador {}
+        class Zapatero extends Trabajador {}
 
-        **class** Material {}
-        **class** Cuero extends Material {}
-        **class** Goma extends Material {}
+        class Material {}
+        class Cuero extends Material {}
+        class Goma extends Material {}
+```
 
 Luego podemos declarar la firma del método trabajar
 
-        **String** trabajar(Trabajador t, Material m);
+```scala
+        String trabajar(Trabajador t, Material m);
+```
 
 Y ahora probamos con la implementación más básica:
 
+```scala
         trabajar(Trabajador t, Material m) = *"Trabajador no sabe que hacer con material"*;
+```
 
 Si ejecutamos el siguiente código:
 
-        **void** main(String[] args) {
+```scala
+        void main(String[] args) {
             Trabajador t = new Artesano();
             Material m = new Cuero();
             System.out.println(t.trabajar(m));
         }
+```
 
 Obtendremos como salida:
+
+```
 *"Trabajador no sabe que hacer con material"*
+```
 
 Ahora agregamos más implementaciones del método (multi-methods):
 
-        trabajar(Artesano a, Cuero c) = *"Te hago un llavero!"*;
-        trabajar(Artesano a, Goma c) = *"Te hago un jueguito!"*;
-        trabajar(Zapatero z, Cuero c) = *"Te hago un mocasin!"*;
-        trabajar(Zapatero z, Goma c) = *"Te hago una sandalia!"*;
+```scala
+        trabajar(Artesano a, Cuero c) = "Te hago un llavero!";
+        trabajar(Artesano a, Goma c) = "Te hago un jueguito!";
+        trabajar(Zapatero z, Cuero c) = "Te hago un mocasin!";
+        trabajar(Zapatero z, Goma c) = "Te hago una sandalia!";
+```
 
 Si ejecutamos el mismo ejemplo ahora obtendremos:
 
@@ -266,26 +277,26 @@ Si ejecutamos el mismo ejemplo ahora obtendremos:
 Y así, dependiendo el tipo real de los objetos que pasamos como parámetro, la VM seleccionará el método a ejecutar.
 
 
-***Nota: ***
+* **Nota: ***
 
 En este ejemplo declaramos los métodos "fuera de la clase" como si se trataran de [Extension Methods](../conceptos-extension-methods).
 Sin embargo podríamos haber definido los múlti-methods en las propias clases Artesano y Zapatero, de esta forma:
 
-
-        **class** Trabajador {
+```scala
+        class Trabajador {
             String trabajar(Material m) = *"Trabajador no sabe que hacer con material"*;
         }
 
-        **class** Artesano extends Trabajador {
+        class Artesano extends Trabajador {
             trabajar(Cuero c) = *"Te hago un llavero!"*;
             trabajar(Goma c) = *"Te hago un jueguito!"*;
         }
 
-        **class** Zapatero extends Trabajador {
+        class Zapatero extends Trabajador {
             trabajar(Cuero c) = *"Te hago un mocasin!"*;
             trabajar(Goma c) = *"Te hago una sandalia!"*;
         }
-
+```
 
 ## Multiple Dispatch en XTend
 
@@ -296,20 +307,20 @@ Ejemplo:
 
 
 
-
+```scala
 class Zapatero extends Trabajador 
 
-
-
- `**def dispatch** trabajar(Cuero c) 
+ def dispatch trabajar(Cuero c) 
  `"Te hago un mocasin!"` 
  `}`
  
- `**def dispatch** trabajar(Goma g) 
+ def dispatch trabajar(Goma g) 
             `    "Te hago una sandalia"`
 
  `}`
-        }
+        
+}
+```
 
 
 Acá con CTRL+O, se puede ver a la derecha en el tooltip de eclipse cómo xtend interpreta a estos dos métodos como "variantes" de un único método, que infirió, utilizando Material, superclase de ambos (Cuero y Goma), como tipo del parámetro.
@@ -323,16 +334,16 @@ Y si agregamos un tercer multimethod que reciba una Collection ? Es decir una cl
 
 
 
+```scala
+
+        class Zapatero {
 
 
-        **class** Zapatero {
-
-
- `**def dispatch** trabajar(Cuero c) { "Te hago un mocasin!" }`
- `**def dispatch** trabajar(Goma g) { "Te hago una sandalia" }`
- `**def dispatch** trabajar(Collection<Material> c) { "Uh.. cuanto laburo!" }`
+ def dispatch trabajar(Cuero c) { "Te hago un mocasin!" }`
+ def dispatch trabajar(Goma g) { "Te hago una sandalia" }`
+ def dispatch trabajar(Collection<Material> c) { "Uh.. cuanto laburo!" }`
         }
-
+```
 
 Infiere a Object !
 
@@ -342,25 +353,23 @@ El problema es que ahora podemos causar un error en tiempo de ejecución porque 
 Si ejecutamos esto:
 
 
-
-        **class** Blah {
- `**def static void** main(String[] args) 
- `new Zapatero().trabajar("unString")`
- `}`
-        }
-
+```scala
+class Blah {
+  def static void main(String[] args) 
+    new Zapatero().trabajar("unString")
+  }
+}
+```
 
 Va a fallar en runtime con este mensaje
 
+```java
+Exception in thread "main" java.lang.IllegalArgumentException: Unhandled parameter types: [unString]
+  at org.uqbar.xtend.extensions.doblepolimorfismo.Zapatero.trabajar(Zapatero.java:31)
+  at org.uqbar.xtend.extensions.doblepolimorfismo.Blah.main(Blah.java:9)
+```
 
-
-
-
-        Exception in thread "main" java.lang.IllegalArgumentException: Unhandled parameter types: [unString]
- `at org.uqbar.xtend.extensions.doblepolimorfismo.Zapatero.trabajar(Zapatero.java:31)`
- `at org.uqbar.xtend.extensions.doblepolimorfismo.Blah.main(Blah.java:9)`
 ## Variantes y temas adicionales
-
 
 * [Dispatch por valor](../conceptos-multiple-dispatch-dispatch-basado-en-valor)
 * [Multimethods en un Clojure (dialecto de LISP)](../conceptos-multiple-dispatch-multimethods-en-clojure-lisp)
@@ -368,9 +377,7 @@ Va a fallar en runtime con este mensaje
 
 ### Bibliografía / Papers:
 
-
 * ["Prototypes with Multiple-Dispatch", ](http://files.slatelanguage.org/doc/pmd/pmd.pdf)
-
 * ["Object-Oriented Multi-Methods in Cecil", Craig Chambers, 1992](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.22.9991&rep=rep1&type=pdf)
 * ["Inheritance is not Subtyping",](http://www.cs.utexas.edu/%7Ewcook/papers/InheritanceSubtyping90/CookPOPL90.pdf) William R. Cook
 * ["Efficient Multimethods in a Single Dispatch Language"](http://www.laputan.org/reflection/ecoop-multimethods.pdf) , Brian Foote, Ralph E. Johnson and James Noble

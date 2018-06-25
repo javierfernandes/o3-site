@@ -70,7 +70,7 @@ En xtend podemos codificar un método similar y luego utilizarlo como un extensi
  `.replaceAll("\n ", "\n")` 
         }
  
-        **def static** **void** main(String[] args) {
+        **def static** void main(String[] args) {
  `println("Hola.Como va ?. Todo bien?".splitIntoLines())`
         }
 
@@ -85,7 +85,7 @@ Más interesante es tenerlo en una clase aparte que reuna todas las extensiones 
 
 
 
-        **class** StringExtensions {
+        class StringExtensions {
  
  `**def static** String splitIntoLines(String s) 
  `s.replaceAll("\\.", ".\n")`
@@ -135,7 +135,7 @@ Agregamos otro, de paso..
 
 
 
-        **class** StringExtensionProvider {
+        class StringExtensionProvider {
  
  ` def String splitIntoLines(String s) 
  `s.replaceAll("\\.", ".\n")`
@@ -164,11 +164,11 @@ Para usar estas extensiones, **necesitamos declarar una instancia como extension
 
 
 
-        **class** Main {
+        class Main {
  
  `**extension** StringExtensionProvider = **new **StringExtensionProvider()`
  
-** **def static void** main(String[] args) 
+** def static void main(String[] args) 
  `new Main().run`
  `}`
  
@@ -229,10 +229,10 @@ Si la extensión tuviera un nombre como si fuera un atributo podriamos cambiarla
 
 
 
-        **class** Main {
+        class Main {
  `**extension** StringExtensionProvider provider`
  
- `**def static void** main(String[] args) 
+ `def static void main(String[] args) 
  `val main = new Main()`
  `main.provider = new StringExtensionProvider()`
  `main.run()`
@@ -256,9 +256,9 @@ Nuestro ejemplo:
 
 
 
-        **class** Main {
+        class Main {
  
- `**def static void** main(String[] args) 
+ `def static void main(String[] args) 
  `val main = new Main()`
  `main.run(new StringExtensionProvider())`
  `}`
@@ -315,13 +315,13 @@ Luego podemos tener dos implementaciones distintas:
 
 
 
-        **class** MedioObjetivo **implements **Medio {
+        class MedioObjetivo **implements **Medio {
  `**override** publicar(Evento e) 
  `println("Informamos que sucedio' " + e)`
  `}`
         }
 
-        **class** MedioSubjetivo **implements **Medio {
+        class MedioSubjetivo **implements **Medio {
  
  `**override **publicar(Evento e) 
  `println(gustaONoGusta() + " que haya sucedido: " + e)`
@@ -339,10 +339,10 @@ Y podemos usar la extensión como antes:
 
 
 
-        **class** Main {
+        class Main {
  `**extension** Medio = *new MedioObjetivo*`
  
- `**def static void** main(String[] args) 
+ `def static void main(String[] args) 
  `new Main().run`
  `}`
  
@@ -392,11 +392,11 @@ Ejemplo: tenemos una jerarquía de **Clientes**.
         }
 
 
-        **class** ClienteRaso {
+        class ClienteRaso {
         }
 
 
-        **class** ClienteVIP {
+        class ClienteVIP {
         }
 
 
@@ -408,10 +408,10 @@ Y lo usamos así en un main()
 
 
 
-        **class** Main {
+        class Main {
  `**extension** AtencionAlClienteExtension = new AtencionAlClienteExtension`
  
- `**def static void** main(String[] args) 
+ `def static void main(String[] args) 
  `new Main().run()`
  `}`
  
@@ -432,13 +432,13 @@ Entonces nuestra extension puede usar multimethods, uno para cada tipo del pará
 
 
 
-        **class** AtencionAlClienteExtension {
+        class AtencionAlClienteExtension {
  
- `**def dispatch** atender(ClienteRaso raso) 
+ def dispatch atender(ClienteRaso raso) 
  `println("ClienteRaso: Lo hacemos hacer la cosa y esperar")`
  `}`
  
- `**def dispatch** atender(ClienteVIP vip) 
+ def dispatch atender(ClienteVIP vip) 
  `println("ClienteVIP: Lo atendemos inmediatamente y le damos un Martini y un habano")`
  `}`
  
@@ -468,13 +468,13 @@ Esto se puede hacer, agregando multiple dispatch a nuestros providers que ya vim
 }
 
 
-        **class** MedioObjetivo **implements** Medio {
+        class MedioObjetivo **implements** Medio {
  
  `**def dispatch **publicar(EstrenoCine e) 
  `println("Se estrenó: " + e)` 
  `}`
  
- `**def dispatch** publicar(NotaDeportes e) 
+ def dispatch publicar(NotaDeportes e) 
  `println("En el orden de los deportes: " + e)`
  `}`
  
@@ -482,12 +482,12 @@ Esto se puede hacer, agregando multiple dispatch a nuestros providers que ya vim
 
 
 
-        **class** MedioSubjetivo **implements** Medio {
+        class MedioSubjetivo **implements** Medio {
  `**def dispatch **publicar(EstrenoCine e) 
  `println("Excelente el estreno de: " + e)` 
  `}`
  
- `**def dispatch** publicar(NotaDeportes e) 
+ def dispatch publicar(NotaDeportes e) 
  `println("Aburridisimo el partide de: " + e)`
  `}` 
         }
@@ -499,7 +499,7 @@ Luego:
 
 
 
-        **class** Main {
+        class Main {
  `**extension** Medio = new MedioObjetivo`
         // `extension Medio = new MedioSubjetivo`
  

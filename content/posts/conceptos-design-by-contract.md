@@ -63,8 +63,8 @@ Ejemplo:
 Tenemos una **Pila** que entiende los mensajes push(objeto) y pop() para agregar y sacar un objeto de/a la pila respectivamente.
 
 
-        **class** Stack
-            `**void** push(objeto)`
+        class Stack
+            `void push(objeto)`
             `objeto pop()`
 
 
@@ -100,7 +100,7 @@ Por ejemplo en Nice, un lenguaje que también implementa esta idea mediante asse
         **  boolean** isFull();
         **  boolean** isEmpty();
 
-          **void** push()
+          void push()
             **requires**
 
                  !isFull(**this**) : *"Cannot push on a full Stack!"*
@@ -119,7 +119,7 @@ Podemos tener más de una precondicion separándolas por el caracter "coma".
 En este caso estamos definiendo una clase abstracta (podría ser una interface). Y entonces mostramos una implementación de ejemplo:
 
 
-        **class** StackImpl extends Stack {
+        class StackImpl extends Stack {
             **int** currentCapability = 0;
             **int** maxCapability = 3;
             
@@ -153,7 +153,7 @@ Completamos entonces la definción de Stack con esto en nice
         **  boolean** isFull();
         **  boolean** isEmpty() `**ensures** result == (**this**.size() == 0);`
 
-          **void** push()
+          void push()
             **requires**
 
                  !isFull(**this**) : *"Cannot push on a full Stack!"*

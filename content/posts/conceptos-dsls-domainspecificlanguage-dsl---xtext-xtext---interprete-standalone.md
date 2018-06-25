@@ -94,11 +94,11 @@ Acá la implementación del método que faltaba, el interpret().
  `model.saludos.forEach[s| s.imprimir]`
  `}`
  
- `**def dispatch** imprimir(Bienvenida saludo) 
+ def dispatch imprimir(Bienvenida saludo) 
  `println('''Hola «saludo.AQuien.name» !!!''')`
  `}`
  
- `**def dispatch** imprimir(Despedida saludo) 
+ def dispatch imprimir(Despedida saludo) 
  `println('''Chau «saludo.AQuien.name» !!!''')`
  `}`
 
@@ -136,9 +136,9 @@ Acá vemos otro intérprete también muy pavo para el ejemplo de [Mappings](../c
 
 
 
-        **class** MappingInterpreter {
+        class MappingInterpreter {
  
- `**def static void** main(String[] args) 
+ `def static void main(String[] args) 
  `val fileName = "/opt/dev/data/workspace/runtime-EclipseXtext/dsl-mapping-examples/src/main/java/mapeos.mapping"`
  `val injector = new MappingDslStandaloneSetup().createInjectorAndDoEMFRegistration()`
  `val resourceSet = injector.getInstance(XtextResourceSet)`
