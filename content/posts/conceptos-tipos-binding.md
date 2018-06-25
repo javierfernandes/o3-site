@@ -12,15 +12,10 @@ menu:
 * [Binding, polimorfismo y sobrecarga](http://uqbar-wiki.org/index.php?title=Binding%2C_polimorfismo_y_sobrecarga). 
 * [Multiple dispatch](../conceptos-multiple-dispatch)
 * [Sistemas de tipos](../conceptos-tipos-binding-sistemas-de-tipos). 
-
  * Acá tienen el [resumen de la clase del cuatrimestre pasado](../unq-clases-2012c2-clase-2) que habla del tema.
-
  * [Tipado estático y dinámico](http://uqbar-wiki.org/index.php?title=Esquemas_de_Tipado)
-
  * [Duck-typing](http://www.infoq.com/news/2007/11/protocols-for-ducktyping).
 * **Bonus**
-
-
  * [Design By Contract](../conceptos-design-by-contract)
  * Pluggable Type Systems ([paper](http://bracha.org/pluggableTypesPosition.pdf))
  * [Constraint-Bounded Polymorphism (paper)](ftp:-128-95-1-178-pub-chambers-vass-thesis-pdf)

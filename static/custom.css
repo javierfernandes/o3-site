@@ -61,6 +61,12 @@
   font-weight: lighter;
 }
 
+/* alpaca */
+@font-face {
+  font-family: Alpaca;
+  src: url('/fonts/alpaca/Alpaca Scarlett Demo.ttf');
+}
+
 /* general styling */
 body {
   font-family: "Muli",avenir,"helvetica neue",helvetica,ubuntu,roboto,noto,"segoe ui",arial,sans-serif;
@@ -74,8 +80,13 @@ body {
   font-size: 0.8rem;
 }
 
+.sidebar .widget-about .logo {
+  padding-bottom: 0.8em;
+}
 .site-title {
-
+  font-family: Alpaca;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .site .main { width: 100%; }
