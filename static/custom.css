@@ -160,12 +160,18 @@ footer#footer .container.sep-before:before {
   color: #e6ba04;
 }
 
+/* entry content */
+
 .entry-content a {
   border-bottom: none;
   color: #e6ba04
 }
 .entry-content a:hover {
   color: #ffcd00;
+}
+
+.entry-content h2 {
+  font-weight: normal;
 }
 
 
