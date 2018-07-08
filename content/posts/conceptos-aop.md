@@ -1,11 +1,8 @@
 ---
-title: "conceptos-aop"
+title: "AOP"
 date:  2018-06-20T19:27:10-03:00
+toc: true
 ---
-
-
-[[_TOC_]]
-
 
 ## Introducción
 
@@ -27,22 +24,16 @@ Entonces la forma de hacer esto normalmente sería:
 * Hago una interface **ObservableObject: **con comportamiento para registrar/deregistrar un observer.
 * Hago que mis objetos implementen ObservableObject.
 * Para no tener que repetir la lógica de la implementación, podría hacer una clase **ObservableObjectImpl:**
-
-
  * que implemente el **addObserver** y **removeObserver**
-
  * que implemente un **firePropertyChanged() ** que notifica a los observers. Para ser invocado desde cada subclase cuando se modifica una property
 
 Vemos un poco de código acá entonces:
 
-
 Supongamos que tenemos una clase **Conversor** que permite convertir de **kilómetros** a **millas**. Ambas son properties del objeto:
 
 
-
-
-
-public classConversor``{
+```java
+public classConversor{
 
     private doublemillas;`
     private doublekilometros;`
@@ -72,15 +63,11 @@ public classConversor``{
 
 
         }
-
+```
 
 Y la interfaz observable:
 
-
-
-
-
-
+```java
         **public** **interface** ObservableObject {
 
         **    public** void** addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
@@ -89,7 +76,8 @@ Y la interfaz observable:
 **    public** void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
         
 
-}`
+}
+```
 
 
 Acá tenemos la interface que utilizan los observers (listeners) para escuchar por cambios en el modelo.
@@ -99,7 +87,7 @@ Ahora, qué tenemos que hacer para que nuestro Conversor sea observable ?
 La haremos heredar de la implementación de referencia para reutilizar el código:
 
 
-
+```java
 
 
         **public** class Conversor extends ObservableObjectImpl {
@@ -132,9 +120,9 @@ La haremos heredar de la implementación de referencia para reutilizar el códig
 
 
         }
+```
+
 No vamos a mostrar la implementación de **ObservableObjectImpl** porque no aporta demasiado, pero confiemos en que implementa un registro de observers por properties, y la lógica para notificarlos con **setFieldValue.**
-
-
 
 Cambios a las clases
 Vemos acá que tuvimos que cambiar varias cosas de nuestra clase.
@@ -151,26 +139,16 @@ Quizás no parecerá tan grave si pensamos en este ejemplo acotado ahora, cuando
 ### Problemas de la implementación "manual" o tradicional
 
 * **Múltiples jerarquías**: si quiero hacer observable clases de múltiples jerarquías, tenemos que implementar la misma lógica en todas (una forma de evitar esto sería con traits como ya vimos, pero pocos lenguajes tienen traits)
-
 * **Clases de terceros que no puedo modificar: **qué pasa si quiero hacer observable clases de una librería de terceros ?
-
-
  * **Wrappers o Decorators: **podría pensar en decorarlos, interceptando los setters para notificar., Peeeeeero:
-
-
   * **No podemos interceptar las modificaciones internas**. Asignaciones de variables internas.
-
   * **Problema de la identidad: **pierdo la identidad de los objetos originales, ya que ahora estan wrappeados.
-
   * Tengo que crear **decorators de muchas clases**.
   * Qué pasa **si no existe una interfaz** y la **clase es final** ?
   * Qué pasa con los **métodos** **final** que no puedo sobrescribir
 * **Lógica dispersa y repetitiva.**
-
-
  * luego si quiero modificar la interfaz o implementación de Observable debo tocar en múltiples puntos.
  * posible punto de error, al tener que hacer las cosas de memoria.
-
 
 Entonces aparece la idea de ***aspecto***.
 
@@ -198,7 +176,7 @@ Si bien algunos de los problemas que mencionamos acá se pueden **mitigar** con 
 
 Veamos como quedaría el Conversor con un trait imaginario en java:
 
-
+```java
 
         **public** class Conversor extends AbstractConversor **with **ObservableTrait {
  `**private** **double** millas;`
@@ -230,6 +208,8 @@ Veamos como quedaría el Conversor con un trait imaginario en java:
 
 
         }
+```
+
 Fíjense que ahora nuestro conversor puede heredad de otra clase de dominio. Sin embargo reutilizamos el código del trait, evitando la duplicación.
 Peeeero...
 
@@ -260,9 +240,7 @@ En particular el de la lógica de logging.
 
 Podría querer tener lineas de logging en cualquier parte de mi código.
 
-*
 
-*
 ## Y entonces qué es un aspecto concretamente ?
 
 Ok, con la definición y los ejemplos pero se puso un poco abstracto esto, cómo sería un aspecto entonces ?
@@ -290,6 +268,7 @@ Y tratamos de mapear a los conceptos que vimos.
 Y acá entonces tenemos la definición de nuestro aspecto.
 Escribámosla en pseudo código (o nuestro propio DSL -ya vamos a ver en otra unidad qué significa esto-)
 
+```java
 
 aspecto Observabilidad 
 
@@ -321,6 +300,7 @@ aspecto Observabilidad
             
 
         }
+```
 
  Si tuvieramos una herramienta que entendiera esta definición y pudiera hacer toda la magia para combinar este código con el código original de la clase, entonces seríamos muy felices!
 
@@ -369,7 +349,7 @@ En nuestro pseudo código era:
 ### Point-Cut
 Supongamos que en nuestro ejemplo queremos aplicar el aspecto a un conjunto de clases nada más. Digamos solo a las clases del paquete **tpi.unq.objetos3.
 
-**
+```java
 
 aspecto Observabilidad 
 
@@ -382,6 +362,8 @@ aspecto Observabilidad
             `   }`
             `...`
         }
+```
+
 Acá vemos que estamos combinando varios join-points, el de "asignación de variable" con el de "clase de package".
 
 Los join-point entonces se pueden combinar con operadores lógicos:
@@ -391,16 +373,13 @@ Los join-point entonces se pueden combinar con operadores lógicos:
 * **!**: negación
 
 Cuando se combinan así para formar una condicón más complicada y se le asigna un nombre, se lo llama **point-cut**.
-**
-
-**
 
 Entonces, un point-cut es un predicado o condición para la aplicación de un aspecto.
 Contiene uno o varios joint-points combinados mediante operadores: "**&&**", "**||**" y "**!**"
 
 Reformulamos nuestro ejemplo de lenguaje con esta idea:
 
-
+```java
 aspecto Observabilidad 
 
             point-cut puntoAObservar = asignacion(x, viejo, nuevo) && class en tpi.unq.objetos3``.*`
@@ -412,6 +391,7 @@ aspecto Observabilidad
             `}`
             `...`
         }
+```
 
 ### Advice
 Finalmente el último elemento que identificamos en nuestra definición del aspecto de observabilidad era que, cuando se cumpía la condición del punto **interesante**, que ahora podemos llamar **point-cut, **había que agregar código.
@@ -421,7 +401,7 @@ Que básicamente define la modificación al código que vamos a hacer en el cont
 
 En nuestro ejemplo sería:
 
-
+```java
 aspecto Observabilidad 
 
             asignacion(x, viejo, nuevo) **&&** class en tpi.unq.objetos3``.*`
@@ -433,12 +413,12 @@ aspecto Observabilidad
             `   }`
             `...`
         }
+```
+
 Decimos dos cosas:
 
 * Cuándo, o cómo respecto del código point-cut: "**luego**"
 * Y el código a inyectar: el **if.**
-
-
 
 Entonces, **advice **es un *comportamiento a ejecutar como parte del aspecto*, cuando matchea cierto point-cut.
 
@@ -462,29 +442,18 @@ A esta "inyección" de comportamiento se la conoce como **"*advice weaving*"**. 
 
 Más adelante vamos a ver algunas estratégias de weaving que usan ciertos frameworks para implementar esto que es básicamente la magia que hace posible AOP.
 
-## 
-
-
 ## AspectJ
 
 ### Características de un aspecto en AspectJ
 
 * Es un "**tipo**"* (recordemos sistemas de tipos de la unidad 1)*
-
 * con
-
  * **lógica** a ejecutar: llamada "advice"
  * en ciertos **condiciones en el flujo de ejecución**: llamados "pointcuts"
-
 * Puede tener 
-
-
  * **estado** **propio:** como variables de instancia (del aspecto). Que no van inyectarse en las clases a aspectear.
-
  * **y comportamiento** **propio**: como métodos del propio aspecto.
-
 * Puede **extender**:
-
  * otros aspectos
  * clases
  * implementar interfaces
@@ -492,36 +461,36 @@ Más adelante vamos a ver algunas estratégias de weaving que usan ciertos frame
 
 ### Ejemplos
 
-
 #### Primer ejemplo: Loggeo
 Algunos conceptos básicos de AspectJ:
 
 * Defino un aspecto: 
 
-        **public** **aspect** SysoutSimpleObservableAspect
+`**public** **aspect** SysoutSimpleObservableAspect`
 
 
 * Luego un pointcut denominado fieldWrite, que atrapa todas las modificaciones a cualquier field de cualquier objeto de cualquier clase en el package examples.simple:
 
- 
+ ```java
         **pointcut** fieldWrite(Object target, Object newValue) :  // Nombre y parámetros
             **set**(* examples.simple..*)    // Todos los fields de cualquier tipo en ese package                       
             && **args**(newValue)            // Capturo el nuevo valor del field
             && **target**(target)            // Capturo el objeto al que se le está modificando el field
-
+```
 
 Es importante ver que es declarativo, es decir target y newValue no son parámetros que "llegan" sino que son indentificadores que se vinculan con el nuevo valor del field y el objeto receptor, respectivamente.
 
 
 * Luego queremos definir un advice, que se parece a un método con una cabecera especial:
 
-
+```java
         void **around**(Object target, Object newValue`) : fieldWrite(target, newValue) 
             ...                 `         // código que quiera agregar
     **proceed**(target, newValue);  // se ejecuta el código original (*)
 ``    ...``                          // más código que se ejecuta después del field set.
  `
         }
+```
 
 La palabra clave **around** permite reemplazar el código original (en este caso la modificación de un field), por el código que nosotros querramos.
 
@@ -530,11 +499,12 @@ Para ser más estrictos, **proceed** no ejecuta el código original, porque pued
 
 * También podemos ponerle variables al aspecto para guardar cualquier información que necesite para trabajar. Para eso también es importante definir el ciclo de vida del aspecto, el caso más simple es marcarlo como "singleton", lo que hace que tengamos una única instancia para toda la aplicación:
 
-
+```java
         **public** **aspect** SysoutSimpleObservableAspect **isSingleton**() {
             **public** **int** counter = 0;
             ...
         }   
+```
 
 Define una variable counter que será única para todas las veces que se utilice el aspecto. 
 
@@ -543,11 +513,9 @@ Otros scopes posibles son: **perthis** (por cada lugar desde donde se llama el c
 
 * Otra variante es utilizar una annotation, en lugar de patrones por nombre:
 
-
-        **pointcut** fieldWrite(...) : ... && **target**(@LoggeableAnnotation target);
+`**pointcut** fieldWrite(...) : ... && **target**(@LoggeableAnnotation target);`
 
 Permite trabajar con fields (o lo que fuera) en clases que tengan la annotation @LoggeableAnnotation.
-
 
 #### Segundo ejemplo: Mixins.
 Para agregar un mixin debemos realizar dos pasos:
@@ -555,14 +523,14 @@ Para agregar un mixin debemos realizar dos pasos:
 1. Desde el aspecto hacemos que la clase que nos interesa implemente una interfaz definida por nosotros:
 
 
-            **declare** **parents** : @Observable * **implements** ObservableObjectSupport;
+`**declare** **parents** : @Observable * **implements** ObservableObjectSupport;`
 
 Esto hace que todas las clases anotadas con @Observable implementen la interfaz ObservableObjectSupport
 
 
 1. En el aspecto definimos los métodos que proveen la implementación de esa interfaz, por ejemplo:
 
-
+```java
             **public** void ObservableObject.addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
                 **this**.changeSupport.addPropertyChangeListener(propertyName, listener);
             }
@@ -574,17 +542,18 @@ Esto hace que todas las clases anotadas con @Observable implementen la interfaz 
             **public** void ObservableObject.fieldChanged(String fieldName, Object oldValue, Object newValue) {
                 **this**.changeSupport.firePropertyChange(fieldName, oldValue, newValue);
             }
+```
+
 También podemos agregar variables:
 
-
-            **private** **transient** PropertyChangeSupport ObservableObject.changeSupport;
+`**private** **transient** PropertyChangeSupport ObservableObject.changeSupport;`
 
 
 
 
 El resto del proceso es ya conocido, declaramos un pointcut y un Advice:
 
-
+```java
             **pointcut** fieldWrite(ObservableObjectSupport target, Object newValue) : 
                 **set**(* *..*)
                 && **args**(newValue) 
@@ -602,13 +571,13 @@ El resto del proceso es ya conocido, declaramos un pointcut y un Advice:
                     target.fieldChanged(fieldName, oldValue, newValue);
                 }
             }
-
+```
 
 Se puede ver que desde el advice podemos mandarle mensajes al target que son los que agregamos mediante aspectos.
 
 En el uso desde AspectJ, podemos utilizar la clase y mandarle también los mensajes de la interfaz que agregamos por aspectos, es decir que tiene el mismo comportamiento que una interfaz agregada de la forma tracicional (implements).
 
-
+```java
             **public** **static** void main(String[] args) {
                 ObservableTestObject object = new ObservableTestObject();
                 
@@ -621,15 +590,9 @@ En el uso desde AspectJ, podemos utilizar la clase y mandarle también los mensa
                 // El setName dispara la llamada al property listener.
         object.setName("nuevoNombre");
             }
-
+```
 
 Un detalle técnico es que tenemos dos interfaces: ObservableObject, que es la que usa el dominio y ObservableObjectSupport, que la extiende y que nos permite utilizar el objeto desde el aspecto.
-
-
-
-
-
-***
 
 
 ## Estrategias de Weaving
@@ -700,7 +663,7 @@ En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el 
 
 //TODO: ejemplo en ruby con aquarium http://aquarium.rubyforge.org/
 
-```
+```java
 
         class `ServiceTracer`
  include`** `Aquarium``::``DSL`
@@ -713,8 +676,6 @@ En lenguajes estáticos como java, hacen falta magias como aspectj o alterar el 
          **end**
 
         end
-
-
 ```
 
 ## Vínculo con Otros Conceptos
@@ -730,24 +691,22 @@ En este caso el **weaving** sería el proceso que hace el browser para combinar 
 ](conceptos-aop-css-website-gif?attredirects=0)
 Al igual que en aspectj el lenguaje de CSS es **declarativo** y por lo tanto es bastante poderoso.
 Los **join-point** y **point-cuts** se definen como las reglas de matcheo del css.
-Ej:```
+Ej:
+
+```css
 
         **h1** ` `color``:` `white``;`` }`
         **.miLink** ` `color``:`` blue``;`` }`
         **#alert** ` `color``:` `red`` }
 
-````
         **body a.miLink** ` `color``:`` blue``;`` `}
 ```
 
-
-```
-
 Utiliza diferentes estrategias de matcheo:
-* **Por tipo de tag:** ej "h1", va a matchear con todos los tags html <h1>
+* **Por tipo de tag:** ej "h1", va a matchear con todos los tags html `<h1>`
 * **Por attributo class**: Ej: ".miLink", ya no matchea por el tipo de tag, sino por su atributo **class="miLink" **en este caso. Esto permite desacoplar la definición del tipo de tag.
-* **Por id**: Ej "#alert", matchea por el atributo **id** del tag. Ej: <a id="alert"> , o <span id=alert>
-El último ejemplo sería una combinación de varias reglas que quiere decir: todos los tags de tipo anchor con class miLink, es decir,  <a class=miLink> que esten como tags hijos de un tag <body>
+* **Por id**: Ej "#alert", matchea por el atributo **id** del tag. Ej: `<a id="alert">` , o `<span id=alert>`
+El último ejemplo sería una combinación de varias reglas que quiere decir: todos los tags de tipo anchor con class miLink, es decir, `<a class=miLink>` que esten como tags hijos de un tag `<body>`
 
 El **advice **en este caso serían las definiciones de valores de atributos como **color : white**.
 
@@ -787,5 +746,4 @@ Así, logramos **separar **esta incumbencia.
 
 
 * [AspectJ](../te-aspectj)
-
 * [Phantom](http://pleiad.cl/research/software/phantom)

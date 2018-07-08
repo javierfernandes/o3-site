@@ -1,11 +1,12 @@
 ---
-title: "te-ioke"
+title: "Ioke"
 date:  2018-06-20T19:27:10-03:00
+toc: true
 ---
 
 
 ## Descripción
-Ioke es un lenguaje de programación **experimental **lo que quiere decir que su objetivo no es el de un lenguaje de nivel productivo. De hecho en el sitio del lenguaje el autor Ola Bini, lo describe como su lenguaje para probar ciertas ideas radicales.
+Ioke es un lenguaje de programación **experimental** lo que quiere decir que su objetivo no es el de un lenguaje de nivel productivo. De hecho en el sitio del lenguaje el autor Ola Bini, lo describe como su lenguaje para probar ciertas ideas radicales.
 Es un lenguaje de objetos, con checkeos en tiempo de ejecución y tipado implícito. A diferencia de smalltalk es un lenguaje sin clases, lo que se llama **prototipado**.
 
 Si todo esto no se entiendo del todo, no importa, porque lo vamos a explicar a continuación.
@@ -16,66 +17,63 @@ Si todo esto no se entiendo del todo, no importa, porque lo vamos a explicar a c
 * Simplemente bajamos un tar.gz / zip de [acá](http://ioke.org/download.html)
 * Descomprimimos en donde querramos.
 * El contenido de este paquete es:
+
+```bash
 .
-├── **bin** (consola interactiva)
+├── bin (consola interactiva)
 ├── COPYING
-├── **dok**  (documentación de referencia del lenguaje)
-├── **lib**
+├── dok  (documentación de referencia del lenguaje)
+├── lib
 
 ├── LICENSE
 ├── LICENSE.kawa
 ├── README
-└── **share**
-
+└── share
+```
 
 
 ## Primeros Pasos
 
-Ejecutamos**
+Ejecutamos
 
+```bash
+  usuario@/opt/o3/lang/ioke/bin$ ./ioke
+  iik>
+```
 
-**
-
-        usuario@uplcdtlx-System-Product-Name:/opt/o3/lang/ioke/bin$ **./ioke**
-
-        iik> **
-
-**A partir de acá ya estamos en la consola interactiva de ioke.
+A partir de acá ya estamos en la consola interactiva de ioke.
 
 Para hacer el famoso "*Hola Mundo"* en ioke simplemente hacemos;
 
+```bash
+  iik> "hello world" println
 
-        iik> **"hello world" println**
-
-        hello world
-        +> nil
-
+  hello world
+  +> nil
+```
 
 Lo cual envía el mensaje "println" al objeto "hello world"
 Pero con eso no hacemos nada, asì que veamos más cositas.
 Números y operadores...
 
+```bash
+  iik> **2+3**
+  +> 5
 
-        iik> **2+3**
-
-        +> 5
-
-        iik> **2*3+1**
-
-        +> 7
-
+  iik> **2*3+1**
+  +> 7
+```
 
 Nuevamente lo que sucede aquí son mensajes.
 
 
+```bash
+  iik> aQuien = "al Mundo"
+  +> "al Mundo"
 
-        iik> **aQuien = "al Mundo"**
-
-        +> "al Mundo"
-
-        iik> **"hola " + aQuien**
-
-        +> "hola al Mundo"
+  iik> "hola " + aQuien
+  +> "hola al Mundo"
+```
 
 ## Objetos & Celdas
 
@@ -85,21 +83,19 @@ Por ahora vamos decir que lo que difiere de smalltalk es la forma de crear un nu
 
 
 
+```bash
+  iik> persona = Origin mimic
+  +>#<Origin:147545B>
 
-        iik> **persona = Origin mimic**
+  iik> persona nombre = "Arturo"
+  +>`Arturo`
+        
+  iik> persona edad = 35
+  +>`35`
 
-        +>`#<Origin:147545B>`
-        iik> **persona nombre = "Arturo"**
-
-        +>`Arturo`
-        iik> **persona edad = 35**
-
-        +>`35`
-
-        iik> **persona edad**
-
-        +>`35`
-
+  iik> persona edad
+  +>`35`
+```
 
 
 
@@ -116,19 +112,13 @@ Entonces acá vemos que una celda puede ser lo que en otros lenguajes llamamos u
 
 Además de eso, una celda puede contener un **comportamiento, **un **método:**
 
-**
-
-**
-
-
-
-        iik> **persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")**
-
-        +> #<DefaultMethod:135942C>
-        iik> **persona identificate**
-
-        +> Hola, soy Arturo y tengo 35 años
-
+```bash
+  iik> persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")
+  +> #<DefaultMethod:135942C>
+  
+  iik> persona identificate
+  +> Hola, soy Arturo y tengo 35 años
+```
 
 Al igual que con nombre y edad, acá estamos asignándole valor a una celda llamada **identificate** que como no existe en la persona, ioke la va a crear. La diferencia es que asignándola a un método.
 Fíjense que el método no se define con una sintaxis especial como en otros lenguajes, sino que es, a su vez, el resultado de enviar el mensaje **method(...). **Es de hecho, la llamada a un método.
@@ -158,16 +148,11 @@ El objeto contexto default en ioke es el Ground.
 
 Ejemplo:
 
-
-
-
-        iik> **blah**
-
-
-        *** - couldn't find cell 'blah' on 'Ground' (Condition Error NoSuchCell)
-
-
+```bash
+  iik> blah
+  * - couldn't find cell 'blah' on 'Ground' (Condition Error NoSuchCell)
          blah                                             [<init>:1:-1]
+```
 
 
 Como pueden ver acá, al ejecutar lo que escribimos "blah" se intentó resolver una celda con ese nombre en el contexto actual, el objeto **Ground.** Como no existe lanzó un error.
@@ -179,24 +164,20 @@ Existe un mensaje llamado **cells** que nos permite ver qué celdas tiene un obj
 
 
 
+```bash
+   iik> Ground cells
 
-        iik> **Ground cells**
-
-        +> {kind=Ground, persona=#<Origin:FAC7C5>}
-**
-
-**
+   +> {kind=Ground, persona=#<Origin:FAC7C5>}
+```
 
 Ahí vemos dónde fue a parar nuestra "persona". Como todo mensaje se envía por defecto al ground, podríamos haber escrito simplemente "cells" en lugar de "Ground cells".
 
 
 Ahora que entendemos esto veamos de nuevo la definición de un método
 
-
-
-        iik>` persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")`**
-
-
+```bash
+  iik> persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")
+```
 
 Si bien esto está expresado en una forma bastante declarativa, al ejecutarse se producen bastantes cosas:
 
@@ -213,14 +194,11 @@ Entonces hasta ahora vimos que:
 
 * Todo es un objeto
 * Un objeto tiene celdas que pueden ser:
-
  * valores
  * comportamiento
 * Todo el código que escribimos son envíos de mensajes a objetos, que se resuelven buscándo una celda en el objeto y ejecutandola (devolviendo el valor o ejecutando el método)
 
 ¿ Pero entonces cómo hago para compartir código ? o para evitar tener que crear objetos y agregarle los métodos, valores, etc. manualmente.
-
-
 
 En los lenguajes basados en clases, esta función la cumple la clase, ya que sirve como template para crear objetos.
 
@@ -240,67 +218,54 @@ Un **Mimic **es simplemente un objeto que es utiilizado por otros para "imitarlo
 
 Entonces si seguimos con nuestro ejemplo anterior....
 
-
-
-
-
-        iik> persona = Origin mimic 
-        iik> persona nombre = ""
-        iik> persona edad = 0
-        iik> persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")
-
+```bash
+  iik> persona = Origin mimic 
+  iik> persona nombre = ""
+  iik> persona edad = 0
+  iik> persona identificate = method("Hola, soy " + nombre + " y tengo " + edad + " años")
+```
 
 Y ahora queremos un nuevo objeto que sea una persona, podemos usar a **persona** como prototipo para crearlo.
 En otros lenguajes como Self esto se llama **clonar.**
 
 En ioke se dice **mimic**
 
-**
-
-**
-
-
-
-        iik> **arturo = persona mimiciik> **luciana = persona mimic
+```bash
+  iik> arturo = persona mimic
+  iik> luciana = persona mimic
+```
 
 Probemos...
 
-
-
-
-        iik> **arturo identificate**
-
-        *+> Hola, soy  y tengo 0 años*
-
+```bash
+  iik> arturo identificate
+  +> Hola, soy  y tengo 0 años
+```
 
 Y ahora qué pasa si modificamos a estas personas ?
 
+```bash
+  iik> arturo nombre = "Arturo"
+  iik> arturo edad = 31
 
 
-
-        iik> arturo nombre = "Arturo"
-        iik> arturo edad = 31
-
-
-        iik> luciana nombre = "Luciana"
-        iik> luciana edad = 22
+  iik> luciana nombre = "Luciana"
+  iik> luciana edad = 22
 
 
-        iik> arturo identificate
-        *+> Hola, soy Arturo y tengo 31 años*
-        *
-*
-        iik> luciana identificate
-        *+> Hola, soy Luciana y tengo 22 años*
+  iik> arturo identificate
+  *+> Hola, soy Arturo y tengo 31 años*
 
+  iik> luciana identificate
+  +> Hola, soy Luciana y tengo 22 años
+```
 
 Y qué pasó con el objeto persona original ?
 
-
-
-
-        iik> persona identificate
-        *+> Hola, soy  y tengo 0 años*
+```bash
+  iik> persona identificate
+  *+> Hola, soy  y tengo 0 años*
+```
 
 Nada. No pasó absolutamente nada.
 Con esto vemos un efecto importante de los prototipos. 
@@ -308,17 +273,15 @@ Con esto vemos un efecto importante de los prototipos.
 
 ¿qué pasaría si en nuestro ejemplo ahora queremos agregarle una nueva responsabilidad/comportamiento a todas las personas ?
 
-
-
-        persona cumplirAnios = method(self edad++)`` 
-        arturo cumplirAnios
-Arturo identificate
-
+```ruby
+  persona cumplirAnios = method(self edad++)`` 
+  arturo cumplirAnios        
+  arturo identificate
+```
 
 Esto produce: 
 
-
-        Hola, soy Arturo y tengo 32 anios
+`Hola, soy Arturo y tengo 32 anios`
 
 Es decir que al agregarle un nuevo comportamiento a **persona** todos los objetos que la tenían como Mimic pasaron a tenerlo.
 
@@ -326,11 +289,15 @@ Es decir que al agregarle un nuevo comportamiento a **persona** todos los objeto
 ## Creación de Objetos y Prototipos
 
 En la introducción a lenguajes sin clases mencionamos que entonces los objetos se tenían que crear en base a otros objetos.
+
 En [Self](../conceptos-object-based-languages-self) por ejemplo, esto se puede hacer clonando un objeto explícitamente.
+
 En Ioke no es tan así. Si bien uno podría implementar un mensaje **copy** o **clone**, el lenguaje ya es un poco más amigable para eso. Y al hacer **mimic** estaremos construyendo un nuevo objeto que tiene como mimic al receptor. Como vimos en el ejemplo anterior con Arturo.
+
 Ahora, también como vimos en el ejemplo anterior, el Mimic puede tener slots con estado, y al derivar dos objetos de ellos, estos estados no se entremezclan. En realidad esto ya lo vimos en el ejempo anterior, al tener dos objetos, Arturo y Luciana, derivados de Persona.
 Cuando les asignamos nuevos valores a **nombre** y **edad** en lugar de modificar el valor de las celdas en **Persona** se crearon nuevos slots con los mismos nombres en cada objeto **Arturo** y **Luciana**.
 En Self eso no hubiera pasado, y tendríamos problemas, porque estaríamos compartiendo los mismos atributos entre diferentes objetos.
+
 Acá podemos ver que las celdas nombre y edad estan definidas en los dos lugares:
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1367099399598/te/ioke/Screenshot%20from%202013-04-27%2018%3A48%3A30.png)
 ](te-ioke-Screenshot%20from%202013-04-27%2018%3A48%3A30-png?attredirects=0)
@@ -341,35 +308,40 @@ Acá podemos ver que las celdas nombre y edad estan definidas en los dos lugares
 Entonces por lo que vimos recién un mimic puede tener, además del comportamiento que queremos reutilizar, estado. Porque ioke ya hace la magia de "redefinirlo" en los objetos derivados.
 Sin embargo, es molesto tener que escribir las asignaciones. Por lo que existe una forma de definir "constructores" que son símplemente métodos con el nombre **initialize**.
 Entonces en un ejemplo utilizando la figura Rectángulo, en lugar de esto:
-        Formas = Origin **mimic**
 
-        Formas Rectangulo = Origin **mimic** do(
-            base = 0
-            altura = 0
-            area = **method**(base * altura)
-            perimetro = **method**(2 * (base + altura))
-        )
+```ruby
+Formas = Origin mimic
 
-        r1 = Formas Rectangulo mimic
-        r1 base = 4
-        r1 altura = 3
+Formas Rectangulo = Origin mimic do(
+  base = 0
+  altura = 0
+  area = method(base * altura)
+  perimetro = method(2 * (base + altura))
+)
+
+r1 = Formas Rectangulo mimic
+r1 base = 4
+r1 altura = 3
+```
+
 Lo podemos definir como:
-        Formas = Origin **mimic**
 
-        Formas Rectangulo = Origin **mimic** do(
-            initialize = method(base, altura,
-                **self** base = base
-                **self** altura = altura
-            )
-            area = method(base * altura)
-            perimetro = method(2 * (base + altura))
-        )
+```ruby
+Formas = Origin mimic
 
+Formas Rectangulo = Origin mimic do(
+  initialize = method(base, altura,
+    self base = base
+    self altura = altura
+  )
+  area = method(base * altura)
+  perimetro = method(2 * (base + altura))
+)
 
-        r1 = Formas Rectangulo mimic(4, 3)
-        r1 area
-        r1 perimetro
-
+r1 = Formas Rectangulo mimic(4, 3)
+r1 area
+r1 perimetro
+```
 
 ## Cambiando el Mimic en tiempo de ejecución
 
@@ -377,86 +349,81 @@ Dijimos que el mimic estaba entonces cumpliendo algunas de las funciones que cum
 
 Además, vimos que tenía constructores !
 
-Entonces, tal vez se pregunten cuál es la ventaja de complicarla eliminando las clases.
-
-Bueno, la ventaja es que acá son objetos y no un elemento especial.
+Entonces, tal vez se pregunten cuál es la ventaja de complicarla eliminando las clases. Bueno, la ventaja es que acá son objetos y no un elemento especial.
 
 Y podemos, dado un objeto, cambiarle su mimic en tiempo de ejecución. Lo que equivaldría a cambiarle al clase a un objeto. Porque en definitiva cambiamos el comportamiento que hereda.
 
 
 Veamos para eso un ejemplo de vehículos.
 
-
-
 //TODO
 
 
 ## Mixins
-//TODO: intro contar mixins como convención, heredan de... y uno siempre crea un Origin mimic y manipula sus mimics agrgando el mixin.
+//TODO: intro contar mixins como convención, heredan de... y uno siempre crea un Origin mimic y manipula sus mimics agregando el mixin.
 
 
 Un Vehiculo representa mi idea abstracta independiente de una instancia en particular.
 En este ejemplo simplemente vamos a darle un comportamiento único, de trasladarse.
 
 
-
-        **Vehiculo = Mixins mimic**
-
-Vehiculo trasladarse = method("me muevo abstractamente" println)`**
-
+```ruby
+  Vehiculo = Mixins mimic
+  Vehiculo trasladarse = method("me muevo abstractamente" println)`**
+```
 
 
 Esta implementación default no tiene mucho sentido, porque va a depender de Vehículos más concretos.
 Así que vamos a crear abstracciones (fíjense que no decimos **clases**) más particulares de Vehículo:
 
+```ruby
+Vehiculo Terrestre = Vehiculo mimic
 
-        **Vehiculo Terrestre = Vehiculo mimic**
+Vehiculo Terrestre trasladarse = method("me muevo por la tierra" println)
 
-        **Vehiculo Terrestre trasladarse = method("me muevo por la tierra" println)**
+Vehiculo Aereo = Vehiculo mimic
 
-        
-**Vehiculo Aereo = Vehiculo mimic**
-
-        **Vehiculo Aereo trasladarse = method("me muevo por el aire" println)**
-
+Vehiculo Aereo trasladarse = method("me muevo por el aire" println)
+```
 
 
 Y ahora sí, vamos a trabajar con una instancia particular de Vehículo, con un **objeto**. Vamos a hacer que tenga como mimic al Vehiculo Terrestre.
 
+```ruby
+miAuto = Origin mimic
+miAuto mimic!(Vehiculo Terrestre) 
+miAuto mimics
 
-        **miAuto** = Origin mimic`**
-
-        **miAuto** mimic!(Vehiculo Terrestre) `**
-
-mi``Auto mimics`**
-
-        +> [ Origin:
-          ===                          = ===:method(...)
-          eval                         = eval:method(...)
-          kind                         = "Origin"
-          mimic                        = theMacro:macro(...)
-          print                        = print:method(...)
-          println                      = println:method(...)
-        ,  Origin Vehiculo Terrestre_0x6E1DEC:
-          **kind**                         = "**Origin Vehiculo Terrestre**"
-          trasladarse                  = trasladarse:method(...)
-        ]
++> [ 
+  Origin:
+    ===                          = ===:method(...)
+    eval                         = eval:method(...)
+    kind                         = "Origin"
+    mimic                        = theMacro:macro(...)
+    print                        = print:method(...)
+    println                      = println:method(...)
+  , Origin Vehiculo Terrestre_0x6E1DEC:
+    **kind**                     = "Origin Vehiculo Terrestre"
+    trasladarse                  = trasladarse:method(...)
+]
+```
 
 Acá ya vemos una particularidad. En lugar de derivar el objeto de Vehiculo Terrestre
 Lo trasladamos !
 
-
-        iik> **miAuto trasladarse**
-
-*`+> me muevo por la tierra`*
+```bash
+  iik> miAuto trasladarse
+  +> me muevo por la tierra
+```
 
 Ahora, como somos relocos queremos convertir nuestro auto en un avión, entonces eliminamos el mimic Vehiculo Terrestre y agregamos el Aereo
 
-
-        iik> `**miAuto`** removeMimic!(Vehiculo Terrestre)
-        iik> `**miAuto`** mimic!(Vehiculo Aereo)          
-        iik> `**miAuto`** trasladarse
-        +> *`me muevo por el aire`*
+```bash
+  iik> miAuto removeMimic!(Vehiculo Terrestre)
+  iik> miAuto mimic!(Vehiculo Aereo)          
+  iik> miAuto trasladarse
+  +> `me muevo por el aire`
+```
 
 Listo, nuestro auto ya se comporta como un Vehículo Aereo, no es más un terrestre.
 

@@ -86,7 +86,7 @@ h1, h2, h3 {
   font-family: Montserrat;
 }
 
-.sidebar { width: 280px; }
+.sidebar { width: 280px; position: fixed; }
 .sidebar, .main-menu {
   font-family: 'Josefin-Sans' 
 }
@@ -132,10 +132,22 @@ footer#footer .container.sep-before:before {
   border: 1px solid #efefd4;
   border-radius: 5px;
   padding: 1em;
+
+  /* floating right */
+  position: fixed;
+  right: 10px;
+  background: #ffcd003b;
+  color: white;
+  width: 300px; /* TODO: depends on resolution */
+  top: 20px;
 }
 
 .entry-toc a {
-  color: #d0b237;
+  color: #949494;
+}
+
+.entry-toc #TableOfContents {
+  font-size: 0.8em;
 }
 
 /* ENTRY */
