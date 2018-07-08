@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "hugo-search-index": "^0.4.1"
+  },
+  "name": "o3-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:javierfernandes/o3-site.git",
+  "author": "Javier Fernandes <javier.fernandes@gmail.com>",
+  "license": "MIT"
+}

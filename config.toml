@@ -4,6 +4,8 @@ title = "Programación Avanzada con Objetos"
 
 theme = "minimo"
 
+staticDir = ["public", "static"]
+
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
 enableEmoji = true

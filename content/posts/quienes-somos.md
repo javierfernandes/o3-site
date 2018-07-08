@@ -6,14 +6,14 @@ menu: [main, sidebar]
 
 Quienes formamos parte del grupo de docentes de estas materias somos:
 
-* Javier Fernandes
-* Claudio Fernandez
-* Federico Lochbaum
+* Ariel Alvarez
+* Pablo De Haro
 
 ### Previamente
 
-* Ariel Alvarez
-* Pablo De Haro
+* Javier Fernandes
+* Federico Lochbaum
+* Emanuel Dubor
 * Franco Bulgarelli
 * Federico Aloi
 * Carlos Lombardi
