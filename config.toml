@@ -4,7 +4,9 @@ title = "Programación Avanzada con Objetos"
 
 theme = "minimo"
 
+# custom folders
 staticDir = ["public", "static"]
+publishDir = "dist"  # to avoid collision with search-index :(
 
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
