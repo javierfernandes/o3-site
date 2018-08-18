@@ -1,5 +1,5 @@
 ---
-title: "conceptos-mixins"
+title: "Mixins"
 date:  2018-06-20T19:27:10-03:00
 toc: true
 menu:
@@ -71,8 +71,8 @@ Otra opción, es utilizar el método desde el cliente de los objetos.
 
 
 ```scala
-  val socrates = new Socrates
-  socrates.filosofar
+val socrates = new Socrates
+socrates.filosofar
 ```
 
 Estamos llamando directo al método "filosofar" que está definido en el mixin.
@@ -83,8 +83,8 @@ Ejemplo:
 
 
 ```scala
-        val filosofos : **List[Filosofo]** = List(new Socrates, new Platon)
-        filosofos foreach { f => f filosofar }
+val filosofos : List[Filosofo] = List(new Socrates, new Platon)
+filosofos foreach { f => f filosofar }
 ```
 
 Acá vemos que la lista es de tipo Lista de Filosofos (que es el mixin).
@@ -93,26 +93,20 @@ Acá vemos que la lista es de tipo Lista de Filosofos (que es el mixin).
 En Scala además de definir una clase, uno puede crear un objeto y ahí mismo "construir la clase". Algo así como una clase "anónima" en java. Ésto viene un poco por el lado de los mixins. Para poder combinarlos sin tener que crear muchas clases.
 Apliquemos el filósofo a un objeto cualquiera.
 
-
-
-
 ```scala
-        val objeto = **new **Object() **with **Filosofo
-        objeto.filosofar
+val objeto = new Object() with Filosofo
+objeto.filosofar
 ```
  
 A este object ahora, lo podemos tratar como un filósofo.
 De paso mostramos que se pueden definir métodos ahí mismo abriendo llaves :
 
-
-
-
 ```scala
-        val objeto = **new **Object() **with **Filosofo {
-        **   def** hablar() {
-              filosofar()
-           }
-        }
+val objeto = new Object() with Filosofo {
+  def hablar() {
+    filosofar()
+  }
+}
 ```
 
 Esta habilidad de instanciar una clase y agregarle comportamiento ya existía en Java (para los que vienen de Java) y se llamaba "clases anónimas".
@@ -130,41 +124,40 @@ Definimos otro trait
 
 
 ```scala
-        trait Charlatan {
-           def mentir() {
-            println("Te conté que trabajé en hollywood ?")
-          }
-        }
+trait Charlatan {
+  def mentir() {
+    println("Te conté que trabajé en hollywood ?")
+  }
+}
 ```
 
 Luego aplicamos ambos
 
 ```scala
-        class JacoboWinograd extends Persona with Filosofo with Charlatan {
-           def hablar() {
-            filosofar()
-            mentir()
-            mentir()
-          }
-        }
+class JacoboWinograd extends Persona with Filosofo with Charlatan {
+  def hablar() {
+    filosofar()
+    mentir()
+    mentir()
+  }
+}
 ```
 
 ### Mixin con estado
 
 Un mixin en scala puede definir estado además de comportamiento.
 
-
 ```scala
-        trait Sedentario {
-          var viveEn : String
-        }
+trait Sedentario {
+  var viveEn : String
+}
 ```
 
 En este caso definimos un atributo, con lo cual Scala genera además los getters y setters.
 
 ```scala
-  val s = new Socrates with Sedentario
-  s.viveEn = "Grecia"
+val s = new Socrates with Sedentario
+s.viveEn = "Grecia"
 ```
 ### Mixin no puede tener parámetros (constructores)
 
@@ -188,15 +181,15 @@ Porque ya vimos que un trait se puede aplicar al definir una clase, o al crear u
 Ejemplo: hacemos un trait que sirve para aplicar la lógica de que un objeto puede ser alquilable. Va a tener como estado quien es el inquilino actual, y un método para ser alquilado. Luego podemos aplicarlo a cualquier clase que querramos que sea Alquilable
 
 ```scala
-        trait Alquilable {
-            var inquilino : Inquilino = **null**
+trait Alquilable {
+  var inquilino : Inquilino = null
 
-             def alquilarA(inquilino : Inquilino) {
-              inquilino debitar precioDeAlquiler
-            }
+  def alquilarA(inquilino : Inquilino) {
+    inquilino debitar precioDeAlquiler
+  }
             
-             def precioDeAlquiler : Int
-          }
+  def precioDeAlquiler : Int
+}
 ```
 
 Atenti que la lógica de alquilarA, le debita plata al inquilino. Pero cuanto ?? Eso depende del objeto que estemos alquilando. Entonces define un método abstracto "precioDeAlquiler". Esto quiere decir que ahora solo se puede aplicar este trait a una construcción que entienda ese mensaje.
@@ -204,55 +197,52 @@ Acá el código de Inquilino:
 
 
 ```scala
-        class Inquilino(var saldo : Int) {
-             def debitar(cuanto:Int) {
-              saldo -= cuanto
-            }
-          }
+class Inquilino(var saldo : Int) {
+  def debitar(cuanto:Int) {
+    saldo -= cuanto
+  }
+}
 ```
 
 Y ahora lo aplicamos a dos clases con implementaciones distintas:
 
 
 ```scala
-        class Pelicula extends Alquilable {
-            override def precioDeAlquiler = 8
-          }
+class Pelicula extends Alquilable {
+  override def precioDeAlquiler = 8
+}
           
-          class JuegoPS3(var precio : Int) extends Alquilable {
-            override def precioDeAlquiler = precio
-          }
+class JuegoPS3(var precio : Int) extends Alquilable {
+  override def precioDeAlquiler = precio
+}
 ```
 
 La pelicula devuelve un valor fijo, en cambio el juego de ps3 se configura con un atributo. Podríamos tener otras implementaciones distintas.
 También podemos aplicarlo a un objeto
 
-
-
-
 ```scala
-        val alqui = new Object with Alquilable {
-            override def precioDeAlquiler = 43
-        }
-        alqui.alquilarA(new Inquilino(200))
+val alqui = new Object with Alquilable {
+  override def precioDeAlquiler = 43
+}
+alqui.alquilarA(new Inquilino(200))
 ```
 
 Ya lo aplicamos a una clase y a un objeto. 
 También podemos hacer que la implementación de "precioDeAlquiler" no esté en la clase, sino en otro mixin !
 
 ```scala
-        trait Preciable {
-          var precioDeAlquiler : Int
-        }
+trait Preciable {
+  var precioDeAlquiler : Int
+}
 ```
 
 Representa a un objeto que tiene un precio (define un atributo y sus accesors)
 Ahora lo usamos con cualquier cosa loca:
 
 ```scala
-        val socratesEsclavoAlquilable = new Socrates with Preciable with Alquilable
-        socratesEsclavoAlquilable.precioDeAlquiler = 200
-        socratesEsclavoAlquilable.alquilarA(new Inquilino(1000))
+val socratesEsclavoAlquilable = new Socrates with Preciable with Alquilable
+socratesEsclavoAlquilable.precioDeAlquiler = 200
+socratesEsclavoAlquilable.alquilarA(new Inquilino(1000))
 ```
 
 
@@ -260,19 +250,13 @@ Ahora lo usamos con cualquier cosa loca:
 
 Vamos a modelar las aves. Son animales cuyas extremidades delanteras son alas, que les permiten volar.
 
-
-
-
-
-
 ```scala
-        class Ave {
-          def volar = println("volare oh oh")
-        }
+class Ave {
+  def volar = println("volare oh oh")
+}
 
-
-        class Gorrion extends Ave
-        class Halcon extends Ave
+class Gorrion extends Ave
+class Halcon extends Ave
 ```
 
 Tanto el gorrión como el halcón son aves, con lo que reutilizan el comportamiento de volar. Obviamente en un ejemplo real, además cada subclase debería tener un comportamiento adicional propio. Pero acá estamos tratando de simplificar un poco para no confundir.
@@ -280,13 +264,13 @@ Ahora, qué pasa con **el Pingüino** ? Es una ave, porque tiene alas en lugar d
 Una solución entonces sería introducir una **clase intermedia**.
 
 ```scala
-        class Ave
-        class AveVoladora** extends** Ave {
-        def volar = println("volare oh oh")
-        }
-        class Gorrion extends AveVoladora
-        class Halcon** extends** AveVoladora
-        class Pinguino extends Ave  // el pinguino no vuela
+class Ave
+class AveVoladora extends** Ave {
+  def volar = println("volare oh oh")
+}
+class Gorrion extends AveVoladora
+class Halcon extends AveVoladora
+class Pinguino extends Ave  // el pinguino no vuela
 ```
 
 Perfecto. Ahora, resulta que queremos **agregar al Pato**. Nos damos cuenta de que es una **ave voladora y** que además es **acuática, es decir que nada**
@@ -311,13 +295,13 @@ class AveAcuatica extends AveVoladora {
 Nos queda una jerarquía así
 
 ```bash
-        Ave/
-        ├── AveVoladora
-        │   ├── AveAcuatica
-        │   │   └── Pato
-        │   ├── Gorrion
-        │   └── Halcon
-        └── Pinguino
+Ave/
+  ├── AveVoladora
+  │   ├── AveAcuatica
+  │   │   └── Pato
+  │   ├── Gorrion
+  │   └── Halcon
+  └── Pinguino
 ```
 
 Ahora, nos damos cuenta que **el Pingüino también es un excelente nadador**. Pero no podemos hacer que extienda de AveAcuática porque lo haríamos volador! Y el Pingüino no vuela !
@@ -342,10 +326,10 @@ trait Nadadora {
 Y ahora podemos aplicarlos al definir cualquier clase, como en java escribíamos el "implements"
 
 ```scala
-        class Ave
-        class Gorrion extends Ave with Voladora
-        class Pinguino** extends** Ave** with** Nadadora
-        class Pato extends Ave with Nadadora with Voladora
+class Ave
+class Gorrion extends Ave with Voladora
+class Pinguino extends Ave with Nadadora
+class Pato extends Ave with Nadadora with Voladora
 ```
 
 * El gorrión habíamos dicho que era un ave "normal" que volaba, así que le aplicamos el trait Voladora.
@@ -356,14 +340,12 @@ Veamos entonces un poquito de código que use a las aves.
 
 
 ```scala
-        **object** TraitsDeAves {
-           def main(args: Array[String]) {
-   val nadadores = List(new TPinguino, new TPato)
-        
-
-   nadadores foreach { n => n.nadar }
-          }
-        }
+object TraitsDeAves {
+  def main(args: Array[String]) {
+    val nadadores = List(new TPinguino, new TPato)
+    nadadores foreach { n => n.nadar }
+  }
+}
 ```
 
 La lista "nadadores" se infiere automáticamente al tipo del trait **List[Nadadora]. **Esto nos permite tratar a las aves, no importa su clase, como nadadoras. Igual que con una interface de java. Por eso luego en el foreach estamos haciendo que naden.
@@ -377,20 +359,16 @@ Eso en herencia simple sería sobrescribir un método de la superclase.
 
 Bueno, en mixins es bastante similar.
 
-
 Ejemplo. Supongamos esta clase base muy simple con un comportamiento.
 
-
-
 ```scala
-        class Persona {
-            var edad = 0
-
-
-            **def **envejecer() {
-                edad += 1
-            }
-        }
+class Persona {
+  var edad = 0
+            
+  def envejecer() {
+    edad += 1
+  }
+}
 ```
 
 Supongamos que tenemos varias subclases que hacen diferentes cosas, como un Carpintero, un Doctor, etc. Y sin embargo ahora queremos modelar la idea de diferentes "formas" de envejecer, y poder aplicárselas a todas esas clases.
@@ -399,31 +377,26 @@ Entonces, estamos forzados a modelarlo con mixins (y además está bueno :P)
 
 Por ejemplo, un mixin para **EnvejeceElDoble **que haga que si a la persona le digo "envejece" esta envejezca 2 años en lugar de 1 !
 
-
 Este mixin no va a agregar un nuevo método. Sino que tiene que redefinir el envejecer() !
 Esto es importante porque no queremos que los que usen Persona le tengan que mandar un mensaje nuevo (como envejeceDoble()) diferente al original. Queremos que se mantenga el polimorfismo !!
 
 
 Entonces uno está tentado a hacer esto (y más aún si viene de lenguajes sin checkeos estáticos)
 
-
-
 ```scala
-        trait EnvejeceElDoble {
-              def envejecer() {
-                edad += 2
-             }
-        }
+trait EnvejeceElDoble {
+  def envejecer() {
+    edad += 2
+  }
+}
 ```
 
 Sin embargo cuando quieran combinar este mixin con la clase Persona en una subclase, van a tener un error. Un "conflicto"
 
-
-
 ```scala
-        class Carpintero extends Persona with EnvejeceElDoble {  
-            *// ERROR ! conflicto entre Person.envejece() y EnvejeceElDoble.envejece()*
-        }
+class Carpintero extends Persona with EnvejeceElDoble {  
+  // ERROR ! conflicto entre Person.envejece() y EnvejeceElDoble.envejece()*
+}
 ```
 
 Esto es porque si bien los métodos se llaman iguales para Scala (igual que pasaba en java) son métodos distintos. Porque nada le indica en lo que escribimos que **"la intención del EnvejeceElDoble.envejece() es sobrescribir Persona.envejece()".**
@@ -434,15 +407,13 @@ Entonces, la forma correcta de hacer esto es
 
 ```scala
 trait EnvejeceElDoble *extends Persona* 
-             *override* def envejecer() 
-                edad += 2
-             }
-        }
+  override def envejecer() 
+    edad += 2
+  }
+}
 ```
 
 Esto, si se quiere se puede pensar como que "este trait" se aplica a Personas. Eso nos permite saber que "this" va a ser una persona, entonces podemos acceder a su edad y sobrescribir cualquier método.
-
-
 
 ## Sobrescritura con Super
 
@@ -455,15 +426,12 @@ Eso, se puede hacer igual que en una sobrescritura de clases, con "super"
 
 ```scala
 trait EnvejeceElDoble *extends Persona* 
-             *override* def envejecer() 
-                super.envejecer()
-                super.envejecer()
-             }
-        }
+  override def envejecer() 
+    super.envejecer()
+    super.envejecer()
+  }
+}
 ```      
-
-
-
 
 ## Sobrescritura con Combinación (múltiples sobre-escrituras)
 
@@ -475,47 +443,36 @@ Entonces el caso que sigue sería combinar estas dos cosas.
 Pensamos otro mixin de envejecer: **Rejuvence.** Este mixin hace que la persona decremente su edad en lugar de incrementarla (como Benjamin Button :P).
 La implementación es parecida a la anterior
 
-
-
-
 ```scala
-trait Rejuvenece extends **Persona`` 
-             override`` def envejecer() 
-*`          edad -= 1`*
-
-             }
-        }
+trait Rejuvenece extends Persona
+  override def envejecer() 
+    edad -= 1
+  }
+}
 ```   
 
 Ahora qué pasa si los combinamos ?
 
-
-
 ```scala
-        class Carpintero extends Persona with Rejuvenece with EnvejeceDoble {
-        }
+class Carpintero extends Persona with Rejuvenece with EnvejeceDoble {
+}
 
-
-        val carpintero  = new Carpintero()
-        carpintero`.envejecer()`
-        carpintero.edad    // ??
+val carpintero  = new Carpintero()
+carpintero.envejecer()
+carpintero.edad    // ??
 ```
 
 Qué va a imprimir ?
 
-
 Respuesta: - 2 !
 
-
 Y si los invertimos ?
-
 
 ```scala
 class Carpintero extends Persona with EnvejeceDoble with Rejuvenece {
 ```
 
 Ahora: - 1
-
 
 Esto es porque el orden importa ! En el mismo sentido en que en una herencia común se hace un method lookup buscando la implementación más concreta.
 Acá se ve la característica principal del mecanismo de mixins que es **la "linearización".**
@@ -539,9 +496,9 @@ class Carpintero extends Persona with Rejuvenece with EnvejeceDoble {
 
 Se lee así
 
-* **defino una nueva clase Carpintero: **esta va a ir **abajo de todo**, porque tengo el control de sobrescribir lo que quiera. Es la "más concreta"
-* **esta clase extiende de Persona: **esta clase va "arriba"  de Carpintero (y arriba de todo)
-* **mezclo los mixins: **de acá el nombre. Los mixins se van a meter entra la super clase (Persona) y nuestra clase (Carpintero). En orden Derecha -> Izquierda  (dibujandolas desde Arriba -> Abajo)
+* **defino una nueva clase Carpintero:** esta va a ir **abajo de todo**, porque tengo el control de sobrescribir lo que quiera. Es la "más concreta"
+* **esta clase extiende de Persona:** esta clase va "arriba"  de Carpintero (y arriba de todo)
+* **mezclo los mixins:** de acá el nombre. Los mixins se van a meter entra la super clase (`Persona`) y nuestra clase (`Carpintero`). En orden `Derecha -> Izquierda`  (dibujandolas desde `Arriba -> Abajo`)
 
 Quedaría así
 
@@ -551,16 +508,16 @@ Quedaría así
 Y entonces ahora aplican las mismas reglas de siempre en herencia simple !
 Si le mando el mensaje "envejecer()" a Carpintero, cuál se va a ejecutar ?
 
-1. **Doble** que llama a super
-1. **Rejuvenecer** (es el super de Doble). Este resta en 1.
-1. Luego, de nuevo **Doble** llama a super (recuerden que llama dos veces)
-1. **Rejuvenecer** vuelve a restar 1
-1. Termina, con edad = - 2
+1. `Doble` que llama a super
+1. `Rejuvenecer` (es el super de Doble). Este resta en 1.
+1. Luego, de nuevo `Doble` llama a super (recuerden que llama dos veces)
+2. `Rejuvenecer` vuelve a restar 1
+3. Termina, con edad = - 2
 
 Ahora si invertimos la declaración como en el segundo ejemplo
 
 ```scala
-class Carpintero extends Persona with EnvejeceDoble with Rejuvenece {
+class Carpintero extends Persona with EnvejeceDoble with Rejuvenece
 ```
 
 
@@ -584,9 +541,13 @@ O sea, los mixins (y esto es lo que los diferencia de los traits), no conforman 
 Para eso, los mixins se aplican en un orden.
 Veamos un ejemplo
 ```scala
- class Animal 
+class Animal 
 
- trait Furry extends Animal trait HasLegs extends Animal trait FourLegged extends HasLegs class Cat extends Animal with Furry with FourLegged
+trait Furry extends Animal
+trait HasLegs extends Animal
+trait FourLegged extends HasLegs
+
+class Cat extends Animal with Furry with FourLegged
 ```
 
 La clase Cat genera una linea de delegación así:
@@ -616,7 +577,6 @@ class ColaBasica extends Cola {
   override def get() = buffer remove 0
   override def put(i:Int) { buffer += i }
   override def size = buffer size
-
 }
 ``` 
 
@@ -673,7 +633,7 @@ El eslabón más bajo dice "anónima" ya que estamos aplicando el mixin a un obj
 La linearización queda:
 
 ```bash
-* **Anónima -> Duplicador -> ColaBasica -> Cola**
+Anónima -> Duplicador -> ColaBasica -> Cola**
 ```
 
 
@@ -798,14 +758,16 @@ El diagrama quedaría:
 ](conceptos-mixins-mixins-cola-concuatriplicador-png?attredirects=0)
 Por ende la linearización:
 
-* **Anónima -> Cuatriplicador -> Duplicador -> ColaBasica -> Cola**
+```bash
+Anónima -> Cuatriplicador -> Duplicador -> ColaBasica -> Cola
+```
 
 
 La ejecución es así.
 
-1. Se ejecuta el "put" de Cuatriplicador. Este multiplica 3 * 2 = 6  y llama a super
-2. Se ejecuta el método del trait heredado de Duplicador, que multiplica 6 * 2 y luego llama a super.
-3. Se ejecuta finalmente el método de ColaBásica que agrega el 12 a la cola.
+1. Se ejecuta el `put` de `Cuatriplicador`. Este multiplica 3 * 2 = 6  y llama a `super`
+2. Se ejecuta el método del trait heredado de `Duplicador`, que multiplica 6 * 2 y luego llama a `super`.
+3. Se ejecuta finalmente el método de `ColaBásica` que agrega el 12 a la cola.
 
 ## Referencias / Bibliografía
 

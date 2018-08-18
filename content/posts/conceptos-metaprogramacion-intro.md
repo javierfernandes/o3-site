@@ -1,12 +1,12 @@
 ---
-title: "conceptos-metaprogramacion-intro"
+title: "Metaprogramacion: Introducción"
 date:  2018-06-20T19:27:10-03:00
 ---
 
 
 ## Definición
 
-**Metaprogramación: **es el proceso o la práctica por la cual *escribimos **programas** que **generan, ******manipulan o utilizan** otros programas*.**
+**Metaprogramación** es el proceso o la práctica por la cual escribimos **programas** que generan, manipulan o utilizan otros programas
 
 ### Ejemplos
 
@@ -57,7 +57,7 @@ Así como el programa manipula las instancias de las clases Perro o Animal, el m
 
 ## Reflection
 
-**Reflection: **es un caso particular de metaprogramación, donde "metaprogra**mamos**" en el mismo lenguaje en que están escritos (o vamos a escribir) los programas. Es decir, todo desde el mismo lenguaje. 
+**Reflection**: es un caso particular de metaprogramación, donde "metaprogramamos" en el mismo lenguaje en que están escritos (o vamos a escribir) los programas. Es decir, todo desde el mismo lenguaje. 
 
 *Nota de color:* Inicialmente el lenguaje "pionero" en cuanto a reflection fue LISP.
 
@@ -69,11 +69,11 @@ De hecho muchos componentes del "IDE" Pharo son elementos de metaprogramación, 
 ### Tipos de reflection
 Para esto, generalmente, es necesario contar con facilidades o herramientas específicas, digamos "soporte" del lenguaje.  Entonces reflection, además,  abarca los siguientes items que vamos a mencionar en esta lista:
 
-* **[Introspection](introspection): **se refiere a la capacidad de un sistema, de analizarse a sí mismo. Algo así como la introspección humana, pero en términos de programa. Para eso, el lenguaje debe proveer ciertas herramientas, que le permitan al mismo programa, "ver" o "reflejar" cada uno de sus componentes.
+* **[Introspection](../conceptos-metaprogramacion-introspection):** se refiere a la capacidad de un sistema, de analizarse a sí mismo. Algo así como la introspección humana, pero en términos de programa. Para eso, el lenguaje debe proveer ciertas herramientas, que le permitan al mismo programa, "ver" o "reflejar" cada uno de sus componentes.
 
-* **[Self-Modification](../conceptos-metaprogramacion-self-modification): **es la capacidad de un programa de modificarse a sí mismo. Nuevamente esto requiere cierto soporte del lenguaje. Y las limitaciones van a depender de este soporte.
+* **[Self-Modification](../conceptos-metaprogramacion-self-modification):** es la capacidad de un programa de modificarse a sí mismo. Nuevamente esto requiere cierto soporte del lenguaje. Y las limitaciones van a depender de este soporte.
 
-* **[Intercession](../conceptos-metaprogramacion-intercession): **es la capacidad de modificar la semántica del modelo que estamos manipulando, **desde** el mismo lenguaje.
+* **[Intercession](../conceptos-metaprogramacion-intercession):** es la capacidad de modificar la semántica del modelo que estamos manipulando, **desde** el mismo lenguaje.
 
 
 
