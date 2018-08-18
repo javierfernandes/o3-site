@@ -4,11 +4,9 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 
-## 
-Definición
+## Definición
+
 **Metaprogramación: **es el proceso o la práctica por la cual *escribimos **programas** que **generan, ******manipulan o utilizan** otros programas*.**
-
-
 
 ### Ejemplos
 
@@ -23,13 +21,13 @@ Entonces estos frameworks van a manipular objetos, sin conocerlos de antemano.
 
 Ejemplos:
 
-* **ORM's como hibernate: **que van a encargarse de persistir las instancias de nuestras clases sin siquiera conocerlas de antemano.
+* **ORM's como hibernate:** que van a encargarse de persistir las instancias de nuestras clases sin siquiera conocerlas de antemano.
 * **Frameworks de UI**: que deberán saber mostras cualquier objeto.
 * **Frameworks de Testing**, como JUnit suelen usar metaprogramación para analizar la clase de Test y encontrar los tests que se deben correr.
 * **Otras herramientas:**
 
 
- * **javadoc: **es una herramienta como el compilador de java, que lee el código fuente y genera documentación html.
+ * **javadoc:** es una herramienta como el compilador de java, que lee el código fuente y genera documentación html.
  * **code coverage:** herramientas que miden cuánto de nuestro código es realmente ejecutado al correr los tests, y cuales lineas no.
 
  * **analizadores de código:** que evalúan nuestro código y genera métrics o miden violaciones a reglas definidas. Como el estilo de código, complejidad ciclomática, etc. Por ejemplo para java existe [sonar](http://www.sonarsource.org/) que junto a maven automatizan y concrentran varias otras herramientas.

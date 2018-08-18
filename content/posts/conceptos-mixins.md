@@ -547,6 +547,7 @@ Quedaría así
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1472914907297/conceptos/mixins/mixins-envejece1.png)
 ](conceptos-mixins-mixins-envejece1-png?attredirects=0)
+
 Y entonces ahora aplican las mismas reglas de siempre en herencia simple !
 Si le mando el mensaje "envejecer()" a Carpintero, cuál se va a ejecutar ?
 
@@ -592,63 +593,61 @@ La clase Cat genera una linea de delegación así:
 
 [![](https://www.artima.com/pins1ed/images/linearization.jpg)
 ](https://www.artima.com/pins1ed/images/linearization.jpg)
+
 Las flechas oscuras representan la linearización. Las demás, las relaciones de herencia. Nótese que siempre se busca el camino más largo, por el lado de la derecha. Por ejemplo de HasLegs, no pasamos directo a Animal, sino que vamos a tratés de Furry.
-La "linearización" o linea negra nos indica por dónde se va a resolver un llamado a "super"
+La "linearización" o linea negra nos indica por dónde se va a resolver un llamado a `super`
 ## Stackable Traits Pattern
 
 Es un "patron" de diseño que, a traves de traits, nos permite definir comportamiento que se va combinando, como "apilando", uno sobre otro, y redefiniendo comportamiento.
 Veamos un ejemplo.
-Tenemos una estructura tipo "cola". Para eso definimos una clase abstracta con el contrato de la misma y una implementación base que utiliza un ArrayBuffer.
-
-
+Tenemos una estructura tipo "cola". Para eso definimos una clase abstracta con el contrato de la misma y una implementación base que utiliza un `ArrayBuffer`.
 
 
 ```scala
-        **abstract class** Cola {
-           def get(): Int
-           def put(i : Int)
-           def size : Int
-        }
+abstract class Cola {
+  def get(): Int
+  def put(i : Int)
+  def size : Int
+}
 
 
-        class ColaBasica extends Cola {
-          **private val** buffer = ArrayBuffer[Int]()
-          override def get() = buffer remove 0
-          override def put(i:Int) { buffer += i }
-          override def size = buffer size
+class ColaBasica extends Cola {
+  private val buffer = ArrayBuffer[Int]()
+  override def get() = buffer remove 0
+  override def put(i:Int) { buffer += i }
+  override def size = buffer size
 
-        }
+}
 ``` 
 
-        
 
 Esto se usaría así
 
 
 ```scala
-        val c = new ColaBasica
-        c put 3
-        c put 10
-        c put 1
-        println(c get)
-        println(c get)
-        println(c get)
+val c = new ColaBasica
+c put 3
+c put 10
+c put 1
+println(c get)
+println(c get)
+println(c get)
 ```
 
 Ahora vamos a necesitar un par de "comportamientos", como "filtros" para aplicar a las colas y así modificar su comportamiento. 
 
-* **Duplicador:** cuando se agrega un elemento, en realidad agrega el resultado de multiplicarlo por 2
-* **Incrementador:** que agrega el número dado incrementado por 1.
+* _**Duplicador:**_ cuando se agrega un elemento, en realidad agrega el resultado de multiplicarlo por 2
+* _**Incrementador:**_ que agrega el número dado incrementado por 1.
 
 Codificamos traits para estos. El primero
 
 
 ```scala
-        trait Duplicador extends Cola {
-          **abstract override def** put(i:Int) {
-            **super**.put(2 * i)
-          }
-        }
+trait Duplicador extends Cola {
+  abstract override def put(i:Int) {
+    super.put(2 * i)
+  }
+}
 ```
 
 El trait hereda de Cola, ya que la idea es que intercepte el llamado a put.
@@ -658,18 +657,24 @@ Lo que quiere decir con **abstract override** es que queremos sobrescribir la im
 Se usaría así:
 
 ```scala
-         ` val duplicada = new ColaBasica with Duplicador`
-         ` duplicada put 3`
-         ` println(duplicada get)`
+val duplicada = new ColaBasica with Duplicador
+duplicada put 3
+println(duplicada get)
 ```
 
-Lo cual imprime "6"
+Lo cual imprime "6".
+
 Acá vemos un diagrama:
+
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1394913368127/conceptos/mixins/mixins-cola-duplicador.png)
 ](conceptos-mixins-mixins-cola-duplicador-png?attredirects=0)
+
 El eslabón más bajo dice "anónima" ya que estamos aplicando el mixin a un objeto. Esto genera una clase anónima.
 La linearización queda:
+
+```bash
 * **Anónima -> Duplicador -> ColaBasica -> Cola**
+```
 
 
 Por esto es que al ejecutar "super" en Duplicador, se ejecuta el método de ColaBasica y no el de Cola.
@@ -681,43 +686,43 @@ Peeeero, en su cuerpo no hubieramos podido usar el "super" (no compila!), porque
 Este caso podría servir para un trait que no hace nada en el put, Ejemplo, Cola Inmutable.
 
 ```scala
-trait Inmutable`` extends Cola 
-         ` override def put(i:Int) 
-           ` // no hace nada`
-          }
-        }
+trait Inmutable extends Cola {
+  override def put(i:Int) 
+    // no hace nada
+  }
+}
 ```
 
 Veamos un ejemplo de cómo usar esto
 
 ```scala
-          val inmutable = new ColaBasica **with **Inmutable
-          inmutable put 3
-          println("tamanio", inmutable size)
+val inmutable = new ColaBasica **with **Inmutable
+inmutable put 3
+println("tamanio", inmutable size)
 ```
 
 Al ejecutar este código, vamos a ver que el tamaño de la cola es 0. Porque en este caso se ejecutó el "put" del trait.
 Otro caso. Si el método en Cola no fuera abstracto y tuviera una implementación, el trait Duplicador podría definir el método como **"override def" **e igual utilizar el **super**.
 
 ```scala
-        **abstract class** Cola {
-          ` def put(i : Int) 
-            println("La Cola no hace nada al hacer put con " + i)
-          }
-        }
-        trait Duplicador extends **Cola {
-          override def put(i:Int) {
-            **super**.put(2 * i)
-          }
-        }
+abstract class Cola {
+  def put(i : Int) 
+    println("La Cola no hace nada al hacer put con " + i)
+  }
+}
+trait Duplicador extends **Cola {
+  override def put(i:Int) {
+    super.put(2 * i)
+  }
+}
 ```
 
 Y se usaría así:
 
 ```scala
-        val duplicada = new ColaBasica with Duplicador
-        duplicada put 3
-        println("tamaño", duplicada size)
+val duplicada = new ColaBasica with Duplicador
+duplicada put 3
+println("tamaño", duplicada size)
 ```
 
 Cuando ejecutamos esto vemos que sí se insertó el elemento "6" en la cola, y que no se imprimió el mensaje de la implementación nueva, default de "Cola".
@@ -731,31 +736,39 @@ La linearización de "**new ColaBasica with Duplicador**" es así:
 Implementamos ahora el Incrementador
 
 ```scala
-        trait Incrementador extends Cola {
-          override def put(i:Int) {
-            **super**.put(i + 1)
-          }
-        }
+trait Incrementador extends Cola {
+  override def put(i:Int) {
+    super.put(i + 1)
+  }
+}
 ```
 
 Ahora podemos aplicar los dos traits
 
-        val duplicadaConInc = new ColaBasica with Duplicador with Incrementador
-        duplicadaConInc put 3
-        println("+1, *2", duplicadaConInc get)
+```scala
+val duplicadaConInc = new ColaBasica with Duplicador with Incrementador
+duplicadaConInc put 3
+println("+1, *2", duplicadaConInc get)
+```
         
-        Acá vemos que se puede aplicar más de un trait. Pero además que la ejecución de los métodos       depende del orden en que se hayan aplicado los traits. Se puede leer como de Derecha a Izquierda. 
+Acá vemos que se puede aplicar más de un trait. Pero además que la ejecución de los métodos depende del orden en que se hayan aplicado los traits. Se puede leer como de Derecha a Izquierda. 
+
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1394913779890/conceptos/mixins/mixins-colacondupeincrementador.png)
 ](conceptos-mixins-mixins-colacondupeincrementador-png?attredirects=0)En este caso la linearización es:
+
+```bash
 * **Anónima -> Incrementador -> Duplicador -> ColaBasica -> Cola**
+```
 
 
 El put se ejecuta así:
-* **Incrementador**: super(3 +1)
-* **Duplicador**:  super( 2 * 4)
-* **ColaBasica**: buffer.put (8)
+
+* _**Incrementador**_: super(3 +1)
+* _**Duplicador**_:  super( 2 * 4)
+* _**ColaBasica**_: buffer.put (8)
 
 Lo cual termina agregando el 4 a la cola.
+
 ### Herencia de Traits
 
 Un trait puede heredar de otro trait. En este caso aplica el mismo mecanismo de herencia que usamos cuando una clase hereda de otra.
@@ -763,19 +776,19 @@ Ejemplo:
 
 
 ```scala
-        trait Cuatriplicador extends Duplicador {
-          override def put(i:Int) {
-            **super**.put(2 * i)
-          }
-        }
+trait Cuatriplicador extends Duplicador {
+  override def put(i:Int) {
+    super.put(2 * i)
+  }
+}
 ```
 
 Este trait hereda del Duplicador, que también multiplica el "i" por 2.
 
 ```scala
-        val cuatriplicados = new ColaBasica with Cuatriplicador
-        cuatriplicados put 3
-        println("*4", cuatriplicados get)
+val cuatriplicados = new ColaBasica with Cuatriplicador
+cuatriplicados put 3
+println("*4", cuatriplicados get)
 ```
 
 Esto va a imprimir 12. 
@@ -791,8 +804,8 @@ Por ende la linearización:
 La ejecución es así.
 
 1. Se ejecuta el "put" de Cuatriplicador. Este multiplica 3 * 2 = 6  y llama a super
-1. Se ejecuta el método del trait heredado de Duplicador, que multiplica 6 * 2 y luego llama a super.
-1. Se ejecuta finalmente el método de ColaBásica que agrega el 12 a la cola.
+2. Se ejecuta el método del trait heredado de Duplicador, que multiplica 6 * 2 y luego llama a super.
+3. Se ejecuta finalmente el método de ColaBásica que agrega el 12 a la cola.
 
 ## Referencias / Bibliografía
 
@@ -808,5 +821,4 @@ La ejecución es así.
  
 * [Traits](../conceptos-traits)
 * Chain of Responsibilities Pattern (?)
-
 * Decorator Pattern (?)

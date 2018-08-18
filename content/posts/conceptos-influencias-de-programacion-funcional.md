@@ -1,14 +1,15 @@
 ---
 title: "conceptos-influencias-de-programacion-funcional"
 date:  2018-06-20T19:27:10-03:00
+menu:
+  sidebar:
+    parent: Conceptos
 ---
 
 
 Ver diapositivas
 
-
-
-
-#### FP + OOP en Scala
-
-FP + OOP en Scala: Lenguaje de Programación
+{{% gslides 
+  url="https://docs.google.com/presentation/d/15OYGb2OtPmmtkHZayCHNiirlMvZh4XqMnTZXyqCSR8U/embed?authuser=0&hl=en&size=m" 
+  title="Planificación"
+%}}

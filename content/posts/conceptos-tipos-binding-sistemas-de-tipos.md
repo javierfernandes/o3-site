@@ -1,10 +1,8 @@
 ---
 title: "conceptos-tipos-binding-sistemas-de-tipos"
 date:  2018-06-20T19:27:10-03:00
+toc: true
 ---
-
-
-[[_TOC_]]
 
 Seguimos la presentación de Kim B. Bruce. *Foundations of Object-Oriented Languages: Types and Semantics*.
 Otra fuente interesante: Martín Abadi and Luca Cardelli. *A theory of objects*.
@@ -12,7 +10,6 @@ Otra fuente interesante: Martín Abadi and Luca Cardelli. *A theory of objects*.
 ### ¿Qué es un tipo?
 
 * Conjunto de valores o "elementos de un conjunto", más...
-
 * Conjunto de operaciones que puedo realizar sobre ellos.
 
 Ej: 
@@ -44,18 +41,17 @@ Para muchas cosas.
 Si tengo este código Scala
 
 
+```scala
 
-
-        #Familia
-        var elPerro: Perro
+// Familia
+var elPerro: Perro
         
 
-        #Cuidador
-         def administrar(p: Perro) = {
-            ...
-        }
-        
-
+// Cuidador
+def administrar(p: Perro) = {
+  // ...
+}
+```
 
 entonces sé que 
 
@@ -133,12 +129,12 @@ Este problema se produce en muchos lenguajes orientados a objetos, ya que ***las
 
 1. Las clases son la única forma de **definir el comportamiento de un objeto.**
 
-1. Las clases son la única forma de **crear objetos.**
+2. Las clases son la única forma de **crear objetos.**
 
-1. Las clases son la única forma de **definir tipos.**
+3. Las clases son la única forma de **definir tipos.**
 
-1. La herencia es la única forma de **compartir comportamiento** que no requiere una codificación específica.
-1. La herencia es la única forma de **definir subtipos.**
+4. La herencia es la única forma de **compartir comportamiento** que no requiere una codificación específica.
+5. La herencia es la única forma de **definir subtipos.**
 
 
 Y para colmo la herencia está restringida a "herencia simple", es decir, cada clase puede tener una única superclase. 
