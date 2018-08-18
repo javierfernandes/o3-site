@@ -31,6 +31,7 @@ title = 'Side bar'
 [params.widgets]
 homepage = ["recent_posts"]
 sidebar = ["about","sidebar_menu","taxonomy_cloud"]
+footer = ["social_menu"]
 
 [taxonomies]
 author = "authors"
@@ -40,6 +41,11 @@ tag = "tags"
 
 [params.assets]
 customCSS = ["custom.css"]
+
+[params.social]
+email = "javier.fernandes@gmail.com"
+github = "unq-objetos3-alumnos"
+youtube = "UC20rhT1zAZyVRZuRqukk74Q"
 
 [[menu.main]]
 name = "Home"

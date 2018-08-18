@@ -104,14 +104,14 @@ Ejecutémoslo con otra clase:
 Resulta en:
 
 ```bash
-Un **String**
- tiene **value** de tipo **char**[]`
- tiene **offset** de tipo **int
- tiene **count** de tipo **int
- tiene **hash** de tipo **int
- tiene **serialVersionUID** de tipo **long
- tiene **serialPersistentFields** de tipo **ObjectStreamField**[]`
- tiene **CASE_INSENSITIVE_ORDER** de tipo **Comparator
+Un String
+ tiene value** de tipo char[]
+ tiene offset** de tipo int
+ tiene hash** de tipo int
+ tiene count** de tipo int
+ tiene serialVersionUID de tipo long
+ tiene serialPersistentFields de tipo ObjectStreamField**[]
+ tiene CASE_INSENSITIVE_ORDER de tipo Comparator
 ```
 
 Como vemos nuestro código "funciona" con cualquier clase, incluso en este caso lo estamos usando con una clase del propio JDK, String.

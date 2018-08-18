@@ -113,6 +113,14 @@ footer#footer .container.sep-before:before {
   display: none;
 }
 
+/* footer floating on the left-bottom */
+footer#footer {
+  position: fixed!important;
+  left: 0px;
+  bottom: -15px;
+  z-index: 100000;
+}
+
 @media screen and (min-width: 920px) {
   .has-sidebar .main {
     margin-left: 280px;
