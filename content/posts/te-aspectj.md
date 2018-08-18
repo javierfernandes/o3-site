@@ -4,7 +4,7 @@ date:  2018-06-20T19:27:10-03:00
 ---
 
 #### Instalación
-La forma más sencilla de utilizar AspectJ es a través de un plugin de eclipse denominado AJDT. Las instrucciones para instalar este plugin se pueden bajar de la página de (http://www.eclipse.org/ajdt/downloads/#dev36)[downloads de AJDT](http://www.eclipse.org/ajdt/downloads/#dev36).
+La forma más sencilla de utilizar AspectJ es a través de un plugin de eclipse denominado AJDT. Las instrucciones para instalar este plugin se pueden bajar de la página de [downloads de AJDT](http://www.eclipse.org/ajdt/downloads/#dev36).
 
 #### Algunos links útiles
 Acontinuación algunos ejemplos de uso de esta tecnología:
@@ -15,5 +15,6 @@ Acontinuación algunos ejemplos de uso de esta tecnología:
 * [Uso de annotations para definir pointcuts](http://www.eclipse.org/aspectj/doc/released/adk15notebook/annotations-pointcuts-and-advice.html)
 
 Y algunos ejemplos para usar AspectJ para introducir [mixins](../conceptos-mixins).
+
 * [Un ejemplo de Observer](http://today.java.net/pub/a/today/2005/12/15/writing-mixins-with-aop.html)
 * [Comparación de cuatro formas de programar mixins en AspectJ](http://spring-java-ee.blogspot.com/2010/02/four-approaches-for-static-structure.html)

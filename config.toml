@@ -4,6 +4,9 @@ title = "Programación Avanzada con Objetos"
 
 theme = "minimo"
 
+# GA
+googleAnalytics = "UA-31727414-3"
+
 # custom folders
 staticDir = ["public", "static"]
 publishDir = "dist"  # to avoid collision with search-index :(
@@ -11,6 +14,9 @@ publishDir = "dist"  # to avoid collision with search-index :(
 # Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
 pygmentsCodefences = true
 enableEmoji = true
+
+[params.info]
+title404 = "No hay nada acá!"
 
 [params.settings]
 # date & time format: https://golang.org/pkg/time/
@@ -30,6 +36,7 @@ title = 'Side bar'
 
 [params.widgets]
 homepage = ["recent_posts"]
+# homepage = ["Home"]
 sidebar = ["about","sidebar_menu","taxonomy_cloud"]
 footer = ["social_menu"]
 
