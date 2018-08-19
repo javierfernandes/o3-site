@@ -6,6 +6,7 @@
   "author": "Javier Fernandes <javier.fernandes@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "hugo server",
     "build-search-index": "gulp build"
   },
   "husky": {

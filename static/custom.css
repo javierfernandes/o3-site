@@ -200,6 +200,18 @@ footer#footer {
   font-weight: normal;
 }
 
+/* tables */
+
+.entry-content table thead {
+  background-color: #fecd00!important;
+  border-color: #eaeaea;
+}
+.entry-content table thead th {
+  text-align: center;
+}
+.entry-content table tr {
+  border-color: #eaeaea;
+}
 
 /* POSTS section list */
 
