@@ -141,17 +141,42 @@ footer#footer {
   border-radius: 5px;
   padding: 1em;
 
-  /* floating right */
-  position: fixed;
-  right: 10px;
   background: #ffcd003b;
   color: white;
-  width: 300px; /* TODO: depends on resolution */
-  top: 20px;
+
+  /* default show inline */
+  position: inherit;
+  transition: position 1s linear;
+}
+
+@media screen and (max-width: 1349px) {
+  .container.entry-toc {
+    margin-left: 1rem;
+  }
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-width: 1350px) {
+  .container.entry-toc {
+    width: 20vw;
+    position: fixed;
+    top: 20px;
+    right: 10px;
+
+    background: none;
+    border: 0px;
+    border-left: 1px solid rgb(241, 239, 234);
+    padding-left: 1.5rem;
+  }
 }
 
 .entry-toc a {
   color: #949494;
+  transition: color 0.5s linear;
+}
+.entry-toc a:hover {
+  color: black;
+  font-weight: bolder;
 }
 
 .entry-toc #TableOfContents {
