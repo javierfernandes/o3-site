@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build-search-index && git add ./public"
+      "pre-commit": "yarn build-search-index && ./scripts/update-last-changed && git add ./public"
     }
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 ---
 title: "AOP"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-21T11:05:03-03:00
 toc: true
 ---
 
@@ -8,14 +8,11 @@ toc: true
 
 Para evitar arrancar dando definiciones teóricas que resulten difíciles de entender, vamos ir directo a tratar de explicar AOP (Aspect-Oriented Programming) con un ejemplo.
 
-
-Supongamos que estamos trabajando en la interfaz de usuario de una aplicación. Como queremos trabajar con el patrón MVC, y estamos utilizando una arquitectura stand-alone de escritorio, es decir lo que se llama *"cliente pesado" *no tenemos ninguna restricción en cuanto al vínculo entre los elementos de la UI y nuestro modelo.
-
+Supongamos que estamos trabajando en la interfaz de usuario de una aplicación. Como queremos trabajar con el patrón MVC, y estamos utilizando una arquitectura stand-alone de escritorio, es decir lo que se llama "cliente pesado" no tenemos ninguna restricción en cuanto al vínculo entre los elementos de la UI y nuestro modelo.
 
 Nos gustaría que el modelo se actualice ante eventos de la vista, pero también que la vista se actualice ante eventos del modelo.
 Entonces, una buena solución para esto es que nuestros objetos sean **Observables, **de modo de que los controles de la vista podrán registrarse como **Observer**'s para actualizarse ante eventos.
 E igualmente mantenemos el desacoplamiento entre el modelo y la vista.
-
 
 ### Objetos Observables
 
@@ -31,64 +28,54 @@ Vemos un poco de código acá entonces:
 
 Supongamos que tenemos una clase **Conversor** que permite convertir de **kilómetros** a **millas**. Ambas son properties del objeto:
 
-
 ```java
-public classConversor{
+public class Conversor {
 
-    private doublemillas;`
-    private doublekilometros;`
+  private doublemillas;
+  private doublekilometros;
 
-    public voidconvertir() 
- this.setKilometros(this.getMillas() * 1.60934);`
-            }
+  public void convertir() {
+    this.setKilometros(this.getMillas() * 1.60934);
+  }
  
-    public doublegetMillas() 
- return this.millas;`
-            }
+  public double getMillas() {
+    return this.millas;`
+  }
 
+  public void setMillas(doublemillas) {
+    this.millas = millas;
+  }
 
-    public voidsetMillas(doublemillas) 
- this.millas = millas;`
+  public double getKilometros() 
+    return this.kilometros;
+  }
 
-            }
+  public voidsetKilometros(doublekilometros) {
+    this.kilometros = kilometros;
+  }
 
-    public doublegetKilometros() 
- return this.kilometros;`
-            }
-
-
-    public voidsetKilometros(doublekilometros) 
- this.kilometros = kilometros;`
-            }
-
-
-        }
+}
 ```
 
 Y la interfaz observable:
 
 ```java
-        **public** **interface** ObservableObject {
+public interface ObservableObject {
 
-        **    public** void** addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
+  public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener);
         
-
-**    public** void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
-        
+  public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener);
 
 }
 ```
 
-
 Acá tenemos la interface que utilizan los observers (listeners) para escuchar por cambios en el modelo.
-
 
 Ahora, qué tenemos que hacer para que nuestro Conversor sea observable ?
 La haremos heredar de la implementación de referencia para reutilizar el código:
 
 
 ```java
-
 
         **public** class Conversor extends ObservableObjectImpl {
  `**private** **double** millas;`
@@ -272,11 +259,11 @@ Escribámosla en pseudo código (o nuestro propio DSL -ya vamos a ver en otra un
 
 aspecto Observabilidad 
 
-            luego de`** asignacion(x, viejo, nuevo) **agregar` {  `
+            luego de`** asignacion(x, viejo, nuevo) **agregar` {
             `    if (nuevo != viejo) 
-            `       this.firePropertyChanged(x, viejo, nuevo)`
-            `   }`
-            `}`
+            `       this.firePropertyChanged(x, viejo, nuevo)
+            `   }
+            `}
 
 
  `    **agregar** 
@@ -418,7 +405,7 @@ aspecto Observabilidad
 Decimos dos cosas:
 
 * Cuándo, o cómo respecto del código point-cut: "**luego**"
-* Y el código a inyectar: el **if.**
+* Y el código a inyectar: el `if`.
 
 Entonces, **advice **es un *comportamiento a ejecutar como parte del aspecto*, cuando matchea cierto point-cut.
 

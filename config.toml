@@ -15,6 +15,12 @@ publishDir = "dist"  # to avoid collision with search-index :(
 pygmentsCodefences = true
 enableEmoji = true
 
+# search engines
+enableRobotsTXT = true
+
+# update changed time
+enableGitInfo = true
+
 [params.info]
 title404 = "No hay nada acá!"
 

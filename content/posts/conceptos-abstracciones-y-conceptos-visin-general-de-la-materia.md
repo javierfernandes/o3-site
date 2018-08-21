@@ -1,8 +1,7 @@
 ---
 title: "conceptos-abstracciones-y-conceptos-visin-general-de-la-materia"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-21T11:01:28-03:00
 ---
-
 
 Lo que nos interesa en esa materia son las abstracciones. Una abstracción es una forma de concebir cualquier entidad programática que nos permite concentrarnos en lo que consideremos esencial, dejando de lado aquello que nos interesa menos (o bien nos interesa menos *en este momento*).
 
@@ -24,11 +23,8 @@ Luego, las clases nos permiten un nuevo nivel de abstracción; al modelar muchos
 
 Podemos recordar el cuento de Borges, en el que el memorioso Funes recordaba cada detalle de cada caballo que había visto y por eso para él cada caballo era único, no tenía nada en común con los otros que había visto. Funes simplemente no entendía la idea de caballo, de llamar a todas esas cosas distintas de la misma manera; Funes era incapaz de abstraer. 
 
-
 También el polimorfismo nos permite abstraernos de las diferencias entre múltiples objetos con distinto comportamiento, y tratarlos a todos por igual en algún contexto dado. Por otro lado, la herencia es otra abstracción que nos permite explicitar las similitudes y diferencias entre clases que tienen comportamiento en común. 
 
-
 Muchas de las abstracciones que mencionamos logran que podamos *compartir código. *Sin embargo no debemos pensar en ese como el principal objetivo de una abstracción, el principal objetivo es **explicitar en el código nuestro conocimiento sobre el dominio**. La no repetición es una consecuencia natural: cuando encontramos buenas abstracciones para describir un dominio, esa descripción logra ser clara, concisa y consistente; las duplicaciones son potenciales fuentes de inconsistencia que siempre trataremos de evitar, y muchas veces nos van a guiar para encontrar la falta de abstracción.
-
 
 Finalmente, el principal objetivo de esta materia es encontrar la mejor forma de describir cada problema. Vamos a encontrar problemas que no pueden ser correctamente descripto con las abstracciones que manejamos; y vamos a aprender nuevas formas de abstracción que atacan ese tipo de problemas.

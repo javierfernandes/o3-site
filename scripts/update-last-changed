@@ -1,0 +1,15 @@
+#! /bin/bash
+
+echo "EJECUTANDO"
+
+CHANGED_MD_FILES=`git diff --cached --name-status | grep -v ^D | grep ".md" | awk '{ print $2 }'`
+
+NOW=$(date +"%Y-%m-%dT%H:%M:%S-03:00")
+
+for i in $CHANGED_MD_FILES; do
+  echo ">>> updating changed timestamp for $i";
+  sed -e "s#^date: \(.*\)\$#date: $NOW#g" $i > $i.updated
+  mv $i.updated $i
+  rm -rf $i.updated
+  git add $i
+done
