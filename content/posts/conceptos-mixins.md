@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-21T12:02:44-03:00
 toc: true
 menu:
   sidebar:
@@ -65,6 +65,7 @@ class Platon extends Persona with Filosofo {
 ```
 
 En ambos casos vemos que un método de la clase, está utilizando el "filosofar()" que se agrega con el mixin. Esa es una opción.
+
 ### El mixin define un tipo
 
 Otra opción, es utilizar el método desde el cliente de los objetos.
@@ -88,6 +89,7 @@ filosofos foreach { f => f filosofar }
 ```
 
 Acá vemos que la lista es de tipo Lista de Filosofos (que es el mixin).
+
 ### Mixin sobre un Objeto
 
 En Scala además de definir una clase, uno puede crear un objeto y ahí mismo "construir la clase". Algo así como una clase "anónima" en java. Ésto viene un poco por el lado de los mixins. Para poder combinarlos sin tener que crear muchas clases.
@@ -317,7 +319,6 @@ trait Voladora {
    def volar = println("["+ this.getClass + "] volare oh oh")
 }
 
-
 trait Nadadora {
    def nadar = println("["+ this.getClass + "] nado nado nado")
 }
@@ -391,7 +392,7 @@ trait EnvejeceElDoble {
 }
 ```
 
-Sin embargo cuando quieran combinar este mixin con la clase Persona en una subclase, van a tener un error. Un "conflicto"
+Sin embargo cuando quieran combinar este mixin con la clase `Persona` en una subclase, van a tener un error. Un "conflicto"
 
 ```scala
 class Carpintero extends Persona with EnvejeceElDoble {  
@@ -483,7 +484,7 @@ Si bien hasta ahora se parecía mucho a una herencia múltiple, los mixins garan
 ](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/220px-Diamond_inheritance.svg.png)
 
 
-Es decir, nunca un clase D va a tener dos super classes (o traits). Porque esto lleva a conflictos.
+Es decir, nunca un clase `D` va a tener dos super classes (o traits). Porque esto lleva a conflictos.
 En cambio, los mixins en forma estática (al momento de compilar el código, o de leerlo si se quiere) ya garantizan una herencia "lineal" ! donde cada nodo tiene un sólo padre.
 De esta forma (de la derecha)
 
@@ -491,7 +492,10 @@ De esta forma (de la derecha)
 ](http://julienrf.github.io/scala-lessons/course/Traits.png)
 
 Entonces esto:
+
+```scala
 class Carpintero extends Persona with Rejuvenece with EnvejeceDoble {
+```
 
 
 Se lee así
@@ -509,10 +513,10 @@ Y entonces ahora aplican las mismas reglas de siempre en herencia simple !
 Si le mando el mensaje "envejecer()" a Carpintero, cuál se va a ejecutar ?
 
 1. `Doble` que llama a super
-1. `Rejuvenecer` (es el super de Doble). Este resta en 1.
-1. Luego, de nuevo `Doble` llama a super (recuerden que llama dos veces)
-2. `Rejuvenecer` vuelve a restar 1
-3. Termina, con edad = - 2
+2. `Rejuvenecer` (es el super de Doble). Este resta en 1.
+3. Luego, de nuevo `Doble` llama a super (recuerden que llama dos veces)
+4. `Rejuvenecer` vuelve a restar 1
+5. Termina, con edad = - 2
 
 Ahora si invertimos la declaración como en el segundo ejemplo
 
@@ -557,6 +561,8 @@ La clase Cat genera una linea de delegación así:
 
 Las flechas oscuras representan la linearización. Las demás, las relaciones de herencia. Nótese que siempre se busca el camino más largo, por el lado de la derecha. Por ejemplo de HasLegs, no pasamos directo a Animal, sino que vamos a tratés de Furry.
 La "linearización" o linea negra nos indica por dónde se va a resolver un llamado a `super`
+
+
 ## Stackable Traits Pattern
 
 Es un "patron" de diseño que, a traves de traits, nos permite definir comportamiento que se va combinando, como "apilando", uno sobre otro, y redefiniendo comportamiento.
@@ -636,13 +642,11 @@ La linearización queda:
 Anónima -> Duplicador -> ColaBasica -> Cola**
 ```
 
-
-Por esto es que al ejecutar "super" en Duplicador, se ejecuta el método de ColaBasica y no el de Cola.
-
+Por esto es que al ejecutar `super` en `Duplicador`, se ejecuta el método de `ColaBasica` y no el de `Cola`.
 
 Podríamos haber puesto solo "override" ?
 Sí, claro. Querría decir que el trait está implementado el método put que era abstracto.
-Peeeero, en su cuerpo no hubieramos podido usar el "super" (no compila!), porque claro, arriba está abstracto !, no podemos llamarlo.
+Peeeero, en su cuerpo no hubieramos podido usar el `super` (no compila!), porque claro, arriba está abstracto !, no podemos llamarlo.
 Este caso podría servir para un trait que no hace nada en el put, Ejemplo, Cola Inmutable.
 
 ```scala
@@ -690,7 +694,10 @@ Esto quizás nos sorprenda un poco, porque si navegamos el "super.put(2*i)" nos 
 Sin embargo, lo que tenemos que entender es que, **el dispatch del "super" en realidad se hace en forma dinámica, y sobre la clase concreta sobre la que aplica el trait**.
 En este caso la superclase va a ser ColaBasica, que implementa el put. Con lo cual, nunca se ejecuta la implementación de Cola.
 La linearización de "**new ColaBasica with Duplicador**" es así:
-* ****Anónima -> Duplicador -> **ColaBasica ->  Cola**
+
+```bash
+Anónima -> Duplicador -> ColaBasica ->  Cola
+```
 
 
 Implementamos ahora el Incrementador
@@ -768,6 +775,11 @@ La ejecución es así.
 1. Se ejecuta el `put` de `Cuatriplicador`. Este multiplica 3 * 2 = 6  y llama a `super`
 2. Se ejecuta el método del trait heredado de `Duplicador`, que multiplica 6 * 2 y luego llama a `super`.
 3. Se ejecuta finalmente el método de `ColaBásica` que agrega el 12 a la cola.
+
+# Resolución de Conflictos
+
+Ver [este post](../conceptos-mixins-conflictos-con-traits-de-scala)
+
 
 ## Referencias / Bibliografía
 
