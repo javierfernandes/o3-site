@@ -190,6 +190,11 @@ footer#footer {
   font-size: 0.7rem;
 }
 
+/* next / prev page */
+.entry-nav {
+  padding-bottom: 2.5rem;
+}
+
 /* next prev page link */
 .entry-nav .container {
   display: flex;

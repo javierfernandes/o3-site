@@ -1,9 +1,10 @@
 ---
 title: "Scala"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-25T13:17:47-03:00
 menu:
   sidebar:
     parent: Tecnologías
+    weight: -1
 toc: true
 ---
 
@@ -38,14 +39,14 @@ Nota: otra opción es usar Eclipse, aunque el soporte para Scala suele ser más 
 
 ## Ejemplos Viejos (deprecated)
 
-#### Ejemplos de uso del lenguaje y sus características más importantes
+Uso del lenguaje y características más importantes
+
+* [Introductorios](http://xp-dev.com/svn/uqbar/examples/paco/trunk/languages/scala)
+* [Patrones de Diseño en Scala](http://xp-dev.com/svn/uqbar/examples/paco/trunk/patterns/scala)
+* [Diseño Avanzado utilizando: mixins, pattern matching, orden superior, etc](http://xp-dev.com/svn/uqbar/examples/paco/trunk/dispatch/scala/rabufetti-scala)
 
 
-* [Ejemplos introductorios](http://xp-dev.com/svn/uqbar/examples/paco/trunk/languages/scala)
-* [Implementaciones de patrones aprovechando las características específicas del lenguaje](http://xp-dev.com/svn/uqbar/examples/paco/trunk/patterns/scala)
-* [Un ejemplo de diseño más avanzado, utilizando varias de las características más interesantes del lenguaje (mixins, pattern matching, orden superior, etc)](http://xp-dev.com/svn/uqbar/examples/paco/trunk/dispatch/scala/rabufetti-scala)
-
-#### Ejemplos de conceptos de la materia que utilizan Scala como soporte
+Conceptos de la materia que utilizan Scala como soporte
 
 * [Mecanismos alternativos de reutilización de comportamiento (incluye Scala mixins, entre otros)](http://xp-dev.com/svn/uqbar/examples/paco/trunk/traits)
 * [Sistemas de tipos en diferentes lenguajes (incluyendo Scala, entre otros)](http://xp-dev.com/svn/uqbar/examples/paco/trunk/typing/scala)

@@ -1,9 +1,10 @@
 ---
 title: "temario"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-25T13:17:47-03:00
 menu:
   sidebar:
     parent: Cursada
+    weight: -1
 ---
 
 
@@ -15,12 +16,12 @@ A continuación una lista de diapositivas a los temas que vemos en la materia
 | Unidad	| Tema    |   Material  |	 Ejercicios / Ejemplos |
 |---------|---------|-------------|------------------------|
 | 0 | Sistemas de Tipos | [Intro a Sistemas de Tipos](https://docs.google.com/presentation/d/1F7wX_ScphEgGiN9wbDxvvru6G2c-UEG3H8mEbL8BdPg/), Generics (?) |
-| 1 | Mixins | [Intro a Scala](https://docs.google.com/presentation/d/1ffuoM0n1x9RSjUwOudzUAXDeRTHFTYQ89Cf83Ls-Ju0/), [Mixins]() |
+| 1 | Mixins | [Intro a Scala](https://docs.google.com/presentation/d/1ffuoM0n1x9RSjUwOudzUAXDeRTHFTYQ89Cf83Ls-Ju0/), [Mixins]() | [Mateada](https://docs.google.com/document/d/1sy1rxT6oJg_CiCncDNzJFSjdHttGwIRsMkXb-XYK55E/edit#heading=h.h9xv154burn7) |
 | 2 | Influencias de FP en OOP | [FP + OOP (scala)](https://docs.google.com/presentation/d/15OYGb2OtPmmtkHZayCHNiirlMvZh4XqMnTZXyqCSR8U/) |
 | 3 | Metaprogramación | [Metaprogramación](https://docs.google.com/presentation/d/10P7XBI9gCB27vvWC5J294L-w22C8NG0tVMI7xbFTLeE/edit) |
 
 
-## Temario Ampliado
+# Temario Ampliado
 
 Este es  un conjunto de apuntes más completo que incluye temas relacionados a los que vemos en la materia, pero que quizás no vemos en la cursada. Aunque lo vimos otras cursadas.
 Sirve como referencia para entender mejor los temas
@@ -32,13 +33,13 @@ Sirve como referencia para entender mejor los temas
 * [Definiendo comportamiento más allá de las clases](../conceptos-metamodelos) Closures. Open Clases. [Mixins](conceptos-mixins) & [Traits.](../conceptos-traits) [Prototype-Oriented Programming](../conceptos-object-based-languages). [Aspect-Oriented Programming](../conceptos-aop) (AOP). Behavioural completeness. Revisión de los patrones de diseño.
 
 
-* [Reflexividad y metaprogramación](../conceptos-unidad-3)
+* [**Reflexividad y metaprogramación**](../conceptos-unidad-3)
 
-* [Metraprogramación](../conceptos-metaprogramacion): reflection, introspection, self-modification e intercession.  Meta-Objects. MOP. Bonus: [Mirrors.](../conceptos-mirrors)
+* [**Metraprogramación**](../conceptos-metaprogramacion): reflection, introspection, self-modification e intercession.  Meta-Objects. MOP. Bonus: [Mirrors.](../conceptos-mirrors)
 
-* [Programación Declarativa](../conceptos-declaratividad) Concepto de declaratividad. Caracterísiticas. Implementaciones y ejemplos. Ventajas: abstracción, portabilidad, paralelismo. Relación con DSLs y metaprogramación. Lenguajes con características declarativas.
+* [**Programación Declarativa**](../conceptos-declaratividad) Concepto de declaratividad. Caracterísiticas. Implementaciones y ejemplos. Ventajas: abstracción, portabilidad, paralelismo. Relación con DSLs y metaprogramación. Lenguajes con características declarativas.
 
-* [Lenguajes Específicos de Dominio](conceptos-dsls): Concepto de DSL. General Purpose Language vs Domain-Specific Language. Características. 
+* [**Lenguajes Específicos de Dominio**](conceptos-dsls): Concepto de DSL. General Purpose Language vs Domain-Specific Language. Características. 
 Objetivos de un DSL. Tipos de DSL: Compilados, interpretados; Traductores; Embebidos. Complejidades de creación de un DSL.
 Modelo Semántico.
 Gramática: concepto, relación con modelo semántico, proceso de diseño.

@@ -1,11 +1,12 @@
 ---
 title: "Cursada"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-25T13:17:47-03:00
 menu:
   - main
   - sidebar
 ---
 
+* [Temario](../temario)
 * [Planificación](../unq-planificacion)
 * Enunciados de los [Trabajos Prácticos](../tps-2014-c1)
 * [Notas](../unq-notas-unq)

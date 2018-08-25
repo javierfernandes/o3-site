@@ -1,10 +1,11 @@
 ---
 title: "Mixins"
-date: 2018-08-21T12:02:44-03:00
+date: 2018-08-25T13:17:47-03:00
 toc: true
 menu:
   sidebar:
     parent: Conceptos
+    weight: 1
 ---
 
 

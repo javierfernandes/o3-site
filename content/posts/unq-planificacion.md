@@ -1,10 +1,11 @@
 ---
 title: "Planificación"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-25T13:17:47-03:00
 menu:
   sidebar:
     parent: Cursada
     name: Planificacion
+    weight: 1
 ---
 
 {{% gsheet 
