@@ -1,6 +1,6 @@
 ---
 title: "Scala"
-date: 2018-08-25T13:17:47-03:00
+date: 2018-08-28T12:12:53-03:00
 menu:
   sidebar:
     parent: Tecnologías
@@ -14,7 +14,9 @@ La opción que recomendamos es usar IntelliJ con el plugin para Scala. Acá un v
 
 {{< youtube yvoeJpxGLTU>}}
 
-Nota: otra opción es usar Eclipse, aunque el soporte para Scala suele ser más limitado. Ver [acá](http://scala-ide.org/download/sdk.html)
+
+> Nota: otra opción es usar Eclipse, aunque el soporte para Scala suele ser más limitado. Ver [acá](http://scala-ide.org/download/sdk.html)
+> Otra herramienta útil para hacer pruebas rápidas si tenemos internet es un REPL online. Por ejemplo [Scatie](https://scastie.scala-lang.org/)
 
 ### Material de referencia y consulta
 

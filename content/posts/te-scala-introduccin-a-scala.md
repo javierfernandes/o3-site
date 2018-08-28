@@ -1,6 +1,6 @@
 ---
 title: "Scala: Introducción"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-28T12:12:53-03:00
 toc: true
 ---
 
@@ -30,15 +30,16 @@ Los tipos de las variables se escriben después del nombre, y luego de dos punto
 En java:
     
 ```java
-unMetodo(String unString, Integer numero)
+String unMetodo(String unString, Integer numero)
 ```
 
 En scala:
 
 ```scala
-unMetodo(unString : String, numero : Integer)
+unMetodo(unString : String, numero : Integer) : String
 ```
 
+Lo mismo pasa con el tipo de retorno del método. Va luego de éste con `: String`
 
 #### Variables (y valores) locales
 
@@ -83,7 +84,7 @@ println("Hello, " + nombre + "!")
 ```
 
 
-Además, la variable "nombre" al estar siendo asignada a un string ("World"), el compilador puede concluir automáticamente que va a ser de tipo String, con lo cual no hace falta que declaremos el tipo.
+Además, la variable `nombre` al estar siendo asignada a un string (`"World"`), el compilador puede concluir automáticamente que va a ser de tipo `String`, con lo cual no hace falta que declaremos el tipo.
 
 ```scala
 var nombre = "World"
@@ -127,7 +128,7 @@ class Robot extends AnyRef {
 ```scala
 class Robot {
   val material = "cobre"
- var nombre = "C3PO"
+  var nombre = "C3PO"
 }
 ```
 
@@ -153,7 +154,7 @@ def presentarseA(alguien : String) {
 }
 ```
 
-Si en cambio queremos hacer un método que nos retorne el string
+Si en cambio queremos hacer un método que nos retorne un string
 
 ```scala
 def decimeTuNombre() : String = {
@@ -164,15 +165,15 @@ def decimeTuNombre() : String = {
 En este caso estamos especificando el tipo de retorno del método, luego de los parámetros (a diferencia de Java y C donde se escriben antes del nombre).
 Otro detalle es que al retornar algo, el método se debe declarar con el símbolo `=`
 Ahora veamos cómo reducir un poco de código.
-Podemos eliminar la palabra `return`. El compilador asume que el retorno es la última expresión del cuerpo del método.
+Podemos eliminar la palabra `return`. El compilador asume que el retorno es **la última expresión del cuerpo del método**.
 
 ```scala
-def decimeTuNombre() : String = 
+def decimeTuNombre() : String = {
   "Soy " + nombre`
 }
 ```
 
-Como en este caso el cuerpo del método es una única expresión, podemos evitar los paréntesis, que sirven para agrupar más de una expresión.
+Como en este caso el cuerpo del método es una única expresión, podemos evitar las llaves, que sirven para agrupar más de una expresión.
 
 ```scala
 def decimeTuNombre() : String = "Soy " + nombre
@@ -647,6 +648,70 @@ Otros métodos útiles:
 
 Ojo porque también existe el `collect` y `detect`, pero tienen otro significado.
 
+### Otros métodos
+
+En cuanto a listas, la forma de acceder a un elemento en un índice en particular es distinta sintácticamente a la de Java
+
+Java
+```java
+personas[0]
+```
+
+Scala
+```scala
+personas(0)
+```
+
+Obtener el tamaño de una lista
+
+```scala
+personas.size  // sin paréntesis
+```
+
+### Listas inmutables
+
+Cuando operamos con listas inmutables vamos a usar operaciones (métodos) similares a los que conocíamos de java (conceptualmente) como agregar un elemento (`.add()`), o remover. Sin embargo estos mensajes no van a alterar la lista, sino que retornan una instancia nueva con ese cambio.
+
+Un tema a tener en cuenta es que muchos de estos mensajes tienen como "nombre" símbolos. Lo cual lo hace un poco dificil al principio :( O bien luego recordar cual era para qué cosa
+
+Acá un par
+
+```scala
+// agregar un elemento (al final)
+personas = personas :+ otraPersona
+// agregar un elemento (al comienzo de la lista)
+personas = otraPersona +: personas 
+// agregar una lista de elementos (concatenar 2 listas)
+personas = personas ::: masPersonas
+// ó el mensaje más genérico para concatenar con otros tipos de colecciones
+personas = personas ++ masPersonas
+```
+
+### Set
+
+Los Sets son conjuntos que no admiten duplicados.
+
+```scala
+// agregar elemento con `+`
+Set("Hola") + "Mundo" + "Mundo"
+> Set(Hola, Mundo)
+
+// consultar si contiene elemento
+Set("Hola").contains("Hola")
+> true
+```
+
+### Listas `a la funcional`
+
+```scala
+// obtener el 1er elemento
+personas.head
+// obtener una lista sin el primer elemento (resto/cola)
+personas.tail
+
+// Idem pero en una sóla linea obtener ambas cosas
+var primero :: resto = personas
+```
 
 ## Links interesantes a temas aún más avanzados
 
