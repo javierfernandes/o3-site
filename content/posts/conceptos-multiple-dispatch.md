@@ -1,6 +1,6 @@
 ---
 title: "conceptos-multiple-dispatch"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-08-29T11:49:14-03:00
 toc: true
 ---
 
@@ -11,82 +11,90 @@ Cuando vemos el paradigma de objetos se nos hace hincapié en la idea de polimor
 #### Veamos un Ejemplo
 Entonces, por ejemplo, podemos tener la idea de un objeto **Trabajador**, cuyos casos concretos pueden ser un **Artesano**, que generará adornos o artesanías como parte de su trabajo, o un **Zapatero**, que creará un zapato.
 
-        **abstract class** Trabajador {
- `    trabajar``() {
-         System.out.println("No hago nada!!");
-     }
-}`
+```scala
+abstract class Trabajador {
+  trabajar() {
+    System.out.println("No hago nada!!");
+  }
+}
 
-        class Artesano extends Trabajador {
-            trabajar`() {
-         System.out.println("Hice un duendecito!");
-     }`
-        }
+class Artesano extends Trabajador {
+  trabajar() {
+    System.out.println("Hice un duendecito!");
+  }
+}
 
-        class Zapatero extends Trabajador {
-            trabajar`() {
-         System.out.println("Hice un mocasín!");
-     }`
-        }
+class Zapatero extends Trabajador {
+  trabajar() {
+    System.out.println("Hice un mocasín!");
+  }
+}
+```
 
 Y ahora el tercer objeto, el cliente, sería nuestro código de ejemplo que pone a trabajar a la gente :)
 
-        Artesano artesano = new Artesano();
+```scala
+Artesano artesano = new Artesano();
 artesano.trabajar();
+```
 
 *Qué va a imprimir ???*
 
 Y, ahora este otro ejemplo, asignamos el artesano a una variable de tipo Trabajador.
 
-        Trabajador trabajador = new Artesano();
+```scala
+Trabajador trabajador = new Artesano();
 trabajador.trabajar();
+```
 
 *Qué va a imprimir en este caso entonces ??*
 
 Tómense un momento para mirar bien, y pensar.
 
-La respuesta es.. lo mismo. Va imprimir `"``Hice un duendecito!"`.
-*Por qué ? si en el segundo ejemplo la variable es de tipo Trabajador ??*
+La respuesta es... lo mismo. Va imprimir `"Hice un duendecito!"`.
+
+*Por qué? Si en el segundo ejemplo la variable es de tipo Trabajador?*
 
 Porque el método real que se ejecuta, no depende para nada del tipo de la variable, sino del tipo concreto del objeto que está asignado a ella, en el momento de ejecución (runtime).
 
-A este mecanismo mágico se lo llama ***"dispatching"***.
+A este mecanismo mágico se lo llama *"dispatching"*.
 Y se refiere a que la resolución dinámica del método a ejecutar.
 
 ### Single Dispatch
 
 Es simplemente lo que acabamos de ver. El dispatching puede verse como un mecanismo de resolución de un método o función a utilizarse.
 
-*De qué depende el dispatching que vimos ?
-Qué depende que se ejecute uno u otro método ?*
+*De qué depende el dispatching que vimos?
+*De qué depende que se ejecute uno u otro método ?
 
 El objeto receptor del mensaje. En nuestro caso el Artesano.
 
 Como este dispatching depende de un solo objeto, se lo denomina "Single Dispatch".
 
-*Pero cómo ? entonces se podría hacer un dispatching que dependa de más de un objeto ???*
-Sí, y eso es justamente ***Multiple-Dispatch***, o también llamado ***Multi-methods***.***
+*Pero cómo? entonces se podría hacer un dispatching que dependa de más de un objeto ??*
+Sí, y eso es justamente *Multiple-Dispatch*, o también llamado *Multi-methods*.
 
-***
 
 ### Multiple-Dispatch ó Multi-Methods
 
- Para enteder multiple-dispatch tenemos que hacer un switch y cambiar la noción que tenemos "objetosa" de los métodos.
-Del ejemplo anterior, podríamos pensar que el método **trabajar**(), en lugar de estar definido dentro de una clase, podría estar definido fuera de ella, y recibir el objeto receptor, como parámetro.
+Para enteder multiple-dispatch tenemos que hacer un switch y cambiar la noción que tenemos "objetosa" de los métodos.
+Del ejemplo anterior, podríamos pensar que el método `trabajar()`, en lugar de estar definido dentro de una clase, podría estar definido fuera de ella, y recibir el objeto receptor, como parámetro.
 
 Entonces se podría escribir/pensar como:
 
-            trabajar`(``Artesano a``) {
-         System.out.println("Hice un duendecito!");
-     }`
+```scala
+trabajar(Artesano a) {
+  System.out.println("Hice un duendecito!");
+}
 
-            trabajar`(Zapatero`` z``) {
-         System.out.println(``"Hice un mocasín!"``);
-     }`
+trabajar(Zapatero z) {
+  System.out.println("Hice un mocasín!");
+}
 
-            trabajar`(Trabajador`` t``) {
-        System.out.println("No hago nada!!");``
-     }`
+trabajar(Trabajador t) {
+  System.out.println("No hago nada!!");
+}
+```
 
 Cuando hacemos esta cambio de punto de vista, le estamos dando más importancia al concepto de método. Ahora pasa a ser un FirstClassObject (concepto primario del paradigma o lenguaje que estamos utilizando).
 
@@ -105,33 +113,36 @@ Cómo resolvemos este problema que requiere de seleccionar el comportamiento en 
 Veamos las 3 formas principales. De más "precaria" a más completa.
 
 #### Emulando Multiple-dispatching a pulmón (con if instanceof's)
-        class Artesano extends Trabajador {
-            trabajar`(Material material) {
-         **if** (material **instanceof** Cuero) {
-            **return** new Llavero((Cuero) material);
-        }
-        **else** **if** (material **instanceof** Goma) {
-``            **return** new Juego((Goma) material);`
-                }
-        **else** {
-            **throw** new NoConozcoElMaterialException(material);
-        }
-     }
-        }
 
-        class Zapatero extends Trabajador {
-            `trabajar``(Material material) {
-         **if** (material **instanceof** Cuero) {
-             **return** new ZapatoCuero((Cuero) material);
-         }
-         **else** **if** (material **instanceof** Goma) {
-            **return** new Sandalia((Goma) material);`
- `        }
-         **else** {
-             **throw** new NoConozcoElMaterialException(material);
-         }
-     }`
-        }
+```scala
+class Artesano extends Trabajador {
+  trabajar(Material material) {
+    if (material instanceof Cuero) {
+      return new Llavero((Cuero) material);
+    }
+    else if (material instanceof Goma) {
+      return new Juego((Goma) material);
+    }
+    else {
+      throw new NoConozcoElMaterialException(material);
+    }
+  }
+}
+
+class Zapatero extends Trabajador {
+  trabajar(Material material) {
+    if (material instanceof Cuero) {
+      return new ZapatoCuero((Cuero) material);
+    }
+    else if (material instanceof Goma) {
+      return new Sandalia((Goma) material);`
+    }
+    else {
+      throw new NoConozcoElMaterialException(material);
+    }
+  }
+}
+```
 
 Como vemos es bastante nefasto. Y además, si agregamos un nuevo material, deberemos ir a modificar cada uno de los métodos trabajar de cada trabajador, para agregar una nueva condición al if.
 Lo peor de esta solución es que nos fuerza a preguntarle al material "sos cuero ? sos goma ? sos ... ".
@@ -143,62 +154,69 @@ En lugar de que el trabajador le pregunte de qué clase es al material, le va a 
 
 Vemos la clase trabajador como quedaría...
 
-        **abstract class** Trabajador {
- `    trabajar``(Material material) {
-        material.decimeQuienSos(this);
-     }`
-        
-    **abstract** trabajar`Cuero(Cuero cuero);`
-            **abstract** trabajar`Goma(Goma goma);`
-        **    abstract** trabajar`Material(Material material);`
-
- `}`
+```scala
+abstract class Trabajador {
+  trabajar(Material material) {
+     material.decimeQuienSos(this);
+  }
+      
+  abstract trabajarCuero(Cuero cuero);
+  abstract trabajarGoma(Goma goma);
+  abstract trabajarMaterial(Material material);`
+}
+```
 
 Y la jerarquía de materiales:
 
-        **abstract class** Material {
- `    decimeQuienSos``(Trabajador trabajador) `
-        trabajador.trabajarMaterial(this);
-     }`
- `}`
+```scala
+abstract class Material {
+  decimeQuienSos(Trabajador trabajador) {
+    trabajador.trabajarMaterial(this);
+  }
+}
 
-        **abstract class** Cuero {
- `    decimeQuienSos``(Trabajador trabajador) `
-         trabajador.trabajarCuero(this);
-     }`
- `}`
+abstract class Cuero {
+  decimeQuienSos(Trabajador trabajador) {
+    trabajador.trabajarCuero(this);
+  }
+}
 
-        **abstract class** Goma {
- `    decimeQuienSos``(Trabajador trabajador) `
-         trabajador.trabajarGoma(this);
-     }`
- `}`
+abstract class Goma {
+  decimeQuienSos(Trabajador trabajador) {
+    trabajador.trabajarGoma(this);
+  }
+}
+```
 
 Finalmente, los trabajadores particulares:
 
-        class Artesano extends Trabajador {
-             trabajar`Cuero(Cuero cuero) {
-       **return** new Llavero((Cuero) material);`
-            }
- `    trabajar``Goma(Goma goma) {
-``        **return** new Juego((Goma) material);`
-            }
- `**    **trabajar``Material(Material material) {
-       **throw** new NoConozcoElMaterialException(material);`
-            }
- `}`
+```scala
+class Artesano extends Trabajador {
+  trabajarCuero(Cuero cuero) {
+    return new Llavero((Cuero) material);
+  }
+  trabajarGoma(Goma goma) {
+    return new Juego((Goma) material);
+  }
+  trabajarMaterial(Material material) {
+    throw new NoConozcoElMaterialException(material);
+  }
+}
+```
 
-        class Zapatero extends Trabajador {
- `     trabajar``Cuero(Cuero cuero) {
-        **return** new ZapatoCuero((Cuero) material);`
- `    }
- ` `    trabajar``Goma(Goma goma) {
-       **return** new Sandalia((Goma) material);`
- `    }
- ` `**    **trabajar``Material(Material material) {
-        **throw** new NoConozcoElMaterialException(material);`
- `    }
- ` `}`
+```scala
+class Zapatero extends Trabajador {
+  trabajarCuero(Cuero cuero) {
+    return new ZapatoCuero((Cuero) material);
+  }
+  trabajarGoma(Goma goma) {
+    return new Sandalia((Goma) material);
+  }
+  trabajarMaterial(Material material) {
+    throw new NoConozcoElMaterialException(material);
+  }
+}
+```
 
 Como habrán notado, acá no hacen falta if's, ni andar preguntando por la clase del objeto.
 Porque cada clase de material se encarga de redefinir el método decimeQuienSos() para llamar de vuelta al trabajador, pero al método particular para ella.
@@ -206,13 +224,13 @@ Porque cada clase de material se encarga de redefinir el método decimeQuienSos(
 Como hay un doble llamado: primero del trabajador al material, y este luego de vuelta al trabajador, se denomina double-dispatch.
 En realidad, conceptualmente se dice double-dispatch porque este mecanismo termina seleccionando el método a ejecutar en base a dos argumentos/objetos.
 
-Esta solución, si bien es factible, solo es posible para dispatching de 2 argumentos,  y no de N.
+Esta solución, si bien es factible, solo es posible para dispatching de 2 argumentos, y no de N.
 Para N, aparece la solución más interesante....
 
 
 #### Multiple-dispatch con Multi-methods
 
- Para realmente evitar tanto los if's como la burocracía del doble llamado del double-dispatch, el enfoque más "prolijo" y poderoso es que, el lenguaje soporte multi-methods directamente.
+Para realmente evitar tanto los if's como la burocracía del doble llamado del double-dispatch, el enfoque más "prolijo" y poderoso es que, el lenguaje soporte multi-methods directamente.
 
 La idea sería entonces, simplemente escribir varios métodos con mismo nombre pero diferente tipo de parámetro, y que el lenguaje se ocupe automáticamente de hacer la selección, no solo en base al primer argumento, sino también a los demás.
 
@@ -224,78 +242,80 @@ Además, compila a bytecode de java, con lo cual eso completamente compatible y 
 Definimos primero entonces las clases y las jerarquías
 
 ```scala
-        class Trabajador {}
-        class Artesano extends Trabajador {}
-        class Zapatero extends Trabajador {}
+class Trabajador {}
+class Artesano extends Trabajador {}
+class Zapatero extends Trabajador {}
 
-        class Material {}
-        class Cuero extends Material {}
-        class Goma extends Material {}
+class Material {}
+class Cuero extends Material {}
+class Goma extends Material {}
 ```
 
 Luego podemos declarar la firma del método trabajar
 
 ```scala
-        String trabajar(Trabajador t, Material m);
+String trabajar(Trabajador t, Material m);
 ```
 
 Y ahora probamos con la implementación más básica:
 
 ```scala
-        trabajar(Trabajador t, Material m) = *"Trabajador no sabe que hacer con material"*;
+trabajar(Trabajador t, Material m) = "Trabajador no sabe que hacer con material";
 ```
 
 Si ejecutamos el siguiente código:
 
 ```scala
-        void main(String[] args) {
-            Trabajador t = new Artesano();
-            Material m = new Cuero();
-            System.out.println(t.trabajar(m));
-        }
+void main(String[] args) {
+  Trabajador t = new Artesano();
+  Material m = new Cuero();
+  System.out.println(t.trabajar(m));
+}
 ```
 
 Obtendremos como salida:
 
 ```
-*"Trabajador no sabe que hacer con material"*
+"Trabajador no sabe que hacer con material"
 ```
 
 Ahora agregamos más implementaciones del método (multi-methods):
 
 ```scala
-        trabajar(Artesano a, Cuero c) = "Te hago un llavero!";
-        trabajar(Artesano a, Goma c) = "Te hago un jueguito!";
-        trabajar(Zapatero z, Cuero c) = "Te hago un mocasin!";
-        trabajar(Zapatero z, Goma c) = "Te hago una sandalia!";
+trabajar(Artesano a, Cuero c) = "Te hago un llavero!";
+trabajar(Artesano a, Goma c) = "Te hago un jueguito!";
+trabajar(Zapatero z, Cuero c) = "Te hago un mocasin!";
+trabajar(Zapatero z, Goma c) = "Te hago una sandalia!";
 ```
 
 Si ejecutamos el mismo ejemplo ahora obtendremos:
 
-*"Te hago un llavero!"*
+```
+"Te hago un llavero!"
+```
 
 Y así, dependiendo el tipo real de los objetos que pasamos como parámetro, la VM seleccionará el método a ejecutar.
 
 
-* **Nota: ***
+* Nota:
 
 En este ejemplo declaramos los métodos "fuera de la clase" como si se trataran de [Extension Methods](../conceptos-extension-methods).
 Sin embargo podríamos haber definido los múlti-methods en las propias clases Artesano y Zapatero, de esta forma:
 
 ```scala
-        class Trabajador {
-            String trabajar(Material m) = *"Trabajador no sabe que hacer con material"*;
-        }
+class Trabajador {
+  String trabajar(Material m) = "Trabajador no sabe que hacer con material";
+}
 
-        class Artesano extends Trabajador {
-            trabajar(Cuero c) = *"Te hago un llavero!"*;
-            trabajar(Goma c) = *"Te hago un jueguito!"*;
-        }
+class Artesano extends Trabajador {
+  trabajar(Cuero c) = "Te hago un llavero!";
+  trabajar(Goma c) = "Te hago un jueguito!";
+}
 
-        class Zapatero extends Trabajador {
-            trabajar(Cuero c) = *"Te hago un mocasin!"*;
-            trabajar(Goma c) = *"Te hago una sandalia!"*;
-        }
+class Zapatero extends Trabajador {
+  trabajar(Cuero c) = "Te hago un mocasin!";
+  trabajar(Goma c) = "Te hago una sandalia!";
+}
 ```
 
 ## Multiple Dispatch en XTend
@@ -305,26 +325,21 @@ No hace falta declarar la firma del método original (el que será visible para 
 Xtend lo infiere buscando la clase común entre las distintas definiciones.
 Ejemplo:
 
-
-
 ```scala
 class Zapatero extends Trabajador 
 
- def dispatch trabajar(Cuero c) 
- `"Te hago un mocasin!"` 
- `}`
+  def dispatch trabajar(Cuero c) 
+    "Te hago un mocasin!"
+  }
  
- def dispatch trabajar(Goma g) 
-            `    "Te hago una sandalia"`
-
- `}`
+  def dispatch trabajar(Goma g) 
+    "Te hago una sandalia"
+  }
         
 }
 ```
 
-
 Acá con CTRL+O, se puede ver a la derecha en el tooltip de eclipse cómo xtend interpreta a estos dos métodos como "variantes" de un único método, que infirió, utilizando Material, superclase de ambos (Cuero y Goma), como tipo del parámetro.
-
 
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1400874886454/conceptos/multiple-dispatch/xtendmultimethods.png)
@@ -333,16 +348,12 @@ Acá con CTRL+O, se puede ver a la derecha en el tooltip de eclipse cómo xtend 
 Y si agregamos un tercer multimethod que reciba una Collection ? Es decir una clase que no está en la jerarquía de Material.
 
 
-
 ```scala
-
-        class Zapatero {
-
-
- def dispatch trabajar(Cuero c) { "Te hago un mocasin!" }`
- def dispatch trabajar(Goma g) { "Te hago una sandalia" }`
- def dispatch trabajar(Collection<Material> c) { "Uh.. cuanto laburo!" }`
-        }
+class Zapatero {
+  def dispatch trabajar(Cuero c) { "Te hago un mocasin!" }
+  def dispatch trabajar(Goma g) { "Te hago una sandalia" }
+  def dispatch trabajar(Collection<Material> c) { "Uh.. cuanto laburo!" }
+}
 ```
 
 Infiere a Object !
@@ -363,7 +374,7 @@ class Blah {
 
 Va a fallar en runtime con este mensaje
 
-```java
+```
 Exception in thread "main" java.lang.IllegalArgumentException: Unhandled parameter types: [unString]
   at org.uqbar.xtend.extensions.doblepolimorfismo.Zapatero.trabajar(Zapatero.java:31)
   at org.uqbar.xtend.extensions.doblepolimorfismo.Blah.main(Blah.java:9)
