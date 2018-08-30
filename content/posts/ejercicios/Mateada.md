@@ -1,6 +1,6 @@
 ---
 title: "Ejercicio: Mateada"
-date: 2018-08-29T11:43:50-03:00
+date: 2018-08-29T22:12:12-03:00
 toc: true
 ---
 
@@ -10,10 +10,12 @@ El enunciado del ejercicio está [acá](https://docs.google.com/document/d/1sy1r
 
 # Resoluciones
 
-La primer solución que surgió en clase, contemplando el enunciado justo HASTA que aparezcan los personajes especiales, es decir
-sólo modelando al `Mateador` por defecto que toma, o pasa, sin hacer ningún truco, fue esta
+Veamos las soluciones que fuimos implementando iterativamente.
 
 ## 3 empanadas (1 foreach)
+
+La primera solución que surgió en clase, contemplando el enunciado justo HASTA que aparezcan los personajes especiales, es decir
+sólo modelando al `Mateador` por defecto que toma, o pasa, sin hacer ningún truco, fue esta
 
 ```scala
 class Cebador() {
@@ -39,7 +41,7 @@ class MateadaSpec extends FunSpec with Matchers {
   describe("pasada de mate") {
 
     it("en una ronda de 1 solo mateador toma") {
-      val mateador = new Mateador()
+      val mateador = new Mateador
       new Cebador().iniciarPasada(List(mateador))
       mateador.matesTomadosEnPasada should equal(1)
     }
@@ -56,11 +58,11 @@ class MateadaSpec extends FunSpec with Matchers {
 Nos dimos cuenta que el `foreach` era suficiente, ya que cumplía con la idea de darle la oportunidad de tomar
 una única vez a cada participante, y, a todos.
 Esto nos evitaba resolver el problema de cómo saber si un Mateador ya tomó en la pasada o no.
-Es que la "pasada" la modelamos como una recorrida de la lista con foreach
+Es que la "pasada" la modelamos como una recorrida de la lista con `foreach`.
 
 ## Yo soy 'cola', tu pegamento (refTo monkey island)
 
-Cuando ibamos a agregar los roles nos dimos cuenta que varios `Mateadores` necesitaban intervenir cuando el mate le tocaba a otro, para tomar ellos. Es decir que necesitábamos darle el "control del flujo" a los mateadores, o al menos poder intervenir en él.
+Cuando íbamos a agregar los roles nos dimos cuenta que varios `Mateadores` necesitaban intervenir cuando el mate le tocaba a otro, para tomar ellos. Es decir que necesitábamos darle el "control del flujo" a los mateadores, o al menos poder intervenir en él.
 Eso al final es lo que pasa en la realidad cuando pasamos algo por una "ronda"
 En la solución anterior, si quieren verlo así lo que hacíamos era que el `Cebador` le diera el mate "directo" al que le correspondía. Tenía mucho más control.
 
@@ -92,7 +94,7 @@ class Mate(mateadores : List[Mateador]) {
 
 class Cebador() {
   def iniciarPasada(mateadores: List[Mateador]) = {
-    // por qué el mate necesita conocer a los mateadores
+    // por qué el mate necesita conocer a los mateadores ?
     var mate = new Mate(mateadores)
     while(!mate.todosYaTomaron()) {
       mate = mateadores.head.recibirMate(mate, mateadores.tail)
@@ -121,23 +123,24 @@ class Mateador {
 }
 ```
 
-Dejamos un par de preguntas en el código como comentario, ya que fueron "microdecisiones" que tuvimos que tomar durante la implementación.
+Dejamos un par de preguntas en el código como comentarios, ya que fueron "microdecisiones" que tuvimos que tomar durante la implementación (algunas ni las llegamos a ver como la del uso del `Set`)
 
 ### Chain Of Responsibility
 
-Luego planteamos que usar una `List[Mateador]`, es decir una clase de Scala, es un poco limitando, o "bajo nivel", y si bien es "poderoso" porque permite a la impl de `Mateador`, acceder en forma cruda a la ronda, y por ejemplo poder saltear, etc.. también nos fuerza a repetir en cada impl el partir la lista en head y `siguientes.tail`. Es decir hacer el forwarding cada vez.
+Luego planteamos que usar una `List[Mateador]`, es decir una clase de Scala, es un poco limitando, o de "bajo nivel", y si bien es "poderoso" porque permite a la impl de `Mateador` acceder en forma cruda a la ronda, y por ejemplo poder saltear, etc.. también nos fuerza a repetir en cada impl el partir la lista en `head` y `siguientes.tail`. Es decir hacer el forwarding cada vez.
 
+Esto
 ```scala
 siguientes.head.recibirMate(mate, siguientes.tail)
 ```
 
-Incluso, una cosa que no marcamos en clase es que hay una DUPLICACION. El `Cebador` que es quien arranca la pasada, también hace algo muy parecido
+Incluso, una cosa que no marcamos en clase es que hay una DUPLICACION. El `Cebador` que es quien arranca la pasada, y también hace algo muy parecido:
 
 ```scala
 mate = mateadores.head.recibirMate(mate, mateadores.tail)
 ```
 
-Y por último, cada `Mateador` hoy día también tiene que controlar si la lista que sigue está vacía, lo cual lo hace bastante molesto. Y podría considerarse parte de la lógica abstract de "forwardear".
+Y por último, cada `Mateador` hoy día también tiene que controlar si la lista que sigue está vacía, lo cual lo hace bastante molesto. Y podría considerarse parte de la lógica abstracta de "forwardear".
 
 Entonces un diseño más "explítico" sería modelar nuestro propio objeto que represente a la cadena.
 Vamos a ver primero cómo queda el `Mateador`, que es lo que queremos simplificar.
@@ -160,7 +163,7 @@ class Mateador {
 }
 ```
 
-Como vemos queda mucho más sencillo, porque se abstrae de la propagación. Hace simplemente `cadena.pasarMate(mate`. Esto sigue permitiendo al tipo cambiar el mate (como requieren ciertos roles)
+Como vemos queda mucho más sencillo, porque se abstrae de la propagación. Hace simplemente `cadena.pasarMate(mate)`. Esto sigue permitiendo al mateador cambiar el mate (como requieren ciertos roles).
 
 También simplificamos al `Cebador` y evitamos la duplicación. Este crea la cadena y le dice "arrancá"
 
@@ -181,14 +184,14 @@ Finalmente la impl de `CadenaDeMate` (que si entendimos como se usa y para qué 
 
 ```scala
 class CadenaDeMate(mateadores: List[Mateador]) {
-  var _restantes = mateadores
+  var restantes = mateadores
 
   def pasarMate(mate: Mate) : Mate = {
-    if (_restantes.isEmpty) {
+    if (restantes.isEmpty) {
       return mate
     }
-    val proximo :: otros = _restantes
-    _restantes = otros
+    val proximo :: otros = restantes
+    restantes = otros
     return proximo.recibirMate(mate, this)
   }
 }
@@ -196,8 +199,13 @@ class CadenaDeMate(mateadores: List[Mateador]) {
 
 Los tests debería continuar verde.
 
-## Implementación de Personajes
+> Nota:
+> Cuando hacemos esto `val proximo :: otros = restantes` estamos "extrayendo" de la lista la cabeza (`proximo`) y la cola (`otros`).
+> 
+
+## Implementaciones de Personajes
 
 ```scala
-// TODO
+// TODO strategy & decorator
 ```
+
