@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date: 2018-09-01T18:42:46-03:00
+date: 2018-09-01T19:03:22-03:00
 toc: true
 menu:
   sidebar:
@@ -58,7 +58,7 @@ En cambio, si la clase ya hereda de otra clase, se **debe** utilizar el **with.*
 
 ```scala
 class Persona
-class Platon extends Escritor with Filosofo {
+class Platon extends Persona with Filosofo {
  def hablar() {
    filosofar()
  }
