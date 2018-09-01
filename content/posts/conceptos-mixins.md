@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date: 2018-09-01T18:40:16-03:00
+date: 2018-09-01T18:42:46-03:00
 toc: true
 menu:
   sidebar:
@@ -262,14 +262,14 @@ class Gorrion extends Ave
 class Halcon extends Ave
 ```
 
-Tanto el gorrión como el halcón son aves, con lo que reutilizan el comportamiento de volar. Obviamente en un ejemplo real, además cada subclase debería tener un comportamiento adicional propio. Pero acá estamos tratando de simplificar un poco para no confundir.
+Tanto el gorrión como el halcón son aves, con lo que reutilizan el comportamiento de `volar`. Obviamente en un ejemplo real, además cada subclase debería tener un comportamiento adicional propio. Pero acá estamos tratando de simplificar un poco para no confundir.
 Ahora, qué pasa con **el Pingüino** ? Es una ave, porque tiene alas en lugar de patas delanteras, sin embargo **no puede volar** !
 
 Una solución entonces sería introducir una **clase intermedia**.
 
 ```scala
 class Ave
-class AveVoladora extends** Ave {
+class AveVoladora extends Ave {
   def volar = println("volare oh oh")
 }
 class Gorrion extends AveVoladora
@@ -410,14 +410,14 @@ Mentalmente estábamos pensando este para que "funcione" con Persona. Queríamos
 Entonces, la forma correcta de hacer esto es
 
 ```scala
-trait EnvejeceElDoble *extends Persona* 
+trait EnvejeceElDoble extends Persona 
   override def envejecer() 
     edad += 2
   }
 }
 ```
 
-Esto, si se quiere se puede pensar como que "este trait" se aplica a Personas. Eso nos permite saber que "this" va a ser una persona, entonces podemos acceder a su edad y sobrescribir cualquier método.
+Esto, si se quiere se puede pensar como que "este trait" se aplica a Personas. Eso nos permite saber que `this` va a ser una persona, entonces podemos acceder a su edad y sobrescribir cualquier método.
 
 ## Sobrescritura con Super
 
@@ -427,7 +427,7 @@ Una variante al mixin anterior es no tocar la edad diréctamente sino pensarlo c
 Eso, se puede hacer igual que en una sobrescritura de clases, con `super`
 
 ```scala
-trait EnvejeceElDoble *extends Persona* 
+trait EnvejeceElDoble extends Persona 
   override def envejecer() 
     super.envejecer()
     super.envejecer()

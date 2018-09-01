@@ -1,6 +1,6 @@
 ---
 title: "conceptos-multiple-dispatch"
-date: 2018-08-28T21:18:48-03:00
+date: 2018-09-01T18:42:46-03:00
 toc: true
 ---
 
