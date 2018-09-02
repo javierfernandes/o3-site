@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date: 2018-09-01T23:30:09-03:00
+date: 2018-09-01T23:40:13-03:00
 toc: true
 menu:
   sidebar:
@@ -496,7 +496,7 @@ Se lee así
 
 * **defino una nueva clase Carpintero:** esta va a ir **abajo de todo**, porque tengo el control de sobrescribir lo que quiera. Es la "más concreta"
 * **esta clase extiende de Persona:** esta clase va "arriba"  de Carpintero (y arriba de todo)
-* **mezclo los mixins:** de acá el nombre. Los mixins se van a meter entre la super clase (`Persona`) y nuestra clase (`Carpintero`). En orden `Derecha -> Izquierda`  (dibujandolas desde `Arriba -> Abajo`)
+* **mezclo los mixins:** de acá el nombre. Los mixins se van a meter entre la super clase (`Persona`) y nuestra clase (`Carpintero`). En orden de derecha a izquierda  (dibujandolas desde arriba hacia abajo)
 
 Quedaría así
 
@@ -539,7 +539,7 @@ class Gato extends Animal with Peludo with ConCuatroPatas
 
 La clase `Gato` genera una linea de delegación así:
 
-![A la izquiera la relación formal de herencia (Peludo y ConPatas extienden Animal. ConCuatroPatas extiende ConPatas. Gato extiende Animal, Peludo y ConCuatroPatas; A la derecha la linearización, yendo de lo más particular a lo más general: Gato -> ConCuatroPatas -> ConPatas -> Peludo -> Animal)](/images/mixins-animales.png)
+![A la izquiera la relación formal de herencia (Peludo y ConPatas extienden Animal. ConCuatroPatas extiende ConPatas. Gato extiende Animal, Peludo y ConCuatroPatas; A la derecha la linearización, yendo de lo más particular a lo más general: Gato → ConCuatroPatas → ConPatas → Peludo → Animal)](/images/mixins-animales.png)
 
 A la izquierda vemos las relaciones formales de herencia. A la derecha la linearización de los traits. El method-lookup, o sea la búsqueda de un método por el cuál atender un mensaje, ocurre siempre por este ultimo camino. Por ejemplo de `ConPatas` no pasamos directo a `Animal` sino que vamos a tratés de `Peludo`.
 
@@ -623,7 +623,7 @@ El eslabón más bajo dice "anónima" ya que estamos aplicando el mixin a un obj
 La linearización queda:
 
 ```bash
-Anónima -> Duplicador -> ColaBasica -> Cola**
+Anónima → Duplicador → ColaBasica → Cola
 ```
 
 Por esto es que al ejecutar `super.put(...)` en `Duplicador` se ejecuta el método de `ColaBasica` y no el de `Cola`. 
@@ -680,7 +680,7 @@ En este caso la superclase va a ser `ColaBasica` que implementa el `put` con lo 
 La linearización de `new ColaBasica with Duplicador` es así:
 
 ```bash
-Anónima -> Duplicador -> ColaBasica ->  Cola
+Anónima → Duplicador → ColaBasica → Cola
 ```
 
 Implementamos ahora el mixin `Incrementador`:
@@ -708,7 +708,7 @@ Acá vemos que se puede aplicar más de un mixin. Pero además que la ejecución
 La nueva linearización quedaría de esta forma:
 
 ```bash
-Anónima -> Incrementador -> Duplicador -> ColaBasica -> Cola
+Anónima → Incrementador → Duplicador → ColaBasica → Cola
 ```
 
 Un put se ejecuta así:
@@ -747,7 +747,7 @@ El diagrama quedaría:
 ![La clase anónima que creamos ahora extiende ColaBasica y Cuatriplicador. Cuatriplicador extiende Duplicador. Duplicador y ColaBasica extienden Cola](/images/mixins-cuatriplicador.png)
 
 ```bash
-Anónima -> Cuatriplicador -> Duplicador -> ColaBasica -> Cola
+Anónima → Cuatriplicador → Duplicador → ColaBasica → Cola
 ```
 
 La ejecución es así:
