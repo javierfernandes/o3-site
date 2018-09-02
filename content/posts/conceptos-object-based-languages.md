@@ -1,6 +1,6 @@
 ---
 title: "Lenguajes basados en Objetos"
-date: 2018-08-25T13:17:47-03:00
+date: 2018-09-02T13:01:21-03:00
 toc: true
 ---
 
@@ -28,7 +28,7 @@ El comportamiento definido en los propios objetos nos permite lograr todos conce
 El lenguaje más tradicional en el que se definió el concepto de object-based es **[Self](../te-self)**. En su momento Self fue un proyecto revolucionario no sólo por su concepción sin clases sino por su virtual machine que incorporó ideas muy novedosas (que son las que permitieron que hoy en día muchos lenguajes utilicen VMs). Pero hoy en día el proyecto Self no tiene mucha actividad y hay otros lenguajes que lo han ido superando en diferentes aspectos. 
 
 
-Desde hace varios hay un lenguaje muy popular que es object-based: [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](../te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
+Desde hace varios años hay un lenguaje muy popular que es object-based: [Javascript](conceptos-object-based-languages-prototipos-en-javascript). Nosotros vamos a utilizar un lenguaje muy nuevo llamado [Ioke](../te-ioke) porque nos parece que tiene algunas características que lo hacen muy interesante (incluso varias ideas novedosas que van más allá de la programación object-based).
 
 
 ## Reemplazo de Clases
@@ -77,8 +77,8 @@ Así que en estas páginas de cada lenguaje se pueden ver estas ideas aplicadas:
 * [Ioke](../te-ioke)
 * [Self](../conceptos-object-based-languages-self)
 * [Prototipos en JavaScript](../conceptos-object-based-languages-prototipos-en-javascript)
+* [Io](../conceptos-object-based-languages-io)
 
 # Otros lenguajes con prototipos
 
-* [Io](https://iolanguage.org/)
 * [Slate](https://github.com/briantrice/slate-language)
