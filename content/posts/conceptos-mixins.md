@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date: 2018-09-01T19:03:22-03:00
+date: 2018-09-01T23:30:09-03:00
 toc: true
 menu:
   sidebar:
@@ -70,7 +70,6 @@ En ambos casos vemos que un método de la clase, está utilizando el `filosofar(
 ## El mixin define un tipo
 
 Otra opción, es utilizar el método desde el cliente de los objetos.
-
 
 ```scala
 val socrates = new Socrates
@@ -343,15 +342,15 @@ Veamos entonces un poquito de código que use a las aves.
 
 
 ```scala
-object TraitsDeAves {
+object PruebaConAves {
   def main(args: Array[String]) {
-    val nadadores = List(new TPinguino, new TPato)
+    val nadadores = List(new Pinguino, new Pato)
     nadadores foreach { n => n.nadar }
   }
 }
 ```
 
-La lista "nadadores" se infiere automáticamente al tipo del trait **List[Nadadora]. **Esto nos permite tratar a las aves, no importa su clase, como nadadoras. Igual que con una interface de java. Por eso luego en el foreach estamos haciendo que naden.
+La lista "nadadores" se infiere automáticamente al tipo del trait `List[Nadadora]`. Esto nos permite tratar a las aves, no importa su clase, como nadadoras. Igual que con una interface de java. Por eso luego en el foreach estamos haciendo que naden.
 
 ## Mixins con sobrescritura (override)
 
@@ -378,12 +377,10 @@ class Persona {
 Supongamos que tenemos varias subclases que hacen diferentes cosas, como un Carpintero, un Doctor, etc. Y sin embargo ahora queremos modelar la idea de diferentes "formas" de envejecer, y poder aplicárselas a todas esas clases.
 Entonces, estamos forzados a modelarlo con mixins (y además está bueno :P)
 
+Por ejemplo, un mixin para `EnvejeceElDoble` que haga que si a la persona le digo "envejece" esta envejezca 2 años en lugar de 1 !
 
-Por ejemplo, un mixin para **EnvejeceElDoble **que haga que si a la persona le digo "envejece" esta envejezca 2 años en lugar de 1 !
-
-Este mixin no va a agregar un nuevo método. Sino que tiene que redefinir el envejecer() !
-Esto es importante porque no queremos que los que usen Persona le tengan que mandar un mensaje nuevo (como envejeceDoble()) diferente al original. Queremos que se mantenga el polimorfismo !!
-
+Este mixin no va a agregar un nuevo método sino que tiene que redefinir `envejecer()`.
+Esto es importante porque no queremos que los que usen Persona le tengan que mandar un mensaje nuevo (como `envejeceDoble()`) diferente al original. Queremos que se mantenga el polimorfismo!
 
 Entonces uno está tentado a hacer esto (y más aún si viene de lenguajes sin checkeos estáticos)
 
@@ -395,7 +392,7 @@ trait EnvejeceElDoble {
 }
 ```
 
-Sin embargo cuando quieran combinar este mixin con la clase `Persona` en una subclase, van a tener un error. Un "conflicto"
+Sin embargo cuando quieran combinar este mixin con la clase `Persona` en una subclase, van a tener un error. Un "conflicto".
 
 ```scala
 class Carpintero extends Persona with EnvejeceElDoble {  
@@ -475,21 +472,19 @@ class Carpintero extends Persona with EnvejeceDoble with Rejuvenece {
 
 Ahora: - 1
 
-Esto es porque el orden importa ! En el mismo sentido en que en una herencia común se hace un method lookup buscando la implementación más concreta.
+Esto es porque el orden importa. En el mismo sentido en que en una herencia común se hace un method-lookup buscando la implementación más concreta.
 Acá se ve la característica principal del mecanismo de mixins que es **la "linearización"**.
 
-Si bien hasta ahora se parecía mucho a una herencia múltiple, los mixins garantizan que nunca hace una herencia de este tipo: 
+Si bien hasta ahora se parecía mucho a una herencia múltiple los mixins garantizan que nunca hace una herencia de este tipo: 
 
-[![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/220px-Diamond_inheritance.svg.png)
-](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diamond_inheritance.svg/220px-Diamond_inheritance.svg.png)
+![Herencia en diamante: La clase D especializa de B y C al mismo tiempo. B y C especializan A.](/images/herencia-en-diamante.png)
 
 
-Es decir, nunca un clase `D` va a tener dos super classes (o traits). Porque esto lleva a conflictos.
-En cambio, los mixins en forma estática (al momento de compilar el código, o de leerlo si se quiere) ya garantizan una herencia "lineal" ! donde cada nodo tiene un sólo padre.
-De esta forma (de la derecha)
+Es decir, nunca una clase `D` va a tener dos super clases (o traits) porque esto conlleva conflictos. En cambio, los mixins en forma estática (al momento de compilar el código, o de leerlo si se quiere) ya garantizan una herencia "lineal" donde cada nodo tiene un sólo padre.
 
-[![](http://julienrf.github.io/scala-lessons/course/Traits.png)
-](http://julienrf.github.io/scala-lessons/course/Traits.png)
+
+![Herencia linearizada: D "especializa" C. C "especializa" B. B "especializa" A.](/images/herencia-linealizada.png)
+
 
 Entonces esto:
 
@@ -501,21 +496,20 @@ Se lee así
 
 * **defino una nueva clase Carpintero:** esta va a ir **abajo de todo**, porque tengo el control de sobrescribir lo que quiera. Es la "más concreta"
 * **esta clase extiende de Persona:** esta clase va "arriba"  de Carpintero (y arriba de todo)
-* **mezclo los mixins:** de acá el nombre. Los mixins se van a meter entra la super clase (`Persona`) y nuestra clase (`Carpintero`). En orden `Derecha -> Izquierda`  (dibujandolas desde `Arriba -> Abajo`)
+* **mezclo los mixins:** de acá el nombre. Los mixins se van a meter entre la super clase (`Persona`) y nuestra clase (`Carpintero`). En orden `Derecha -> Izquierda`  (dibujandolas desde `Arriba -> Abajo`)
 
 Quedaría así
 
-[![](https://sites.google.com/site/programacionhm/_/rsrc/1472914907297/conceptos/mixins/mixins-envejece1.png)
-](conceptos-mixins-mixins-envejece1-png?attredirects=0)
+![Carpintero "especializa" EnvejeceElDoble. EnvejeceElDoble "especializa" Rejuvenece. Rejuvece "especializa" Persona](https://sites.google.com/site/programacionhm/_/rsrc/1472914907297/conceptos/mixins/mixins-envejece1.png)
 
 Y entonces ahora aplican las mismas reglas de siempre en herencia simple !
 Si le mando el mensaje "envejecer()" a Carpintero, cuál se va a ejecutar ?
 
 1. `Doble` que llama a super
-2. `Rejuvenecer` (es el super de Doble). Este resta en 1.
-3. Luego, de nuevo `Doble` llama a super (recuerden que llama dos veces)
-4. `Rejuvenecer` vuelve a restar 1
-5. Termina, con edad = - 2
+2. `Rejuvenecer` (el super de Doble) resta en 1.
+3. Luego `Doble` vuelve a llamar a super (recuerden que lo llamaba dos veces).
+4. `Rejuvenecer` vuelve a restar 1.
+5. El valor final de `edad` es ahora `-2`.
 
 Ahora si invertimos la declaración como en el segundo ejemplo
 
@@ -523,46 +517,40 @@ Ahora si invertimos la declaración como en el segundo ejemplo
 class Carpintero extends Persona with EnvejeceDoble with Rejuvenece
 ```
 
-[![](https://sites.google.com/site/programacionhm/_/rsrc/1472915183440/conceptos/mixins/mixins-envejece2.fw.png)
-](conceptos-mixins-mixins-envejece2-fw-png?attredirects=0)
+Terminamos con algo similar a esto:
 
-Es fácil ver que el método que se va a ejecutar es el de Rejuvenecer (el más concreto, el "más abajo"). Y este método simplemente resta 1 a la edad y nunca llama a super ni nada.
+![Carpintero "especializa" Rejuvenece. Rejuvenece "especializa" EnvejeceElDoble. EnvejeceElDoble "especializa" Persona](https://sites.google.com/site/programacionhm/_/rsrc/1472915183440/conceptos/mixins/mixins-envejece2.fw.png)
 
-Con la cual el resultado es edad = - 1
+Es fácil ver que el método que se va a ejecutar es el de `Rejuvenecer` (el más concreto, el "más abajo"). Este método simplemente resta 1 a la edad y nunca llama a super con lo cual valor final para `edad` es `-1`.
 
-Entender la linearización es escencial para hacer cosas avanzadas con mixins, cosas poderosas, como estas que permiten sobrescribir y combinar mixins.
+Resumiendo: Los mixins (y esto es lo que los diferencia de los traits) no conforman un grafo de delegación, como en la herencia múltiple, sino que gracias a la linearlización conforman una linea única de forma parecida a una herencia simple.
 
-Más a continuación
+### Otro ejemplo
 
-# Linearización en Scala
-
-Para terminar de entender cómo se resuelven los métodos y como se combinan los mixins, hay que entender el mecanismo de "linearización". 
-O sea, los mixins (y esto es lo que los diferencia de los traits), no conforman un grafo de delegación, como en la herencia múltiple (que podría formar el famoso problema del diamante), sino que conforman una linea única, parecido a una herencia simple.
-Para eso, los mixins se aplican en un orden.
-Veamos un ejemplo
 ```scala
 class Animal 
 
-trait Furry extends Animal
-trait HasLegs extends Animal
-trait FourLegged extends HasLegs
+trait Peludo extends Animal
+trait ConPatas extends Animal
+trait ConCuatroPatas extends ConPatas
 
-class Cat extends Animal with Furry with FourLegged
+class Gato extends Animal with Peludo with ConCuatroPatas
 ```
 
-La clase Cat genera una linea de delegación así:
+La clase `Gato` genera una linea de delegación así:
 
-[![](https://www.artima.com/pins1ed/images/linearization.jpg)
-](https://www.artima.com/pins1ed/images/linearization.jpg)
+![A la izquiera la relación formal de herencia (Peludo y ConPatas extienden Animal. ConCuatroPatas extiende ConPatas. Gato extiende Animal, Peludo y ConCuatroPatas; A la derecha la linearización, yendo de lo más particular a lo más general: Gato -> ConCuatroPatas -> ConPatas -> Peludo -> Animal)](/images/mixins-animales.png)
 
-Las flechas oscuras representan la linearización. Las demás, las relaciones de herencia. Nótese que siempre se busca el camino más largo, por el lado de la derecha. Por ejemplo de HasLegs, no pasamos directo a Animal, sino que vamos a tratés de Furry.
-La "linearización" o linea negra nos indica por dónde se va a resolver un llamado a `super`
+A la izquierda vemos las relaciones formales de herencia. A la derecha la linearización de los traits. El method-lookup, o sea la búsqueda de un método por el cuál atender un mensaje, ocurre siempre por este ultimo camino. Por ejemplo de `ConPatas` no pasamos directo a `Animal` sino que vamos a tratés de `Peludo`.
+
+La "linearización" nos indica por dónde se va a resolver un llamado a `super`.
 
 # Stackable Traits Pattern
 
 Es un "patron" de diseño que, a traves de traits, nos permite definir comportamiento que se va combinando, como "apilando", uno sobre otro, y redefiniendo comportamiento.
-Veamos un ejemplo.
-Tenemos una estructura tipo "cola". Para eso definimos una clase abstracta con el contrato de la misma y una implementación base que utiliza un `ArrayBuffer`.
+Veamos un ejemplo:
+
+Tenemos una estructura tipo cola de enteros. Para eso definimos una clase abstracta con el contrato de la misma y una implementación base que utiliza un `ArrayBuffer` tras bambalinas.
 
 
 ```scala
@@ -571,8 +559,10 @@ abstract class Cola {
   def put(i : Int)
   def size : Int
 }
+```
 
 
+```scala
 class ColaBasica extends Cola {
   private val buffer = ArrayBuffer[Int]()
   override def get() = buffer remove 0
@@ -593,12 +583,12 @@ println(c get)
 println(c get)
 ```
 
-Ahora vamos a necesitar un par de "comportamientos", como "filtros" para aplicar a las colas y así modificar su comportamiento. 
+Ahora vamos a necesitar agregar un par de comportamientos que modifiquen el funcionamiento de una cola. 
 
-* _**Duplicador:**_ cuando se agrega un elemento, en realidad agrega el resultado de multiplicarlo por 2
+* _**Duplicador:**_ cuando se agrega un elemento en realidad agrega el resultado de multiplicarlo por 2
 * _**Incrementador:**_ que agrega el número dado incrementado por 1.
 
-Codificamos traits para estos. El primero
+Codificamos mixins para estos. El primero:
 
 ```scala
 trait Duplicador extends Cola {
@@ -608,43 +598,43 @@ trait Duplicador extends Cola {
 }
 ```
 
-El trait hereda de `Cola`, ya que la idea es que intercepte el llamado a `put`.
-Ahora, el trait no va a implementar el put "completo", sino solo un agregado, pero va a necesitar utilizar una implementación **concreta**.
-Sin embargo si miramos en `Cola`, el método es abstracto. Entonces por esto es que necesitamos marcarlo como `abstract override`.
-Lo que quiere decir con `abstract override` es que queremos sobrescribir la implementación que vaya a tener la clase sobre la que va a aplicar el trait. El efecto que va a tener esto es que **este trait sólo se va a poder aplicar a una subclase de Cola que ya tenga implementado el método put**.
+El mixin hereda de `Cola` ya que la idea es que intercepte el llamado a `put`.
+`Duplicador` no va a implementar el put completo sino solo un agregado y por eso va a necesitar delegar en una implementación **concreta** (por medio de `super`). 
+
+Sin embargo si miramos en `Cola` el método `put` es abstracto! Por esto es que necesitamos marcar en el mixin `Duplicador` el método `put` como `abstract override`. Eso quiere decir que vamos a querer sobrescribir una implementación concreta. El efecto de eso es que **el mixin sólo va a poder ser aplicado a una subclase de Cola que ya tenga implementado el método put**.
+
 Se usaría así:
 
 ```scala
 val duplicada = new ColaBasica with Duplicador
 duplicada put 3
-println(duplicada get)
+println(duplicada get) // imprime 6
 ```
 
 Lo cual imprime "6".
 
 Acá vemos un diagrama:
 
-[![](https://sites.google.com/site/programacionhm/_/rsrc/1394913368127/conceptos/mixins/mixins-cola-duplicador.png)
-](conceptos-mixins-mixins-cola-duplicador-png?attredirects=0)
+![La clase anónima que creamos extiende ColaBasica y Duplicador. ColaBasica y Duplicador extienden Cola](/images/mixins-duplicador.png)
+
 
 El eslabón más bajo dice "anónima" ya que estamos aplicando el mixin a un objeto. Esto genera una clase anónima.
+
 La linearización queda:
 
 ```bash
 Anónima -> Duplicador -> ColaBasica -> Cola**
 ```
 
-Por esto es que al ejecutar `super` en `Duplicador`, se ejecuta el método de `ColaBasica` y no el de `Cola`.
+Por esto es que al ejecutar `super.put(...)` en `Duplicador` se ejecuta el método de `ColaBasica` y no el de `Cola`. 
 
-Podríamos haber puesto solo `override` ?
-Sí, claro. Querría decir que el trait está implementado el método put que era abstracto.
-Peeeero, en su cuerpo no hubieramos podido usar el `super` (no compila!), porque claro, arriba está abstracto !, no podemos llamarlo.
-Este caso podría servir para un trait que no hace nada en el put, Ejemplo, Cola Inmutable.
+Podríamos haber puesto solo `override`?
+Sí, claro. Querría decir que el trait está implementado el método put que era abstracto. Pero al hacer esto, en su cuperpo, no hubieramos podido usar el `super.put` sin obtener un error de compliación porque el método de arriba, el de `Cola`, es abstracto. Un `override` simple podría servir para un mixin que no delegase en el `put` de `Cola`. Por ejemplo, una cola `Inmutable`.
 
 ```scala
 trait Inmutable extends Cola {
   override def put(i:Int) 
-    // no hace nada
+    // no hace nada, no llama a super.put(...)
   }
 }
 ```
@@ -652,13 +642,14 @@ trait Inmutable extends Cola {
 Veamos un ejemplo de cómo usar esto
 
 ```scala
-val inmutable = new ColaBasica **with **Inmutable
+val inmutable = new ColaBasica with Inmutable
 inmutable put 3
-println("tamanio", inmutable size)
+println("tamaño", inmutable size) // imprime 0
 ```
 
-Al ejecutar este código, vamos a ver que el tamaño de la cola es 0. Porque en este caso se ejecutó el "put" del trait.
-Otro caso. Si el método en Cola no fuera abstracto y tuviera una implementación, el trait `Duplicador` podría definir el método como **"override def" **e igual utilizar el **super**.
+Al ejecutar este código, vamos a ver que el tamaño de la cola es 0 porque `Inmutable` sobrescribió el `put` de `ColaBasica` y previno la inserción.
+
+Ahora, si el método en `Cola` no fuera abstracto y tuviera una implementación el trait `Duplicador` podría definir el método como `override def` e igual utilizar el `super`.
 
 ```scala
 abstract class Cola {
@@ -666,7 +657,7 @@ abstract class Cola {
     println("La Cola no hace nada al hacer put con " + i)
   }
 }
-trait Duplicador extends **Cola {
+trait Duplicador extends Cola {
   override def put(i:Int) {
     super.put(2 * i)
   }
@@ -681,17 +672,18 @@ duplicada put 3
 println("tamaño", duplicada size)
 ```
 
-Cuando ejecutamos esto vemos que sí se insertó el elemento "6" en la cola, y que no se imprimió el mensaje de la implementación nueva, default de `Cola`.
-Esto quizás nos sorprenda un poco, porque si navegamos el `super.put(2*i)` nos va a llevar al la implementación de `Cola`.
-Sin embargo, lo que tenemos que entender es que, **el dispatch del "super" en realidad se hace en forma dinámica, y sobre la clase concreta sobre la que aplica el trait**.
-En este caso la superclase va a ser `ColaBasica`, que implementa el put. Con lo cual, nunca se ejecuta la implementación de `Cola`.
-La linearización de "**new ColaBasica with Duplicador**" es así:
+Cuando ejecutamos esto vemos que sí se insertó el elemento "6" en la cola y que no se imprimió el mensaje "de error" default de `Cola`.
+Esto quizás nos desconcierte un poco porque si navegamos el `super.put(2*i)` de `Duplicador` nos va a llevar al la implementación de `Cola`.
+Sin embargo lo que tenemos que entender es que, **el dispatch del "super" en realidad se hace en forma dinámica y sobre la clase concreta sobre la que aplica el mixin**.
+En este caso la superclase va a ser `ColaBasica` que implementa el `put` con lo cual nunca se ejecuta la implementación de `Cola`.
+
+La linearización de `new ColaBasica with Duplicador` es así:
 
 ```bash
 Anónima -> Duplicador -> ColaBasica ->  Cola
 ```
 
-Implementamos ahora el Incrementador
+Implementamos ahora el mixin `Incrementador`:
 
 ```scala
 trait Incrementador extends Cola {
@@ -701,37 +693,37 @@ trait Incrementador extends Cola {
 }
 ```
 
-Ahora podemos aplicar los dos traits
+Ahora podemos aplicar los dos mixins:
 
 ```scala
 val duplicadaConInc = new ColaBasica with Duplicador with Incrementador
 duplicadaConInc put 3
-println("+1, *2", duplicadaConInc get)
+println("+1, *2", duplicadaConInc get) // Imprime 8
 ```
         
-Acá vemos que se puede aplicar más de un trait. Pero además que la ejecución de los métodos depende del orden en que se hayan aplicado los traits. Se puede leer como de Derecha a Izquierda. 
+Acá vemos que se puede aplicar más de un mixin. Pero además que la ejecución de los métodos depende del orden en que se hayan aplicado los mismos. Se puede leer como de derecha a izquierda. 
 
-[![](https://sites.google.com/site/programacionhm/_/rsrc/1394913779890/conceptos/mixins/mixins-colacondupeincrementador.png)
-](conceptos-mixins-mixins-colacondupeincrementador-png?attredirects=0)En este caso la linearización es:
+![La clase anónima que creamos ahora extiende ColaBasica, Duplicador e Incrementador. ColaBasica, Duplicador e Incrementador extienden Cola](/images/mixins-incrementador.png)
+
+La nueva linearización quedaría de esta forma:
 
 ```bash
-* **Anónima -> Incrementador -> Duplicador -> ColaBasica -> Cola**
+Anónima -> Incrementador -> Duplicador -> ColaBasica -> Cola
 ```
 
+Un put se ejecuta así:
 
-El put se ejecuta así:
-
-* _**Incrementador**_: super(3 +1)
-* _**Duplicador**_:  super( 2 * 4)
-* _**ColaBasica**_: buffer.put (8)
+1. `Incrementador`: super.put(**3** + 1)
+2. `Duplicador`:  super.put(2 * **4**)
+3. `ColaBasica`: buffer.put(**8**)
 
 Lo cual termina agregando el 4 a la cola.
 
 ## Herencia de Traits
 
-Un trait puede heredar de otro trait. En este caso aplica el mismo mecanismo de herencia que usamos cuando una clase hereda de otra.
-Ejemplo:
+Un mixin puede heredar de otro mixin. En este caso aplica el mismo mecanismo de herencia que usamos cuando una clase hereda de otra.
 
+Ejemplo:
 
 ```scala
 trait Cuatriplicador extends Duplicador {
@@ -741,30 +733,28 @@ trait Cuatriplicador extends Duplicador {
 }
 ```
 
-Este trait hereda del Duplicador, que también multiplica el "i" por 2.
+Este mixin hereda de `Duplicador` que también multiplica el parámetro `i` por 2.
 
 ```scala
 val cuatriplicados = new ColaBasica with Cuatriplicador
 cuatriplicados put 3
-println("*4", cuatriplicados get)
+println("*4", cuatriplicados get) // Imprime 12
 ```
 
 Esto va a imprimir 12. 
 El diagrama quedaría:
 
-[![](https://sites.google.com/site/programacionhm/_/rsrc/1394913821812/conceptos/mixins/mixins-cola-concuatriplicador.png)
-](conceptos-mixins-mixins-cola-concuatriplicador-png?attredirects=0)
-Por ende la linearización:
+![La clase anónima que creamos ahora extiende ColaBasica y Cuatriplicador. Cuatriplicador extiende Duplicador. Duplicador y ColaBasica extienden Cola](/images/mixins-cuatriplicador.png)
 
 ```bash
 Anónima -> Cuatriplicador -> Duplicador -> ColaBasica -> Cola
 ```
 
-La ejecución es así.
+La ejecución es así:
 
-1. Se ejecuta el `put` de `Cuatriplicador`. Este multiplica 3 * 2 = 6  y llama a `super`
-2. Se ejecuta el método del trait heredado de `Duplicador`, que multiplica 6 * 2 y luego llama a `super`.
-3. Se ejecuta finalmente el método de `ColaBásica` que agrega el 12 a la cola.
+1. `Cuatriplicador`: super.put(2 * **3**)
+2. `Duplicador`: super.put(2 * **6**)
+3. `ColaBasica`: buffer.put(**12**)
 
 # Resolución de Conflictos
 
