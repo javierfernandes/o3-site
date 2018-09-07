@@ -1,20 +1,15 @@
 ---
 title: "conceptos-declaratividad"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-09-07T11:43:34-03:00
+toc: true
 ---
-
-
-[[_TOC_]]
 
 # Programación Imperativa
 
 
 Es, probablemente, la visión tradicional de la programación: 
         
-
-    mi programa **dá ordenes a la computadora.**
-
-
+> mi programa **dá ordenes a la computadora.**
 
 Donde nuestro programa se define por conceptos como: 
 
