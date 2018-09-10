@@ -1,6 +1,6 @@
 ---
 title: "Mixins"
-date: 2018-09-04T14:14:49-03:00
+date: 2018-09-10T10:31:31-03:00
 toc: true
 menu:
   sidebar:
@@ -221,7 +221,8 @@ class Colectivo[T] {
   var energia = 5000
 }
 
-class BichoConEnergiaColectiva(colectivo: List[BichoConEnergiaColectiva]) extends Volador {
+class BichoConEnergiaColectiva(colectivo: Colectivo[BichoConEnergiaColectiva]) extends Volador {
+  // comparten una única energia dada por "colectivo"
   override def energia = colectivo.energia
   override def energia_=(nueva : Int) {
     colectivo.energia = nueva
