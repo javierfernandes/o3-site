@@ -1,26 +1,25 @@
 ---
 title: "Tecnologías"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-10-28T12:23:22-03:00
 menu: ['main', 'sidebar']
 ---
 
 Actualmente los lenguajes que vamos a estar usando para la materia son:
 
 * [Scala](../te-scala)
-* Ruby
-* Xtend
+* [Ruby](../te-ruby)
 
 ## Otras tecnologías
 
 Adicionalmente en otros cuatrimestres de la materia utilizamos estos otros lenguajes/tecnologías:
 
+* Xtend
 * [Smalltalk](../te-smalltalk)
 * [AspectJ](../te-aspectj)
 * [Ioke](../te-ioke)
 * [Xtext](../te-xtext)
 * [Pike](te-pike)
 * [Nice](../te-nice)
-* [Ruby (y Ruby on Rails)](../te-ruby)
 * [Lisp](../te-lisp)
 * [Slate](../te-slate)
 * [Self](../te-self)
