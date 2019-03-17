@@ -7,16 +7,16 @@
   "license": "MIT",
   "scripts": {
     "start": "hugo server",
+    "hugo": "hugo",
+    "build": "yarn build-search-index",
     "build-search-index": "gulp build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn build-search-index && ./scripts/update-last-changed && git add ./public"
-    }
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "hugo-search-index": "^0.4.1",
     "husky": "^1.0.0-rc.12"
+  },
+  "dependencies": {
+    "hugo": "^0.0.3"
   }
 }
