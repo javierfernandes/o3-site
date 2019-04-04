@@ -1,6 +1,6 @@
 ---
 title: "conceptos-metaprogramacion-introspection-introspection-en-self"
-date:  2018-06-20T19:27:10-03:00
+date: 2018-10-28T12:23:22-03:00
 ---
 
 
@@ -15,28 +15,26 @@ Dado un objeto puedo obtener su mirror con el método reflect: miObjeto
 
 Acá entonces creamos un objeto libro...
 
-**
 
+```self
         (|titulo <- 'El Juego de Ender'. autor <- 'Orson Scott Card'. cliente <- nil|).**
-
+```
 
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1316819143473/conceptos/metaprogramacion/meta-self1.png)
 ](conceptos-metaprogramacion-meta-self1-png?attredirects=0)
 
-****Hagamos algo de introspection. Obtenemos el mirror para este objeto. Para eso primero le agregamos como parent a oddball a fin de tener el método reflect:
-**********
+Hagamos algo de introspection. Obtenemos el mirror para este objeto. Para eso primero le agregamos como parent a oddball a fin de tener el método reflect:
 
-******
+```self
+parent = traits oddball
+```
 
-****parent`***** = traits oddball`
-****Y ahora sí obtenemos el mirror con
+Y ahora sí obtenemos el mirror con
 
-**************
-
-        reflect: self**********
-
-****
+```self
+reflect: self
+```
 
 
 
@@ -49,28 +47,14 @@ Vamos a ver los más básicos.
 
 Con el mensaje names obtenemos la lista de nombres de slots del objeto.
 
-
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1316819976226/conceptos/metaprogramacion/meta-self3-slotNames.png)
 ](conceptos-metaprogramacion-meta-self3-slotNames-png?attredirects=0)
-****Ahí se ve de *izquierda a derecha*: 
 
-* **
+Ahí se ve de **izquierda a derecha**: 
 
-**
-
-nuestro objeto libro, ****
-
-* **
-
-**
-
-luego su mirror, ****
-
-* **
-
-**
-
-y finalmente la lista de nombres de sus slots.****
+* nuestro objeto libro, 
+* luego su mirror, 
+* y finalmente la lista de nombres de sus slots
 
 Nótese que el mensaje **names** se lo enviamos al mirror. Y a diferencia del API MOP de java, acá no tenemos que pasarle el objeto *libro* por parámetro. Porque **los mirrors son objetos con estado**. Es decir un mirror **refleja a un objeto en particular**. En java el API de reflection está asociada a las clases y su estructura, y no existen metaobjetos asociados a nuestras instancias.
 
@@ -79,21 +63,25 @@ Entonces, ya no necesitamos la ventanida de nuestro libro para introspectarlo, p
 Hagamos algo más interesante. Cambiémosle el valor del slot **titulo** mediante su mirror.
 
 
-************at: 'titulo' PutContents: (reflect: 'Ubik')
-        **************
+```
+at: 'titulo' PutContents: (reflect: 'Ubik')
+```
 
 Luego de hacer **Do it**, vemos que el objeto cambió *(a la izquierda)*
 
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1316820302861/conceptos/metaprogramacion/meta-self4-atPutContents.png)
 ](conceptos-metaprogramacion-meta-self4-atPutContents-png?attredirects=0)
+
 Algo para notar acá es que al enviar el mensaje **at PutContents** como parámetro **nuevo valor**, no estamos usando el string **Ubik** directamente, sino que primero obtenemos su **mirror**. Esta es una particularidad del MOP de mirrors. **Toda esta API trabaja en término de mirrors**, y nunca mezcla los diferentes niveles (el nivel de mirrors con el nivel de objetos "base").
 
 Ahora vamos a acceder al valor de un slot via mirrors.
 Para eso hacemos simplemente
 
-
+```
 **at**: 'titulo'`
+```
+
 Y eso nos da otro objeto cuyo título dice "Ubik"
 
 
@@ -137,4 +125,5 @@ Enviémosle ese mensaje entonces a este mirror de "Ubik"
 
 [![](https://sites.google.com/site/programacionhm/_/rsrc/1316822288042/conceptos/metaprogramacion/meta-self-at4.png)
 ](conceptos-metaprogramacion-meta-self-at4-png?attredirects=0)
+
 Ahora sí ! finalmente vemos que nos retorna la misma instancia de "Ubik" que teníamos abierta :)

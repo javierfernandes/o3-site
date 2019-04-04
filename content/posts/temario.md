@@ -1,6 +1,6 @@
 ---
 title: "temario"
-date: 2018-08-25T13:17:47-03:00
+date: 2018-10-28T13:41:34-03:00
 menu:
   sidebar:
     parent: Cursada
@@ -16,9 +16,9 @@ A continuación una lista de diapositivas a los temas que vemos en la materia
 | Unidad	| Tema    |   Material  |	 Ejercicios / Ejemplos |
 |---------|---------|-------------|------------------------|
 | 0 | Sistemas de Tipos | [Intro a Sistemas de Tipos](https://docs.google.com/presentation/d/1F7wX_ScphEgGiN9wbDxvvru6G2c-UEG3H8mEbL8BdPg/), Generics (?) |
-| 1 | Mixins | [Intro a Scala](https://docs.google.com/presentation/d/1ffuoM0n1x9RSjUwOudzUAXDeRTHFTYQ89Cf83Ls-Ju0/), [Mixins]() | [Mateada](https://docs.google.com/document/d/1sy1rxT6oJg_CiCncDNzJFSjdHttGwIRsMkXb-XYK55E/edit#heading=h.h9xv154burn7) |
+| 1 | Mixins | [Intro a Scala](https://docs.google.com/presentation/d/1ffuoM0n1x9RSjUwOudzUAXDeRTHFTYQ89Cf83Ls-Ju0/), Mixins [Presentacion](https://docs.google.com/presentation/d/1Tv0xU1wV6m7OHcCRbBJqciVW2TRYPz2JAq457IWBvBU/edit?usp=sharing) & [Apunte](../conceptos-mixins/) | [Mateada](https://docs.google.com/document/d/1sy1rxT6oJg_CiCncDNzJFSjdHttGwIRsMkXb-XYK55E), [Sin City](https://docs.google.com/document/d/1h2mVfFg81fJq6sGbGoQQWGfoKkSW8_un7Ydozaqi6ig) |
 | 2 | Influencias de FP en OOP | [FP + OOP (scala)](https://docs.google.com/presentation/d/15OYGb2OtPmmtkHZayCHNiirlMvZh4XqMnTZXyqCSR8U/) |
-| 3 | Metaprogramación | [Metaprogramación](https://docs.google.com/presentation/d/10P7XBI9gCB27vvWC5J294L-w22C8NG0tVMI7xbFTLeE/edit) |
+| 3 | Metaprogramación | [Intro a Ruby](https://docs.google.com/presentation/d/1i5rwDjEeBvaVByUXdcZOkArRgMabkRa4Vn_L6_VrI00/edit?usp=sharing) | [Metaprogramación en Ruby](https://docs.google.com/presentation/d/10P7XBI9gCB27vvWC5J294L-w22C8NG0tVMI7xbFTLeE/edit) |
 
 
 # Temario Ampliado
