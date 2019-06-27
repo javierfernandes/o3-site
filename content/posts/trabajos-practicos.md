@@ -1,13 +1,18 @@
 ---
 title: "Trabajos Prácticos"
 date: 2018-09-12T19:40:39-03:00
+menu:
+  sidebar:
+    title: TPs
+    parent: Cursada
+    weight: 3
 ---
 
 ## 2019 - 1er cuatrimestre
 
-* TP1 - Mixins: ?
-* TP2 - FP+OOP: La Isla Prohibida
-* TP3 - Metaprogramación: ?
+* [TP1 - Mixins: Mansiones de la Locura](https://docs.google.com/document/d/1wpkL6UdwwQfVuEHerHbGkyv5NvjYoz4BCWhVqYWHHLU)
+* [TP2 - FP+OOP: La Isla Prohibida](https://docs.google.com/document/d/1Y9lGsO4J2D9duMlp5Fz_j615vSbAVwgyMGYUApnWGyQ/edit#heading=h.528g32kphiy)
+* [TP3 - Metaprogramación: Objetos Replicables](https://docs.google.com/document/d/1jA3lP7XNQZ1NrPdBa2s7KfQwurI5TBF82fO6pnDpoBY/edit)
 
 ## 2018 - 2do cuatrimestre
 

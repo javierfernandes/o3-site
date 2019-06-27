@@ -8,7 +8,7 @@ menu:
 
 * [Temario](../temario)
 * [Planificación](../unq-planificacion)
-* Enunciados de los [Trabajos Prácticos](../tps-2014-c1)
+* Enunciados de los [Trabajos Prácticos](../trabajos-practicos)
 * [Notas](../unq-notas-unq)
 * [Repositorio GitHub con ejemplos de la materia](https://github.com/uqbar-paco?utf8=%E2%9C%93&query=obj3)
 * [Criterios de Evaluación](../criterios-evaluacion)
