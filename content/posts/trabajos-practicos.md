@@ -5,9 +5,9 @@ date: 2018-09-12T19:40:39-03:00
 
 ## 2019 - 1er cuatrimestre
 
-* TP1 - Mixins: ?
-* TP2 - FP+OOP: La Isla Prohibida
-* TP3 - Metaprogramación: ?
+* TP1 - Mixins: Mansiones de la Locura
+* [TP2 - FP+OOP: Aventura Submarina (Deep Sea)](https://docs.google.com/document/d/1hlPiVIdTiLZexqiWuAH_3nG0O5D1FN5NGg_KqpdeDzs)
+* [TP3 - Metaprogramación: Objetos Replicables](https://docs.google.com/document/d/1jA3lP7XNQZ1NrPdBa2s7KfQwurI5TBF82fO6pnDpoBY/)
 
 ## 2018 - 2do cuatrimestre
 
