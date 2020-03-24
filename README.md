@@ -1,9 +1,27 @@
 # o3-site
 
-Sitio de Objetos 3 en Hugo
+Sitio de Objetos 3 en Hugo.
 
-# Ejecutar el sitio
-Es necesario primero inicializar el submodulo git con el theme que estamos utializando para Hugo (minimo)
+Nota: 
+El contenido no fue escrito desde cero. Lo que hicimos fue utilizar un script para exportar nuestro anterior "Google Site". Luego otro script para pasar de HTML a markdown. 
+Y finalmente metimos eso en un sitio "hugo" y empezamos a migrar el contenido que necesitábamos.
+
+Contamos esto porque en la migración las herramientas no son perfectas y rompieron bastante contenido en el formato MD.
+Así que es bastante probable que todavía queden páginas por arreglar.
+
+# Setup
+
+Este sitio utiliza [Hugo](https://gohugo.io/getting-started/usage/) así que vas a necesitar el CLI instalado localmente.
+
+# Deploy a la nube
+
+Tenemos "continuous deployment". Cada push que se haga a `master` va a disparar un nuevo build y deploy automáticamente.
+Para esto usamos [Netlify](https://www.netlify.com/)
+
+# Ejecutar el sitio localmente
+
+Para probar cambios localmente.
+Es necesario primero inicializar el submodulo git con el theme que estamos utilizando para Hugo (minimo)
 
 # `git submodule init`
 # `git submodule update`
