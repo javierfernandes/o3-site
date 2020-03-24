@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8542a785-82e3-4d36-bfc9-1276090ed89e/deploy-status)](https://app.netlify.com/sites/o3/deploys)
+
 # o3-site
 
 Sitio de Objetos 3 en Hugo.
